@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA683C69149FC604000477AF /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C5C149FC501000477AF /* libRestKit.a */; };
+		DA683C6B149FC627000477AF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6A149FC627000477AF /* CFNetwork.framework */; };
+		DA683C6D149FC634000477AF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6C149FC634000477AF /* MobileCoreServices.framework */; };
+		DA683C6F149FC63B000477AF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6E149FC63B000477AF /* Security.framework */; };
+		DA683C71149FC657000477AF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C70149FC657000477AF /* SystemConfiguration.framework */; };
+		DA683C73149FC660000477AF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C72149FC660000477AF /* libxml2.dylib */; };
 		DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
 		DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
@@ -28,6 +34,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DA683C5B149FC501000477AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA683C51149FC500000477AF /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		DA683C5D149FC501000477AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA683C51149FC500000477AF /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		DA683C5F149FC501000477AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA683C51149FC500000477AF /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		DA683C61149FC501000477AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA683C51149FC500000477AF /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		DA683C67149FC5F2000477AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA683C51149FC500000477AF /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
 		DA966D2D149FAC3900C229CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DA966CF2149FAC3900C229CB /* Project object */;
@@ -38,6 +79,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA683C51149FC500000477AF /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		DA683C6A149FC627000477AF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		DA683C6C149FC634000477AF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		DA683C6E149FC63B000477AF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DA683C70149FC657000477AF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DA683C72149FC660000477AF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		DA966CFB149FAC3900C229CB /* TravisCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravisCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966CFF149FAC3900C229CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA966D01149FAC3900C229CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -52,9 +99,9 @@
 		DA966D14149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		DA966D17149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		DA966D1A149FAC3900C229CB /* TravisCI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravisCI.xcdatamodel; sourceTree = "<group>"; };
-		DA966D1C149FAC3900C229CB /* BWRepositoryListViewController.h */ = {isa = PBXFileReference; path = BWRepositoryListViewController.h; sourceTree = "<group>"; };
+		DA966D1C149FAC3900C229CB /* BWRepositoryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWRepositoryListViewController.h; sourceTree = "<group>"; };
 		DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryListViewController.m; sourceTree = "<group>"; };
-		DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */ = {isa = PBXFileReference; path = BWRepositoryViewController.h; sourceTree = "<group>"; };
+		DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWRepositoryViewController.h; sourceTree = "<group>"; };
 		DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryViewController.m; sourceTree = "<group>"; };
 		DA966D27149FAC3900C229CB /* TravisCITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravisCITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966D28149FAC3900C229CB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -69,6 +116,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA683C73149FC660000477AF /* libxml2.dylib in Frameworks */,
+				DA683C71149FC657000477AF /* SystemConfiguration.framework in Frameworks */,
+				DA683C6F149FC63B000477AF /* Security.framework in Frameworks */,
+				DA683C6D149FC634000477AF /* MobileCoreServices.framework in Frameworks */,
+				DA683C6B149FC627000477AF /* CFNetwork.framework in Frameworks */,
+				DA683C69149FC604000477AF /* libRestKit.a in Frameworks */,
 				DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */,
 				DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */,
 				DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */,
@@ -90,13 +143,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA683C52149FC500000477AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA683C5C149FC501000477AF /* libRestKit.a */,
+				DA683C5E149FC501000477AF /* RestKitTests.octest */,
+				DA683C60149FC501000477AF /* RestKit.framework */,
+				DA683C62149FC501000477AF /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA683C66149FC520000477AF /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				DA683C51149FC500000477AF /* RestKit.xcodeproj */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
 		DA966CF0149FAC3900C229CB = {
 			isa = PBXGroup;
 			children = (
+				DA683C72149FC660000477AF /* libxml2.dylib */,
+				DA683C70149FC657000477AF /* SystemConfiguration.framework */,
+				DA683C6E149FC63B000477AF /* Security.framework */,
+				DA683C6C149FC634000477AF /* MobileCoreServices.framework */,
+				DA683C6A149FC627000477AF /* CFNetwork.framework */,
 				DA966D07149FAC3900C229CB /* TravisCI */,
 				DA966D2F149FAC3900C229CB /* TravisCITests */,
 				DA966CFE149FAC3900C229CB /* Frameworks */,
 				DA966CFC149FAC3900C229CB /* Products */,
+				DA683C66149FC520000477AF /* Vendor */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,6 +260,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DA683C68149FC5F2000477AF /* PBXTargetDependency */,
 			);
 			name = TravisCI;
 			productName = TravisCI;
@@ -226,6 +305,12 @@
 			mainGroup = DA966CF0149FAC3900C229CB;
 			productRefGroup = DA966CFC149FAC3900C229CB /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DA683C52149FC500000477AF /* Products */;
+					ProjectRef = DA683C51149FC500000477AF /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DA966CFA149FAC3900C229CB /* TravisCI */,
@@ -233,6 +318,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DA683C5C149FC501000477AF /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = DA683C5B149FC501000477AF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA683C5E149FC501000477AF /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = DA683C5D149FC501000477AF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA683C60149FC501000477AF /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = DA683C5F149FC501000477AF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA683C62149FC501000477AF /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = DA683C61149FC501000477AF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DA966CF9149FAC3900C229CB /* Resources */ = {
@@ -295,6 +411,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DA683C68149FC5F2000477AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = DA683C67149FC5F2000477AF /* PBXContainerItemProxy */;
+		};
 		DA966D2E149FAC3900C229CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DA966CFA149FAC3900C229CB /* TravisCI */;
@@ -390,7 +511,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/RestKit/Build\"";
 				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -401,7 +527,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/RestKit/Build\"";
 				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -460,6 +591,7 @@
 				DA966D3C149FAC3900C229CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA966D3D149FAC3900C229CB /* Build configuration list for PBXNativeTarget "TravisCITests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +600,7 @@
 				DA966D3F149FAC3900C229CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
