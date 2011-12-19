@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
+		DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
+		DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
+		DA966D06149FAC3900C229CB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D05149FAC3900C229CB /* CoreData.framework */; };
+		DA966D0C149FAC3900C229CB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA966D0A149FAC3900C229CB /* InfoPlist.strings */; };
+		DA966D0E149FAC3900C229CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D0D149FAC3900C229CB /* main.m */; };
+		DA966D12149FAC3900C229CB /* BWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D11149FAC3900C229CB /* BWAppDelegate.m */; };
+		DA966D15149FAC3900C229CB /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA966D13149FAC3900C229CB /* MainStoryboard_iPhone.storyboard */; };
+		DA966D18149FAC3900C229CB /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */; };
+		DA966D1B149FAC3900C229CB /* TravisCI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */; };
+		DA966D1E149FAC3900C229CB /* BWMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D1D149FAC3900C229CB /* BWMasterViewController.m */; };
+		DA966D21149FAC3900C229CB /* BWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D20149FAC3900C229CB /* BWDetailViewController.m */; };
+		DA966D29149FAC3900C229CB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D28149FAC3900C229CB /* SenTestingKit.framework */; };
+		DA966D2A149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
+		DA966D2B149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
+		DA966D2C149FAC3900C229CB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D05149FAC3900C229CB /* CoreData.framework */; };
+		DA966D34149FAC3900C229CB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA966D32149FAC3900C229CB /* InfoPlist.strings */; };
+		DA966D37149FAC3900C229CB /* TravisCITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D36149FAC3900C229CB /* TravisCITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA966D2D149FAC3900C229CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA966CF2149FAC3900C229CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA966CFA149FAC3900C229CB;
+			remoteInfo = TravisCI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA966CFB149FAC3900C229CB /* TravisCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravisCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA966CFF149FAC3900C229CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DA966D01149FAC3900C229CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DA966D03149FAC3900C229CB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DA966D05149FAC3900C229CB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DA966D09149FAC3900C229CB /* TravisCI-Info.plist */ = {isa = PBXFileReference; path = "TravisCI-Info.plist"; sourceTree = "<group>"; };
+		DA966D0B149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DA966D0D149FAC3900C229CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA966D0F149FAC3900C229CB /* TravisCI-Prefix.pch */ = {isa = PBXFileReference; path = "TravisCI-Prefix.pch"; sourceTree = "<group>"; };
+		DA966D10149FAC3900C229CB /* BWAppDelegate.h */ = {isa = PBXFileReference; path = BWAppDelegate.h; sourceTree = "<group>"; };
+		DA966D11149FAC3900C229CB /* BWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWAppDelegate.m; sourceTree = "<group>"; };
+		DA966D14149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		DA966D17149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		DA966D1A149FAC3900C229CB /* TravisCI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravisCI.xcdatamodel; sourceTree = "<group>"; };
+		DA966D1C149FAC3900C229CB /* BWMasterViewController.h */ = {isa = PBXFileReference; path = BWMasterViewController.h; sourceTree = "<group>"; };
+		DA966D1D149FAC3900C229CB /* BWMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWMasterViewController.m; sourceTree = "<group>"; };
+		DA966D1F149FAC3900C229CB /* BWDetailViewController.h */ = {isa = PBXFileReference; path = BWDetailViewController.h; sourceTree = "<group>"; };
+		DA966D20149FAC3900C229CB /* BWDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWDetailViewController.m; sourceTree = "<group>"; };
+		DA966D27149FAC3900C229CB /* TravisCITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravisCITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA966D28149FAC3900C229CB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		DA966D31149FAC3900C229CB /* TravisCITests-Info.plist */ = {isa = PBXFileReference; path = "TravisCITests-Info.plist"; sourceTree = "<group>"; };
+		DA966D33149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DA966D35149FAC3900C229CB /* TravisCITests.h */ = {isa = PBXFileReference; path = TravisCITests.h; sourceTree = "<group>"; };
+		DA966D36149FAC3900C229CB /* TravisCITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravisCITests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA966CF8149FAC3900C229CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */,
+				DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */,
+				DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */,
+				DA966D06149FAC3900C229CB /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA966D23149FAC3900C229CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA966D29149FAC3900C229CB /* SenTestingKit.framework in Frameworks */,
+				DA966D2A149FAC3900C229CB /* UIKit.framework in Frameworks */,
+				DA966D2B149FAC3900C229CB /* Foundation.framework in Frameworks */,
+				DA966D2C149FAC3900C229CB /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA966CF0149FAC3900C229CB = {
+			isa = PBXGroup;
+			children = (
+				DA966D07149FAC3900C229CB /* TravisCI */,
+				DA966D2F149FAC3900C229CB /* TravisCITests */,
+				DA966CFE149FAC3900C229CB /* Frameworks */,
+				DA966CFC149FAC3900C229CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA966CFC149FAC3900C229CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA966CFB149FAC3900C229CB /* TravisCI.app */,
+				DA966D27149FAC3900C229CB /* TravisCITests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA966CFE149FAC3900C229CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA966CFF149FAC3900C229CB /* UIKit.framework */,
+				DA966D01149FAC3900C229CB /* Foundation.framework */,
+				DA966D03149FAC3900C229CB /* CoreGraphics.framework */,
+				DA966D05149FAC3900C229CB /* CoreData.framework */,
+				DA966D28149FAC3900C229CB /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA966D07149FAC3900C229CB /* TravisCI */ = {
+			isa = PBXGroup;
+			children = (
+				DA966D10149FAC3900C229CB /* BWAppDelegate.h */,
+				DA966D11149FAC3900C229CB /* BWAppDelegate.m */,
+				DA966D13149FAC3900C229CB /* MainStoryboard_iPhone.storyboard */,
+				DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */,
+				DA966D1C149FAC3900C229CB /* BWMasterViewController.h */,
+				DA966D1D149FAC3900C229CB /* BWMasterViewController.m */,
+				DA966D1F149FAC3900C229CB /* BWDetailViewController.h */,
+				DA966D20149FAC3900C229CB /* BWDetailViewController.m */,
+				DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */,
+				DA966D08149FAC3900C229CB /* Supporting Files */,
+			);
+			path = TravisCI;
+			sourceTree = "<group>";
+		};
+		DA966D08149FAC3900C229CB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA966D09149FAC3900C229CB /* TravisCI-Info.plist */,
+				DA966D0A149FAC3900C229CB /* InfoPlist.strings */,
+				DA966D0D149FAC3900C229CB /* main.m */,
+				DA966D0F149FAC3900C229CB /* TravisCI-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA966D2F149FAC3900C229CB /* TravisCITests */ = {
+			isa = PBXGroup;
+			children = (
+				DA966D35149FAC3900C229CB /* TravisCITests.h */,
+				DA966D36149FAC3900C229CB /* TravisCITests.m */,
+				DA966D30149FAC3900C229CB /* Supporting Files */,
+			);
+			path = TravisCITests;
+			sourceTree = "<group>";
+		};
+		DA966D30149FAC3900C229CB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA966D31149FAC3900C229CB /* TravisCITests-Info.plist */,
+				DA966D32149FAC3900C229CB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA966CFA149FAC3900C229CB /* TravisCI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA966D3A149FAC3900C229CB /* Build configuration list for PBXNativeTarget "TravisCI" */;
+			buildPhases = (
+				DA966CF7149FAC3900C229CB /* Sources */,
+				DA966CF8149FAC3900C229CB /* Frameworks */,
+				DA966CF9149FAC3900C229CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TravisCI;
+			productName = TravisCI;
+			productReference = DA966CFB149FAC3900C229CB /* TravisCI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA966D26149FAC3900C229CB /* TravisCITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA966D3D149FAC3900C229CB /* Build configuration list for PBXNativeTarget "TravisCITests" */;
+			buildPhases = (
+				DA966D22149FAC3900C229CB /* Sources */,
+				DA966D23149FAC3900C229CB /* Frameworks */,
+				DA966D24149FAC3900C229CB /* Resources */,
+				DA966D25149FAC3900C229CB /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA966D2E149FAC3900C229CB /* PBXTargetDependency */,
+			);
+			name = TravisCITests;
+			productName = TravisCITests;
+			productReference = DA966D27149FAC3900C229CB /* TravisCITests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA966CF2149FAC3900C229CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Bendyworks;
+			};
+			buildConfigurationList = DA966CF5149FAC3900C229CB /* Build configuration list for PBXProject "TravisCI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DA966CF0149FAC3900C229CB;
+			productRefGroup = DA966CFC149FAC3900C229CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA966CFA149FAC3900C229CB /* TravisCI */,
+				DA966D26149FAC3900C229CB /* TravisCITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA966CF9149FAC3900C229CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA966D0C149FAC3900C229CB /* InfoPlist.strings in Resources */,
+				DA966D15149FAC3900C229CB /* MainStoryboard_iPhone.storyboard in Resources */,
+				DA966D18149FAC3900C229CB /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA966D24149FAC3900C229CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA966D34149FAC3900C229CB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DA966D25149FAC3900C229CB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA966CF7149FAC3900C229CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA966D0E149FAC3900C229CB /* main.m in Sources */,
+				DA966D12149FAC3900C229CB /* BWAppDelegate.m in Sources */,
+				DA966D1B149FAC3900C229CB /* TravisCI.xcdatamodeld in Sources */,
+				DA966D1E149FAC3900C229CB /* BWMasterViewController.m in Sources */,
+				DA966D21149FAC3900C229CB /* BWDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA966D22149FAC3900C229CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA966D37149FAC3900C229CB /* TravisCITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA966D2E149FAC3900C229CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA966CFA149FAC3900C229CB /* TravisCI */;
+			targetProxy = DA966D2D149FAC3900C229CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA966D0A149FAC3900C229CB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA966D0B149FAC3900C229CB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DA966D13149FAC3900C229CB /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA966D14149FAC3900C229CB /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA966D17149FAC3900C229CB /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		DA966D32149FAC3900C229CB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA966D33149FAC3900C229CB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA966D38149FAC3900C229CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA966D39149FAC3900C229CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA966D3B149FAC3900C229CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
+				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DA966D3C149FAC3900C229CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
+				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DA966D3E149FAC3900C229CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TravisCI.app/TravisCI";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
+				INFOPLIST_FILE = "TravisCITests/TravisCITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		DA966D3F149FAC3900C229CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TravisCI.app/TravisCI";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
+				INFOPLIST_FILE = "TravisCITests/TravisCITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA966CF5149FAC3900C229CB /* Build configuration list for PBXProject "TravisCI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA966D38149FAC3900C229CB /* Debug */,
+				DA966D39149FAC3900C229CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA966D3A149FAC3900C229CB /* Build configuration list for PBXNativeTarget "TravisCI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA966D3B149FAC3900C229CB /* Debug */,
+				DA966D3C149FAC3900C229CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA966D3D149FAC3900C229CB /* Build configuration list for PBXNativeTarget "TravisCITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA966D3E149FAC3900C229CB /* Debug */,
+				DA966D3F149FAC3900C229CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA966D1A149FAC3900C229CB /* TravisCI.xcdatamodel */,
+			);
+			currentVersion = DA966D1A149FAC3900C229CB /* TravisCI.xcdatamodel */;
+			path = TravisCI.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DA966CF2149FAC3900C229CB /* Project object */;
+}
