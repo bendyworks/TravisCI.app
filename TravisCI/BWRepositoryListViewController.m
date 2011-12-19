@@ -8,12 +8,14 @@
 
 #import "BWRepositoryListViewController.h"
 #import "BWRepositoryViewController.h"
+#import "BWRepositoryTableCell.h"
 
 @interface BWRepositoryListViewController ()
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation BWRepositoryListViewController
+@synthesize repositoryCellNib;
 
 @synthesize detailViewController = _detailViewController;
 @synthesize fetchedResultsController = __fetchedResultsController;
@@ -73,9 +75,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BWRepositoryTableCell *cell = [BWRepositoryTableCell cellForTableView:tableView fromNib:self.repositoryCellNib];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -95,6 +95,14 @@
         NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:selectedObject];
     }
+}
+
+- (UINib *)repositoryCellNib
+{
+    if (repositoryCellNib == nil) {
+        self.repositoryCellNib = [BWRepositoryTableCell nib];
+    }
+    return repositoryCellNib;
 }
 
 #pragma mark - Fetched results controller
@@ -176,7 +184,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self configureCell:(BWRepositoryTableCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
@@ -201,10 +209,20 @@
 }
  */
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"slug"] description];
+    [cell.slug setText:[managedObject valueForKey:@"slug"]];
+    cell.buildNumber.text = [managedObject valueForKey:@"last_build_number"];
+    NSString *statusImage = @"status_yellow";
+
+    NSLog(@"\nslug: %@\nlast_build_status: %@\n\n", [managedObject valueForKey:@"slug"], [managedObject valueForKey:@"last_build_status"]);
+
+    if ([managedObject valueForKey:@"last_build_status"] != nil) {
+        if ([managedObject valueForKey:@"last_build_status"] == [NSNumber numberWithInt:0]) { statusImage = @"status_green"; }
+        else { statusImage = @"status_red"; }
+    }
+    [cell.statusImage setImage:[UIImage imageNamed:statusImage]];
 }
 
 - (void)refreshRepositoryList
@@ -245,7 +263,6 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-    NSLog(@"didLoadObjects: %@", objects);
     [self.tableView reloadData];
 }
 
