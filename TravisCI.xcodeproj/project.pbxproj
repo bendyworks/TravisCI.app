@@ -43,24 +43,24 @@
 		DA966D01149FAC3900C229CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DA966D03149FAC3900C229CB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DA966D05149FAC3900C229CB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		DA966D09149FAC3900C229CB /* TravisCI-Info.plist */ = {isa = PBXFileReference; path = "TravisCI-Info.plist"; sourceTree = "<group>"; };
+		DA966D09149FAC3900C229CB /* TravisCI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravisCI-Info.plist"; sourceTree = "<group>"; };
 		DA966D0B149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DA966D0D149FAC3900C229CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DA966D0F149FAC3900C229CB /* TravisCI-Prefix.pch */ = {isa = PBXFileReference; path = "TravisCI-Prefix.pch"; sourceTree = "<group>"; };
-		DA966D10149FAC3900C229CB /* BWAppDelegate.h */ = {isa = PBXFileReference; path = BWAppDelegate.h; sourceTree = "<group>"; };
+		DA966D0F149FAC3900C229CB /* TravisCI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TravisCI-Prefix.pch"; sourceTree = "<group>"; };
+		DA966D10149FAC3900C229CB /* BWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWAppDelegate.h; sourceTree = "<group>"; };
 		DA966D11149FAC3900C229CB /* BWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWAppDelegate.m; sourceTree = "<group>"; };
 		DA966D14149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		DA966D17149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		DA966D1A149FAC3900C229CB /* TravisCI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravisCI.xcdatamodel; sourceTree = "<group>"; };
-		DA966D1C149FAC3900C229CB /* BWMasterViewController.h */ = {isa = PBXFileReference; path = BWMasterViewController.h; sourceTree = "<group>"; };
+		DA966D1C149FAC3900C229CB /* BWMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWMasterViewController.h; sourceTree = "<group>"; };
 		DA966D1D149FAC3900C229CB /* BWMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWMasterViewController.m; sourceTree = "<group>"; };
-		DA966D1F149FAC3900C229CB /* BWDetailViewController.h */ = {isa = PBXFileReference; path = BWDetailViewController.h; sourceTree = "<group>"; };
+		DA966D1F149FAC3900C229CB /* BWDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWDetailViewController.h; sourceTree = "<group>"; };
 		DA966D20149FAC3900C229CB /* BWDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWDetailViewController.m; sourceTree = "<group>"; };
 		DA966D27149FAC3900C229CB /* TravisCITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravisCITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966D28149FAC3900C229CB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		DA966D31149FAC3900C229CB /* TravisCITests-Info.plist */ = {isa = PBXFileReference; path = "TravisCITests-Info.plist"; sourceTree = "<group>"; };
+		DA966D31149FAC3900C229CB /* TravisCITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravisCITests-Info.plist"; sourceTree = "<group>"; };
 		DA966D33149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DA966D35149FAC3900C229CB /* TravisCITests.h */ = {isa = PBXFileReference; path = TravisCITests.h; sourceTree = "<group>"; };
+		DA966D35149FAC3900C229CB /* TravisCITests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TravisCITests.h; sourceTree = "<group>"; };
 		DA966D36149FAC3900C229CB /* TravisCITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravisCITests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
