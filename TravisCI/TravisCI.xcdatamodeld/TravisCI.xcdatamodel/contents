@@ -10,8 +10,8 @@
         <attribute name="last_build_started_at" optional="YES" attributeType="Date"/>
         <attribute name="last_build_status" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="remote_description" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="remote_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="slug" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remote_id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="slug" attributeType="String" indexed="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="Repository" positionX="261" positionY="189" width="128" height="210"/>

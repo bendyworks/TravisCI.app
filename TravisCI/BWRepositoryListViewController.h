@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
 @class BWRepositoryViewController;
 
-#import <CoreData/CoreData.h>
-
-@interface BWRepositoryListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface BWRepositoryListViewController : UITableViewController <NSFetchedResultsControllerDelegate, RKObjectLoaderDelegate>
 
 @property (strong, nonatomic) BWRepositoryViewController *detailViewController;
 

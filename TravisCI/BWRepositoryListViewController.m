@@ -7,7 +7,6 @@
 //
 
 #import "BWRepositoryListViewController.h"
-
 #import "BWRepositoryViewController.h"
 
 @interface BWRepositoryListViewController ()
@@ -205,13 +204,27 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"last_build_started_at"] description];
+    cell.textLabel.text = [[managedObject valueForKey:@"slug"] description];
 }
 
 - (void)refreshRepositoryList
 {
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+    NSManagedObjectModel *mom = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
     
+    manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI.sqlite" usingSeedDatabaseName:nil managedObjectModel:mom delegate:self];
     
+    [manager loadObjectsAtResourcePath:@"/repositories.json" delegate:self block:^(RKObjectLoader *loader) {
+        RKManagedObjectMapping *repositoryMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Repository"];
+        
+        [repositoryMapping mapAttributes:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
+        [repositoryMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
+        [repositoryMapping mapKeyPath:@"description" toAttribute:@"remote_description"];
+        repositoryMapping.primaryKeyAttribute = @"remote_id";
+        loader.objectMapping = repositoryMapping;
+    }];
+    
+    /*
     // Create a new instance of the entity managed by the fetched results controller.
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -226,6 +239,25 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+     */
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+    NSLog(@"didLoadObjects: %@", objects);
+    [self.tableView reloadData];
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:[error localizedDescription]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

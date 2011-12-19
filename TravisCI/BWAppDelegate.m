@@ -7,8 +7,8 @@
 //
 
 #import "BWAppDelegate.h"
-
 #import "BWRepositoryListViewController.h"
+#import <RestKit/RestKit.h>
 
 @implementation BWAppDelegate
 
@@ -19,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Initialize singleton RestKit Object Manager
+    [RKObjectManager objectManagerWithBaseURL:@"http://travis-ci.org"];
+
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
