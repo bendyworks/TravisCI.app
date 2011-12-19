@@ -210,19 +210,18 @@
 - (void)refreshRepositoryList
 {
     RKObjectManager *manager = [RKObjectManager sharedManager];
-    NSManagedObjectModel *mom = self.managedObjectContext.persistentStoreCoordinator.managedObjectModel;
     
-    manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI.sqlite" usingSeedDatabaseName:nil managedObjectModel:mom delegate:self];
     
-    [manager loadObjectsAtResourcePath:@"/repositories.json" delegate:self block:^(RKObjectLoader *loader) {
-        RKManagedObjectMapping *repositoryMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Repository"];
-        
-        [repositoryMapping mapAttributes:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
-        [repositoryMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
-        [repositoryMapping mapKeyPath:@"description" toAttribute:@"remote_description"];
-        repositoryMapping.primaryKeyAttribute = @"remote_id";
-        loader.objectMapping = repositoryMapping;
-    }];
+    RKManagedObjectMapping *repositoryMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Repository"];
+    
+    [repositoryMapping mapAttributes:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
+    [repositoryMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
+    [repositoryMapping mapKeyPath:@"description" toAttribute:@"remote_description"];
+    repositoryMapping.primaryKeyAttribute = @"remote_id";
+    
+    [manager.mappingProvider setMapping:repositoryMapping forKeyPath:@"Repository"];
+
+    [manager loadObjectsAtResourcePath:@"/repositories.json" objectMapping:repositoryMapping delegate:self];
     
     /*
     // Create a new instance of the entity managed by the fetched results controller.

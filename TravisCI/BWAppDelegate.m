@@ -20,7 +20,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Initialize singleton RestKit Object Manager
-    [RKObjectManager objectManagerWithBaseURL:@"http://travis-ci.org"];
+    RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:@"http://travis-ci.org"];
+    
+    manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI.sqlite"];
 
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -93,13 +95,7 @@
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (__managedObjectContext != nil) { return __managedObjectContext; }
-    
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil)
-    {
-        __managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [__managedObjectContext setPersistentStoreCoordinator:coordinator];
-    }
+    __managedObjectContext = [[RKObjectManager sharedManager].objectStore managedObjectContext];
     return __managedObjectContext;
 }
 
