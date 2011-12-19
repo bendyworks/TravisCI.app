@@ -18,7 +18,7 @@
 		DA966D18149FAC3900C229CB /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */; };
 		DA966D1B149FAC3900C229CB /* TravisCI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */; };
 		DA966D1E149FAC3900C229CB /* BWRepositoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */; };
-		DA966D21149FAC3900C229CB /* BWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D20149FAC3900C229CB /* BWDetailViewController.m */; };
+		DA966D21149FAC3900C229CB /* BWRepositoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */; };
 		DA966D29149FAC3900C229CB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D28149FAC3900C229CB /* SenTestingKit.framework */; };
 		DA966D2A149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		DA966D2B149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
@@ -54,8 +54,8 @@
 		DA966D1A149FAC3900C229CB /* TravisCI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravisCI.xcdatamodel; sourceTree = "<group>"; };
 		DA966D1C149FAC3900C229CB /* BWRepositoryListViewController.h */ = {isa = PBXFileReference; path = BWRepositoryListViewController.h; sourceTree = "<group>"; };
 		DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryListViewController.m; sourceTree = "<group>"; };
-		DA966D1F149FAC3900C229CB /* BWDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWDetailViewController.h; sourceTree = "<group>"; };
-		DA966D20149FAC3900C229CB /* BWDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWDetailViewController.m; sourceTree = "<group>"; };
+		DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */ = {isa = PBXFileReference; path = BWRepositoryViewController.h; sourceTree = "<group>"; };
+		DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryViewController.m; sourceTree = "<group>"; };
 		DA966D27149FAC3900C229CB /* TravisCITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravisCITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966D28149FAC3900C229CB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DA966D31149FAC3900C229CB /* TravisCITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravisCITests-Info.plist"; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 				DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */,
 				DA966D1C149FAC3900C229CB /* BWRepositoryListViewController.h */,
 				DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */,
-				DA966D1F149FAC3900C229CB /* BWDetailViewController.h */,
-				DA966D20149FAC3900C229CB /* BWDetailViewController.m */,
+				DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */,
+				DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */,
 				DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */,
 				DA966D08149FAC3900C229CB /* Supporting Files */,
 			);
@@ -280,7 +280,7 @@
 				DA966D12149FAC3900C229CB /* BWAppDelegate.m in Sources */,
 				DA966D1B149FAC3900C229CB /* TravisCI.xcdatamodeld in Sources */,
 				DA966D1E149FAC3900C229CB /* BWRepositoryListViewController.m in Sources */,
-				DA966D21149FAC3900C229CB /* BWDetailViewController.m in Sources */,
+				DA966D21149FAC3900C229CB /* BWRepositoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

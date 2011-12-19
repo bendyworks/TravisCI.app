@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class BWDetailViewController;
+@class BWRepositoryViewController;
 
 #import <CoreData/CoreData.h>
 
 @interface BWRepositoryListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) BWDetailViewController *detailViewController;
+@property (strong, nonatomic) BWRepositoryViewController *detailViewController;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
