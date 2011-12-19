@@ -120,7 +120,10 @@
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
+    NSDictionary *lightweightMigrationDict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                                              [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
+                                              nil];
+    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:lightweightMigrationDict error:&error])
     {
         /*
          * Performing automatic lightweight migration by passing the following dictionary as the options parameter: 
