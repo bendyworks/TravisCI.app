@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Repository.h"
 
 @interface BWRepositoryViewController : UIViewController <UISplitViewControllerDelegate>
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) Repository *repository;
 
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 

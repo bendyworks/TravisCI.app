@@ -18,6 +18,7 @@
 		DA683C82149FE2E8000477AF /* status_green.png in Resources */ = {isa = PBXBuildFile; fileRef = DA683C7F149FE2E8000477AF /* status_green.png */; };
 		DA683C83149FE2E8000477AF /* status_red.png in Resources */ = {isa = PBXBuildFile; fileRef = DA683C80149FE2E8000477AF /* status_red.png */; };
 		DA683C84149FE2E8000477AF /* status_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = DA683C81149FE2E8000477AF /* status_yellow.png */; };
+		DA683C87149FEBD8000477AF /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = DA683C86149FEBD8000477AF /* Repository.m */; };
 		DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
 		DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
@@ -96,6 +97,8 @@
 		DA683C7F149FE2E8000477AF /* status_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_green.png; sourceTree = "<group>"; };
 		DA683C80149FE2E8000477AF /* status_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_red.png; sourceTree = "<group>"; };
 		DA683C81149FE2E8000477AF /* status_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_yellow.png; sourceTree = "<group>"; };
+		DA683C85149FEBD8000477AF /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
+		DA683C86149FEBD8000477AF /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
 		DA966CFB149FAC3900C229CB /* TravisCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravisCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966CFF149FAC3900C229CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA966D01149FAC3900C229CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -183,6 +186,15 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		DA683C88149FEBE1000477AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA683C85149FEBD8000477AF /* Repository.h */,
+				DA683C86149FEBD8000477AF /* Repository.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		DA966CF0149FAC3900C229CB = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +244,7 @@
 				DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */,
 				DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */,
 				DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */,
+				DA683C88149FEBE1000477AF /* Models */,
 				DA966D08149FAC3900C229CB /* Supporting Files */,
 				DA683C79149FDA7E000477AF /* BWRepositoryTableCell.h */,
 				DA683C7A149FDA7E000477AF /* BWRepositoryTableCell.m */,
@@ -427,6 +440,7 @@
 				DA966D1E149FAC3900C229CB /* BWRepositoryListViewController.m in Sources */,
 				DA966D21149FAC3900C229CB /* BWRepositoryViewController.m in Sources */,
 				DA683C7B149FDA7E000477AF /* BWRepositoryTableCell.m in Sources */,
+				DA683C87149FEBD8000477AF /* Repository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

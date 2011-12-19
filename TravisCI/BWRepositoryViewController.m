@@ -15,16 +15,16 @@
 
 @implementation BWRepositoryViewController
 
-@synthesize detailItem = _detailItem;
+@synthesize repository = _repository;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setRepository:(Repository *)newRepository
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+    if (_repository != newRepository) {
+        _repository = newRepository;
         
         // Update the view.
         [self configureView];
@@ -39,8 +39,8 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+    if (self.repository) {
+        self.detailDescriptionLabel.text = [self.repository slug];
     }
 }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Repository" elementID="Event">
+    <entity name="Repository" representedClassName="Repository" elementID="Event">
         <attribute name="last_build_duration" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="last_build_finished_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="last_build_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
