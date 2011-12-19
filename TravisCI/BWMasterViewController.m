@@ -49,36 +49,14 @@
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
+- (void)viewDidUnload { [super viewDidUnload]; }
+- (void)viewWillAppear:(BOOL)animated { [super viewWillAppear:animated]; }
+- (void)viewDidAppear:(BOOL)animated { [super viewDidAppear:animated]; }
+- (void)viewWillDisappear:(BOOL)animated { [super viewWillDisappear:animated]; }
+- (void)viewDidDisappear:(BOOL)animated { [super viewDidDisappear:animated]; }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
@@ -86,11 +64,9 @@
     }
 }
 
-// Customize the number of sections in the table view.
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return [[self.fetchedResultsController sections] count];
-}
+#pragma - Table methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return [[self.fetchedResultsController sections] count]; }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -98,7 +74,6 @@
     return [sectionInfo numberOfObjects];
 }
 
-// Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -109,7 +84,6 @@
 }
 
 /*
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
@@ -124,7 +98,6 @@
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         
-        // Save the context.
         NSError *error = nil;
         if (![context save:&error]) {
             /*
@@ -140,7 +113,6 @@
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // The table view should not be re-orderable.
     return NO;
 }
 
@@ -282,7 +254,6 @@
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
     
-    // Save the context.
     NSError *error = nil;
     if (![context save:&error]) {
         /*
