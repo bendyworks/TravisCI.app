@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *slug;
 @property (nonatomic, strong) IBOutlet UILabel *buildNumber;
+@property (nonatomic, strong) IBOutlet UILabel *duration;
 @property (nonatomic, strong) IBOutlet UIImageView *statusImage;
 
 @end

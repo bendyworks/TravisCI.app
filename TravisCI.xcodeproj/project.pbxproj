@@ -189,6 +189,7 @@
 		DA683C88149FEBE1000477AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */,
 				DA683C85149FEBD8000477AF /* Repository.h */,
 				DA683C86149FEBD8000477AF /* Repository.m */,
 			);
@@ -243,7 +244,6 @@
 				DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */,
 				DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */,
 				DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */,
-				DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */,
 				DA683C88149FEBE1000477AF /* Models */,
 				DA966D08149FAC3900C229CB /* Supporting Files */,
 				DA683C79149FDA7E000477AF /* BWRepositoryTableCell.h */,

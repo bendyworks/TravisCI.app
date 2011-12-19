@@ -63,7 +63,7 @@
     }
 }
 
-#pragma - Table methods
+#pragma mark - Table methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return [[self.fetchedResultsController sections] count]; }
 
@@ -214,10 +214,15 @@
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell.slug setText:[managedObject valueForKey:@"slug"]];
     cell.buildNumber.text = [managedObject valueForKey:@"last_build_number"];
+
+
+    NSTimeInterval duration = fabs([[managedObject valueForKey:@"last_build_started_at"] timeIntervalSinceNow]);
+    NSTimeInterval finished = fabs([[managedObject valueForKey:@"last_build_finished_at"] timeIntervalSinceNow]);
+    NSString *durationText = [NSString stringWithFormat:@"Duration: %f, Finished: %f", duration, finished];
+    cell.duration.text = durationText;
+
+
     NSString *statusImage = @"status_yellow";
-
-    NSLog(@"\nslug: %@\nlast_build_status: %@\n\n", [managedObject valueForKey:@"slug"], [managedObject valueForKey:@"last_build_status"]);
-
     if ([managedObject valueForKey:@"last_build_status"] != nil) {
         if ([managedObject valueForKey:@"last_build_status"] == [NSNumber numberWithInt:0]) { statusImage = @"status_green"; }
         else { statusImage = @"status_red"; }
@@ -241,30 +246,11 @@
 
     [manager loadObjectsAtResourcePath:@"/repositories.json" objectMapping:repositoryMapping delegate:self];
     
-    /*
-    // Create a new instance of the entity managed by the fetched results controller.
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"last_build_started_at"];
-    
-    NSError *error = nil;
-    if (![context save:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-     */
 }
 
 #pragma mark RKObjectLoaderDelegate methods
 
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
-{
-    [self.tableView reloadData];
-}
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects { }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
