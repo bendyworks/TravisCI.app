@@ -8,7 +8,7 @@
 
 #import "BWAppDelegate.h"
 
-#import "BWMasterViewController.h"
+#import "BWRepositoryListViewController.h"
 
 @implementation BWAppDelegate
 
@@ -26,11 +26,11 @@
         splitViewController.delegate = (id)navigationController.topViewController;
         
         UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
-        BWMasterViewController *controller = (BWMasterViewController *)masterNavigationController.topViewController;
+        BWRepositoryListViewController *controller = (BWRepositoryListViewController *)masterNavigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     } else {
         UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        BWMasterViewController *controller = (BWMasterViewController *)navigationController.topViewController;
+        BWRepositoryListViewController *controller = (BWRepositoryListViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
     return YES;
