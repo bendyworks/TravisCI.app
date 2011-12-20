@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA65E45B14A0F78E0066A7E4 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA65E45A14A0F78E0066A7E4 /* libKiwi.a */; };
 		DA683C69149FC604000477AF /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C5C149FC501000477AF /* libRestKit.a */; };
 		DA683C6B149FC627000477AF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6A149FC627000477AF /* CFNetwork.framework */; };
 		DA683C6D149FC634000477AF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6C149FC634000477AF /* MobileCoreServices.framework */; };
@@ -19,6 +20,8 @@
 		DA683C83149FE2E8000477AF /* status_red.png in Resources */ = {isa = PBXBuildFile; fileRef = DA683C80149FE2E8000477AF /* status_red.png */; };
 		DA683C84149FE2E8000477AF /* status_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = DA683C81149FE2E8000477AF /* status_yellow.png */; };
 		DA683C87149FEBD8000477AF /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = DA683C86149FEBD8000477AF /* Repository.m */; };
+		DA683CF514A0ED7B000477AF /* RepositorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DA683CF414A0ED7B000477AF /* RepositorySpec.m */; };
+		DA683D1614A0F258000477AF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683D1514A0F258000477AF /* SenTestingKit.framework */; };
 		DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
 		DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
@@ -31,12 +34,10 @@
 		DA966D1B149FAC3900C229CB /* TravisCI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */; };
 		DA966D1E149FAC3900C229CB /* BWRepositoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */; };
 		DA966D21149FAC3900C229CB /* BWRepositoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */; };
-		DA966D29149FAC3900C229CB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D28149FAC3900C229CB /* SenTestingKit.framework */; };
 		DA966D2A149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		DA966D2B149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
 		DA966D2C149FAC3900C229CB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D05149FAC3900C229CB /* CoreData.framework */; };
 		DA966D34149FAC3900C229CB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA966D32149FAC3900C229CB /* InfoPlist.strings */; };
-		DA966D37149FAC3900C229CB /* TravisCITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D36149FAC3900C229CB /* TravisCITests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA65E45A14A0F78E0066A7E4 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libKiwi.a; path = "../Kiwi/build/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
+		DA65E45D14A0FC440066A7E4 /* Repository+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Repository+Private.h"; sourceTree = "<group>"; };
 		DA683C51149FC500000477AF /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		DA683C6A149FC627000477AF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		DA683C6C149FC634000477AF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -99,6 +102,8 @@
 		DA683C81149FE2E8000477AF /* status_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_yellow.png; sourceTree = "<group>"; };
 		DA683C85149FEBD8000477AF /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		DA683C86149FEBD8000477AF /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
+		DA683CF414A0ED7B000477AF /* RepositorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositorySpec.m; sourceTree = "<group>"; };
+		DA683D1514A0F258000477AF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DA966CFB149FAC3900C229CB /* TravisCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravisCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966CFF149FAC3900C229CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA966D01149FAC3900C229CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,11 +123,8 @@
 		DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWRepositoryViewController.h; sourceTree = "<group>"; };
 		DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryViewController.m; sourceTree = "<group>"; };
 		DA966D27149FAC3900C229CB /* TravisCITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravisCITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA966D28149FAC3900C229CB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DA966D31149FAC3900C229CB /* TravisCITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravisCITests-Info.plist"; sourceTree = "<group>"; };
 		DA966D33149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DA966D35149FAC3900C229CB /* TravisCITests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TravisCITests.h; sourceTree = "<group>"; };
-		DA966D36149FAC3900C229CB /* TravisCITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravisCITests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +149,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA966D29149FAC3900C229CB /* SenTestingKit.framework in Frameworks */,
+				DA65E45B14A0F78E0066A7E4 /* libKiwi.a in Frameworks */,
+				DA683D1614A0F258000477AF /* SenTestingKit.framework in Frameworks */,
 				DA966D2A149FAC3900C229CB /* UIKit.framework in Frameworks */,
 				DA966D2B149FAC3900C229CB /* Foundation.framework in Frameworks */,
 				DA966D2C149FAC3900C229CB /* CoreData.framework in Frameworks */,
@@ -192,6 +195,7 @@
 				DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */,
 				DA683C85149FEBD8000477AF /* Repository.h */,
 				DA683C86149FEBD8000477AF /* Repository.m */,
+				DA65E45D14A0FC440066A7E4 /* Repository+Private.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -199,6 +203,7 @@
 		DA966CF0149FAC3900C229CB = {
 			isa = PBXGroup;
 			children = (
+				DA65E45A14A0F78E0066A7E4 /* libKiwi.a */,
 				DA966D07149FAC3900C229CB /* TravisCI */,
 				DA966D2F149FAC3900C229CB /* TravisCITests */,
 				DA966CFE149FAC3900C229CB /* Frameworks */,
@@ -219,6 +224,7 @@
 		DA966CFE149FAC3900C229CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA683D1514A0F258000477AF /* SenTestingKit.framework */,
 				DA683C72149FC660000477AF /* libxml2.dylib */,
 				DA683C70149FC657000477AF /* SystemConfiguration.framework */,
 				DA683C6E149FC63B000477AF /* Security.framework */,
@@ -228,7 +234,6 @@
 				DA966D01149FAC3900C229CB /* Foundation.framework */,
 				DA966D03149FAC3900C229CB /* CoreGraphics.framework */,
 				DA966D05149FAC3900C229CB /* CoreData.framework */,
-				DA966D28149FAC3900C229CB /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -268,8 +273,7 @@
 		DA966D2F149FAC3900C229CB /* TravisCITests */ = {
 			isa = PBXGroup;
 			children = (
-				DA966D35149FAC3900C229CB /* TravisCITests.h */,
-				DA966D36149FAC3900C229CB /* TravisCITests.m */,
+				DA683CF414A0ED7B000477AF /* RepositorySpec.m */,
 				DA966D30149FAC3900C229CB /* Supporting Files */,
 			);
 			path = TravisCITests;
@@ -448,7 +452,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA966D37149FAC3900C229CB /* TravisCITests.m in Sources */,
+				DA683CF514A0ED7B000477AF /* RepositorySpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +528,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -544,6 +552,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -585,6 +597,7 @@
 		DA966D3E149FAC3900C229CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TravisCI.app/TravisCI";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -592,9 +605,16 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
+				HEADER_SEARCH_PATHS = /Users/bendyworks/dev/ios/Kiwi/Kiwi;
 				INFOPLIST_FILE = "TravisCITests/TravisCITests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Kiwi/build/Debug-iphonesimulator\"",
+				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -602,6 +622,7 @@
 		DA966D3F149FAC3900C229CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TravisCI.app/TravisCI";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -609,9 +630,16 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
+				HEADER_SEARCH_PATHS = /Users/bendyworks/dev/ios/Kiwi/Kiwi;
 				INFOPLIST_FILE = "TravisCITests/TravisCITests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Kiwi/build/Debug-iphonesimulator\"",
+				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

@@ -211,28 +211,27 @@
 
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [cell.slug setText:[managedObject valueForKey:@"slug"]];
-    cell.buildNumber.text = [managedObject valueForKey:@"last_build_number"];
+    Repository *repository = (Repository *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.slug.text = repository.slug;
+    cell.buildNumber.text = [NSString stringWithFormat:@"#%@", repository.last_build_number];
 
 
-    NSTimeInterval duration = fabs([[managedObject valueForKey:@"last_build_started_at"] timeIntervalSinceNow]);
-    NSTimeInterval finished = fabs([[managedObject valueForKey:@"last_build_finished_at"] timeIntervalSinceNow]);
-    NSString *durationText = [NSString stringWithFormat:@"Duration: %f, Finished: %f", duration, finished];
-    cell.duration.text = durationText;
+    cell.duration.text = [repository timingText];
 
 
     NSString *statusImage = @"status_yellow";
-    if ([managedObject valueForKey:@"last_build_status"] != nil) {
-        if ([managedObject valueForKey:@"last_build_status"] == [NSNumber numberWithInt:0]) {
+    UIColor *textColor = [UIColor blackColor];
+    if (repository.last_build_status != nil) {
+        if (repository.last_build_status == [NSNumber numberWithInt:0]) {
             statusImage = @"status_green";
-            UIColor *color = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
-            [cell.slug setTextColor:color];
+            textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
         } else {
             statusImage = @"status_red";
-            [cell.slug setTextColor:[UIColor colorWithRed:0.75f green:0.0f blue:0.0f alpha:1.0f]];
+            textColor = [UIColor colorWithRed:0.75f green:0.0f blue:0.0f alpha:1.0f];
         }
     }
+    [cell.slug setTextColor:textColor];
+    [cell.buildNumber setTextColor:textColor];
     [cell.statusImage setImage:[UIImage imageNamed:statusImage]];
 }
 

@@ -12,6 +12,8 @@
 
 @interface Repository : NSManagedObject
 
+- (NSString *)timingText;
+
 @property (nonatomic, retain) NSDate * last_build_started_at;
 @property (nonatomic, retain) NSString * slug;
 @property (nonatomic, retain) NSString * remote_description;
