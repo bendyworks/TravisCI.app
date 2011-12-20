@@ -10,6 +10,8 @@
 #import "BWRepositoryViewController.h"
 #import "BWRepositoryTableCell.h"
 
+#import "BWRepository.h"
+
 @interface BWRepositoryListViewController ()
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -84,7 +86,7 @@
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        self.detailViewController.repository = (Repository *) selectedObject;    
+        self.detailViewController.repository = (BWCDRepository *) selectedObject;    
     }
 }
 
@@ -93,7 +95,7 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setRepository:(Repository *) selectedObject];
+        [[segue destinationViewController] setRepository:(BWCDRepository *) selectedObject];
     }
 }
 
@@ -117,7 +119,7 @@
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Repository" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
@@ -211,7 +213,7 @@
 
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    Repository *repository = (Repository *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    BWRepository *repository = [BWRepository repositoryWithManagedObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     cell.slug.text = repository.slug;
     cell.buildNumber.text = [NSString stringWithFormat:@"#%@", repository.last_build_number];
 
@@ -240,14 +242,20 @@
     RKObjectManager *manager = [RKObjectManager sharedManager];
     
     
-    RKManagedObjectMapping *repositoryMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Repository"];
+    RKManagedObjectMapping *repositoryMapping = [RKManagedObjectMapping mappingForEntityWithName:@"BWCDRepository"];
     
-    [repositoryMapping mapAttributes:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
+//    [repositoryMapping mapAttributes:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
+    NSArray *attrs = [NSArray arrayWithObjects:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
+
+    for (NSString *attr in attrs) {
+        [repositoryMapping mapKeyPath:attr toAttribute:attr];
+    }
+
     [repositoryMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
     [repositoryMapping mapKeyPath:@"description" toAttribute:@"remote_description"];
     repositoryMapping.primaryKeyAttribute = @"remote_id";
     
-    [manager.mappingProvider setMapping:repositoryMapping forKeyPath:@"Repository"];
+    [manager.mappingProvider setMapping:repositoryMapping forKeyPath:@"BWCDRepository"];
 
     [manager loadObjectsAtResourcePath:@"/repositories.json" objectMapping:repositoryMapping delegate:self];
     

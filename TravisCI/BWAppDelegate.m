@@ -19,12 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Initialize singleton RestKit Object Manager
-    RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:@"http://travis-ci.org"];
-    
+    //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
+
+    RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:@"http://travis-ci.org"]; // Initialize singleton RestKit Object Manager
     manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI.sqlite"];
 
-    // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
