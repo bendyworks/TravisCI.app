@@ -9,6 +9,8 @@
 #import "BWRepository.h"
 #import "BWRepository+Private.h"
 
+#import "NSDate+Formatting.h"
+
 @implementation BWRepository
 @synthesize object = _object;
 
@@ -29,28 +31,31 @@
 - (NSString *)slug { return [self.object valueForKey:@"slug"]; }
 - (NSString *)last_build_number { return [self.object valueForKey:@"last_build_number"]; }
 - (NSNumber *)last_build_status { return [self.object valueForKey:@"last_build_status"]; }
+- (NSNumber *)last_build_duration { return [self.object valueForKey:@"last_build_duration"]; }
+- (NSDate *)last_build_started_at { return [self.object valueForKey:@"last_build_started_at"]; }
+- (NSDate *)last_build_finished_at { return [self.object valueForKey:@"last_build_finished_at"]; }
 
-- (NSString *)timingText
-{
-    return [NSString stringWithFormat:@"%@: %@, %@: %@",
-            NSLocalizedString(@"Duration", nil),
-            [self durationText],
-            NSLocalizedString(@"Finished", nil),
-            [self finishedText]];
-}
 
 - (NSString *)finishedText
 {
-    return @"";
+    NSDate *finished = [self last_build_finished_at];
+    if (finished != nil) {
+        return [finished distanceOfTimeInWords];
+    } else {
+        return @"-";
+    }
 }
 
 - (NSString *)durationText
 {
-//    NSTimeInterval duration = fabs([[self valueForKey:@"last_build_started_at"] timeIntervalSinceNow]);
-//    NSTimeInterval finished = fabs([[self valueForKey:@"last_build_finished_at"] timeIntervalSinceNow]);
-//    NSString *durationText = [NSString stringWithFormat:@"Duration: %f, Finished: %f", duration, finished];
-    NSString *durationText = @"hi";
-    return durationText;
+    NSNumber *duration = [self last_build_duration];
+    if (duration != nil) {
+        return [NSDate rangeOfTimeInWordsFromSeconds:[duration intValue]];
+    } else {
+        NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:self.last_build_started_at];
+        NSInteger timeSinceNow = [[NSNumber numberWithDouble:fabs(interval)] integerValue];
+        return [NSDate rangeOfTimeInWordsFromSeconds:timeSinceNow];
+    }
 }
 
 @end

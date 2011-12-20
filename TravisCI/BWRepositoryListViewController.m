@@ -218,7 +218,8 @@
     cell.buildNumber.text = [NSString stringWithFormat:@"#%@", repository.last_build_number];
 
 
-    cell.duration.text = [repository timingText];
+    cell.duration.text = [repository durationText];
+    cell.finished.text = [repository finishedText];
 
 
     NSString *statusImage = @"status_yellow";
@@ -235,6 +236,12 @@
     [cell.slug setTextColor:textColor];
     [cell.buildNumber setTextColor:textColor];
     [cell.statusImage setImage:[UIImage imageNamed:statusImage]];
+
+    for (UIView *view in [cell subviews]) {
+        if ([view respondsToSelector:@selector(setHighlightedTextColor:)]) {
+            [view performSelector:@selector(setHighlightedTextColor:) withObject:[UIColor whiteColor]];
+        }
+    }
 }
 
 - (void)refreshRepositoryList

@@ -13,11 +13,15 @@
 + (BWRepository *)repositoryWithManagedObject:(NSManagedObject *)obj;
 - (id)initWithManagedObject:(NSManagedObject *)obj;
 
-- (NSString *)timingText;
+- (NSString *)durationText;
+- (NSString *)finishedText;
 
 - (NSString *)slug;
 - (NSString *)last_build_number;
 - (NSNumber *)last_build_status;
+- (NSNumber *)last_build_duration;
+- (NSDate *)last_build_started_at;
+- (NSDate *)last_build_finished_at;
 
 @property (strong) id object;
 

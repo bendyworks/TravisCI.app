@@ -9,7 +9,7 @@
 #import "BWRepositoryTableCell.h"
 
 @implementation BWRepositoryTableCell
-@synthesize slug, buildNumber, statusImage, duration;
+@synthesize slug, buildNumber, statusImage, duration, finished;
 
 + (NSString *)cellIdentifier
 {
