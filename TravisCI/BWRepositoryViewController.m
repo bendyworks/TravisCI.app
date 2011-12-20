@@ -40,6 +40,7 @@
     // Update the user interface for the detail item.
 
     if (self.repository) {
+        self.title = self.repository.slug;
         self.detailDescriptionLabel.text = [self.repository slug];
     }
 }

@@ -224,8 +224,14 @@
 
     NSString *statusImage = @"status_yellow";
     if ([managedObject valueForKey:@"last_build_status"] != nil) {
-        if ([managedObject valueForKey:@"last_build_status"] == [NSNumber numberWithInt:0]) { statusImage = @"status_green"; }
-        else { statusImage = @"status_red"; }
+        if ([managedObject valueForKey:@"last_build_status"] == [NSNumber numberWithInt:0]) {
+            statusImage = @"status_green";
+            UIColor *color = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            [cell.slug setTextColor:color];
+        } else {
+            statusImage = @"status_red";
+            [cell.slug setTextColor:[UIColor colorWithRed:0.75f green:0.0f blue:0.0f alpha:1.0f]];
+        }
     }
     [cell.statusImage setImage:[UIImage imageNamed:statusImage]];
 }
