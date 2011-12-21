@@ -8,7 +8,14 @@
 
 #import "BWPusherHandler.h"
 #import "PTPusher.h"
+#import "PTPusherChannel.h"
 #import "PTPusherEvent.h"
+
+#import "RestKit/RestKit.h"
+
+@interface BWPusherHandler()
+- (void)jobWasStarted:(PTPusherEvent *)event;
+@end
 
 @implementation BWPusherHandler
 @synthesize client;
@@ -28,6 +35,8 @@
         
         PTPusherChannel *channel = [self.client subscribeToChannelNamed:@"common"];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveEvent:) name:PTPusherEventReceivedNotification object:channel];
+        
+        [channel bindToEventNamed:@"job:started" target:self action:@selector(jobWasStarted:)];
     }
     return self;
 }
@@ -35,7 +44,40 @@
 - (void)didReceiveEvent:(NSNotification *)note
 {
     PTPusherEvent *event = (PTPusherEvent *)[[note userInfo] valueForKey:PTPusherEventUserInfoKey];
-    NSLog(@"pusher - notification: %@", [[event data] valueForKey:@"data"]);
+    NSLog(@"pusher - notification: %@", [event data]);
+}
+
+#pragma mark - Travis-specific callbacks
+
+/**
+ *  {
+ *    build_id: int
+ *    id: int
+ *    started_at: date-time encoded as string
+ *    state: string ("started")
+ *  }
+ **/
+- (void)jobWasStarted:(PTPusherEvent *)event
+{
+//    RKObjectManager *manager = [RKObjectManager sharedManager];
+//
+//    RKManagedObjectMapping *repositoryMapping = [RKManagedObjectMapping mappingForEntityWithName:@"BWCDRepository"];
+//    
+//    //    [repositoryMapping mapAttributes:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
+//    NSArray *attrs = [NSArray arrayWithObjects:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
+//    
+//    for (NSString *attr in attrs) {
+//        [repositoryMapping mapKeyPath:attr toAttribute:attr];
+//    }
+//    
+//    [repositoryMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
+//    [repositoryMapping mapKeyPath:@"description" toAttribute:@"remote_description"];
+//    repositoryMapping.primaryKeyAttribute = @"remote_id";
+//    
+//    [manager.mappingProvider setMapping:repositoryMapping forKeyPath:@"BWCDRepository"];
+//    
+//    [manager loadObjectsAtResourcePath:@"/repositories.json" objectMapping:repositoryMapping delegate:self];
+
 }
 
 #pragma mark - Pusher Delegate methods

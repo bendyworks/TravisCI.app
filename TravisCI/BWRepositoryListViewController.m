@@ -268,7 +268,6 @@
     [manager.mappingProvider setMapping:repositoryMapping forKeyPath:@"BWCDRepository"];
 
     [manager loadObjectsAtResourcePath:@"/repositories.json" objectMapping:repositoryMapping delegate:self];
-    
 }
 
 #pragma mark RKObjectLoaderDelegate methods
