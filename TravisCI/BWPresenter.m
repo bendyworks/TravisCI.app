@@ -26,4 +26,20 @@
 }
 
 
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
+{
+    return [self.object methodSignatureForSelector:aSelector];
+}
+
+- (void)forwardInvocation:(NSInvocation *)invocation
+{
+    SEL aSelector = [invocation selector];
+
+    if ([self.object respondsToSelector:aSelector]) {
+        [invocation invokeWithTarget:self.object];
+    } else {
+        [self doesNotRecognizeSelector:aSelector];
+    }
+}
+
 @end

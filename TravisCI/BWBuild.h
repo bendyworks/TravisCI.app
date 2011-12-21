@@ -6,8 +6,8 @@
 //  Copyright (c) 2011 Bendyworks. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BWPresenter.h"
 
-@interface BWBuild : NSObject
+@interface BWBuild : BWPresenter
 
 @end

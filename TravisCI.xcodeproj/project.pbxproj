@@ -138,7 +138,7 @@
 		DA683C81149FE2E8000477AF /* status_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_yellow.png; sourceTree = "<group>"; };
 		DA683CF414A0ED7B000477AF /* BWRepositorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWRepositorySpec.m; sourceTree = "<group>"; };
 		DA683D1514A0F258000477AF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		DA703B4514A2441B00C6CF6C /* libPusher.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPusher.a; path = "libPusher/build/Release-iphoneos/libPusher.a"; sourceTree = "<group>"; };
+		DA703B4514A2441B00C6CF6C /* libPusher.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPusher.a; path = "libPusher/build/Release-iphoneos/libPusher.a"; sourceTree = "<group>"; };
 		DA703B5814A24D8C00C6CF6C /* libPusher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPusher.xcodeproj; path = libPusher/libPusher.xcodeproj; sourceTree = "<group>"; };
 		DA703B6D14A26A9D00C6CF6C /* BWPusherHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWPusherHandler.h; sourceTree = "<group>"; };
 		DA703B6E14A26A9D00C6CF6C /* BWPusherHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPusherHandler.m; sourceTree = "<group>"; };

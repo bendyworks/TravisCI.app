@@ -13,13 +13,7 @@
 
 @implementation BWRepository
 
-- (NSString *)slug { return [self.object valueForKey:@"slug"]; }
-- (NSString *)last_build_number { return [self.object valueForKey:@"last_build_number"]; }
-- (NSNumber *)last_build_status { return [self.object valueForKey:@"last_build_status"]; }
-- (NSNumber *)last_build_duration { return [self.object valueForKey:@"last_build_duration"]; }
-- (NSDate *)last_build_started_at { return [self.object valueForKey:@"last_build_started_at"]; }
-- (NSDate *)last_build_finished_at { return [self.object valueForKey:@"last_build_finished_at"]; }
-
+@dynamic slug, last_build_number, last_build_status, last_build_duration, last_build_started_at, last_build_finished_at;
 
 - (NSString *)finishedText
 {
