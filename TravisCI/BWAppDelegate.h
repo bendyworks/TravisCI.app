@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PTPusherDelegate.h"
-#import "PTPusher.h"
+@class BWPusherHandler;
 
-@interface BWAppDelegate : UIResponder <UIApplicationDelegate, PTPusherDelegate>
+@interface BWAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -18,7 +17,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (strong) PTPusher *pusher;
+@property (nonatomic, strong) BWPusherHandler *pusherHandler;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

@@ -9,13 +9,7 @@
 #import "BWAppDelegate.h"
 #import "BWRepositoryListViewController.h"
 #import <RestKit/RestKit.h>
-#import "PTPusher.h"
-#import "PTPusherChannel.h"
-#import "PTPusherEvent.h"
-
-@interface BWAppDelegate()
-- (void)didReceiveEvent:(NSNotification *)note;
-@end
+#import "BWPusherHandler.h"
 
 @implementation BWAppDelegate
 
@@ -24,7 +18,7 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
-@synthesize pusher = _pusher;
+@synthesize pusherHandler = _pusherHandler;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -48,22 +42,12 @@
         controller.managedObjectContext = self.managedObjectContext;
     }
     
-    self.pusher = [PTPusher pusherWithKey:@"19623b7a28de248aef28" delegate:self encrypted:NO];
-    self.pusher.reconnectAutomatically = YES;
-
-    PTPusherChannel *channel = [self.pusher subscribeToChannelNamed:@"common"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveEvent:) name:PTPusherEventReceivedNotification object:channel];
-    
+    self.pusherHandler = [BWPusherHandler pusherHandlerWithKey:@"19623b7a28de248aef28"];
     
     return YES;
 }
 
-- (void)didReceiveEvent:(NSNotification *)note
-{
-    PTPusherEvent *event = (PTPusherEvent *)[[note userInfo] valueForKey:PTPusherEventUserInfoKey];
-    NSLog(@"pusher - notification: %@", [[event data] valueForKey:@"data"]);
-}
-							
+						
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*
@@ -168,112 +152,5 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-#pragma mark - Pusher Delegate methods
-
-/** Notifies the delegate that the PTPusher instance has connected to the Pusher service successfully.
- 
- @param pusher The PTPusher instance that has connected.
- @param connection The connection for the pusher instance.
- */
-- (void)pusher:(PTPusher *)pusher connectionDidConnect:(PTPusherConnection *)connection;
-{
-    NSLog(@"pusher - did connect: %@", connection);
-}
-
-/** Notifies the delegate that the PTPusher instance has disconnected from the Pusher service.
- 
- @param pusher The PTPusher instance that has connected.
- @param connection The connection for the pusher instance.
- */
-- (void)pusher:(PTPusher *)pusher connectionDidDisconnect:(PTPusherConnection *)connection;
-{
-    NSLog(@"pusher - did disconnect: %@", connection);
-}
-
-/** Notifies the delegate that the PTPusher instance failed to connect to the Pusher service.
- 
- If reconnectAutomatically is YES, PTPusher will attempt to reconnect if the initial connection failed.
- 
- This reconnect attempt will happen after this message is sent to the delegate, giving the delegate
- a chance to inspect the connection error and disable automatic reconnection if it thinks the reconnection
- attempt is likely to fail, depending on the error.
- 
- @param pusher The PTPusher instance that has connected.
- @param connection The connection for the pusher instance.
- @param error The connection error.
- */
-- (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection failedWithError:(NSError *)error;
-{
-    NSLog(@"pusher - failed with error: %@", error);
-}
-
-/** Notifies the delegate that the PTPusher instance is about to attempt reconnection.
- 
- You may wish to use this method to keep track of the number of reconnection attempts and abort after a fixed number.
- 
- If you do not set the `reconnectAutomatically` property of the PTPusher instance to NO, it will continue attempting
- to reconnect until a successful connection has been established.
- 
- @param pusher The PTPusher instance that has connected.
- @param connection The connection for the pusher instance.
- */
-- (void)pusher:(PTPusher *)pusher connectionWillReconnect:(PTPusherConnection *)connection afterDelay:(NSTimeInterval)delay;
-{
-    NSLog(@"pusher - connection will reconnect after delay: %f", delay);
-}
-
-/** Notifies the delegate of the request that will be used to authorize access to a channel.
- 
- When using the Pusher Javascript client, authorization typically relies on an existing session cookie
- on the server; when the Javascript client makes an AJAX POST to the server, the server can return
- the user's credentials based on their current session.
- 
- When using libPusher, there will likely be no existing server-side session; authorization will
- need to happen by some other means (e.g. an authorization token or HTTP basic auth).
- 
- By implementing this delegate method, you will be able to set any credentials as necessary by
- modifying the request as required (such as setting POST parameters or headers).
- */
-- (void)pusher:(PTPusher *)pusher willAuthorizeChannelWithRequest:(NSMutableURLRequest *)request;
-{
-    NSLog(@"pusher - will authorize channel with request: %@", request);
-}
-
-/** Notifies the delegate that the PTPusher instance has subscribed to the specified channel.
- 
- This method will be called after any channel authorization has taken place and when a subscribe event has been received.
- 
- @param pusher The PTPusher instance that has connected.
- @param channel The channel that was subscribed to.
- */
-- (void)pusher:(PTPusher *)pusher didSubscribeToChannel:(PTPusherChannel *)channel;
-{
-    NSLog(@"pusher - did subscribe to channel: %@", channel);
-}
-
-/** Notifies the delegate that the PTPusher instance has unsubscribed from the specified channel.
- 
- This method will be called immediately after unsubscribing from a channel.
- 
- @param pusher The PTPusher instance that has connected.
- @param channel The channel that was unsubscribed from.
- */
-- (void)pusher:(PTPusher *)pusher didUnsubscribeFromChannel:(PTPusherChannel *)channel;
-{
-    NSLog(@"pusher - did unsubscribe from channel: %@", channel);
-}
-
-/** Notifies the delegate that the PTPusher instance failed to subscribe to the specified channel.
- 
- The most common reason for subscribing failing is authorization failing for private/presence channels.
- 
- @param pusher The PTPusher instance that has connected.
- @param channel The channel that was subscribed to.
- @param error The error returned when attempting to subscribe.
- */
-- (void)pusher:(PTPusher *)pusher didFailToSubscribeToChannel:(PTPusherChannel *)channel withError:(NSError *)error;
-{
-    NSLog(@"pusher - did fail to subscribe to channel: %@\npusher - with error: %@", channel, error);
-}
 
 @end

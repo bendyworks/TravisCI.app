@@ -24,6 +24,7 @@
 		DA683CF514A0ED7B000477AF /* BWRepositorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DA683CF414A0ED7B000477AF /* BWRepositorySpec.m */; };
 		DA683D1614A0F258000477AF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683D1514A0F258000477AF /* SenTestingKit.framework */; };
 		DA703B6C14A24E8000C6CF6C /* libPusher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA703B6714A24D8C00C6CF6C /* libPusher.a */; };
+		DA703B6F14A26A9D00C6CF6C /* BWPusherHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B6E14A26A9D00C6CF6C /* BWPusherHandler.m */; };
 		DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
 		DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
@@ -140,6 +141,8 @@
 		DA683D1514A0F258000477AF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DA703B4514A2441B00C6CF6C /* libPusher.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPusher.a; path = "libPusher/build/Release-iphoneos/libPusher.a"; sourceTree = "<group>"; };
 		DA703B5814A24D8C00C6CF6C /* libPusher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPusher.xcodeproj; path = libPusher/libPusher.xcodeproj; sourceTree = "<group>"; };
+		DA703B6D14A26A9D00C6CF6C /* BWPusherHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWPusherHandler.h; sourceTree = "<group>"; };
+		DA703B6E14A26A9D00C6CF6C /* BWPusherHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPusherHandler.m; sourceTree = "<group>"; };
 		DA966CFB149FAC3900C229CB /* TravisCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravisCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966CFF149FAC3900C229CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA966D01149FAC3900C229CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -310,6 +313,8 @@
 				DA683C79149FDA7E000477AF /* BWRepositoryTableCell.h */,
 				DA683C7A149FDA7E000477AF /* BWRepositoryTableCell.m */,
 				DA683C7C149FDC4F000477AF /* BWRepositoryTableCell.xib */,
+				DA703B6D14A26A9D00C6CF6C /* BWPusherHandler.h */,
+				DA703B6E14A26A9D00C6CF6C /* BWPusherHandler.m */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";
@@ -545,6 +550,7 @@
 				DA683C87149FEBD8000477AF /* BWCDRepository.m in Sources */,
 				DA65E46014A11CF80066A7E4 /* BWRepository.m in Sources */,
 				DAC3873C14A1318500927334 /* NSDate+Formatting.m in Sources */,
+				DA703B6F14A26A9D00C6CF6C /* BWPusherHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
