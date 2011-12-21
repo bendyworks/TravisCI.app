@@ -36,7 +36,7 @@
         <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="build" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BWCDBuild" inverseName="jobs" inverseEntity="BWCDBuild" syncable="YES"/>
     </entity>
-    <entity name="BWCDRepository" representedClassName="BWCDRepository" elementID="Event">
+    <entity name="BWCDRepository" representedClassName="" elementID="Event">
         <attribute name="last_build_duration" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="last_build_finished_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="last_build_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -51,7 +51,7 @@
         <relationship name="builds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BWCDBuild" inverseName="repository" inverseEntity="BWCDBuild" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BWCDRepository" positionX="-506" positionY="-126" width="128" height="225"/>
+        <element name="BWCDRepository" positionX="261" positionY="189" width="128" height="225"/>
         <element name="BWCDJob" positionX="-72" positionY="219" width="128" height="180"/>
         <element name="BWCDBuild" positionX="-306" positionY="9" width="128" height="210"/>
         <element name="BWCDCommit" positionX="-585" positionY="168" width="128" height="195"/>

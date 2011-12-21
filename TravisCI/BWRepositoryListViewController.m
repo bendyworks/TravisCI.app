@@ -88,8 +88,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        self.detailViewController.repository = (BWCDRepository *) selectedObject;    
+        self.detailViewController.repository = [BWRepository repositoryWithManagedObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
     }
 }
 
@@ -98,7 +97,7 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setRepository:(BWCDRepository *) selectedObject];
+        [[segue destinationViewController] setRepository:(BWRepository *) selectedObject];
     }
 }
 

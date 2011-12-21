@@ -21,7 +21,7 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setRepository:(BWCDRepository *)newRepository
+- (void)setRepository:(BWRepository *)newRepository
 {
     if (_repository != newRepository) {
         _repository = newRepository;
