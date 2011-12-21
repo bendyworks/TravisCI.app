@@ -7,11 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BWPresenter.h"
 
-@interface BWRepository : NSObject
-
-+ (BWRepository *)repositoryWithManagedObject:(NSManagedObject *)obj;
-- (id)initWithManagedObject:(NSManagedObject *)obj;
+@interface BWRepository : BWPresenter
 
 - (NSString *)durationText;
 - (NSString *)finishedText;
@@ -22,7 +20,5 @@
 - (NSNumber *)last_build_duration;
 - (NSDate *)last_build_started_at;
 - (NSDate *)last_build_finished_at;
-
-@property (strong) id object;
 
 @end

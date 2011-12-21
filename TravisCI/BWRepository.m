@@ -12,21 +12,6 @@
 #import "NSDate+Formatting.h"
 
 @implementation BWRepository
-@synthesize object = _object;
-
-+ (BWRepository *)repositoryWithManagedObject:(NSManagedObject *)obj
-{
-    return [[BWRepository alloc] initWithManagedObject:obj];
-}
-
-- (id)initWithManagedObject:(NSManagedObject *)obj
-{
-    self = [super init];
-    if (self != nil) {
-        self.object = obj;
-    }
-    return self;
-}
 
 - (NSString *)slug { return [self.object valueForKey:@"slug"]; }
 - (NSString *)last_build_number { return [self.object valueForKey:@"last_build_number"]; }
