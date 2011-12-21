@@ -13,12 +13,19 @@
 
 #import "RestKit/RestKit.h"
 
+#import "BWAppDelegate.h" //to remove
+#import "BWRepositoryListViewController.h"
+
 @interface BWPusherHandler()
+
+@property (nonatomic, strong) RKManagedObjectMapping *jobMapping;
+
 - (void)jobWasStarted:(PTPusherEvent *)event;
 @end
 
 @implementation BWPusherHandler
 @synthesize client;
+@synthesize jobMapping = _jobMapping;
 
 + (id)pusherHandlerWithKey:(NSString *)apiKey
 {
@@ -59,24 +66,52 @@
  **/
 - (void)jobWasStarted:(PTPusherEvent *)event
 {
+    BWAppDelegate *appDel = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
+    UINavigationController *masterNavController = [((UISplitViewController*)appDel.window.rootViewController).viewControllers objectAtIndex:0];
+    BWRepositoryListViewController *controller = (BWRepositoryListViewController *)masterNavController.topViewController;
+    [controller refreshRepositoryList];
+    
+//    NSInteger job_id = [[event.data valueForKey:@"id"] intValue];
 //    RKObjectManager *manager = [RKObjectManager sharedManager];
 //
-//    RKManagedObjectMapping *repositoryMapping = [RKManagedObjectMapping mappingForEntityWithName:@"BWCDRepository"];
-//    
-//    //    [repositoryMapping mapAttributes:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
-//    NSArray *attrs = [NSArray arrayWithObjects:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
-//    
-//    for (NSString *attr in attrs) {
-//        [repositoryMapping mapKeyPath:attr toAttribute:attr];
-//    }
-//    
-//    [repositoryMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
-//    [repositoryMapping mapKeyPath:@"description" toAttribute:@"remote_description"];
-//    repositoryMapping.primaryKeyAttribute = @"remote_id";
-//    
-//    [manager.mappingProvider setMapping:repositoryMapping forKeyPath:@"BWCDRepository"];
-//    
-//    [manager loadObjectsAtResourcePath:@"/repositories.json" objectMapping:repositoryMapping delegate:self];
+//    NSString *jobURI = [NSString stringWithFormat:@"/jobs/%d.json", job_id];
+//    [manager loadObjectsAtResourcePath:jobURI objectMapping:[self jobMapping] delegate:self];
+}
+
+-(RKObjectMapping *)jobMapping
+{
+    NSLog(@"Trace - entering jobMapping");
+    if (_jobMapping != nil) {
+        return _jobMapping;
+    }
+
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+    _jobMapping = [RKManagedObjectMapping mappingForEntityWithName:@"BWCDJob"];
+    NSArray *attrs = [NSArray arrayWithObjects:@"finished_at", @"log", @"number", @"result", @"started_at", @"state", @"status", nil];
+
+    for (NSString *attr in attrs) {
+        [_jobMapping mapKeyPath:attr toAttribute:attr];
+    }
+
+    [_jobMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
+
+    _jobMapping.primaryKeyAttribute = @"remote_id";
+    [manager.mappingProvider setMapping:_jobMapping forKeyPath:@"BWCDJob"]; // this doesn't seem right
+
+    NSLog(@"Trace - exiting jobMapping");
+    return _jobMapping;
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    NSLog(@"objectLoader didFailWithError: %@", error);
+}
+
+
+// TODO: extract into SingleJobHandler
+// object is an NSManagedObject
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
+{
 
 }
 

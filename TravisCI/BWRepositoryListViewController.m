@@ -14,7 +14,7 @@
 
 @interface BWRepositoryListViewController ()
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-- (void)refreshRepositoryList;
+// - (void)refreshRepositoryList; //TODO: uncomment
 @end
 
 @implementation BWRepositoryListViewController

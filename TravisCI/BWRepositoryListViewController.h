@@ -13,6 +13,7 @@
 
 @interface BWRepositoryListViewController : UITableViewController <NSFetchedResultsControllerDelegate, RKObjectLoaderDelegate>
 
+- (void)refreshRepositoryList;
 
 @property (nonatomic, strong) UINib *repositoryCellNib;
 @property (strong, nonatomic) BWRepositoryViewController *detailViewController;

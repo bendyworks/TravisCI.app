@@ -20,6 +20,16 @@
 
 @synthesize pusherHandler = _pusherHandler;
 
+#define USE_ACTUAL_TRAVIS_CI_PUSHER_DATA 1
+
+// these PUSHER_API_KEY values are not sensitive to exposure
+#if USE_ACTUAL_TRAVIS_CI_PUSHER_DATA
+  #define PUSHER_API_KEY @"23ed642e81512118260e"
+#else
+  #define PUSHER_API_KEY @"19623b7a28de248aef28"
+#endif
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
@@ -43,7 +53,7 @@
         controller.managedObjectContext = self.managedObjectContext;
     }
     
-    self.pusherHandler = [BWPusherHandler pusherHandlerWithKey:@"19623b7a28de248aef28"];
+    self.pusherHandler = [BWPusherHandler pusherHandlerWithKey:PUSHER_API_KEY];
     
     return YES;
 }

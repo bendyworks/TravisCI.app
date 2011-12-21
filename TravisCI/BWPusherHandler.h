@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "PTPusherDelegate.h"
+#import "RestKit/RestKit.h"
 
 @class PTPusher;
 
-@interface BWPusherHandler : NSObject <PTPusherDelegate>
+@interface BWPusherHandler : NSObject <PTPusherDelegate, RKObjectLoaderDelegate>
 + (id)pusherHandlerWithKey:(NSString *)apiKey;
 - (id)initWithKey:(NSString *)apiKey;
 
