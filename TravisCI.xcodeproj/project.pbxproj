@@ -23,6 +23,7 @@
 		DA683C87149FEBD8000477AF /* BWCDRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = DA683C86149FEBD8000477AF /* BWCDRepository.m */; };
 		DA683CF514A0ED7B000477AF /* BWRepositorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DA683CF414A0ED7B000477AF /* BWRepositorySpec.m */; };
 		DA683D1614A0F258000477AF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683D1514A0F258000477AF /* SenTestingKit.framework */; };
+		DA703B6C14A24E8000C6CF6C /* libPusher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA703B6714A24D8C00C6CF6C /* libPusher.a */; };
 		DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
 		DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
@@ -79,40 +80,33 @@
 			remoteGlobalIDString = 25160D1514564E810060A5C5;
 			remoteInfo = RestKit;
 		};
-		DA703B4E14A249E100C6CF6C /* PBXContainerItemProxy */ = {
+		DA703B6414A24D8C00C6CF6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DA703B4714A249E100C6CF6C /* libPusher.xcodeproj */;
+			containerPortal = DA703B5814A24D8C00C6CF6C /* libPusher.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
 			remoteInfo = SampleApp;
 		};
-		DA703B5014A249E100C6CF6C /* PBXContainerItemProxy */ = {
+		DA703B6614A24D8C00C6CF6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DA703B4714A249E100C6CF6C /* libPusher.xcodeproj */;
+			containerPortal = DA703B5814A24D8C00C6CF6C /* libPusher.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A3D1D2B71158013F009A12AD;
 			remoteInfo = libPusher;
 		};
-		DA703B5214A249E100C6CF6C /* PBXContainerItemProxy */ = {
+		DA703B6814A24D8C00C6CF6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DA703B4714A249E100C6CF6C /* libPusher.xcodeproj */;
+			containerPortal = DA703B5814A24D8C00C6CF6C /* libPusher.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A3A1A0EB115813E2001EF877;
 			remoteInfo = UnitTests;
 		};
-		DA703B5414A249E100C6CF6C /* PBXContainerItemProxy */ = {
+		DA703B6A14A24D8C00C6CF6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DA703B4714A249E100C6CF6C /* libPusher.xcodeproj */;
+			containerPortal = DA703B5814A24D8C00C6CF6C /* libPusher.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A3A9F9581496E96100F83617;
 			remoteInfo = "Functional Specs";
-		};
-		DA703B5614A249FC00C6CF6C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DA703B4714A249E100C6CF6C /* libPusher.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A3D1D2B61158013F009A12AD;
-			remoteInfo = libPusher;
 		};
 		DA966D2D149FAC3900C229CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -145,7 +139,7 @@
 		DA683CF414A0ED7B000477AF /* BWRepositorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWRepositorySpec.m; sourceTree = "<group>"; };
 		DA683D1514A0F258000477AF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DA703B4514A2441B00C6CF6C /* libPusher.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPusher.a; path = "libPusher/build/Release-iphoneos/libPusher.a"; sourceTree = "<group>"; };
-		DA703B4714A249E100C6CF6C /* libPusher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPusher.xcodeproj; path = libPusher/libPusher.xcodeproj; sourceTree = "<group>"; };
+		DA703B5814A24D8C00C6CF6C /* libPusher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libPusher.xcodeproj; path = libPusher/libPusher.xcodeproj; sourceTree = "<group>"; };
 		DA966CFB149FAC3900C229CB /* TravisCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravisCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966CFF149FAC3900C229CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA966D01149FAC3900C229CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -177,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA703B6C14A24E8000C6CF6C /* libPusher.a in Frameworks */,
 				DA683C73149FC660000477AF /* libxml2.dylib in Frameworks */,
 				DA683C71149FC657000477AF /* SystemConfiguration.framework in Frameworks */,
 				DA683C6F149FC63B000477AF /* Security.framework in Frameworks */,
@@ -219,7 +214,7 @@
 		DA683C66149FC520000477AF /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				DA703B4714A249E100C6CF6C /* libPusher.xcodeproj */,
+				DA703B5814A24D8C00C6CF6C /* libPusher.xcodeproj */,
 				DAC3873914A1316C00927334 /* DistanceOfTimeInWords */,
 				DA683C51149FC500000477AF /* RestKit.xcodeproj */,
 			);
@@ -249,13 +244,13 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		DA703B4814A249E100C6CF6C /* Products */ = {
+		DA703B5914A24D8C00C6CF6C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DA703B4F14A249E100C6CF6C /* SampleApp.app */,
-				DA703B5114A249E100C6CF6C /* libPusher.a */,
-				DA703B5314A249E100C6CF6C /* UnitTests.octest */,
-				DA703B5514A249E100C6CF6C /* Functional Specs.octest */,
+				DA703B6514A24D8C00C6CF6C /* SampleApp.app */,
+				DA703B6714A24D8C00C6CF6C /* libPusher.a */,
+				DA703B6914A24D8C00C6CF6C /* UnitTests.octest */,
+				DA703B6B14A24D8C00C6CF6C /* Functional Specs.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -373,7 +368,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DA703B5714A249FC00C6CF6C /* PBXTargetDependency */,
 				DA683C68149FC5F2000477AF /* PBXTargetDependency */,
 			);
 			name = TravisCI;
@@ -421,8 +415,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = DA703B4814A249E100C6CF6C /* Products */;
-					ProjectRef = DA703B4714A249E100C6CF6C /* libPusher.xcodeproj */;
+					ProductGroup = DA703B5914A24D8C00C6CF6C /* Products */;
+					ProjectRef = DA703B5814A24D8C00C6CF6C /* libPusher.xcodeproj */;
 				},
 				{
 					ProductGroup = DA683C52149FC500000477AF /* Products */;
@@ -466,32 +460,32 @@
 			remoteRef = DA683C61149FC501000477AF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DA703B4F14A249E100C6CF6C /* SampleApp.app */ = {
+		DA703B6514A24D8C00C6CF6C /* SampleApp.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = SampleApp.app;
-			remoteRef = DA703B4E14A249E100C6CF6C /* PBXContainerItemProxy */;
+			remoteRef = DA703B6414A24D8C00C6CF6C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DA703B5114A249E100C6CF6C /* libPusher.a */ = {
+		DA703B6714A24D8C00C6CF6C /* libPusher.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libPusher.a;
-			remoteRef = DA703B5014A249E100C6CF6C /* PBXContainerItemProxy */;
+			remoteRef = DA703B6614A24D8C00C6CF6C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DA703B5314A249E100C6CF6C /* UnitTests.octest */ = {
+		DA703B6914A24D8C00C6CF6C /* UnitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = UnitTests.octest;
-			remoteRef = DA703B5214A249E100C6CF6C /* PBXContainerItemProxy */;
+			remoteRef = DA703B6814A24D8C00C6CF6C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DA703B5514A249E100C6CF6C /* Functional Specs.octest */ = {
+		DA703B6B14A24D8C00C6CF6C /* Functional Specs.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Functional Specs.octest";
-			remoteRef = DA703B5414A249E100C6CF6C /* PBXContainerItemProxy */;
+			remoteRef = DA703B6A14A24D8C00C6CF6C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -571,11 +565,6 @@
 			name = RestKit;
 			targetProxy = DA683C67149FC5F2000477AF /* PBXContainerItemProxy */;
 		};
-		DA703B5714A249FC00C6CF6C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = libPusher;
-			targetProxy = DA703B5614A249FC00C6CF6C /* PBXContainerItemProxy */;
-		};
 		DA966D2E149FAC3900C229CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DA966CFA149FAC3900C229CB /* TravisCI */;
@@ -641,6 +630,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/libPusher/Library";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
@@ -665,6 +655,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/libPusher/Library";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -682,11 +673,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
+					"$(SOURCE_ROOT)/libPusher/Vendor/ZTWebSocket",
 					"$(SOURCE_ROOT)/libPusher/Library",
 					"\"$(SOURCE_ROOT)/RestKit/Build\"",
 				);
 				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(SOURCE_ROOT)/libPusher/build/**";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -702,11 +695,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
+					"$(SOURCE_ROOT)/libPusher/Vendor/ZTWebSocket",
 					"$(SOURCE_ROOT)/libPusher/Library",
 					"\"$(SOURCE_ROOT)/RestKit/Build\"",
 				);
 				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(SOURCE_ROOT)/libPusher/build/**";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
