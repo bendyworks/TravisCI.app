@@ -14,6 +14,7 @@
 
 @interface BWRepositoryListViewController ()
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)refreshRepositoryList;
 @end
 
 @implementation BWRepositoryListViewController
@@ -48,6 +49,8 @@
 
     UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshRepositoryList)];
     self.navigationItem.rightBarButtonItem = refreshButton;
+    
+    [self refreshRepositoryList];
 }
 
 - (void)viewDidUnload { [super viewDidUnload]; }

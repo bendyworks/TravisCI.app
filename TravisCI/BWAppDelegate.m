@@ -27,6 +27,7 @@
 
     RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:@"http://travis-ci.org"]; // Initialize singleton RestKit Object Manager
     manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI.sqlite"];
+    manager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
 
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
