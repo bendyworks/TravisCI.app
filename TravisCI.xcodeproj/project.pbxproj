@@ -23,7 +23,7 @@
 		DA703B6F14A26A9D00C6CF6C /* BWPusherHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B6E14A26A9D00C6CF6C /* BWPusherHandler.m */; };
 		DA703B7414A286D700C6CF6C /* BWBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B7314A286D700C6CF6C /* BWBuild.m */; };
 		DA703B7714A2874B00C6CF6C /* BWPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B7614A2874B00C6CF6C /* BWPresenter.m */; };
-		DA703B9214A391C600C6CF6C /* resources in Resources */ = {isa = PBXBuildFile; fileRef = DA703B9114A391C600C6CF6C /* resources */; };
+		DA703B9214A391C600C6CF6C /* resource in Resources */ = {isa = PBXBuildFile; fileRef = DA703B9114A391C600C6CF6C /* resource */; };
 		DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
 		DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
@@ -141,7 +141,7 @@
 		DA703B7314A286D700C6CF6C /* BWBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuild.m; sourceTree = "<group>"; };
 		DA703B7514A2874B00C6CF6C /* BWPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWPresenter.h; sourceTree = "<group>"; };
 		DA703B7614A2874B00C6CF6C /* BWPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPresenter.m; sourceTree = "<group>"; };
-		DA703B9114A391C600C6CF6C /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
+		DA703B9114A391C600C6CF6C /* resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resource; sourceTree = "<group>"; };
 		DA966CFB149FAC3900C229CB /* TravisCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravisCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966CFF149FAC3900C229CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA966D01149FAC3900C229CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -329,7 +329,7 @@
 		DA966D08149FAC3900C229CB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DA703B9114A391C600C6CF6C /* resources */,
+				DA703B9114A391C600C6CF6C /* resource */,
 				DA966D09149FAC3900C229CB /* TravisCI-Info.plist */,
 				DA966D0A149FAC3900C229CB /* InfoPlist.strings */,
 				DA966D0D149FAC3900C229CB /* main.m */,
@@ -511,7 +511,7 @@
 				DA966D15149FAC3900C229CB /* MainStoryboard_iPhone.storyboard in Resources */,
 				DA966D18149FAC3900C229CB /* MainStoryboard_iPad.storyboard in Resources */,
 				DA683C7D149FDC4F000477AF /* BWRepositoryTableCell.xib in Resources */,
-				DA703B9214A391C600C6CF6C /* resources in Resources */,
+				DA703B9214A391C600C6CF6C /* resource in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
