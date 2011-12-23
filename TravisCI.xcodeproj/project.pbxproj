@@ -62,6 +62,7 @@
 		DAA41BF214A3E0BC00C97A37 /* status_green.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA41BE814A3E0BC00C97A37 /* status_green.png */; };
 		DAA41BF314A3E0BC00C97A37 /* status_red.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA41BE914A3E0BC00C97A37 /* status_red.png */; };
 		DAA41BF414A3E0BC00C97A37 /* status_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA41BEA14A3E0BC00C97A37 /* status_yellow.png */; };
+		DAA41BF714A5186200C97A37 /* BWCommandBuildStarted.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA41BF614A5186200C97A37 /* BWCommandBuildStarted.m */; };
 		DAC3873C14A1318500927334 /* NSDate+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873B14A1318500927334 /* NSDate+Formatting.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DAC3873E14A134BB00927334 /* NSDate_FormattingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */; };
 /* End PBXBuildFile section */
@@ -197,6 +198,8 @@
 		DAA41BE814A3E0BC00C97A37 /* status_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_green.png; sourceTree = "<group>"; };
 		DAA41BE914A3E0BC00C97A37 /* status_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_red.png; sourceTree = "<group>"; };
 		DAA41BEA14A3E0BC00C97A37 /* status_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_yellow.png; sourceTree = "<group>"; };
+		DAA41BF514A5186200C97A37 /* BWCommandBuildStarted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCommandBuildStarted.h; sourceTree = "<group>"; };
+		DAA41BF614A5186200C97A37 /* BWCommandBuildStarted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCommandBuildStarted.m; sourceTree = "<group>"; };
 		DAC3873A14A1318500927334 /* NSDate+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Formatting.h"; path = "DistanceOfTimeInWords/NSDate+Formatting.h"; sourceTree = "<group>"; };
 		DAC3873B14A1318500927334 /* NSDate+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Formatting.m"; path = "DistanceOfTimeInWords/NSDate+Formatting.m"; sourceTree = "<group>"; };
 		DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FormattingSpec.m; sourceTree = "<group>"; };
@@ -345,6 +348,8 @@
 				DA683C7C149FDC4F000477AF /* BWRepositoryTableCell.xib */,
 				DA703B6D14A26A9D00C6CF6C /* BWPusherHandler.h */,
 				DA703B6E14A26A9D00C6CF6C /* BWPusherHandler.m */,
+				DAA41BF514A5186200C97A37 /* BWCommandBuildStarted.h */,
+				DAA41BF614A5186200C97A37 /* BWCommandBuildStarted.m */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";
@@ -645,6 +650,7 @@
 				DAA41BD414A3DDDB00C97A37 /* PTURLRequestOperation.m in Sources */,
 				DAA41BDB14A3DE3600C97A37 /* AsyncSocket.m in Sources */,
 				DAA41BDC14A3DE3600C97A37 /* ZTWebSocket.m in Sources */,
+				DAA41BF714A5186200C97A37 /* BWCommandBuildStarted.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
