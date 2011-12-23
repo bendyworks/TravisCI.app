@@ -255,12 +255,9 @@
 {
     RKObjectManager *manager = [RKObjectManager sharedManager];
 
-//    NSEntityDescription *repositoryDescription = [NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:self.managedObjectContext];
-    
-    RKManagedObjectMapping *repositoryMapping = [manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"];
-    NSLog(@"repository mapping: %@", repositoryMapping);
-
-    [manager loadObjectsAtResourcePath:@"/repositories.json" objectMapping:repositoryMapping delegate:self];
+    [manager loadObjectsAtResourcePath:@"/repositories.json"
+                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]
+                              delegate:self];
 }
 
 #pragma mark RKObjectLoaderDelegate methods
