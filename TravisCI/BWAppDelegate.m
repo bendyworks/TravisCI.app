@@ -11,6 +11,10 @@
 #import <RestKit/RestKit.h>
 #import "BWPusherHandler.h"
 
+@interface BWAppDelegate()
+- (void)setupRestKit;
+@end
+
 @implementation BWAppDelegate
 
 @synthesize window = _window;
@@ -32,12 +36,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
-    //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
 
-    RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:@"http://travis-ci.org"]; // Initialize singleton RestKit Object Manager
-    manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI.sqlite"];
-    manager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+    [self setupRestKit];
 
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -52,12 +52,35 @@
         BWRepositoryListViewController *controller = (BWRepositoryListViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
-    
+
     self.pusherHandler = [BWPusherHandler pusherHandlerWithKey:PUSHER_API_KEY];
-    
+
     return YES;
 }
 
+- (void)setupRestKit
+{
+    
+    //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
+
+    
+    RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:@"http://travis-ci.org"]; //sets up singleton shared object manager
+    manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI.sqlite"];
+    manager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+
+    NSEntityDescription *repositoryDescription = [NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:self.managedObjectContext];
+
+    RKManagedObjectMapping *repositoryMapping = [RKManagedObjectMapping mappingForEntity:repositoryDescription];
+
+    [repositoryMapping mapAttributes:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
+    [repositoryMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
+    [repositoryMapping mapKeyPath:@"description" toAttribute:@"remote_description"];
+    repositoryMapping.primaryKeyAttribute = @"remote_id";
+
+    [manager.mappingProvider setMapping:repositoryMapping forKeyPath:@"BWCDRepository"];
+
+}
 						
 - (void)applicationWillResignActive:(UIApplication *)application
 {

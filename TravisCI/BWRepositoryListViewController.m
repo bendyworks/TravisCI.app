@@ -50,11 +50,16 @@
     UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshRepositoryList)];
     self.navigationItem.rightBarButtonItem = refreshButton;
     
-    [self refreshRepositoryList];
 }
 
 - (void)viewDidUnload { [super viewDidUnload]; }
-- (void)viewWillAppear:(BOOL)animated { [super viewWillAppear:animated]; }
+- (void)viewWillAppear:(BOOL)animated { 
+
+    [super viewWillAppear:animated];
+
+    [self refreshRepositoryList];
+}
+
 - (void)viewDidAppear:(BOOL)animated { [super viewDidAppear:animated]; }
 - (void)viewWillDisappear:(BOOL)animated { [super viewWillDisappear:animated]; }
 - (void)viewDidDisappear:(BOOL)animated { [super viewDidDisappear:animated]; }
@@ -249,22 +254,11 @@
 - (void)refreshRepositoryList
 {
     RKObjectManager *manager = [RKObjectManager sharedManager];
-    
-    
-    RKManagedObjectMapping *repositoryMapping = [RKManagedObjectMapping mappingForEntityWithName:@"BWCDRepository"];
-    
-//    [repositoryMapping mapAttributes:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
-    NSArray *attrs = [NSArray arrayWithObjects:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
 
-    for (NSString *attr in attrs) {
-        [repositoryMapping mapKeyPath:attr toAttribute:attr];
-    }
-
-    [repositoryMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
-    [repositoryMapping mapKeyPath:@"description" toAttribute:@"remote_description"];
-    repositoryMapping.primaryKeyAttribute = @"remote_id";
+//    NSEntityDescription *repositoryDescription = [NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:self.managedObjectContext];
     
-    [manager.mappingProvider setMapping:repositoryMapping forKeyPath:@"BWCDRepository"];
+    RKManagedObjectMapping *repositoryMapping = [manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"];
+    NSLog(@"repository mapping: %@", repositoryMapping);
 
     [manager loadObjectsAtResourcePath:@"/repositories.json" objectMapping:repositoryMapping delegate:self];
 }
