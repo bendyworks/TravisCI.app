@@ -1,0 +1,522 @@
+Channel: common
+
+job:created
+{ "build_id": 468459, "id": 468460, "number": "11.1", "queue": "builds.node_js", "repository_id": 5098, "started_at": "2012-01-02T15:30:00Z", "state": "started" }
+
+job:started
+  build_id: 468459
+  id: 468460
+  started_at: "2012-01-02T15:30:00Z"
+  state: "started"
+
+job:finished
+  build_id: 468459
+  finished_at: "2012-01-02T15:33:40Z"
+  id: 468460
+  result: 0
+  state: "finished"
+  status: 0
+
+build:started
+  build: Object
+    author_email: "henri.bergius@iki.fi"
+    author_name: "Henri Bergius"
+    branch: "master"
+    commit: "2a311c24ff1813595d071e1b310548bf18a9f729"
+    committed_at: "2012-01-02T15:30:14Z"
+    committer_email: null
+    committer_name: null
+    compare_url: "https://github.com/bergie/create/compare/749ae09...2a311c2"
+    config: Object
+      id: 468459
+      .configured: true
+      before_script: Array[1]
+        0: "npm install --dev"
+        length: 1
+      language: "node_js"
+      node_js: Array[1]
+        0: 0.6
+        length: 1
+      notifications: Object
+        irc: Array[2]
+          0: "irc.freenode.org#iks"
+          1: "irc.freenode.org#midgard"
+          length: 2
+        script: "npm test"
+    matrix: Array[1]
+      0: Object
+        id: 468460
+        author_email: "henri.bergius@iki.fi"
+        author_name: "Henri Bergius"
+        branch: "master"
+        commit: "2a311c24ff1813595d071e1b310548bf18a9f729"
+        committed_at: "2012-01-02T15:30:14Z"
+        committer_email: null
+        committer_name: null
+        compare_url: "https://github.com/bergie/create/compare/749ae09...2a311c2"
+        config: Object
+          .configured: true
+          before_script: Array[1]
+            0: "npm install --dev"
+            length: 1
+          language: "node_js"
+          node_js: 0.6
+          notifications: Object
+            irc: Array[2]
+              0: "irc.freenode.org#iks"
+              1: "irc.freenode.org#midgard"
+              length: 2
+          script: "npm test"
+        message: "Update to latest VIE, refs #18"
+        number: "11.1"
+        parent_id: 468459
+        repository_id: 5098
+        started_at: "2012-01-02T15:30:00Z"
+      length: 1
+    message: "Update to latest VIE, refs #18"
+    number: "11"
+    repository_id: 5098
+    result: null
+    started_at: "2012-01-02T15:30:00Z"
+  repository: Object
+    description: "Midgard Create, a generic web editing interface for any CMS"
+    id: 5098
+    last_build_duration: null
+    last_build_finished_at: null
+    last_build_id: 468459
+    last_build_language: null
+    last_build_number: "11"
+    last_build_result: null
+    last_build_started_at: "2012-01-02T15:30:00Z"
+    slug: "bergie/create"
+  started_at: "2012-01-02T15:30:00Z"
+
+build:finished
+  finished_at: "2012-01-02T15:33:40Z"
+  status: 0
+  build: Object
+    id: 468459
+    finished_at: "2012-01-02T15:33:40Z"
+    result: 0
+  repository: Object
+    id: 5098
+    last_build_duration: 220
+    last_build_finished_at: "2012-01-02T15:33:40Z"
+    last_build_id: 468459
+    last_build_number: "11"
+    last_build_result: 0
+    last_build_started_at: "2012-01-02T15:30:00Z"
+    slug: "bergie/create"
+
+worker:added
+  host: "php1.worker.travis-ci.org"
+  id: 23013
+  last_error: null
+  name: "php-1"
+  payload: null
+  state: "starting"
+
+worker:removed
+  host: "php1.worker.travis-ci.org"
+  id: 23013
+  last_error: null
+  name: "php-1"
+  payload: null
+  state: "starting"
+
+worker:updated
+  host: "php1.worker.travis-ci.org"
+  id: 23014
+  last_error: null
+  name: "php-1"
+  payload: Object
+  state: "working"
+  queue: "builds.php"
+  build: Object
+    branch: "master"
+    commit: "9a0d36ae869955ee0e0d554f1962b4eea7f36149"
+    id: 468289
+    number: "146.5"
+  config: Object
+    .configured: true
+    before_script: Array[6]
+      0: "sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests;' -U postgres; fi""
+      1: "sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests_tmp;' -U postgres; fi""
+      2: "sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests;' -U postgres; fi""
+      3: "sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests_tmp;' -U postgres; fi""
+      4: "sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS doctrine_tests_tmp;create database IF NOT EXISTS doctrine_tests;'; fi""
+      5: "git submodule update --init"
+      length: 6
+    env: "DB=sqlite"
+    language: "php"
+    php: 5.3
+    script: "phpunit --configuration tests/travis/$DB.travis.xml"
+  repository: Object
+    id: 3567
+    slug: "doctrine/doctrine2"
+
+/workers.json
+[
+  {
+    "id": 22931,
+    "name": "erlang-1",
+    "host": "erlang.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:36Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22932,
+    "name": "erlang-2",
+    "host": "erlang.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:36Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22933,
+    "name": "erlang-3",
+    "host": "erlang.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:36Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22922,
+    "name": "nodejs-1",
+    "host": "nodejs1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:35Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22923,
+    "name": "nodejs-2",
+    "host": "nodejs1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:35Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22924,
+    "name": "nodejs-3",
+    "host": "nodejs1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:35Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22917,
+    "name": "rails-1",
+    "host": "rails1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:34Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22918,
+    "name": "rails-2",
+    "host": "rails1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:34Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22919,
+    "name": "rails-3",
+    "host": "rails1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:34Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22920,
+    "name": "rails-4",
+    "host": "rails1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:34Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22921,
+    "name": "rails-5",
+    "host": "rails1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:34Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22940,
+    "name": "rails-1",
+    "host": "rails2.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:29Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22941,
+    "name": "rails-2",
+    "host": "rails2.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:29Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22942,
+    "name": "rails-3",
+    "host": "rails2.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:29Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22943,
+    "name": "rails-4",
+    "host": "rails2.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:29Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22944,
+    "name": "rails-5",
+    "host": "rails2.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:29Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22925,
+    "name": "ruby-1",
+    "host": "ruby1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:37Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22926,
+    "name": "ruby-2",
+    "host": "ruby1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:37Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22927,
+    "name": "ruby-3",
+    "host": "ruby1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:37Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22928,
+    "name": "ruby-4",
+    "host": "ruby1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:37Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22929,
+    "name": "ruby-5",
+    "host": "ruby1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:37Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22930,
+    "name": "ruby-6",
+    "host": "ruby1.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:37Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22945,
+    "name": "ruby-1",
+    "host": "ruby2.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:32Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22946,
+    "name": "ruby-2",
+    "host": "ruby2.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:32Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22947,
+    "name": "ruby-3",
+    "host": "ruby2.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:32Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22948,
+    "name": "ruby-4",
+    "host": "ruby2.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:32Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22949,
+    "name": "ruby-5",
+    "host": "ruby2.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:32Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22950,
+    "name": "ruby-6",
+    "host": "ruby2.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:32Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22951,
+    "name": "ruby-1",
+    "host": "ruby3.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:33Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22952,
+    "name": "ruby-2",
+    "host": "ruby3.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:33Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22953,
+    "name": "ruby-3",
+    "host": "ruby3.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:33Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22954,
+    "name": "ruby-4",
+    "host": "ruby3.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:33Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22955,
+    "name": "ruby-5",
+    "host": "ruby3.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:33Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22956,
+    "name": "ruby-6",
+    "host": "ruby3.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:33Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22934,
+    "name": "spree-1",
+    "host": "spree.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:29Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22935,
+    "name": "spree-2",
+    "host": "spree.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:29Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22936,
+    "name": "spree-3",
+    "host": "spree.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:29Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22937,
+    "name": "spree-4",
+    "host": "spree.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:29Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22938,
+    "name": "spree-5",
+    "host": "spree.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:29Z",
+    "payload": null,
+    "last_error": null
+  },
+  {
+    "id": 22939,
+    "name": "spree-6",
+    "host": "spree.worker.travis-ci.org",
+    "state": "ready",
+    "last_seen_at": "2012-01-02T16:00:29Z",
+    "payload": null,
+    "last_error": null
+  }
+]
+
+javascript:(function() { jQuery('#event_channel').val('common'); jQuery('#event_event_name').val('job:created'); jQuery('#event_data').val('{ "build_id": 468459, "id": 468460, "number": "11.1", "queue": "builds.node_js", "repository_id": 5098, "started_at": "2012-01-02T15:30:00Z", "state": "started" }');jQuery('#event_creator').submit();})();
