@@ -1,7 +1,13 @@
 Channel: common
 
 job:created
-{ "build_id": 468459, "id": 468460, "number": "11.1", "queue": "builds.node_js", "repository_id": 5098, "started_at": "2012-01-02T15:30:00Z", "state": "started" }
+  build_id: 468459
+  id: 468460
+  number: "11.1"
+  queue: "builds.node_js"
+  repository_id: 5098
+  started_at: "2012-01-02T15:30:00Z"
+  state: "started"
 
 job:started
   build_id: 468459
@@ -518,5 +524,3 @@ worker:updated
     "last_error": null
   }
 ]
-
-javascript:(function() { jQuery('#event_channel').val('common'); jQuery('#event_event_name').val('job:created'); jQuery('#event_data').val('{ "build_id": 468459, "id": 468460, "number": "11.1", "queue": "builds.node_js", "repository_id": 5098, "started_at": "2012-01-02T15:30:00Z", "state": "started" }');jQuery('#event_creator').submit();})();
