@@ -16,8 +16,19 @@
 @implementation BWRepositoryViewController
 
 @synthesize repository = _repository;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
+
+@synthesize repositoryNameLabel;
+@synthesize buildNumberLabel;
+@synthesize finishedLabel;
+@synthesize durationLabel;
+@synthesize commitLabel;
+@synthesize compareLabel;
+@synthesize authorLabel;
+@synthesize committerLabel;
+@synthesize messageLabel;
+@synthesize configLabel;
+@synthesize statusImage;
 
 #pragma mark - Managing the detail item
 
@@ -41,7 +52,30 @@
 
     if (self.repository) {
         self.title = self.repository.slug;
-        self.detailDescriptionLabel.text = [self.repository slug];
+        self.repositoryNameLabel.text = self.repository.slug;
+        self.buildNumberLabel.text = self.repository.last_build_number;
+        self.finishedLabel.text = self.repository.finishedText;
+        self.durationLabel.text = self.repository.durationText;
+//        self.commitLabel.text = [self.build ??];
+//        self.compareLabel.text = [self.build ??];
+//        self.authorLabel.text = [self.build ??];
+//        self.committerLabel.text = [self.build ??];
+//        self.messageLabel.text = [self.build ??];
+//        self.configLabel.text = [self.build ??];
+
+        NSString *statusImageName = @"status_yellow";
+        UIColor *textColor = [UIColor blackColor];
+        if (self.repository.last_build_status != nil) {
+            if (self.repository.last_build_status == [NSNumber numberWithInt:0]) {
+                statusImageName = @"status_green";
+                textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            } else {
+                statusImageName = @"status_red";
+                textColor = [UIColor colorWithRed:0.75f green:0.0f blue:0.0f alpha:1.0f];
+            }
+        }
+        [self.buildNumberLabel setTextColor:textColor];
+        [self.statusImage setImage:[UIImage imageNamed:statusImageName]];
     }
 }
 
