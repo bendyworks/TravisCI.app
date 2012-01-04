@@ -161,366 +161,87 @@ worker:updated
     id: 3567
     slug: "doctrine/doctrine2"
 
-/workers.json
-[
-  {
-    "id": 22931,
-    "name": "erlang-1",
-    "host": "erlang.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:36Z",
-    "payload": null,
-    "last_error": null
+/builds/<id>.json
+{
+  "id": 474701,
+  "repository_id": 5047,
+  "number": "28",
+  "state": "started",
+  "started_at": "2012-01-03T21:50:12Z",
+  "finished_at": null,
+  "duration": null,
+  "config": {
+    "bundler_args": "--without development",
+    "before_script": [
+      "cp config/database.example.yml config/database.yml",
+      "cp config/application.example.yml config/application.yml",
+      "cp config/devise.example.yml config/devise.yml",
+      "bundle install",
+      "bundle exec rake db:setup",
+      "bundle exec rake db:test:prepare"
+    ],
+    "script": "RAILS_ENV=test bundle exec rake spec --trace",
+    "rvm": [
+      "1.9.2"
+    ],
+    "notifications": {
+      "email": [
+        "info@jonlaing.com"
+      ]
+    },
+    ".configured": true
   },
-  {
-    "id": 22932,
-    "name": "erlang-2",
-    "host": "erlang.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:36Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22933,
-    "name": "erlang-3",
-    "host": "erlang.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:36Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22922,
-    "name": "nodejs-1",
-    "host": "nodejs1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:35Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22923,
-    "name": "nodejs-2",
-    "host": "nodejs1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:35Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22924,
-    "name": "nodejs-3",
-    "host": "nodejs1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:35Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22917,
-    "name": "rails-1",
-    "host": "rails1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:34Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22918,
-    "name": "rails-2",
-    "host": "rails1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:34Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22919,
-    "name": "rails-3",
-    "host": "rails1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:34Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22920,
-    "name": "rails-4",
-    "host": "rails1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:34Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22921,
-    "name": "rails-5",
-    "host": "rails1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:34Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22940,
-    "name": "rails-1",
-    "host": "rails2.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:29Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22941,
-    "name": "rails-2",
-    "host": "rails2.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:29Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22942,
-    "name": "rails-3",
-    "host": "rails2.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:29Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22943,
-    "name": "rails-4",
-    "host": "rails2.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:29Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22944,
-    "name": "rails-5",
-    "host": "rails2.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:29Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22925,
-    "name": "ruby-1",
-    "host": "ruby1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:37Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22926,
-    "name": "ruby-2",
-    "host": "ruby1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:37Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22927,
-    "name": "ruby-3",
-    "host": "ruby1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:37Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22928,
-    "name": "ruby-4",
-    "host": "ruby1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:37Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22929,
-    "name": "ruby-5",
-    "host": "ruby1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:37Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22930,
-    "name": "ruby-6",
-    "host": "ruby1.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:37Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22945,
-    "name": "ruby-1",
-    "host": "ruby2.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:32Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22946,
-    "name": "ruby-2",
-    "host": "ruby2.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:32Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22947,
-    "name": "ruby-3",
-    "host": "ruby2.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:32Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22948,
-    "name": "ruby-4",
-    "host": "ruby2.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:32Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22949,
-    "name": "ruby-5",
-    "host": "ruby2.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:32Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22950,
-    "name": "ruby-6",
-    "host": "ruby2.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:32Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22951,
-    "name": "ruby-1",
-    "host": "ruby3.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:33Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22952,
-    "name": "ruby-2",
-    "host": "ruby3.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:33Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22953,
-    "name": "ruby-3",
-    "host": "ruby3.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:33Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22954,
-    "name": "ruby-4",
-    "host": "ruby3.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:33Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22955,
-    "name": "ruby-5",
-    "host": "ruby3.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:33Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22956,
-    "name": "ruby-6",
-    "host": "ruby3.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:33Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22934,
-    "name": "spree-1",
-    "host": "spree.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:29Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22935,
-    "name": "spree-2",
-    "host": "spree.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:29Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22936,
-    "name": "spree-3",
-    "host": "spree.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:29Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22937,
-    "name": "spree-4",
-    "host": "spree.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:29Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22938,
-    "name": "spree-5",
-    "host": "spree.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:29Z",
-    "payload": null,
-    "last_error": null
-  },
-  {
-    "id": 22939,
-    "name": "spree-6",
-    "host": "spree.worker.travis-ci.org",
-    "state": "ready",
-    "last_seen_at": "2012-01-02T16:00:29Z",
-    "payload": null,
-    "last_error": null
-  }
-]
+  "status": null,
+  "result": null,
+  "matrix": [
+    {
+      "id": 474702,
+      "repository_id": 5047,
+      "number": "28.1",
+      "state": "started",
+      "started_at": "2012-01-03T21:50:12Z",
+      "finished_at": null,
+      "config": {
+        "bundler_args": "--without development",
+        "before_script": [
+          "cp config/database.example.yml config/database.yml",
+          "cp config/application.example.yml config/application.yml",
+          "cp config/devise.example.yml config/devise.yml",
+          "bundle install",
+          "bundle exec rake db:setup",
+          "bundle exec rake db:test:prepare"
+        ],
+        "script": "RAILS_ENV=test bundle exec rake spec --trace",
+        "rvm": "1.9.2",
+        "notifications": {
+          "email": [
+            "info@jonlaing.com"
+          ]
+        },
+        ".configured": true
+      },
+      "status": null,
+      "result": null,
+      "build_id": 474701,
+      "commit": "00acab1cbbd6009eed685ef217cc6e77f130f10d",
+      "branch": "master",
+      "message": "Trying out active admin",
+      "committed_at": "2012-01-03T21:49:43Z",
+      "committer_name": null,
+      "committer_email": null,
+      "author_name": "Jon Laing",
+      "author_email": "jon.dreaux.laing@gmail.com",
+      "compare_url": "https://github.com/jonlaing/open-ga/compare/9691274...00acab1"
+    }
+  ],
+  "commit": "00acab1cbbd6009eed685ef217cc6e77f130f10d",
+  "branch": "master",
+  "message": "Trying out active admin",
+  "committed_at": "2012-01-03T21:49:43Z",
+  "committer_name": null,
+  "committer_email": null,
+  "author_name": "Jon Laing",
+  "author_email": "jon.dreaux.laing@gmail.com",
+  "compare_url": "https://github.com/jonlaing/open-ga/compare/9691274...00acab1"
+}
+

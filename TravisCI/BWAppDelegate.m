@@ -86,6 +86,18 @@
 
     [manager.mappingProvider setMapping:repositoryMapping forKeyPath:@"BWCDRepository"];
 
+
+    NSEntityDescription *buildDescription = [NSEntityDescription entityForName:@"BWCDBuild"
+                                                        inManagedObjectContext:self.managedObjectContext];
+    RKManagedObjectMapping *buildMapping = [RKManagedObjectMapping mappingForEntity:buildDescription];
+    [buildMapping mapAttributes:@"duration",@"finished_at",@"number",@"result",@"started_at",
+                                @"state", @"status", @"author_email", @"author_name", @"branch", 
+                                @"committed_at", @"committer_email", @"committer_name", @"compare_url",
+                                @"message", @"commit", nil];
+    [buildMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
+    buildMapping.primaryKeyAttribute = @"remote_id";
+
+    [manager.mappingProvider setMapping:buildMapping forKeyPath:@"BWCDBuild"];
 }
 						
 - (void)applicationWillResignActive:(UIApplication *)application {}
@@ -111,7 +123,7 @@
         {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
-        } 
+        }
     }
 }
 
@@ -139,7 +151,7 @@
     {
         return __persistentStoreCoordinator;
     }
-    
+
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"TravisCI.sqlite"];
     
     NSError *error = nil;

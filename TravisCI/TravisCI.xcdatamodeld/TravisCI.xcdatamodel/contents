@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BWCDBuild" syncable="YES">
+        <attribute name="author_email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="author_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="branch" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="commit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="committed_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="committer_email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="committer_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="compare_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="finished_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="remote_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="result" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="started_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="commit" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BWCDCommit" inverseName="build" inverseEntity="BWCDCommit" syncable="YES"/>
         <relationship name="jobs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BWCDJob" inverseName="build" inverseEntity="BWCDJob" syncable="YES"/>
         <relationship name="repository" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BWCDRepository" inverseName="builds" inverseEntity="BWCDRepository" syncable="YES"/>
-    </entity>
-    <entity name="BWCDCommit" syncable="YES">
-        <attribute name="author_email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="author_name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="branch" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="committed_at" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="committer_email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="committer_name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="compare_url" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sha" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="build" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BWCDBuild" inverseName="commit" inverseEntity="BWCDBuild" syncable="YES"/>
     </entity>
     <entity name="BWCDJob" syncable="YES">
         <attribute name="finished_at" optional="YES" attributeType="Date" syncable="YES"/>
@@ -52,9 +48,8 @@
         <relationship name="builds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BWCDBuild" inverseName="repository" inverseEntity="BWCDBuild" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BWCDBuild" positionX="-306" positionY="9" width="128" height="210"/>
-        <element name="BWCDCommit" positionX="-585" positionY="168" width="128" height="195"/>
-        <element name="BWCDJob" positionX="-72" positionY="219" width="128" height="195"/>
-        <element name="BWCDRepository" positionX="261" positionY="189" width="128" height="225"/>
+        <element name="BWCDBuild" positionX="-306" positionY="9" width="128" height="330"/>
+        <element name="BWCDJob" positionX="-72" positionY="9" width="128" height="195"/>
+        <element name="BWCDRepository" positionX="144" positionY="9" width="128" height="225"/>
     </elements>
 </model>

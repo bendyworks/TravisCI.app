@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "BWRepository.h"
+#import "RestKit/RKManagedObjectLoader.h"
 
-@interface BWRepositoryViewController : UIViewController <UISplitViewControllerDelegate>
+@interface BWRepositoryViewController : UIViewController <UISplitViewControllerDelegate, RKObjectLoaderDelegate>
 
 @property (strong, nonatomic) BWRepository *repository;
 
