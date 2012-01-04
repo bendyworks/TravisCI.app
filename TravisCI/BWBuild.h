@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSString *committer_name;
 @property (nonatomic, retain) NSString *compare_url;
 @property (nonatomic, retain) NSString *message;
+@property (nonatomic, retain) NSNumber *remote_id;
 
 @end

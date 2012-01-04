@@ -8,18 +8,19 @@
 
 #import "BWRepositoryViewController.h"
 #import "RestKit/RKObjectManager.h"
-#import "BWBuild.h"
+#import "BWAppDelegate.h"
 
 @interface BWRepositoryViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 - (void)displayRepositoryInformation;
-- (void)displayBuildInformation:(BWBuild *)build;
+- (void)displayBuildInformation;
 @end
 
 @implementation BWRepositoryViewController
 
 @synthesize repository = _repository;
+@synthesize build = _build;
 @synthesize masterPopoverController = _masterPopoverController;
 
 @synthesize repositoryNameLabel;
@@ -52,30 +53,23 @@
 
 - (void)configureView
 {
+
     // Update the user interface for the detail item.
 
     if (self.repository) {
         [self displayRepositoryInformation];
-
-        // start loading the build
-        RKObjectManager *manager = [RKObjectManager sharedManager];
-        NSString *build_path = [NSString stringWithFormat:@"/builds/%@.json", self.repository.last_build_id];
-        NSLog(@"fetching from %@", build_path);
-        [manager loadObjectsAtResourcePath:build_path
-                             objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDBuild"]
-                                  delegate:self];
+        [self displayBuildInformation];
     }
 }
 
-- (void)displayBuildInformation:(BWBuild *)build
+- (void)displayBuildInformation
 {
-
-    self.commitLabel.text = build.commit;
-    self.compareLabel.text = build.compare_url;
-    self.authorLabel.text = build.author_name;
-    self.committerLabel.text = build.committer_name;
-    self.messageLabel.text = build.message;
-//    self.configLabel.text = build.;
+    self.commitLabel.text = self.build.commit;
+    self.compareLabel.text = self.build.compare_url;
+    self.authorLabel.text = self.build.author_name;
+    self.committerLabel.text = self.build.committer_name;
+    self.messageLabel.text = self.build.message;
+//    self.configLabel.text = self.build.;
 }
 
 - (void)displayRepositoryInformation
@@ -99,6 +93,41 @@
     }
     [self.buildNumberLabel setTextColor:textColor];
     [self.statusImage setImage:[UIImage imageNamed:statusImageName]];
+}
+
+- (BWBuild *)build
+{
+    if (_build && [_build.remote_id isEqualToNumber:self.repository.last_build_id]) {
+        return _build;
+    }
+
+    // find a build in moc by remote_id
+    NSManagedObjectContext *moc = [(BWAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"BWCDBuild"];
+    NSNumber *build_id = self.repository.last_build_id;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"remote_id = %@", build_id];
+    [request setPredicate:predicate];
+
+    NSError *error = nil;
+    NSArray *fetched_results = [moc executeFetchRequest:request error:&error];
+
+    if (fetched_results == nil || [fetched_results lastObject] == nil) {
+        // start loading the build remotely
+        RKObjectManager *manager = [RKObjectManager sharedManager];
+        NSString *build_path = [NSString stringWithFormat:@"/builds/%@.json", self.repository.last_build_id];
+        [manager loadObjectsAtResourcePath:build_path
+                             objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDBuild"]
+                                  delegate:self];
+
+        NSManagedObject *managed_build = [NSEntityDescription insertNewObjectForEntityForName:@"BWCDBuild"
+                                                                       inManagedObjectContext:moc];
+        [managed_build setValue:self.repository.last_build_id forKey:@"remote_id"];
+        _build = [[BWBuild alloc] initWithManagedObject:managed_build];
+    } else {
+        _build = [[BWBuild alloc] initWithManagedObject:[fetched_results objectAtIndex:0]];
+    }
+
+    return _build;
 }
 
 - (void)didReceiveMemoryWarning
@@ -165,9 +194,8 @@
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObject:(id)object
 {
-    BWBuild *build = (BWBuild *)object;
-    [self displayBuildInformation:build];
-    NSLog(@"did load object: %@", build.state);
+    self.build = (BWBuild *)object;
+    [self displayBuildInformation];
 }
 
 @end

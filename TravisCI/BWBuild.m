@@ -10,7 +10,7 @@
 
 @implementation BWBuild
 
-@dynamic state;
+@dynamic state, remote_id;
 @dynamic author_email, author_name, commit, committer_name, compare_url, message;
 
 @end
