@@ -16,7 +16,6 @@
 @property (strong, nonatomic) BWRepository *repository;
 @property (strong, nonatomic) BWBuild *build;
 
-@property (strong, nonatomic) IBOutlet UILabel *repositoryNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *buildNumberLabel;
 @property (strong, nonatomic) IBOutlet UILabel *finishedLabel;
 @property (strong, nonatomic) IBOutlet UILabel *durationLabel;

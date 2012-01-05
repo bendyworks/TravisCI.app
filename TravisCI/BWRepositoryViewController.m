@@ -25,7 +25,6 @@
 @synthesize build = _build;
 @synthesize masterPopoverController = _masterPopoverController;
 
-@synthesize repositoryNameLabel;
 @synthesize buildNumberLabel;
 @synthesize finishedLabel;
 @synthesize durationLabel;
@@ -77,7 +76,6 @@
 - (void)displayRepositoryInformation
 {
     self.title = self.repository.slug;
-    self.repositoryNameLabel.text = self.repository.slug;
     self.buildNumberLabel.text = self.repository.last_build_number;
     self.finishedLabel.text = self.repository.finishedText;
     self.durationLabel.text = self.repository.durationText;
