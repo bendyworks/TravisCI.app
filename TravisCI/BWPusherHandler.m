@@ -51,7 +51,7 @@
     PTPusherChannel *channel = [self.client subscribeToChannelNamed:@"common"];
     
     [channel bindToEventNamed:@"build:started" target:[[BWCommandBuildStarted alloc] init] action:@selector(buildWasStarted:)];
-//    [channel bindToEventNamed:@"build:finished" target:[[BWCommandBuildFinished alloc] init] action:@selector(buildWasFinsihed:)];
+    [channel bindToEventNamed:@"build:finished" target:[[BWCommandBuildFinished alloc] init] action:@selector(buildWasFinsihed:)];
 
 #if PUSHER_EVENT_LOGGING
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveEvent:) name:PTPusherEventReceivedNotification object:channel];

@@ -220,7 +220,7 @@
 
     NSString *statusImage = @"status_yellow";
     UIColor *textColor = [UIColor blackColor];
-    if (repository.last_build_status != nil) {
+    if (repository.last_build_status != nil && repository.last_build_finished_at) {
         if (repository.last_build_status == [NSNumber numberWithInt:0]) {
             statusImage = @"status_green";
             textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];

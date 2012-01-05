@@ -66,6 +66,7 @@
     NSError *error = nil;
     [mappingOp performMapping:&error];
 
+    [manager.objectStore save];
 }
 
 @end

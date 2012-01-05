@@ -84,7 +84,7 @@
 
     NSString *statusImageName = @"status_yellow";
     UIColor *textColor = [UIColor blackColor];
-    if (self.repository.last_build_status != nil) {
+    if (self.repository.last_build_status != nil && self.repository.last_build_finished_at) {
         if (self.repository.last_build_status == [NSNumber numberWithInt:0]) {
             statusImageName = @"status_green";
             textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
