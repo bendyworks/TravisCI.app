@@ -9,14 +9,7 @@
 #import "BWCommandBuildFinished.h"
 #import "RestKit/RKObjectManager.h"
 #import "RestKit/RKObjectMapping.h"
-
-
-#import "RestKit/CoreData.h"
-
-@interface BWCommandBuildFinished()
-
-
-@end
+#import "BWCDObjectUpdater.h"
 
 
 @implementation BWCommandBuildFinished
@@ -48,7 +41,8 @@
 
 - (void)buildWasFinsihed:(PTPusherEvent *)event
 {
-    NSLog(@"build was finished");
+    NSDictionary *repositoryDictionary = [[event data] valueForKey:@"repository"];
+    [BWCDObjectUpdater updateRepositoryFromDictionary: repositoryDictionary];
 }
 
 @end

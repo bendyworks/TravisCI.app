@@ -9,9 +9,11 @@
 #import "BWCommandBuildStarted.h"
 #import "RestKit/RKObjectManager.h"
 #import "RestKit/RKObjectMapping.h"
-#import "RestKit/CoreData.h"
+#import "BWCDObjectUpdater.h"
 
 @implementation BWCommandBuildStarted
+
+
 
 /*
  * JSON for 'build:started' on common:
@@ -49,24 +51,8 @@
 
 - (void)buildWasStarted:(PTPusherEvent *)event
 {
-    //get the id and data to update
     NSDictionary *repositoryDictionary = [[event data] valueForKey:@"repository"];
-    NSNumber *repository_id = [repositoryDictionary valueForKey:@"id"];
-
-    RKObjectManager *manager = [RKObjectManager sharedManager];
-    NSManagedObjectContext *moc = [manager.objectStore managedObjectContext];
-    NSManagedObject *repository = [manager.objectStore findOrCreateInstanceOfEntity:[NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:moc]
-                                                      withPrimaryKeyAttribute:@"remote_id"
-                                                                     andValue:repository_id];
-
-    RKObjectMappingOperation *mappingOp = [RKObjectMappingOperation mappingOperationFromObject:repositoryDictionary
-                                                                               toObject:repository
-                                                                            withMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]];
-    
-    NSError *error = nil;
-    [mappingOp performMapping:&error];
-
-    [manager.objectStore save];
+    [BWCDObjectUpdater updateRepositoryFromDictionary: repositoryDictionary];
 }
 
 @end
