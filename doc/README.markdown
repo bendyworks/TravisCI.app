@@ -33,3 +33,44 @@ add a rvmrc file
 * tell TravisCI.app not to use actual pusher data
 
 `USE_ACTUAL_TRAVIS_CI_PUSHER_DATA 0`
+
+deploy
+---------
+
+you can also check out http://support.testflightapp.com/kb/tutorials/how-to-create-an-ipa-xcode-3
+
+* from Xcode click Product > Archive from the menu. When Xcode finishes you should see the organizer appear.
+
+* Select the resulting build, and click 'Share...'
+
+* Choose 'iOS App Store Package (.ipa)' from 'Contents:'
+
+* Select the ad-hoc profile that is set up with testflightapp.com 'TravisCI ad hoc' from 'Identity:' and click next
+
+* Save the ipa somewhere that makes sense
+
+* upload to testflightapp.com
+
+
+Adding a new device to test with the app
+----------------------------------------
+
+* sign up the user with testflightapp.com
+
+* once they register with a device retrieve their device's UUID from testflightapp.com
+
+* Register their device in our apple development portal.
+
+* In our apple development portal under Provisioning > Distribution Edit > Modify the ad-hoc profile
+
+* Select the newly regestered device and press Submit
+
+* Wait for apple (refresh the page after ~30 seconds upto 2 minutes)
+
+* Download the new profile
+
+* In the organizer delete the current ad-hoc profile
+
+* open the newly downloaded ad-hoc profile
+
+* your all set!
