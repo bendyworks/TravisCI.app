@@ -9,12 +9,14 @@
 #import "BWRepositoryViewController.h"
 #import "RestKit/RKObjectManager.h"
 #import "BWAppDelegate.h"
+#import "BWEmptyBuild.h"
 
 @interface BWRepositoryViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 - (void)displayRepositoryInformation;
 - (void)displayBuildInformation;
+- (NSManagedObject *)buildInSharedMOC;
 @end
 
 @implementation BWRepositoryViewController
@@ -41,7 +43,7 @@
 {
     if (_repository != newRepository) {
         _repository = newRepository;
-        
+
         // Update the view.
         [self configureView];
     }
@@ -95,23 +97,31 @@
     [self.statusImage setImage:[UIImage imageNamed:statusImageName]];
 }
 
+- (NSManagedObject *)buildInSharedMOC
+{
+    NSManagedObjectContext *moc = [[RKObjectManager sharedManager].objectStore managedObjectContext];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"BWCDBuild"];
+    NSNumber *build_id = self.repository.last_build_id;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"remote_id = %@", build_id];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *fetched_results = [moc executeFetchRequest:request error:&error];
+    
+    return [fetched_results lastObject];
+}
+
 - (BWBuild *)build
 {
     if (_build && [_build.remote_id isEqualToNumber:self.repository.last_build_id]) {
         return _build;
     }
 
-    // find a build in moc by remote_id
-    NSManagedObjectContext *moc = [(BWAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"BWCDBuild"];
-    NSNumber *build_id = self.repository.last_build_id;
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"remote_id = %@", build_id];
-    [request setPredicate:predicate];
+    NSManagedObject *found_build = [self buildInSharedMOC];
 
-    NSError *error = nil;
-    NSArray *fetched_results = [moc executeFetchRequest:request error:&error];
-
-    if (fetched_results == nil || [fetched_results lastObject] == nil) {
+    if (found_build) {
+        _build = [BWBuild presenterWithObject:found_build];
+    } else {
         // start loading the build remotely
         RKObjectManager *manager = [RKObjectManager sharedManager];
         NSString *build_path = [NSString stringWithFormat:@"/builds/%@.json", self.repository.last_build_id];
@@ -119,12 +129,8 @@
                              objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDBuild"]
                                   delegate:self];
 
-        NSManagedObject *managed_build = [NSEntityDescription insertNewObjectForEntityForName:@"BWCDBuild"
-                                                                       inManagedObjectContext:moc];
-        [managed_build setValue:self.repository.last_build_id forKey:@"remote_id"];
-        _build = [[BWBuild alloc] initWithManagedObject:managed_build];
-    } else {
-        _build = [[BWBuild alloc] initWithManagedObject:[fetched_results objectAtIndex:0]];
+        _build = [BWBuild presenterWithObject:[[BWEmptyBuild alloc] init]];
+        _build.remote_id = self.repository.last_build_id;
     }
 
     return _build;
@@ -190,11 +196,14 @@
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
     // handle error
     NSLog(@"error!");
+    // clear and try again
+    _build = nil;
+    [self displayBuildInformation];
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObject:(id)object
 {
-    self.build = (BWBuild *)object;
+    _build = nil;
     [self displayBuildInformation];
 }
 

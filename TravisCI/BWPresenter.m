@@ -11,12 +11,12 @@
 @implementation BWPresenter
 @synthesize object = _object;
 
-+ (id)presenterWithManagedObject:(NSManagedObject *)obj
++ (id)presenterWithObject:(id)obj
 {
-    return [[self alloc] initWithManagedObject:obj];
+    return [[self alloc] initWithObject:obj];
 }
 
-- (id)initWithManagedObject:(NSManagedObject *)obj
+- (id)initWithObject:(id)obj
 {
     self = [super init];
     if (self != nil) {

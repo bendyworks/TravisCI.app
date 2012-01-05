@@ -22,6 +22,7 @@
 		DA703B6F14A26A9D00C6CF6C /* BWPusherHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B6E14A26A9D00C6CF6C /* BWPusherHandler.m */; };
 		DA703B7414A286D700C6CF6C /* BWBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B7314A286D700C6CF6C /* BWBuild.m */; };
 		DA703B7714A2874B00C6CF6C /* BWPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B7614A2874B00C6CF6C /* BWPresenter.m */; };
+		DA8D7ACF14B606D5009A731B /* BWEmptyBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8D7ACE14B606D5009A731B /* BWEmptyBuild.m */; };
 		DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
 		DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
@@ -134,6 +135,8 @@
 		DA703B7314A286D700C6CF6C /* BWBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuild.m; sourceTree = "<group>"; };
 		DA703B7514A2874B00C6CF6C /* BWPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWPresenter.h; sourceTree = "<group>"; };
 		DA703B7614A2874B00C6CF6C /* BWPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPresenter.m; sourceTree = "<group>"; };
+		DA8D7ACD14B606D5009A731B /* BWEmptyBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWEmptyBuild.h; sourceTree = "<group>"; };
+		DA8D7ACE14B606D5009A731B /* BWEmptyBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWEmptyBuild.m; sourceTree = "<group>"; };
 		DA966CFB149FAC3900C229CB /* TravisCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravisCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966CFF149FAC3900C229CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA966D01149FAC3900C229CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -288,6 +291,8 @@
 			children = (
 				DA703B7214A286D700C6CF6C /* BWBuild.h */,
 				DA703B7314A286D700C6CF6C /* BWBuild.m */,
+				DA8D7ACD14B606D5009A731B /* BWEmptyBuild.h */,
+				DA8D7ACE14B606D5009A731B /* BWEmptyBuild.m */,
 			);
 			name = Build;
 			sourceTree = "<group>";
@@ -651,6 +656,7 @@
 				DAA41BDB14A3DE3600C97A37 /* AsyncSocket.m in Sources */,
 				DAA41BDC14A3DE3600C97A37 /* ZTWebSocket.m in Sources */,
 				DAA41BF714A5186200C97A37 /* BWCommandBuildStarted.m in Sources */,
+				DA8D7ACF14B606D5009A731B /* BWEmptyBuild.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

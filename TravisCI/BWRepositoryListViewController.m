@@ -93,7 +93,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.detailViewController.repository = [BWRepository presenterWithManagedObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+        self.detailViewController.repository = [BWRepository presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
     }
 }
 
@@ -220,7 +220,7 @@
 
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    BWRepository *repository = [BWRepository presenterWithManagedObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    BWRepository *repository = [BWRepository presenterWithObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     cell.slug.text = repository.slug;
     cell.buildNumber.text = [NSString stringWithFormat:@"#%@", repository.last_build_number];
 

@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface BWPresenter : NSObject
-+ (id)presenterWithManagedObject:(NSManagedObject *)obj;
-- (id)initWithManagedObject:(NSManagedObject *)obj;
++ (id)presenterWithObject:(id)obj;
+- (id)initWithObject:(id)obj;
 
-@property (nonatomic, strong) NSManagedObject *object;
+@property (nonatomic, strong) id object;
 @end
