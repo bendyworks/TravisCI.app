@@ -9,6 +9,7 @@
 #import "BWCommandBuildStarted.h"
 #import "RestKit/RKObjectManager.h"
 #import "RestKit/RKObjectMapping.h"
+#import "RestKit/CoreData.h"
 
 @implementation BWCommandBuildStarted
 
@@ -48,15 +49,23 @@
 
 - (void)buildWasStarted:(PTPusherEvent *)event
 {
-    // So, we receive the repository JSON object in the event.data, but we're just going to refetch the repo
-    // because we don't know how to fake a request-response cycle in RestKit with some already-known JSON
-
-    NSInteger repositoryId = [[[[event data] valueForKey:@"repository"] valueForKey:@"id"] integerValue];
-    NSString *repositoryPath = [NSString stringWithFormat:@"/repositories/%d.json", repositoryId];
+    //get the id and data to update
+    NSDictionary *repositoryDictionary = [[event data] valueForKey:@"repository"];
+    NSNumber *repository_id = [repositoryDictionary valueForKey:@"id"];
 
     RKObjectManager *manager = [RKObjectManager sharedManager];
-    RKObjectMapping *mapping = [manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"];
-    [manager loadObjectsAtResourcePath:repositoryPath objectMapping:mapping delegate:nil];
+    NSManagedObjectContext *moc = [manager.objectStore managedObjectContext];
+    NSManagedObject *repository = [manager.objectStore findOrCreateInstanceOfEntity:[NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:moc]
+                                                      withPrimaryKeyAttribute:@"remote_id"
+                                                                     andValue:repository_id];
+
+    RKObjectMappingOperation *mappingOp = [RKObjectMappingOperation mappingOperationFromObject:repositoryDictionary
+                                                                               toObject:repository
+                                                                            withMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]];
+    
+    NSError *error = nil;
+    [mappingOp performMapping:&error];
+
 }
 
 @end
