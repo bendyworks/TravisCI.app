@@ -25,6 +25,8 @@
 @synthesize build = _build;
 @synthesize masterPopoverController = _masterPopoverController;
 
+@synthesize jobTable;
+
 @synthesize buildNumberLabel;
 @synthesize finishedLabel;
 @synthesize durationLabel;

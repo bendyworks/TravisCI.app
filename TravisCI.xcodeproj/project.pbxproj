@@ -25,6 +25,7 @@
 		DA703B7414A286D700C6CF6C /* BWBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B7314A286D700C6CF6C /* BWBuild.m */; };
 		DA703B7714A2874B00C6CF6C /* BWPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B7614A2874B00C6CF6C /* BWPresenter.m */; };
 		DA8D7ACF14B606D5009A731B /* BWEmptyBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8D7ACE14B606D5009A731B /* BWEmptyBuild.m */; };
+		DA948D5D14B7920700360BA9 /* BWJobTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA948D5C14B7920700360BA9 /* BWJobTableViewController.m */; };
 		DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
 		DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
@@ -143,6 +144,8 @@
 		DA703B7614A2874B00C6CF6C /* BWPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPresenter.m; sourceTree = "<group>"; };
 		DA8D7ACD14B606D5009A731B /* BWEmptyBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWEmptyBuild.h; sourceTree = "<group>"; };
 		DA8D7ACE14B606D5009A731B /* BWEmptyBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWEmptyBuild.m; sourceTree = "<group>"; };
+		DA948D5B14B7920700360BA9 /* BWJobTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = BWJobTableViewController.h; sourceTree = "<group>"; };
+		DA948D5C14B7920700360BA9 /* BWJobTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWJobTableViewController.m; sourceTree = "<group>"; };
 		DA966CFB149FAC3900C229CB /* TravisCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravisCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966CFF149FAC3900C229CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA966D01149FAC3900C229CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -373,6 +376,8 @@
 				DA683C7C149FDC4F000477AF /* BWRepositoryTableCell.xib */,
 				DA966D08149FAC3900C229CB /* Supporting Files */,
 				DA311A0C14B63CAA00F351C7 /* Pusher */,
+				DA948D5B14B7920700360BA9 /* BWJobTableViewController.h */,
+				DA948D5C14B7920700360BA9 /* BWJobTableViewController.m */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";
@@ -677,6 +682,7 @@
 				DA8D7ACF14B606D5009A731B /* BWEmptyBuild.m in Sources */,
 				DA311A0B14B63CA200F351C7 /* BWCommandBuildFinished.m in Sources */,
 				DA311A0F14B658D100F351C7 /* BWCDObjectMananger.m in Sources */,
+				DA948D5D14B7920700360BA9 /* BWJobTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
