@@ -9,13 +9,20 @@
 #import "BWJobTableViewController.h"
 #import "RestKit/CoreData.h"
 #import "BWJob.h"
+#import "BWJobTableCell.h"
+
+@interface BWJobTableViewController()
+
+- (void)configureCell:(BWJobTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
+@end
 
 
 @implementation BWJobTableViewController
 
 
 @synthesize fetchedResultsController = __fetchedResultsController;
-
+@synthesize jobCellNib;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -64,18 +71,37 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{    
+    NSLog(@"cell for row at index path");
+    BWJobTableCell *cell = [BWJobTableCell cellForTableView:tableView fromNib:self.jobCellNib];
+    [self configureCell:cell atIndexPath:indexPath];
+
+    return cell;
+}
+
+- (void)configureCell:(BWJobTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"JobListCell";
+    BWJob *job = [BWJob presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    
+    NSString *statusImage = @"status_yellow";
+    UIColor *textColor = [UIColor blackColor];
+    if (job.status != nil) {
+        if (job.status == [NSNumber numberWithInt:0]) {
+            statusImage = @"status_green";
+            textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+        } else {
+            statusImage = @"status_red";
+            textColor = [UIColor colorWithRed:0.75f green:0.0f blue:0.0f alpha:1.0f];
+        }
     }
     
-    BWJob *job = [BWJob presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+    [cell.buildIcon setImage:[UIImage imageNamed:statusImage]];
+    [cell.number setText:job.number];
+    [cell.number setTextColor:textColor];
+    //    [cell.duration setText:job.duration_text];
+    //    [cell.finished setText:job.duration_text];
 
-    [cell.textLabel setText:job.number];
-    return cell;
 }
 
 #pragma mark - Table view delegate
@@ -89,6 +115,14 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (UINib *)jobCellNib
+{
+    if (jobCellNib == nil) {
+        self.jobCellNib = [BWJobTableCell nib];
+    }
+    return jobCellNib;
 }
 
 #pragma mark - Fetched results controller

@@ -10,6 +10,8 @@
 
 @interface BWJobTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
+
+@property (strong, nonatomic) UINib *jobCellNib;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
