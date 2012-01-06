@@ -11,6 +11,24 @@
 
 @implementation BWCDObjectMananger
 
+
++ (NSManagedObject *)buildWithID:(NSNumber *)build_id
+{
+    NSManagedObjectContext *moc = [[RKObjectManager sharedManager].objectStore managedObjectContext];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"BWCDBuild"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"remote_id = %@", build_id];
+    [request setPredicate:predicate];
+
+    NSError *error = nil;
+    NSArray *fetched_results = [moc executeFetchRequest:request error:&error];
+
+    if (error) {
+        NSLog(@"buildWithID: %@ threw error: \n %@", build_id,error);
+    }
+
+    return [fetched_results lastObject];
+}
+
 + (void)updateRepositoryFromDictionary:(NSDictionary *)repositoryDictionary
 {
     NSNumber *repository_id = [repositoryDictionary valueForKey:@"id"];

@@ -10,13 +10,13 @@
 #import "RestKit/RKObjectManager.h"
 #import "BWAppDelegate.h"
 #import "BWEmptyBuild.h"
+#import "BWCDObjectMananger.h"
 
 @interface BWRepositoryViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 - (void)displayRepositoryInformation;
 - (void)displayBuildInformation;
-- (NSManagedObject *)buildInSharedMOC;
 @end
 
 @implementation BWRepositoryViewController
@@ -95,27 +95,13 @@
     [self.statusImage setImage:[UIImage imageNamed:statusImageName]];
 }
 
-- (NSManagedObject *)buildInSharedMOC
-{
-    NSManagedObjectContext *moc = [[RKObjectManager sharedManager].objectStore managedObjectContext];
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"BWCDBuild"];
-    NSNumber *build_id = self.repository.last_build_id;
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"remote_id = %@", build_id];
-    [request setPredicate:predicate];
-    
-    NSError *error = nil;
-    NSArray *fetched_results = [moc executeFetchRequest:request error:&error];
-    
-    return [fetched_results lastObject];
-}
-
 - (BWBuild *)build
 {
     if (_build && [_build.remote_id isEqualToNumber:self.repository.last_build_id]) {
         return _build;
     }
 
-    NSManagedObject *found_build = [self buildInSharedMOC];
+    NSManagedObject *found_build = [BWCDObjectMananger buildWithID:self.repository.last_build_id];
 
     if (found_build) {
         _build = [BWBuild presenterWithObject:found_build];
