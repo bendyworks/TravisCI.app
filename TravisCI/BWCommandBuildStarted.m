@@ -9,7 +9,7 @@
 #import "BWCommandBuildStarted.h"
 #import "RestKit/RKObjectManager.h"
 #import "RestKit/RKObjectMapping.h"
-#import "BWCDObjectUpdater.h"
+#import "BWCDObjectMananger.h"
 
 @implementation BWCommandBuildStarted
 
@@ -52,7 +52,7 @@
 - (void)buildWasStarted:(PTPusherEvent *)event
 {
     NSDictionary *repositoryDictionary = [[event data] valueForKey:@"repository"];
-    [BWCDObjectUpdater updateRepositoryFromDictionary: repositoryDictionary];
+    [BWCDObjectMananger updateRepositoryFromDictionary: repositoryDictionary];
 }
 
 @end
