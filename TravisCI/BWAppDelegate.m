@@ -97,7 +97,25 @@
     [buildMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
     buildMapping.primaryKeyAttribute = @"remote_id";
 
+    
+    
+    NSEntityDescription *jobDescription = [NSEntityDescription entityForName:@"BWCDJob"
+                                                      inManagedObjectContext:self.managedObjectContext];
+    RKManagedObjectMapping *buildJobMapping = [RKManagedObjectMapping mappingForEntity:jobDescription];
+    //    [jobMapping mapAttributes:@"finished", nil];
+    [buildJobMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
+    buildJobMapping.primaryKeyAttribute = @"remote_id";
+    
+    [buildMapping mapKeyPath:@"matrix"
+              toRelationship:@"jobs"
+                 withMapping:buildJobMapping];
+
     [manager.mappingProvider setMapping:buildMapping forKeyPath:@"BWCDBuild"];
+
+    
+    
+
+    
 }
 						
 - (void)applicationWillResignActive:(UIApplication *)application {}
