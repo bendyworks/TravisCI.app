@@ -8,6 +8,7 @@
 
 #import "BWJobTableViewController.h"
 #import "RestKit/CoreData.h"
+#import "BWJob.h"
 
 
 @implementation BWJobTableViewController
@@ -64,15 +65,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"JobListCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    
+    BWJob *job = [BWJob presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+
+    [cell.textLabel setText:job.number];
     return cell;
 }
 
@@ -88,6 +90,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
 #pragma mark - Fetched results controller
 
 - (NSFetchedResultsController *)fetchedResultsController
