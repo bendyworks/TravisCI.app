@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BWJobTableViewController : UITableViewController
+@interface BWJobTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
