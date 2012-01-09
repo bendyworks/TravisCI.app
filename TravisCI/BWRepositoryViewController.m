@@ -27,16 +27,17 @@
 
 @synthesize jobTable;
 
-@synthesize buildNumberLabel;
-@synthesize finishedLabel;
-@synthesize durationLabel;
-@synthesize commitLabel;
-@synthesize compareLabel;
-@synthesize authorLabel;
-@synthesize committerLabel;
-@synthesize messageLabel;
-@synthesize configLabel;
-@synthesize statusImage;
+@synthesize repositoryName;
+@synthesize buildNumber;
+@synthesize finished;
+@synthesize duration;
+@synthesize commit;
+@synthesize compare;
+@synthesize author;
+@synthesize committer;
+@synthesize message;
+@synthesize config;
+@synthesize statusIcon;
 
 #pragma mark - Managing the detail item
 
@@ -67,20 +68,21 @@
 
 - (void)displayBuildInformation
 {
-    self.commitLabel.text = self.build.commit;
-    self.compareLabel.text = self.build.compare_url;
-    self.authorLabel.text = self.build.author_name;
-    self.committerLabel.text = self.build.committer_name;
-    self.messageLabel.text = self.build.message;
+    self.commit.text = self.build.commit;
+    self.compare.text = self.build.compare_url;
+    self.author.text = self.build.author_name;
+    self.committer.text = self.build.committer_name;
+    self.message.text = self.build.message;
 //    self.configLabel.text = self.build.;
 }
 
 - (void)displayRepositoryInformation
 {
-    self.title = self.repository.slug;
-    self.buildNumberLabel.text = self.repository.last_build_number;
-    self.finishedLabel.text = self.repository.finishedText;
-    self.durationLabel.text = self.repository.durationText;
+    self.repositoryName.text = self.repository.slug;
+    self.buildNumber.text = self.repository.last_build_number;
+    self.finished.text = self.repository.finishedText;
+    self.duration.text = self.repository.durationText;
+
 
     NSString *statusImageName = @"status_yellow";
     UIColor *textColor = [UIColor blackColor];
@@ -93,8 +95,8 @@
             textColor = [UIColor colorWithRed:0.75f green:0.0f blue:0.0f alpha:1.0f];
         }
     }
-    [self.buildNumberLabel setTextColor:textColor];
-    [self.statusImage setImage:[UIImage imageNamed:statusImageName]];
+    [self.buildNumber setTextColor:textColor];
+    [self.statusIcon setImage:[UIImage imageNamed:statusImageName]];
 }
 
 - (BWBuild *)build

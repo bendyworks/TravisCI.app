@@ -21,15 +21,16 @@
 
 @property (strong, nonatomic) BWJobTableViewController *jobTable;
 
-@property (strong, nonatomic) IBOutlet UILabel *buildNumberLabel;
-@property (strong, nonatomic) IBOutlet UILabel *finishedLabel;
-@property (strong, nonatomic) IBOutlet UILabel *durationLabel;
-@property (strong, nonatomic) IBOutlet UILabel *commitLabel;
-@property (strong, nonatomic) IBOutlet UILabel *compareLabel;
-@property (strong, nonatomic) IBOutlet UILabel *authorLabel;
-@property (strong, nonatomic) IBOutlet UILabel *committerLabel;
-@property (strong, nonatomic) IBOutlet UILabel *messageLabel;
-@property (strong, nonatomic) IBOutlet UILabel *configLabel;
-@property (nonatomic, strong) IBOutlet UIImageView *statusImage;
+@property (strong, nonatomic) IBOutlet UILabel *repositoryName;
+@property (strong, nonatomic) IBOutlet UILabel *buildNumber;
+@property (strong, nonatomic) IBOutlet UILabel *finished;
+@property (strong, nonatomic) IBOutlet UILabel *duration;
+@property (strong, nonatomic) IBOutlet UILabel *commit;
+@property (strong, nonatomic) IBOutlet UILabel *compare;
+@property (strong, nonatomic) IBOutlet UILabel *author;
+@property (strong, nonatomic) IBOutlet UILabel *committer;
+@property (strong, nonatomic) IBOutlet UILabel *message;
+@property (strong, nonatomic) IBOutlet UILabel *config;
+@property (nonatomic, strong) IBOutlet UIImageView *statusIcon;
 
 @end
