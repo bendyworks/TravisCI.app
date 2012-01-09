@@ -98,11 +98,11 @@
     buildMapping.primaryKeyAttribute = @"remote_id";
 
     
-    
+    // This mapping isn't right yet.
     NSEntityDescription *jobDescription = [NSEntityDescription entityForName:@"BWCDJob"
                                                       inManagedObjectContext:self.managedObjectContext];
     RKManagedObjectMapping *buildJobMapping = [RKManagedObjectMapping mappingForEntity:jobDescription];
-    //    [jobMapping mapAttributes:@"finished", nil];
+    [buildJobMapping mapAttributes:@"finished", nil];
     [buildJobMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
     buildJobMapping.primaryKeyAttribute = @"remote_id";
     

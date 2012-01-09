@@ -7,8 +7,11 @@
 //
 
 #import "BWPresenter.h"
+#import "RestKit/RKObjectLoader.h"
 
-@interface BWBuild : BWPresenter
+@interface BWBuild : BWPresenter <RKObjectLoaderDelegate>
+
+- (void)fetchJobs;
 
 @property (nonatomic, strong) NSNumber *remote_id;
 @property (nonatomic, strong) NSString *state;

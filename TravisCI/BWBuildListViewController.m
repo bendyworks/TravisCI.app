@@ -140,8 +140,12 @@
     if (self.jobListController == nil) {
         self.jobListController = [[BWJobListViewController alloc] initWithStyle:UITableViewStylePlain];
     }
+
+    BWBuild *build = [BWBuild presenterWithObject:[self.fetchedResults objectAtIndexPath:indexPath]];
+    [build fetchJobs];
+    // [self.detailViewController configureViewAndSetBuild:build];
     
-    self.jobListController.build = [BWBuild presenterWithObject:[self.fetchedResults objectAtIndexPath:indexPath]];
+    self.jobListController.build = build;
     [self.navigationController pushViewController:self.jobListController animated:YES];
 }
 

@@ -79,8 +79,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{    
-    NSLog(@"cell for row at index path");
+{
     BWJobTableCell *cell = [BWJobTableCell cellForTableView:tableView fromNib:self.jobCellNib];
     [self configureCell:cell atIndexPath:indexPath];
 
@@ -90,8 +89,8 @@
 - (void)configureCell:(BWJobTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     BWJob *job = [BWJob presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
-    
-    
+    NSLog(@"job = %@", job.object);
+
     NSString *statusImage = @"status_yellow";
     UIColor *textColor = [UIColor blackColor];
     if (job.status != nil) {
