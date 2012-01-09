@@ -40,10 +40,10 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setRepository:(BWRepository *)newRepository
+- (void)configureViewAndSetRepository:(BWRepository *)newRepository
 {
-    if (_repository != newRepository) {
-        _repository = newRepository;
+    if (self.repository != newRepository) {
+        self.repository = newRepository;
 
         // Update the view.
         [self configureView];

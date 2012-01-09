@@ -14,6 +14,8 @@
 
 @interface BWRepositoryViewController : UIViewController <UISplitViewControllerDelegate, RKObjectLoaderDelegate>
 
+- (void)configureViewAndSetRepository:(BWRepository *)newRepository;
+
 @property (strong, nonatomic) BWRepository *repository;
 @property (strong, nonatomic) BWBuild *build;
 
