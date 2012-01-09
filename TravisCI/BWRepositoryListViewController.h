@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@class BWRepositoryViewController;
+@class BWRepositoryViewController, BWBuildListViewController;
 
 @interface BWRepositoryListViewController : UITableViewController <NSFetchedResultsControllerDelegate, RKObjectLoaderDelegate>
 
 @property (nonatomic, strong) UINib *repositoryCellNib;
 @property (strong, nonatomic) BWRepositoryViewController *detailViewController;
+@property (nonatomic, strong) BWBuildListViewController *buildListController;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

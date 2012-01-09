@@ -24,6 +24,7 @@
 		DA703B6F14A26A9D00C6CF6C /* BWPusherHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B6E14A26A9D00C6CF6C /* BWPusherHandler.m */; };
 		DA703B7414A286D700C6CF6C /* BWBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B7314A286D700C6CF6C /* BWBuild.m */; };
 		DA703B7714A2874B00C6CF6C /* BWPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B7614A2874B00C6CF6C /* BWPresenter.m */; };
+		DA7C596614BB4F4500569F66 /* BWBuildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C596514BB4F4500569F66 /* BWBuildListViewController.m */; };
 		DA8D7ACF14B606D5009A731B /* BWEmptyBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8D7ACE14B606D5009A731B /* BWEmptyBuild.m */; };
 		DA948D5D14B7920700360BA9 /* BWJobListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA948D5C14B7920700360BA9 /* BWJobListViewController.m */; };
 		DA948D6014B79DF900360BA9 /* BWJob.m in Sources */ = {isa = PBXBuildFile; fileRef = DA948D5F14B79DF900360BA9 /* BWJob.m */; };
@@ -145,6 +146,8 @@
 		DA703B7314A286D700C6CF6C /* BWBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuild.m; sourceTree = "<group>"; };
 		DA703B7514A2874B00C6CF6C /* BWPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWPresenter.h; sourceTree = "<group>"; };
 		DA703B7614A2874B00C6CF6C /* BWPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPresenter.m; sourceTree = "<group>"; };
+		DA7C596414BB4F4500569F66 /* BWBuildListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBuildListViewController.h; sourceTree = "<group>"; };
+		DA7C596514BB4F4500569F66 /* BWBuildListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuildListViewController.m; sourceTree = "<group>"; };
 		DA8D7ACD14B606D5009A731B /* BWEmptyBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWEmptyBuild.h; sourceTree = "<group>"; };
 		DA8D7ACE14B606D5009A731B /* BWEmptyBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWEmptyBuild.m; sourceTree = "<group>"; };
 		DA948D5B14B7920700360BA9 /* BWJobListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWJobListViewController.h; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 				DA948D6414B7A29700360BA9 /* BWJobTableCell.h */,
 				DA948D6514B7A29800360BA9 /* BWJobTableCell.m */,
 				DA948D6714B7A34D00360BA9 /* BWJobTableCell.xib */,
+				DA7C596414BB4F4500569F66 /* BWBuildListViewController.h */,
+				DA7C596514BB4F4500569F66 /* BWBuildListViewController.m */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";
@@ -707,6 +712,7 @@
 				DA948D5D14B7920700360BA9 /* BWJobListViewController.m in Sources */,
 				DA948D6014B79DF900360BA9 /* BWJob.m in Sources */,
 				DA948D6614B7A29800360BA9 /* BWJobTableCell.m in Sources */,
+				DA7C596614BB4F4500569F66 /* BWBuildListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

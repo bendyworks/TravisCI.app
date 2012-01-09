@@ -9,6 +9,7 @@
 #import "BWRepositoryListViewController.h"
 #import "BWRepositoryViewController.h"
 #import "BWRepositoryTableCell.h"
+#import "BWBuildListViewController.h"
 
 #import "BWRepository.h"
 
@@ -23,6 +24,7 @@
 @synthesize detailViewController = _detailViewController;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize buildListController = _buildListController;
 
 - (void)awakeFromNib
 {
@@ -94,6 +96,9 @@
 {
     BWRepository *repository = [BWRepository presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
     [self.detailViewController configureViewAndSetRepository:repository];
+
+    self.buildListController.repository = repository;
+    [self.navigationController pushViewController:self.buildListController animated:YES];
 }
 
 - (UINib *)repositoryCellNib
@@ -238,6 +243,19 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+#pragma mark Getters and Setters
+
+- (BWBuildListViewController *)buildListController
+{
+    if (_buildListController != nil) {
+        return _buildListController;
+    }
+    
+    _buildListController = [[BWBuildListViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    return _buildListController;
 }
 
 @end

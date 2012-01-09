@@ -13,6 +13,7 @@
 - (NSString *)durationText;
 - (NSString *)finishedText;
 
+@property (nonatomic, retain) NSNumber *remote_id;
 @property (nonatomic, retain) NSString *slug;
 @property (nonatomic, retain) NSString *last_build_number;
 @property (nonatomic, retain) NSNumber *last_build_status;
