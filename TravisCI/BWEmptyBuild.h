@@ -10,12 +10,13 @@
 
 @interface BWEmptyBuild : NSObject
 
-@property (nonatomic, retain) NSString *state;
-@property (nonatomic, retain) NSString *author_email;
-@property (nonatomic, retain) NSString *author_name;
-@property (nonatomic, retain) NSString *commit;
-@property (nonatomic, retain) NSString *committer_name;
-@property (nonatomic, retain) NSString *compare_url;
-@property (nonatomic, retain) NSString *message;
-@property (nonatomic, retain) NSNumber *remote_id;
+@property (nonatomic, strong) NSNumber *remote_id;
+@property (nonatomic, strong) NSString *state;
+@property (nonatomic, strong) NSString *number;
+@property (nonatomic, strong) NSString *author_email;
+@property (nonatomic, strong) NSString *author_name;
+@property (nonatomic, strong) NSString *commit;
+@property (nonatomic, strong) NSString *committer_name;
+@property (nonatomic, strong) NSString *compare_url;
+@property (nonatomic, strong) NSString *message;
 @end
