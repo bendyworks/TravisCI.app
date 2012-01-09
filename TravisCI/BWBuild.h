@@ -19,5 +19,6 @@
 @property (nonatomic, strong) NSString *committer_name;
 @property (nonatomic, strong) NSString *compare_url;
 @property (nonatomic, strong) NSString *message;
+@property (nonatomic, strong) NSNumber *repository_id;
 
 @end

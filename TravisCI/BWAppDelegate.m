@@ -93,7 +93,7 @@
     [buildMapping mapAttributes:@"duration",@"finished_at",@"number",@"result",@"started_at",
                                 @"state", @"status", @"author_email", @"author_name", @"branch", 
                                 @"committed_at", @"committer_email", @"committer_name", @"compare_url",
-                                @"message", @"commit", nil];
+                                @"message", @"commit", @"repository_id", nil];
     [buildMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
     buildMapping.primaryKeyAttribute = @"remote_id";
 
@@ -112,10 +112,10 @@
 
     [manager.mappingProvider setMapping:buildMapping forKeyPath:@"BWCDBuild"];
 
-    
-    
+    [buildMapping mapRelationship:@"repository" withMapping:repositoryMapping];
+    [buildMapping connectRelationship:@"repository" withObjectForPrimaryKeyAttribute:@"repository_id"];
 
-    
+    // do same two lines above, but for job -> build ?
 }
 						
 - (void)applicationWillResignActive:(UIApplication *)application {}
