@@ -10,7 +10,7 @@
 #import "BWRepository.h"
 #import "BWBuild.h"
 #import "RestKit/RKManagedObjectLoader.h"
-#import "BWJobTableViewController.h"
+#import "BWJobListViewController.h"
 
 @interface BWRepositoryViewController : UIViewController <UISplitViewControllerDelegate, RKObjectLoaderDelegate>
 
@@ -19,7 +19,7 @@
 @property (strong, nonatomic) BWRepository *repository;
 @property (strong, nonatomic) BWBuild *build;
 
-@property (strong, nonatomic) BWJobTableViewController *jobTable;
+@property (strong, nonatomic) BWJobListViewController *jobTable;
 
 @property (strong, nonatomic) IBOutlet UILabel *repositoryName;
 @property (strong, nonatomic) IBOutlet UILabel *buildNumber;
