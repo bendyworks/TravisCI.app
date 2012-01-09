@@ -24,7 +24,7 @@
 @property (nonatomic, retain) NSNumber * duration;
 @property (nonatomic, retain) NSDate * finished_at;
 @property (nonatomic, retain) NSString * message;
-@property (nonatomic, retain) NSString * number;
+@property (nonatomic, retain) NSNumber * number;
 @property (nonatomic, retain) NSNumber * remote_id;
 @property (nonatomic, retain) NSNumber * result;
 @property (nonatomic, retain) NSDate * started_at;

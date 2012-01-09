@@ -12,7 +12,7 @@
         <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="finished_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="remote_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="repository_id" optional="YES" transient="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="result" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -49,7 +49,7 @@
         <relationship name="builds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BWCDBuild" inverseName="repository" inverseEntity="BWCDBuild" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BWCDBuild" positionX="-306" positionY="9" width="128" height="330"/>
+        <element name="BWCDBuild" positionX="-306" positionY="9" width="128" height="345"/>
         <element name="BWCDJob" positionX="-72" positionY="9" width="128" height="195"/>
         <element name="BWCDRepository" positionX="144" positionY="9" width="128" height="225"/>
     </elements>

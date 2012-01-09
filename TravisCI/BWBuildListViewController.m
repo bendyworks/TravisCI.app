@@ -33,6 +33,12 @@
     return self;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    self.fetchedResults = nil;
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -46,6 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self addObserver:self forKeyPath:@"repository" options:NSKeyValueObservingOptionNew context:nil];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -57,6 +64,8 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    [self removeObserver:self forKeyPath:@"repository" context:nil];
+
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -120,7 +129,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     BWBuild *build = (BWBuild *)[self.fetchedResults objectAtIndexPath:indexPath];
-    cell.textLabel.text = build.number;
+    cell.textLabel.text = [build.number description];
 }
 
 /*
@@ -190,7 +199,7 @@
 
     NSPredicate *findByRepositoryId = [NSPredicate predicateWithFormat:@"repository.remote_id = %@", self.repository.remote_id];
 
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"number" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"number" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
 
     [fetchRequest setPredicate:findByRepositoryId];
