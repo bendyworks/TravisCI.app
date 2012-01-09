@@ -10,6 +10,7 @@
 #import "RestKit/CoreData.h"
 #import "BWJob.h"
 #import "BWJobTableCell.h"
+#import "BWBuild.h"
 
 @interface BWJobListViewController()
 
@@ -22,7 +23,7 @@
 
 
 @synthesize fetchedResultsController = __fetchedResultsController;
-@synthesize jobCellNib;
+@synthesize jobCellNib, build;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,12 +39,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self addObserver:self forKeyPath:@"build" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)viewDidUnload
 {
+    [self removeObserver:self forKeyPath:@"build" context:nil];
     [super viewDidUnload];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    self.fetchedResultsController = nil;
+    [self.tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated { [super viewWillAppear:animated]; }
@@ -139,9 +147,12 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"BWCDJob" inManagedObjectContext:moc];
     [fetchRequest setEntity:entity];
 
+    NSPredicate *findByBuildId = [NSPredicate predicateWithFormat:@"build.remote_id = %@", self.build.remote_id];
+    [fetchRequest setPredicate:findByBuildId];
+
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"number" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-    
+
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest

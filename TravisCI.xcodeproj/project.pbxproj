@@ -403,6 +403,8 @@
 				DA966D11149FAC3900C229CB /* BWAppDelegate.m */,
 				DA966D13149FAC3900C229CB /* MainStoryboard_iPhone.storyboard */,
 				DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */,
+				DA7C596414BB4F4500569F66 /* BWBuildListViewController.h */,
+				DA7C596514BB4F4500569F66 /* BWBuildListViewController.m */,
 				DA966D1C149FAC3900C229CB /* BWRepositoryListViewController.h */,
 				DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */,
 				DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */,
@@ -417,8 +419,6 @@
 				DA948D6414B7A29700360BA9 /* BWJobTableCell.h */,
 				DA948D6514B7A29800360BA9 /* BWJobTableCell.m */,
 				DA948D6714B7A34D00360BA9 /* BWJobTableCell.xib */,
-				DA7C596414BB4F4500569F66 /* BWBuildListViewController.h */,
-				DA7C596514BB4F4500569F66 /* BWBuildListViewController.m */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";

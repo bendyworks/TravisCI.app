@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class BWRepository;
+@class BWRepository, BWJobListViewController;
 
 @interface BWBuildListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResults;
 @property (nonatomic, strong) BWRepository *repository;
+@property (nonatomic, strong) BWJobListViewController *jobListController;
 
 @end
