@@ -132,7 +132,7 @@
 	}
 
     return __fetchedResultsController;
-}    
+}
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
