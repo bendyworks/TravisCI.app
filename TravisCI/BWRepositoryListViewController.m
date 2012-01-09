@@ -95,6 +95,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BWRepository *repository = [BWRepository presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+    [repository fetchBuilds];
     [self.detailViewController configureViewAndSetRepository:repository];
 
     self.buildListController.repository = repository;

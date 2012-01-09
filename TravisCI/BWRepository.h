@@ -7,11 +7,13 @@
 //
 
 #import "BWPresenter.h"
+#import "RestKit/RKObjectLoader.h"
 
-@interface BWRepository : BWPresenter
+@interface BWRepository : BWPresenter <RKObjectLoaderDelegate>
 
 - (NSString *)durationText;
 - (NSString *)finishedText;
+- (void)fetchBuilds;
 
 @property (nonatomic, retain) NSNumber *remote_id;
 @property (nonatomic, retain) NSString *slug;

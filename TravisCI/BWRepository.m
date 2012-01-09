@@ -8,6 +8,7 @@
 
 #import "BWRepository.h"
 #import "BWRepository+Private.h"
+#import "RestKit/RKObjectManager.h"
 
 #import "NSDate+Formatting.h"
 
@@ -35,6 +36,30 @@
         NSInteger timeSinceNow = [[NSNumber numberWithDouble:fabs(interval)] integerValue];
         return [NSDate rangeOfTimeInWordsFromSeconds:timeSinceNow];
     }
+}
+
+- (void)fetchBuilds
+{
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+    
+    NSString *resourcePath = [NSString stringWithFormat:@"/repositories/%@/builds.json", self.remote_id];
+    [manager loadObjectsAtResourcePath:resourcePath
+                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDBuild"]
+                              delegate:self];
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+//- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects { }
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:[error localizedDescription]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end
