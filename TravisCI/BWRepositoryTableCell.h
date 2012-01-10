@@ -6,12 +6,9 @@
 //  Copyright (c) 2011 Bendyworks. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BWTableViewCell.h"
 
-@interface BWRepositoryTableCell : UITableViewCell
-+ (NSString *)nibName;
-+ (id)cellForTableView:(UITableView *)tableView fromNib:(UINib *)nib;
-+ (UINib *)nib;
+@interface BWRepositoryTableCell : BWTableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *slug;
 @property (nonatomic, strong) IBOutlet UILabel *buildNumber;

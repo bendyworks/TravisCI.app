@@ -39,6 +39,8 @@ deploy
 
 you can also check out http://support.testflightapp.com/kb/tutorials/how-to-create-an-ipa-xcode-3
 
+* select iOS Device instead of simulator
+
 * from Xcode click Product > Archive from the menu. When Xcode finishes you should see the organizer appear.
 
 * Select the resulting build, and click 'Share...'

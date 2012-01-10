@@ -6,14 +6,9 @@
 //  Copyright (c) 2012 Bendyworks. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BWTableViewCell.h"
 
-@interface BWBuildTableCell : UITableViewCell
-
-+ (NSString *)nibName;
-+ (id)cellForTableView:(UITableView *)tableView fromNib:(UINib *)nib;
-+ (UINib *)nib;
-
+@interface BWBuildTableCell : BWTableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *buildNumber;
 @property (nonatomic, strong) IBOutlet UILabel *commit;

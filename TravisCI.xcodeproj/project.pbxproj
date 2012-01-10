@@ -86,6 +86,7 @@
 		DAA41BF314A3E0BC00C97A37 /* status_red.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA41BE914A3E0BC00C97A37 /* status_red.png */; };
 		DAA41BF414A3E0BC00C97A37 /* status_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA41BEA14A3E0BC00C97A37 /* status_yellow.png */; };
 		DAA41BF714A5186200C97A37 /* BWCommandBuildStarted.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA41BF614A5186200C97A37 /* BWCommandBuildStarted.m */; };
+		DAADBF7F14BCF44C000F655E /* BWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF7E14BCF44C000F655E /* BWTableViewCell.m */; };
 		DAC3873C14A1318500927334 /* NSDate+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873B14A1318500927334 /* NSDate+Formatting.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DAC3873E14A134BB00927334 /* NSDate_FormattingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */; };
 /* End PBXBuildFile section */
@@ -258,6 +259,8 @@
 		DAA41BEA14A3E0BC00C97A37 /* status_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_yellow.png; sourceTree = "<group>"; };
 		DAA41BF514A5186200C97A37 /* BWCommandBuildStarted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCommandBuildStarted.h; sourceTree = "<group>"; };
 		DAA41BF614A5186200C97A37 /* BWCommandBuildStarted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCommandBuildStarted.m; sourceTree = "<group>"; };
+		DAADBF7D14BCF44C000F655E /* BWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = BWTableViewCell.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		DAADBF7E14BCF44C000F655E /* BWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BWTableViewCell.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		DAC3873A14A1318500927334 /* NSDate+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Formatting.h"; path = "DistanceOfTimeInWords/NSDate+Formatting.h"; sourceTree = "<group>"; };
 		DAC3873B14A1318500927334 /* NSDate+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Formatting.m"; path = "DistanceOfTimeInWords/NSDate+Formatting.m"; sourceTree = "<group>"; };
 		DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FormattingSpec.m; sourceTree = "<group>"; };
@@ -404,6 +407,8 @@
 		DA7C59AE14BCA60800569F66 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DAADBF7D14BCF44C000F655E /* BWTableViewCell.h */,
+				DAADBF7E14BCF44C000F655E /* BWTableViewCell.m */,
 				DA683C79149FDA7E000477AF /* BWRepositoryTableCell.h */,
 				DA683C7A149FDA7E000477AF /* BWRepositoryTableCell.m */,
 				DA683C7C149FDC4F000477AF /* BWRepositoryTableCell.xib */,
@@ -800,6 +805,7 @@
 				DA548CFE14BCB5B9007580B4 /* BWCDJob.m in Sources */,
 				DA4FAE9A14BCD80500F2E174 /* BWSplashViewController.m in Sources */,
 				DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */,
+				DAADBF7F14BCF44C000F655E /* BWTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

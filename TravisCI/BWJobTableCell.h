@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BWJobTableCell : UITableViewCell
-+ (NSString *)nibName;
-+ (id)cellForTableView:(UITableView *)tableView fromNib:(UINib *)nib;
-+ (UINib *)nib;
+#import "BWTableViewCell.h"
 
+@interface BWJobTableCell : BWTableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *buildIcon;
 @property (strong, nonatomic) IBOutlet UILabel *number;
