@@ -85,7 +85,7 @@
 							<object class="IBUILabel" id="260843702">
 								<reference key="NSNextResponder" ref="705514631"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{115, 40}, {107, 21}}</string>
+								<string key="NSFrame">{{115, 64}, {184, 21}}</string>
 								<reference key="NSSuperview" ref="705514631"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="915303834"/>
@@ -106,7 +106,7 @@
 							<object class="IBUILabel" id="334071146">
 								<reference key="NSNextResponder" ref="705514631"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{115, 61}, {139, 21}}</string>
+								<string key="NSFrame">{{115, 85}, {184, 21}}</string>
 								<reference key="NSSuperview" ref="705514631"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:345</string>
@@ -126,7 +126,7 @@
 							<object class="IBUILabel" id="549422991">
 								<reference key="NSNextResponder" ref="705514631"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{106, 11}, {82, 21}}</string>
+								<string key="NSFrame">{{106, 11}, {193, 21}}</string>
 								<reference key="NSSuperview" ref="705514631"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="880775463"/>
@@ -147,7 +147,7 @@
 							<object class="IBUILabel" id="880775463">
 								<reference key="NSNextResponder" ref="705514631"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{218, 11}, {227, 21}}</string>
+								<string key="NSFrame">{{42, 35}, {227, 21}}</string>
 								<reference key="NSSuperview" ref="705514631"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="68084699"/>
@@ -168,7 +168,7 @@
 							<object class="IBUILabel" id="68084699">
 								<reference key="NSNextResponder" ref="705514631"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{42, 40}, {70, 21}}</string>
+								<string key="NSFrame">{{42, 64}, {70, 21}}</string>
 								<reference key="NSSuperview" ref="705514631"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="260843702"/>
@@ -189,7 +189,7 @@
 							<object class="IBUILabel" id="915303834">
 								<reference key="NSNextResponder" ref="705514631"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{42, 61}, {69, 21}}</string>
+								<string key="NSFrame">{{42, 85}, {69, 21}}</string>
 								<reference key="NSSuperview" ref="705514631"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="334071146"/>
@@ -208,7 +208,7 @@
 								<reference key="IBUIFont" ref="498631353"/>
 							</object>
 						</array>
-						<string key="NSFrameSize">{319, 102}</string>
+						<string key="NSFrameSize">{319, 126}</string>
 						<reference key="NSSuperview" ref="902716158"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1036937243"/>
@@ -224,7 +224,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
-				<string key="NSFrameSize">{319, 103}</string>
+				<string key="NSFrameSize">{319, 127}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="705514631"/>
@@ -236,7 +236,7 @@
 				<reference key="IBUIContentView" ref="705514631"/>
 				<bool key="IBUIShouldIndentWhileEditing">NO</bool>
 				<string key="IBUIReuseIdentifier">BWJobTableCell</string>
-				<real value="103" key="IBUIRowHeight"/>
+				<real value="127" key="IBUIRowHeight"/>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -316,11 +316,11 @@
 							<reference ref="1036937243"/>
 							<reference ref="27709305"/>
 							<reference ref="549422991"/>
-							<reference ref="880775463"/>
 							<reference ref="68084699"/>
 							<reference ref="260843702"/>
 							<reference ref="915303834"/>
 							<reference ref="334071146"/>
+							<reference ref="880775463"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">BWJobTableCell</string>

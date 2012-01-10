@@ -80,7 +80,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 103.0f;
+    return 127.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,8 +111,9 @@
     [cell.number setText:job.number];
     [cell.number setTextColor:textColor];
     [cell.language setText:job.language];
-    //    [cell.duration setText:job.duration_text];
-    //    [cell.finished setText:job.duration_text];
+    [cell.env setText:job.env];
+    [cell.duration setText:job.durationText];
+    [cell.finished_at setText:job.finishedText];
 
 }
 
@@ -122,7 +123,6 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
