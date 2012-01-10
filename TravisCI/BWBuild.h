@@ -23,5 +23,6 @@
 @property (nonatomic, strong) NSString *compare_url;
 @property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) NSNumber *repository_id;
+@property (nonatomic, strong) NSNumber *result;
 
 @end

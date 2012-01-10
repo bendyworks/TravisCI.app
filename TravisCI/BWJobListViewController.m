@@ -29,7 +29,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
     return self;
 }

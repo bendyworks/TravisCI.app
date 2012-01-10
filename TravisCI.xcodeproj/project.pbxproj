@@ -10,6 +10,8 @@
 		DA311A0B14B63CA200F351C7 /* BWCommandBuildFinished.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */; };
 		DA311A0F14B658D100F351C7 /* BWCDObjectMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */; };
 		DA4FAE9A14BCD80500F2E174 /* BWSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4FAE9914BCD80500F2E174 /* BWSplashViewController.m */; };
+		DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4FAE9C14BCDB8A00F2E174 /* BWBuildTableCell.m */; };
+		DA4FAE9F14BCDBC200F2E174 /* BWBuildTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4FAE9E14BCDBC200F2E174 /* BWBuildTableCell.xib */; };
 		DA548CFE14BCB5B9007580B4 /* BWCDJob.m in Sources */ = {isa = PBXBuildFile; fileRef = DA548CFD14BCB5B9007580B4 /* BWCDJob.m */; };
 		DA65E45B14A0F78E0066A7E4 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA65E45A14A0F78E0066A7E4 /* libKiwi.a */; };
 		DA65E46014A11CF80066A7E4 /* BWRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = DA65E45F14A11CF80066A7E4 /* BWRepository.m */; };
@@ -147,6 +149,9 @@
 		DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDObjectMananger.m; sourceTree = "<group>"; };
 		DA4FAE9814BCD80500F2E174 /* BWSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWSplashViewController.h; sourceTree = "<group>"; };
 		DA4FAE9914BCD80500F2E174 /* BWSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWSplashViewController.m; sourceTree = "<group>"; };
+		DA4FAE9B14BCDB8A00F2E174 /* BWBuildTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBuildTableCell.h; sourceTree = "<group>"; };
+		DA4FAE9C14BCDB8A00F2E174 /* BWBuildTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuildTableCell.m; sourceTree = "<group>"; };
+		DA4FAE9E14BCDBC200F2E174 /* BWBuildTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BWBuildTableCell.xib; sourceTree = "<group>"; };
 		DA548CFC14BCB5B9007580B4 /* BWCDJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDJob.h; sourceTree = "<group>"; };
 		DA548CFD14BCB5B9007580B4 /* BWCDJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDJob.m; sourceTree = "<group>"; };
 		DA65E45A14A0F78E0066A7E4 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../Kiwi/build/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
@@ -405,6 +410,9 @@
 				DA948D6414B7A29700360BA9 /* BWJobTableCell.h */,
 				DA948D6514B7A29800360BA9 /* BWJobTableCell.m */,
 				DA948D6714B7A34D00360BA9 /* BWJobTableCell.xib */,
+				DA4FAE9B14BCDB8A00F2E174 /* BWBuildTableCell.h */,
+				DA4FAE9C14BCDB8A00F2E174 /* BWBuildTableCell.m */,
+				DA4FAE9E14BCDBC200F2E174 /* BWBuildTableCell.xib */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -719,6 +727,7 @@
 				DAA41BF414A3E0BC00C97A37 /* status_yellow.png in Resources */,
 				DA948D6814B7A34D00360BA9 /* BWJobTableCell.xib in Resources */,
 				DAA3934C14BCD732007AFBD4 /* travis.background.png in Resources */,
+				DA4FAE9F14BCDBC200F2E174 /* BWBuildTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +799,7 @@
 				DA7C59A414BC9DB500569F66 /* NSDictionary+BWTravisCI.m in Sources */,
 				DA548CFE14BCB5B9007580B4 /* BWCDJob.m in Sources */,
 				DA4FAE9A14BCD80500F2E174 /* BWSplashViewController.m in Sources */,
+				DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

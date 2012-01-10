@@ -11,7 +11,7 @@
 
 @implementation BWBuild
 
-@dynamic state, remote_id, number, author_email, author_name, commit, committer_name, compare_url, message, repository_id;
+@dynamic state, result, remote_id, number, author_email, author_name, commit, committer_name, compare_url, message, repository_id;
 
 - (void)fetchJobs
 {
@@ -26,6 +26,13 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
     NSLog(@"fie!");
+}
+
+- (NSString *)commit
+{
+    NSString *sha8 = [(NSString *)[self.object valueForKey:@"commit"] substringToIndex:8];
+    NSString *shaAndBranch = [NSString stringWithFormat:@"%@ (%@)", sha8, [self.object valueForKey:@"branch"]];
+    return shaAndBranch;
 }
 
 @end

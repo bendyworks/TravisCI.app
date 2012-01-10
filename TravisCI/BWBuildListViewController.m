@@ -9,6 +9,7 @@
 #import "BWBuildListViewController.h"
 #import "BWRepository.h"
 #import "BWBuild.h"
+#import "BWBuildTableCell.h"
 #import "BWJobListViewController.h"
 #import "RestKit/CoreData.h"
 
@@ -19,7 +20,7 @@
 @implementation BWBuildListViewController
 
 @synthesize fetchedResults = __fetchedResults;
-@synthesize repository, jobListController;
+@synthesize repository, jobListController, buildCellNib;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -97,6 +98,18 @@
 	return YES;
 }
 
+#pragma mark Custom cells
+
+- (UINib *)buildCellNib
+{
+    if (buildCellNib == nil) {
+        self.buildCellNib = [BWBuildTableCell nib];
+    }
+    return buildCellNib;
+}
+
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -115,22 +128,43 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"BuildListCell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
+    BWBuildTableCell *cell = [BWBuildTableCell cellForTableView:tableView fromNib:self.buildCellNib];
     [self configureCell:cell atIndexPath:indexPath];
-
     return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(BWBuildTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    BWBuild *build = (BWBuild *)[self.fetchedResults objectAtIndexPath:indexPath];
-    cell.textLabel.text = [build.number description];
+    BWBuild *build = [BWBuild presenterWithObject:[self.fetchedResults objectAtIndexPath:indexPath]];
+    NSString *buildNumber = [NSString stringWithFormat:@"Build #%@", build.number];
+    [cell.buildNumber setText:buildNumber];
+    [cell.commit setText:build.commit];
+    [cell.message setText:build.message];
+
+    NSString *statusImage = @"status_yellow";
+    UIColor *textColor = [UIColor blackColor];
+    if ([build.state isEqualToString:@"finished"]) {
+        if (build.result == [NSNumber numberWithInt:0]) {
+            statusImage = @"status_green";
+            textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+        } else {
+            statusImage = @"status_red";
+            textColor = [UIColor colorWithRed:0.75f green:0.0f blue:0.0f alpha:1.0f];
+        }
+    }
+    [cell.buildNumber setTextColor:textColor];
+    [cell.statusImage setImage:[UIImage imageNamed:statusImage]];
+
+    for (UIView *view in [cell subviews]) {
+        if ([view respondsToSelector:@selector(setHighlightedTextColor:)]) {
+            [view performSelector:@selector(setHighlightedTextColor:) withObject:[UIColor whiteColor]];
+        }
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 69.0f;
 }
 
 #pragma mark - Table view delegate

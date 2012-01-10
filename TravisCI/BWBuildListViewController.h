@@ -12,6 +12,8 @@
 
 @interface BWBuildListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
+@property (nonatomic, strong) UINib *buildCellNib;
+
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResults;
 @property (nonatomic, strong) BWRepository *repository;
 @property (nonatomic, strong) BWJobListViewController *jobListController;
