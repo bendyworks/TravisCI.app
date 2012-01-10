@@ -19,7 +19,7 @@
     
     NSString *resourcePath = [NSString stringWithFormat:@"/builds/%@.json", self.remote_id];
     [manager loadObjectsAtResourcePath:resourcePath
-                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDJob"]
+                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDBuild"]
                               delegate:self];
 }
 

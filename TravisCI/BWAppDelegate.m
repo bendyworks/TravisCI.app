@@ -102,7 +102,7 @@
     NSEntityDescription *jobDescription = [NSEntityDescription entityForName:@"BWCDJob"
                                                       inManagedObjectContext:self.managedObjectContext];
     RKManagedObjectMapping *buildJobMapping = [RKManagedObjectMapping mappingForEntity:jobDescription];
-    [buildJobMapping mapAttributes:@"finished", nil];
+    [buildJobMapping mapAttributes:@"finished_at", @"log", @"number", @"repository_id", @"result", @"started_at", @"state", @"status", nil];
     [buildJobMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
     buildJobMapping.primaryKeyAttribute = @"remote_id";
     
