@@ -7,7 +7,6 @@
 //
 
 #import "BWRepository.h"
-#import "BWRepository+Private.h"
 #import "RestKit/RKObjectManager.h"
 
 #import "NSDate+Formatting.h"

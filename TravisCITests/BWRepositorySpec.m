@@ -1,6 +1,5 @@
 #import "Kiwi.h"
 #import "BWRepository.h"
-#import "BWRepository+Private.h"
 
 SPEC_BEGIN(BWRepositorySpec)
 

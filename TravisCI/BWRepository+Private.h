@@ -1,3 +1,0 @@
-
-@interface BWRepository()
-@end

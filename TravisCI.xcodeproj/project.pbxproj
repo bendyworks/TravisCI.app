@@ -156,7 +156,6 @@
 		DA548CFC14BCB5B9007580B4 /* BWCDJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDJob.h; sourceTree = "<group>"; };
 		DA548CFD14BCB5B9007580B4 /* BWCDJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDJob.m; sourceTree = "<group>"; };
 		DA65E45A14A0F78E0066A7E4 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../Kiwi/build/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
-		DA65E45D14A0FC440066A7E4 /* BWRepository+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BWRepository+Private.h"; sourceTree = "<group>"; };
 		DA65E45E14A11CF80066A7E4 /* BWRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWRepository.h; sourceTree = "<group>"; };
 		DA65E45F14A11CF80066A7E4 /* BWRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWRepository.m; sourceTree = "<group>"; };
 		DA683C51149FC500000477AF /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
@@ -360,7 +359,6 @@
 		DA703B7014A2788300C6CF6C /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				DA65E45D14A0FC440066A7E4 /* BWRepository+Private.h */,
 				DA65E45E14A11CF80066A7E4 /* BWRepository.h */,
 				DA65E45F14A11CF80066A7E4 /* BWRepository.m */,
 				DA7C599A14BB9CE600569F66 /* BWCDRepository.h */,
