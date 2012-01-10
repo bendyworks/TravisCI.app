@@ -15,6 +15,7 @@
 @interface BWJobListViewController()
 
 - (void)configureCell:(BWJobTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (BWJob *)jobAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -83,7 +84,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 127.0f;
+    BWJob *job = [self jobAtIndexPath:indexPath];
+    if (job.env) {
+        return 127.0f;
+    } else {
+        return 127.0f - 36.0f;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,7 +102,7 @@
 
 - (void)configureCell:(BWJobTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    BWJob *job = [BWJob presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+    BWJob *job = [self jobAtIndexPath:indexPath];
 
     NSString *statusImage = @"status_yellow";
     UIColor *textColor = [UIColor blackColor];
@@ -219,5 +225,9 @@
     [self.tableView endUpdates];
 }
 
+- (BWJob *)jobAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [BWJob presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+}
 
 @end
