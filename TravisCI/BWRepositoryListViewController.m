@@ -7,7 +7,6 @@
 //
 
 #import "BWRepositoryListViewController.h"
-#import "BWRepositoryViewController.h"
 #import "BWRepositoryTableCell.h"
 #import "BWBuildListViewController.h"
 
@@ -21,7 +20,6 @@
 @implementation BWRepositoryListViewController
 @synthesize repositoryCellNib;
 
-@synthesize detailViewController = _detailViewController;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize buildListController = _buildListController;
@@ -47,7 +45,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.detailViewController = (BWRepositoryViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+//    self.detailViewController = (BWRepositoryViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)viewDidUnload { [super viewDidUnload]; }
@@ -92,7 +90,7 @@
 {
     BWRepository *repository = [BWRepository presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
     [repository fetchBuilds];
-    [self.detailViewController configureViewAndSetRepository:repository];
+//    [self.detailViewController configureViewAndSetRepository:repository];
 
     self.buildListController.repository = repository;
     [self.navigationController pushViewController:self.buildListController animated:YES];

@@ -54,7 +54,6 @@
 		DA966D18149FAC3900C229CB /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */; };
 		DA966D1B149FAC3900C229CB /* TravisCI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */; };
 		DA966D1E149FAC3900C229CB /* BWRepositoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */; };
-		DA966D21149FAC3900C229CB /* BWRepositoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */; };
 		DA966D2A149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		DA966D2B149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
 		DA966D2C149FAC3900C229CB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D05149FAC3900C229CB /* CoreData.framework */; };
@@ -205,8 +204,6 @@
 		DA966D1A149FAC3900C229CB /* TravisCI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravisCI.xcdatamodel; sourceTree = "<group>"; };
 		DA966D1C149FAC3900C229CB /* BWRepositoryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWRepositoryListViewController.h; sourceTree = "<group>"; };
 		DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryListViewController.m; sourceTree = "<group>"; };
-		DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWRepositoryViewController.h; sourceTree = "<group>"; };
-		DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryViewController.m; sourceTree = "<group>"; };
 		DA966D27149FAC3900C229CB /* TravisCITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravisCITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966D31149FAC3900C229CB /* TravisCITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravisCITests-Info.plist"; sourceTree = "<group>"; };
 		DA966D33149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -472,8 +469,6 @@
 				DA966D11149FAC3900C229CB /* BWAppDelegate.m */,
 				DA966D13149FAC3900C229CB /* MainStoryboard_iPhone.storyboard */,
 				DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */,
-				DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */,
-				DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */,
 				DA966D08149FAC3900C229CB /* Supporting Files */,
 				DA311A0C14B63CAA00F351C7 /* Pusher */,
 				DA4FAE9814BCD80500F2E174 /* BWSplashViewController.h */,
@@ -762,7 +757,6 @@
 				DA966D12149FAC3900C229CB /* BWAppDelegate.m in Sources */,
 				DA966D1B149FAC3900C229CB /* TravisCI.xcdatamodeld in Sources */,
 				DA966D1E149FAC3900C229CB /* BWRepositoryListViewController.m in Sources */,
-				DA966D21149FAC3900C229CB /* BWRepositoryViewController.m in Sources */,
 				DA683C7B149FDA7E000477AF /* BWRepositoryTableCell.m in Sources */,
 				DA65E46014A11CF80066A7E4 /* BWRepository.m in Sources */,
 				DAC3873C14A1318500927334 /* NSDate+Formatting.m in Sources */,
