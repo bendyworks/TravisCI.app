@@ -8,6 +8,7 @@
 
 #import "BWCDObjectMananger.h"
 #import "RestKit/CoreData.h"
+#import "BWCDRepository.h"
 
 @implementation BWCDObjectMananger
 
@@ -34,8 +35,9 @@
     NSNumber *repository_id = [repositoryDictionary valueForKey:@"id"];
     
     RKObjectManager *manager = [RKObjectManager sharedManager];
-    NSManagedObjectContext *moc = [manager.objectStore managedObjectContext];
-    NSManagedObject *repository = [manager.objectStore findOrCreateInstanceOfEntity:[NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:moc]
+    RKManagedObjectStore *objectStore = manager.objectStore;
+    NSManagedObjectContext *moc = [objectStore managedObjectContext];
+    NSManagedObject *repository = [objectStore findOrCreateInstanceOfEntity:[NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:moc]
                                                             withPrimaryKeyAttribute:@"remote_id"
                                                                            andValue:repository_id];
     
@@ -46,7 +48,7 @@
     NSError *error = nil;
     [mappingOp performMapping:&error];
     
-    [manager.objectStore save];
+    [objectStore save];
 }
 
 @end
