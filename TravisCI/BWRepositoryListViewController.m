@@ -139,20 +139,6 @@
     [self.tableView beginUpdates];
 }
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
-{
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
-}
-
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
@@ -209,12 +195,6 @@
     [cell.slug setTextColor:textColor];
     [cell.buildNumber setTextColor:textColor];
     [cell.statusImage setImage:[UIImage imageNamed:statusImage]];
-
-    for (UIView *view in [cell subviews]) {
-        if ([view respondsToSelector:@selector(setHighlightedTextColor:)]) {
-            [view performSelector:@selector(setHighlightedTextColor:) withObject:[UIColor whiteColor]];
-        }
-    }
 }
 
 - (void)refreshRepositoryList

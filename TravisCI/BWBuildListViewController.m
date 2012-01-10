@@ -74,6 +74,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.navigationItem.title = self.repository.slug;
     [super viewWillAppear:animated];
 }
 
@@ -143,7 +144,7 @@
 
     NSString *statusImage = @"status_yellow";
     UIColor *textColor = [UIColor blackColor];
-    if ([build.state isEqualToString:@"finished"]) {
+    if (build.result) {
         if (build.result == [NSNumber numberWithInt:0]) {
             statusImage = @"status_green";
             textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
@@ -154,12 +155,6 @@
     }
     [cell.buildNumber setTextColor:textColor];
     [cell.statusImage setImage:[UIImage imageNamed:statusImage]];
-
-    for (UIView *view in [cell subviews]) {
-        if ([view respondsToSelector:@selector(setHighlightedTextColor:)]) {
-            [view performSelector:@selector(setHighlightedTextColor:) withObject:[UIColor whiteColor]];
-        }
-    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -221,20 +216,6 @@
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
-{
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject

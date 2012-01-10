@@ -54,7 +54,10 @@
     [self.tableView reloadData];
 }
 
-- (void)viewWillAppear:(BOOL)animated { [super viewWillAppear:animated]; }
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationItem.title = [NSString stringWithFormat:@"Build #%d", [self.build.number integerValue]];
+    [super viewWillAppear:animated];
+}
 
 - (void)viewDidAppear:(BOOL)animated { [super viewDidAppear:animated]; }
 
@@ -183,20 +186,6 @@
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
-{
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
