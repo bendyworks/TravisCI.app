@@ -28,6 +28,15 @@
 		DA7C599914BB9CA000569F66 /* BWCDBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C599814BB9C9F00569F66 /* BWCDBuild.m */; };
 		DA7C599C14BB9CE700569F66 /* BWCDRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C599B14BB9CE600569F66 /* BWCDRepository.m */; };
 		DA7C599F14BB9D3600569F66 /* BWCDJob.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C599E14BB9D3600569F66 /* BWCDJob.m */; };
+		DA7C59A414BC9DB500569F66 /* NSDictionary+BWTravisCI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C59A314BC9DB500569F66 /* NSDictionary+BWTravisCI.m */; };
+		DA7C59A714BCA0F000569F66 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C5C149FC501000477AF /* libRestKit.a */; };
+		DA7C59A814BCA23A00569F66 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6A149FC627000477AF /* CFNetwork.framework */; };
+		DA7C59A914BCA24300569F66 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6C149FC634000477AF /* MobileCoreServices.framework */; };
+		DA7C59AA14BCA24E00569F66 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C70149FC657000477AF /* SystemConfiguration.framework */; };
+		DA7C59AB14BCA25600569F66 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6E149FC63B000477AF /* Security.framework */; };
+		DA7C59AC14BCA26A00569F66 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
+		DA7C59AD14BCA5E300569F66 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C72149FC660000477AF /* libxml2.dylib */; };
+		DA7C59B114BCA65E00569F66 /* NSDictionary+BWTravisCISpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C59B014BCA65E00569F66 /* NSDictionary+BWTravisCISpec.m */; };
 		DA8D7ACF14B606D5009A731B /* BWEmptyBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8D7ACE14B606D5009A731B /* BWEmptyBuild.m */; };
 		DA948D5D14B7920700360BA9 /* BWJobListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA948D5C14B7920700360BA9 /* BWJobListViewController.m */; };
 		DA948D6014B79DF900360BA9 /* BWJob.m in Sources */ = {isa = PBXBuildFile; fileRef = DA948D5F14B79DF900360BA9 /* BWJob.m */; };
@@ -114,6 +123,13 @@
 			remoteGlobalIDString = 25160D1514564E810060A5C5;
 			remoteInfo = RestKit;
 		};
+		DA7C59A514BCA0EB00569F66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA683C51149FC500000477AF /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
 		DA966D2D149FAC3900C229CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DA966CF2149FAC3900C229CB /* Project object */;
@@ -157,6 +173,9 @@
 		DA7C599B14BB9CE600569F66 /* BWCDRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDRepository.m; sourceTree = SOURCE_ROOT; };
 		DA7C599D14BB9D3600569F66 /* BWCDJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDJob.h; sourceTree = "<group>"; };
 		DA7C599E14BB9D3600569F66 /* BWCDJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDJob.m; sourceTree = "<group>"; };
+		DA7C59A214BC9DB500569F66 /* NSDictionary+BWTravisCI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BWTravisCI.h"; sourceTree = "<group>"; };
+		DA7C59A314BC9DB500569F66 /* NSDictionary+BWTravisCI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BWTravisCI.m"; sourceTree = "<group>"; };
+		DA7C59B014BCA65E00569F66 /* NSDictionary+BWTravisCISpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BWTravisCISpec.m"; sourceTree = "<group>"; };
 		DA8D7ACD14B606D5009A731B /* BWEmptyBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWEmptyBuild.h; sourceTree = "<group>"; };
 		DA8D7ACE14B606D5009A731B /* BWEmptyBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWEmptyBuild.m; sourceTree = "<group>"; };
 		DA948D5B14B7920700360BA9 /* BWJobListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWJobListViewController.h; sourceTree = "<group>"; };
@@ -259,6 +278,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA7C59AD14BCA5E300569F66 /* libxml2.dylib in Frameworks */,
+				DA7C59AC14BCA26A00569F66 /* CoreGraphics.framework in Frameworks */,
+				DA7C59AB14BCA25600569F66 /* Security.framework in Frameworks */,
+				DA7C59AA14BCA24E00569F66 /* SystemConfiguration.framework in Frameworks */,
+				DA7C59A914BCA24300569F66 /* MobileCoreServices.framework in Frameworks */,
+				DA7C59A814BCA23A00569F66 /* CFNetwork.framework in Frameworks */,
+				DA7C59A714BCA0F000569F66 /* libRestKit.a in Frameworks */,
 				DA65E45B14A0F78E0066A7E4 /* libKiwi.a in Frameworks */,
 				DA683D1614A0F258000477AF /* SenTestingKit.framework in Frameworks */,
 				DA966D2A149FAC3900C229CB /* UIKit.framework in Frameworks */,
@@ -359,6 +385,28 @@
 			name = Navigation;
 			sourceTree = "<group>";
 		};
+		DA7C59A114BC9D7200569F66 /* core_ext */ = {
+			isa = PBXGroup;
+			children = (
+				DA7C59A214BC9DB500569F66 /* NSDictionary+BWTravisCI.h */,
+				DA7C59A314BC9DB500569F66 /* NSDictionary+BWTravisCI.m */,
+			);
+			name = core_ext;
+			sourceTree = "<group>";
+		};
+		DA7C59AE14BCA60800569F66 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DA683C79149FDA7E000477AF /* BWRepositoryTableCell.h */,
+				DA683C7A149FDA7E000477AF /* BWRepositoryTableCell.m */,
+				DA683C7C149FDC4F000477AF /* BWRepositoryTableCell.xib */,
+				DA948D6414B7A29700360BA9 /* BWJobTableCell.h */,
+				DA948D6514B7A29800360BA9 /* BWJobTableCell.m */,
+				DA948D6714B7A34D00360BA9 /* BWJobTableCell.xib */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		DA948D6114B79E0100360BA9 /* Job */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +459,8 @@
 		DA966D07149FAC3900C229CB /* TravisCI */ = {
 			isa = PBXGroup;
 			children = (
+				DA7C59AE14BCA60800569F66 /* Custom Cells */,
+				DA7C59A114BC9D7200569F66 /* core_ext */,
 				DA683C88149FEBE1000477AF /* Models */,
 				DA966D10149FAC3900C229CB /* BWAppDelegate.h */,
 				DA966D11149FAC3900C229CB /* BWAppDelegate.m */,
@@ -419,14 +469,8 @@
 				DA7C59A014BC933D00569F66 /* Navigation */,
 				DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */,
 				DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */,
-				DA683C79149FDA7E000477AF /* BWRepositoryTableCell.h */,
-				DA683C7A149FDA7E000477AF /* BWRepositoryTableCell.m */,
-				DA683C7C149FDC4F000477AF /* BWRepositoryTableCell.xib */,
 				DA966D08149FAC3900C229CB /* Supporting Files */,
 				DA311A0C14B63CAA00F351C7 /* Pusher */,
-				DA948D6414B7A29700360BA9 /* BWJobTableCell.h */,
-				DA948D6514B7A29800360BA9 /* BWJobTableCell.m */,
-				DA948D6714B7A34D00360BA9 /* BWJobTableCell.xib */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";
@@ -449,6 +493,7 @@
 				DA683CF414A0ED7B000477AF /* BWRepositorySpec.m */,
 				DA966D30149FAC3900C229CB /* Supporting Files */,
 				DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */,
+				DA7C59B014BCA65E00569F66 /* NSDictionary+BWTravisCISpec.m */,
 			);
 			path = TravisCITests;
 			sourceTree = "<group>";
@@ -578,6 +623,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DA7C59A614BCA0EB00569F66 /* PBXTargetDependency */,
 				DA966D2E149FAC3900C229CB /* PBXTargetDependency */,
 			);
 			name = TravisCITests;
@@ -739,6 +785,7 @@
 				DA7C599914BB9CA000569F66 /* BWCDBuild.m in Sources */,
 				DA7C599C14BB9CE700569F66 /* BWCDRepository.m in Sources */,
 				DA7C599F14BB9D3600569F66 /* BWCDJob.m in Sources */,
+				DA7C59A414BC9DB500569F66 /* NSDictionary+BWTravisCI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,6 +795,7 @@
 			files = (
 				DA683CF514A0ED7B000477AF /* BWRepositorySpec.m in Sources */,
 				DAC3873E14A134BB00927334 /* NSDate_FormattingSpec.m in Sources */,
+				DA7C59B114BCA65E00569F66 /* NSDictionary+BWTravisCISpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,6 +806,11 @@
 			isa = PBXTargetDependency;
 			name = RestKit;
 			targetProxy = DA683C67149FC5F2000477AF /* PBXContainerItemProxy */;
+		};
+		DA7C59A614BCA0EB00569F66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = DA7C59A514BCA0EB00569F66 /* PBXContainerItemProxy */;
 		};
 		DA966D2E149FAC3900C229CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -909,6 +962,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_VARIANTS = normal;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TravisCI.app/TravisCI";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -916,12 +970,18 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
-				HEADER_SEARCH_PATHS = /Users/bendyworks/dev/ios/Kiwi/Kiwi;
+				HEADER_SEARCH_PATHS = (
+					"$(SOURCE_ROOT)/libPusher/Vendor/ZTWebSocket",
+					"$(SOURCE_ROOT)/libPusher/Library",
+					"\"$(SOURCE_ROOT)/RestKit/Build\"",
+					/Users/bendyworks/dev/ios/Kiwi/Kiwi,
+				);
 				INFOPLIST_FILE = "TravisCITests/TravisCITests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Kiwi/build/Debug-iphonesimulator\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -934,6 +994,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_VARIANTS = normal;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TravisCI.app/TravisCI";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -941,12 +1002,18 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
-				HEADER_SEARCH_PATHS = /Users/bendyworks/dev/ios/Kiwi/Kiwi;
+				HEADER_SEARCH_PATHS = (
+					"$(SOURCE_ROOT)/libPusher/Vendor/ZTWebSocket",
+					"$(SOURCE_ROOT)/libPusher/Library",
+					"\"$(SOURCE_ROOT)/RestKit/Build\"",
+					/Users/bendyworks/dev/ios/Kiwi/Kiwi,
+				);
 				INFOPLIST_FILE = "TravisCITests/TravisCITests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Kiwi/build/Debug-iphonesimulator\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1008,6 +1075,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_VARIANTS = normal;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TravisCI.app/TravisCI";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1015,12 +1083,18 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
-				HEADER_SEARCH_PATHS = /Users/bendyworks/dev/ios/Kiwi/Kiwi;
+				HEADER_SEARCH_PATHS = (
+					"$(SOURCE_ROOT)/libPusher/Vendor/ZTWebSocket",
+					"$(SOURCE_ROOT)/libPusher/Library",
+					"\"$(SOURCE_ROOT)/RestKit/Build\"",
+					/Users/bendyworks/dev/ios/Kiwi/Kiwi,
+				);
 				INFOPLIST_FILE = "TravisCITests/TravisCITests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Kiwi/build/Debug-iphonesimulator\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
