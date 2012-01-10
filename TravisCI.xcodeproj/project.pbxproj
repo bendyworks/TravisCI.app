@@ -87,6 +87,7 @@
 		DAA41BF414A3E0BC00C97A37 /* status_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA41BEA14A3E0BC00C97A37 /* status_yellow.png */; };
 		DAA41BF714A5186200C97A37 /* BWCommandBuildStarted.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA41BF614A5186200C97A37 /* BWCommandBuildStarted.m */; };
 		DAADBF7F14BCF44C000F655E /* BWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF7E14BCF44C000F655E /* BWTableViewCell.m */; };
+		DAADBF8214BCF751000F655E /* BWColor.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF8114BCF751000F655E /* BWColor.m */; };
 		DAC3873C14A1318500927334 /* NSDate+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873B14A1318500927334 /* NSDate+Formatting.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DAC3873E14A134BB00927334 /* NSDate_FormattingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */; };
 /* End PBXBuildFile section */
@@ -260,6 +261,8 @@
 		DAA41BF614A5186200C97A37 /* BWCommandBuildStarted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCommandBuildStarted.m; sourceTree = "<group>"; };
 		DAADBF7D14BCF44C000F655E /* BWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = BWTableViewCell.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		DAADBF7E14BCF44C000F655E /* BWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BWTableViewCell.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		DAADBF8014BCF750000F655E /* BWColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWColor.h; sourceTree = "<group>"; };
+		DAADBF8114BCF751000F655E /* BWColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWColor.m; sourceTree = "<group>"; };
 		DAC3873A14A1318500927334 /* NSDate+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Formatting.h"; path = "DistanceOfTimeInWords/NSDate+Formatting.h"; sourceTree = "<group>"; };
 		DAC3873B14A1318500927334 /* NSDate+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Formatting.m"; path = "DistanceOfTimeInWords/NSDate+Formatting.m"; sourceTree = "<group>"; };
 		DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FormattingSpec.m; sourceTree = "<group>"; };
@@ -484,6 +487,8 @@
 				DA311A0C14B63CAA00F351C7 /* Pusher */,
 				DA4FAE9814BCD80500F2E174 /* BWSplashViewController.h */,
 				DA4FAE9914BCD80500F2E174 /* BWSplashViewController.m */,
+				DAADBF8014BCF750000F655E /* BWColor.h */,
+				DAADBF8114BCF751000F655E /* BWColor.m */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";
@@ -804,6 +809,7 @@
 				DA4FAE9A14BCD80500F2E174 /* BWSplashViewController.m in Sources */,
 				DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */,
 				DAADBF7F14BCF44C000F655E /* BWTableViewCell.m in Sources */,
+				DAADBF8214BCF751000F655E /* BWColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

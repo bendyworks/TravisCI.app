@@ -11,6 +11,7 @@
 #import "BWBuild.h"
 #import "BWBuildTableCell.h"
 #import "BWJobListViewController.h"
+#import "BWColor.h"
 #import "RestKit/CoreData.h"
 
 @interface BWBuildListViewController ()
@@ -121,7 +122,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResults sections] objectAtIndex:section];
-    NSLog(@"number of rows: %d", [sectionInfo numberOfObjects]);
     return [sectionInfo numberOfObjects];
 }
 
@@ -143,14 +143,14 @@
     [cell.message setText:build.message];
 
     NSString *statusImage = @"status_yellow";
-    UIColor *textColor = [UIColor blackColor];
+    UIColor *textColor = [BWColor textColor];
     if (build.result) {
         if (build.result == [NSNumber numberWithInt:0]) {
             statusImage = @"status_green";
-            textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            textColor = [BWColor buildPassedColor];
         } else {
             statusImage = @"status_red";
-            textColor = [UIColor colorWithRed:0.75f green:0.0f blue:0.0f alpha:1.0f];
+            textColor = [BWColor buildFailedColor];
         }
     }
     [cell.buildNumber setTextColor:textColor];

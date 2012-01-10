@@ -25,7 +25,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
-    NSLog(@"fie!");
+    NSLog(@"object loader failed with error: %@", error);
 }
 
 - (NSString *)commit

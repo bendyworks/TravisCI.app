@@ -11,6 +11,7 @@
 #import "BWJob.h"
 #import "BWJobTableCell.h"
 #import "BWBuild.h"
+#import "BWColor.h"
 
 @interface BWJobListViewController()
 
@@ -105,14 +106,14 @@
     BWJob *job = [self jobAtIndexPath:indexPath];
 
     NSString *statusImage = @"status_yellow";
-    UIColor *textColor = [UIColor blackColor];
+    UIColor *textColor = [BWColor textColor];
     if (job.status != nil) {
         if (job.status == [NSNumber numberWithInt:0]) {
             statusImage = @"status_green";
-            textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            textColor = [BWColor buildPassedColor];
         } else {
             statusImage = @"status_red";
-            textColor = [UIColor colorWithRed:0.75f green:0.0f blue:0.0f alpha:1.0f];
+            textColor = [BWColor buildFailedColor];
         }
     }
     

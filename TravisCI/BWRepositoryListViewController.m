@@ -9,6 +9,7 @@
 #import "BWRepositoryListViewController.h"
 #import "BWRepositoryTableCell.h"
 #import "BWBuildListViewController.h"
+#import "BWColor.h"
 
 #import "BWRepository.h"
 
@@ -33,12 +34,6 @@
     [super awakeFromNib];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -48,17 +43,12 @@
 //    self.detailViewController = (BWRepositoryViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
-- (void)viewDidUnload { [super viewDidUnload]; }
 - (void)viewWillAppear:(BOOL)animated { 
 
     [super viewWillAppear:animated];
 
     [self refreshRepositoryList];
 }
-
-- (void)viewDidAppear:(BOOL)animated { [super viewDidAppear:animated]; }
-- (void)viewWillDisappear:(BOOL)animated { [super viewWillDisappear:animated]; }
-- (void)viewDidDisappear:(BOOL)animated { [super viewDidDisappear:animated]; }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -134,10 +124,8 @@
     return __fetchedResultsController;
 }
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView beginUpdates];
-}
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller { [self.tableView beginUpdates]; }
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller  { [self.tableView endUpdates];   }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
@@ -165,11 +153,6 @@
     }
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView endUpdates];
-}
-
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     BWRepository *repository = [BWRepository presenterWithObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
@@ -182,14 +165,14 @@
 
 
     NSString *statusImage = @"status_yellow";
-    UIColor *textColor = [UIColor blackColor];
+    UIColor *textColor = [BWColor textColor];
     if (repository.last_build_status != nil && repository.last_build_finished_at) {
         if (repository.last_build_status == [NSNumber numberWithInt:0]) {
             statusImage = @"status_green";
-            textColor = [UIColor colorWithRed:0.0f green:0.5f blue:0.0f alpha:1.0f];
+            textColor = [BWColor buildPassedColor];
         } else {
             statusImage = @"status_red";
-            textColor = [UIColor colorWithRed:0.75f green:0.0f blue:0.0f alpha:1.0f];
+            textColor = [BWColor buildFailedColor];
         }
     }
     [cell.slug setTextColor:textColor];
