@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA311A0B14B63CA200F351C7 /* BWCommandBuildFinished.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */; };
 		DA311A0F14B658D100F351C7 /* BWCDObjectMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */; };
+		DA4FAE9A14BCD80500F2E174 /* BWSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4FAE9914BCD80500F2E174 /* BWSplashViewController.m */; };
 		DA548CFE14BCB5B9007580B4 /* BWCDJob.m in Sources */ = {isa = PBXBuildFile; fileRef = DA548CFD14BCB5B9007580B4 /* BWCDJob.m */; };
 		DA65E45B14A0F78E0066A7E4 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA65E45A14A0F78E0066A7E4 /* libKiwi.a */; };
 		DA65E46014A11CF80066A7E4 /* BWRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = DA65E45F14A11CF80066A7E4 /* BWRepository.m */; };
@@ -58,6 +59,7 @@
 		DA966D2B149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
 		DA966D2C149FAC3900C229CB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D05149FAC3900C229CB /* CoreData.framework */; };
 		DA966D34149FAC3900C229CB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA966D32149FAC3900C229CB /* InfoPlist.strings */; };
+		DAA3934C14BCD732007AFBD4 /* travis.background.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA3934B14BCD732007AFBD4 /* travis.background.png */; };
 		DAA41BC914A3DDDB00C97A37 /* NSDictionary+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA41BAD14A3DDDB00C97A37 /* NSDictionary+QueryString.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DAA41BCA14A3DDDB00C97A37 /* NSString+Hashing.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA41BAF14A3DDDB00C97A37 /* NSString+Hashing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DAA41BCB14A3DDDB00C97A37 /* PTBlockEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA41BB114A3DDDB00C97A37 /* PTBlockEventListener.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -144,6 +146,8 @@
 		DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCommandBuildFinished.m; sourceTree = "<group>"; };
 		DA311A0D14B658D100F351C7 /* BWCDObjectMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDObjectMananger.h; sourceTree = "<group>"; };
 		DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDObjectMananger.m; sourceTree = "<group>"; };
+		DA4FAE9814BCD80500F2E174 /* BWSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWSplashViewController.h; sourceTree = "<group>"; };
+		DA4FAE9914BCD80500F2E174 /* BWSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWSplashViewController.m; sourceTree = "<group>"; };
 		DA548CFC14BCB5B9007580B4 /* BWCDJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDJob.h; sourceTree = "<group>"; };
 		DA548CFD14BCB5B9007580B4 /* BWCDJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDJob.m; sourceTree = "<group>"; };
 		DA65E45A14A0F78E0066A7E4 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../Kiwi/build/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 		DA966D27149FAC3900C229CB /* TravisCITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravisCITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA966D31149FAC3900C229CB /* TravisCITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravisCITests-Info.plist"; sourceTree = "<group>"; };
 		DA966D33149FAC3900C229CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DAA3934B14BCD732007AFBD4 /* travis.background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = travis.background.png; sourceTree = "<group>"; };
 		DAA41BAC14A3DDDB00C97A37 /* NSDictionary+QueryString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+QueryString.h"; sourceTree = "<group>"; };
 		DAA41BAD14A3DDDB00C97A37 /* NSDictionary+QueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+QueryString.m"; sourceTree = "<group>"; };
 		DAA41BAE14A3DDDB00C97A37 /* NSString+Hashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hashing.h"; sourceTree = "<group>"; };
@@ -462,15 +467,17 @@
 				DA7C59AE14BCA60800569F66 /* Custom Cells */,
 				DA7C59A114BC9D7200569F66 /* core_ext */,
 				DA683C88149FEBE1000477AF /* Models */,
+				DA7C59A014BC933D00569F66 /* Navigation */,
 				DA966D10149FAC3900C229CB /* BWAppDelegate.h */,
 				DA966D11149FAC3900C229CB /* BWAppDelegate.m */,
 				DA966D13149FAC3900C229CB /* MainStoryboard_iPhone.storyboard */,
 				DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */,
-				DA7C59A014BC933D00569F66 /* Navigation */,
 				DA966D1F149FAC3900C229CB /* BWRepositoryViewController.h */,
 				DA966D20149FAC3900C229CB /* BWRepositoryViewController.m */,
 				DA966D08149FAC3900C229CB /* Supporting Files */,
 				DA311A0C14B63CAA00F351C7 /* Pusher */,
+				DA4FAE9814BCD80500F2E174 /* BWSplashViewController.h */,
+				DA4FAE9914BCD80500F2E174 /* BWSplashViewController.m */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";
@@ -567,6 +574,7 @@
 		DAA41BE014A3E0A900C97A37 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DAA3934B14BCD732007AFBD4 /* travis.background.png */,
 				DAA41BE114A3E0BC00C97A37 /* Icon-72.png */,
 				DAA41BE214A3E0BC00C97A37 /* Icon-Small-50.png */,
 				DAA41BE314A3E0BC00C97A37 /* Icon-Small.png */,
@@ -715,6 +723,7 @@
 				DAA41BF314A3E0BC00C97A37 /* status_red.png in Resources */,
 				DAA41BF414A3E0BC00C97A37 /* status_yellow.png in Resources */,
 				DA948D6814B7A34D00360BA9 /* BWJobTableCell.xib in Resources */,
+				DAA3934C14BCD732007AFBD4 /* travis.background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,6 +795,7 @@
 				DA7C599C14BB9CE700569F66 /* BWCDRepository.m in Sources */,
 				DA7C59A414BC9DB500569F66 /* NSDictionary+BWTravisCI.m in Sources */,
 				DA548CFE14BCB5B9007580B4 /* BWCDJob.m in Sources */,
+				DA4FAE9A14BCD80500F2E174 /* BWSplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
