@@ -43,7 +43,6 @@
 
 - (NSString *)durationText
 {
-//    NSNumber *duration = [self.object valueForKey:@"finished_at"] - [self.object valueForKey:@"started_at"];
     NSDate *finished_at = [self.object valueForKey:@"finished_at"];
     NSTimeInterval duration = [finished_at timeIntervalSinceDate:[self.object valueForKey:@"started_at"]];
     if (duration != 0) {
@@ -58,7 +57,7 @@
 
 - (NSString *)finishedText
 {
-    return @"finished Text";
+    return [[self.object valueForKey:@"finished_at"] distanceOfTimeInWords];
 }
 
 @end
