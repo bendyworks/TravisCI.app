@@ -110,6 +110,7 @@
     [cell.buildIcon setImage:[UIImage imageNamed:statusImage]];
     [cell.number setText:job.number];
     [cell.number setTextColor:textColor];
+    [cell.language setText:job.language];
     //    [cell.duration setText:job.duration_text];
     //    [cell.finished setText:job.duration_text];
 

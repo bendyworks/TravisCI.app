@@ -41,6 +41,28 @@ describe(@"NSDictionary+BWTravisCI", ^{
         
     });
     
+    describe(@"detectFromKeys", ^{
+        context(@"matching nothing", ^{
+            it(@"returns nil", ^{
+                NSArray *result = [subject detectFromKeys:@"foo", nil];
+                [result shouldBeNil];
+            });
+        });
+        context(@"matching something", ^{
+            it(@"returns an array of [key, value]", ^{
+                NSArray *result = [subject detectFromKeys:@"a", nil];
+                [[result should] equal:[NSArray arrayWithObjects:@"a", @"1", nil]];
+            });
+        });
+        context(@"matches more than one thing", ^{
+            it(@"returns the first match as an array of [key, value]", ^{
+                NSArray *result = [subject detectFromKeys:@"b", @"a", @"c", nil];
+                [[result should] equal:[NSArray arrayWithObjects:@"b", @"2", nil]];
+            });
+        });
+        
+    });
+    
 });
 
 SPEC_END

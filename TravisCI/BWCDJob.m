@@ -2,7 +2,7 @@
 //  BWCDJob.m
 //  TravisCI
 //
-//  Created by Bradley Grzesiak on 1/9/12.
+//  Created by Bradley Grzesiak on 1/10/12.
 //  Copyright (c) 2012 Bendyworks. All rights reserved.
 //
 
@@ -12,6 +12,7 @@
 
 @implementation BWCDJob
 
+@dynamic config;
 @dynamic finished_at;
 @dynamic log;
 @dynamic number;

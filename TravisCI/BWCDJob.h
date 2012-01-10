@@ -2,7 +2,7 @@
 //  BWCDJob.h
 //  TravisCI
 //
-//  Created by Bradley Grzesiak on 1/9/12.
+//  Created by Bradley Grzesiak on 1/10/12.
 //  Copyright (c) 2012 Bendyworks. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 
 @interface BWCDJob : NSManagedObject
 
+@property (nonatomic, retain) NSDictionary *config;
 @property (nonatomic, retain) NSDate * finished_at;
 @property (nonatomic, retain) NSString * log;
 @property (nonatomic, retain) NSString * number;

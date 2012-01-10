@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *number;
 @property (strong, nonatomic) IBOutlet UILabel *duration;
 @property (strong, nonatomic) IBOutlet UILabel *finished_at;
-@property (strong, nonatomic) IBOutlet UILabel *rvm;
+@property (strong, nonatomic) IBOutlet UILabel *language;
 @property (strong, nonatomic) IBOutlet UILabel *env;
 
 @end

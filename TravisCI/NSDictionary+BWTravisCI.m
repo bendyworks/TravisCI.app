@@ -37,4 +37,25 @@
     return ret;
 }
 
+- (NSArray *)detectFromKeys:(NSString *)keys, ...
+{
+    NSString *key;
+    id value;
+    NSMutableArray *keySet = [NSMutableArray array];
+    va_list args;
+    va_start(args, keys);
+    for (key = keys; key != nil; key = va_arg(args, NSString*))
+    {
+        [keySet addObject:key];
+    }
+    va_end(args);
+    
+    for (key in keySet) {
+        if ((value = [self objectForKey:key])) {
+            return [NSArray arrayWithObjects:key, value, nil];
+        }
+    }
+    return nil;
+}
+
 @end

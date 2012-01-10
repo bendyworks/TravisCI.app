@@ -109,7 +109,6 @@
 								<string key="NSFrame">{{115, 61}, {139, 21}}</string>
 								<reference key="NSSuperview" ref="705514631"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:345</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -276,19 +275,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">rvm</string>
-						<reference key="source" ref="902716158"/>
-						<reference key="destination" ref="549422991"/>
-					</object>
-					<int key="connectionID">15</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">finished_at</string>
 						<reference key="source" ref="902716158"/>
 						<reference key="destination" ref="334071146"/>
 					</object>
 					<int key="connectionID">13</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">language</string>
+						<reference key="source" ref="902716158"/>
+						<reference key="destination" ref="549422991"/>
+					</object>
+					<int key="connectionID">18</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -387,7 +386,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">17</int>
+			<int key="maxID">18</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -399,8 +398,8 @@
 						<string key="duration">UILabel</string>
 						<string key="env">UILabel</string>
 						<string key="finished_at">UILabel</string>
+						<string key="language">UILabel</string>
 						<string key="number">UILabel</string>
-						<string key="rvm">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="buildIcon">
@@ -419,12 +418,12 @@
 							<string key="name">finished_at</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="number">
-							<string key="name">number</string>
+						<object class="IBToOneOutletInfo" key="language">
+							<string key="name">language</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="rvm">
-							<string key="name">rvm</string>
+						<object class="IBToOneOutletInfo" key="number">
+							<string key="name">number</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 					</dictionary>

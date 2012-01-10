@@ -16,4 +16,6 @@
 @property (strong, nonatomic) NSString *state;
 @property (strong, nonatomic) NSNumber *status;
 
+-(NSString *)language;
+
 @end

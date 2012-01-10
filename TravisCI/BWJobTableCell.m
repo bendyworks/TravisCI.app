@@ -10,7 +10,7 @@
 
 @implementation BWJobTableCell
 
-@synthesize buildIcon, number, duration, finished_at, rvm, env;
+@synthesize buildIcon, number, duration, finished_at, language, env;
 
 
 + (NSString *)cellIdentifier
