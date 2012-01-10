@@ -48,10 +48,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.detailViewController = (BWRepositoryViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshRepositoryList)];
-    self.navigationItem.rightBarButtonItem = refreshButton;
-    
 }
 
 - (void)viewDidUnload { [super viewDidUnload]; }
