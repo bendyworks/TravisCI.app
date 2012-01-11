@@ -21,7 +21,6 @@
 @synthesize window = _window;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
-@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
 @synthesize pusherHandler = _pusherHandler;
 
@@ -73,7 +72,13 @@
 //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
     
     RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:TRAVIS_CI_URL]; // sets up singleton shared object manager
-    manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI.sqlite"];
+//    manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI.sqlite"];
+    manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI-cache.sqlite"
+                                                                 inDirectory:[[self applicationCacheDirectory] path]
+                                                       usingSeedDatabaseName:nil
+                                                          managedObjectModel:self.managedObjectModel
+                                                                    delegate:nil];
+
     manager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
 
 
@@ -158,47 +163,17 @@
 - (NSManagedObjectModel *)managedObjectModel
 {
     if (__managedObjectModel != nil) { return __managedObjectModel; }
-
+    
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"TravisCI" withExtension:@"momd"];
     __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return __managedObjectModel;
 }
 
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
-    if (__persistentStoreCoordinator != nil)
-    {
-        return __persistentStoreCoordinator;
-    }
-
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"TravisCI.sqlite"];
-    
-    NSError *error = nil;
-    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSDictionary *lightweightMigrationDict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                                              [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
-                                              nil];
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:lightweightMigrationDict error:&error])
-    {
-        /*
-         * Performing automatic lightweight migration by passing the following dictionary as the options parameter: 
-         [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-         
-         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-         
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }    
-    
-    return __persistentStoreCoordinator;
-}
-
 #pragma mark - Application's Documents directory
 
-- (NSURL *)applicationDocumentsDirectory
+- (NSURL *)applicationCacheDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 
