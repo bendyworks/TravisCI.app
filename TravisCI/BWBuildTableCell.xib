@@ -38,7 +38,7 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIImageView" id="965181739">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">274</int>
+						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{13, 16}, {14, 14}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -83,7 +83,7 @@
 					</object>
 					<object class="IBUILabel" id="34435668">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{35, 36}, {265, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -103,7 +103,7 @@
 					</object>
 					<object class="IBUILabel" id="855784824">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{134, 12}, {65, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -131,8 +131,8 @@
 					</object>
 					<object class="IBUILabel" id="1038387164">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{194, 12}, {139, 21}}</string>
+						<int key="NSvFlags">289</int>
+						<string key="NSFrame">{{187, 12}, {113, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="34435668"/>
@@ -215,8 +215,8 @@
 							<reference ref="965181739"/>
 							<reference ref="466150597"/>
 							<reference ref="855784824"/>
-							<reference ref="1038387164"/>
 							<reference ref="34435668"/>
+							<reference ref="1038387164"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -280,7 +280,7 @@
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">BWBuildTableCell</string>
-					<string key="superclassName">UITableViewCell</string>
+					<string key="superclassName">BWTableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="buildNumber">UILabel</string>
 						<string key="commit">UILabel</string>
@@ -308,6 +308,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/BWBuildTableCell.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">BWTableViewCell</string>
+					<string key="superclassName">UITableViewCell</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BWTableViewCell.h</string>
 					</object>
 				</object>
 			</array>

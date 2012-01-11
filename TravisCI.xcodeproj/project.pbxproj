@@ -263,6 +263,7 @@
 		DAADBF7E14BCF44C000F655E /* BWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BWTableViewCell.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		DAADBF8014BCF750000F655E /* BWColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWColor.h; sourceTree = "<group>"; };
 		DAADBF8114BCF751000F655E /* BWColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWColor.m; sourceTree = "<group>"; };
+		DAADBF8314BDDDC3000F655E /* BWAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWAwesome.h; sourceTree = "<group>"; };
 		DAC3873A14A1318500927334 /* NSDate+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Formatting.h"; path = "DistanceOfTimeInWords/NSDate+Formatting.h"; sourceTree = "<group>"; };
 		DAC3873B14A1318500927334 /* NSDate+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Formatting.m"; path = "DistanceOfTimeInWords/NSDate+Formatting.m"; sourceTree = "<group>"; };
 		DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FormattingSpec.m; sourceTree = "<group>"; };
@@ -489,6 +490,7 @@
 				DA4FAE9914BCD80500F2E174 /* BWSplashViewController.m */,
 				DAADBF8014BCF750000F655E /* BWColor.h */,
 				DAADBF8114BCF751000F655E /* BWColor.m */,
+				DAADBF8314BDDDC3000F655E /* BWAwesome.h */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";

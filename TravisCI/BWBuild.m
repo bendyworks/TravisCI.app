@@ -7,6 +7,7 @@
 //
 
 #import "BWBuild.h"
+#import "BWColor.h"
 #import "RestKit/CoreData.h"
 
 @implementation BWBuild
@@ -33,6 +34,33 @@
     NSString *sha8 = [(NSString *)[self.object valueForKey:@"commit"] substringToIndex:8];
     NSString *shaAndBranch = [NSString stringWithFormat:@"%@ (%@)", sha8, [self.object valueForKey:@"branch"]];
     return shaAndBranch;
+}
+
+- (UIImage *)statusImage
+{
+    NSString *ret = @"status_yellow";
+    if (self.result) {
+        if (self.result == [NSNumber numberWithInt:0]) {
+            ret = @"status_green";
+        } else {
+            ret = @"status_red";
+        }
+    }
+    return [UIImage imageNamed:ret];
+}
+
+- (UIColor *)statusTextColor
+{
+    UIColor *ret = [BWColor textColor];
+    if (self.result) {
+        if (self.result == [NSNumber numberWithInt:0]) {
+            ret = [BWColor buildPassedColor];
+        } else {
+            ret = [BWColor buildFailedColor];
+        }
+    }
+
+    return ret;
 }
 
 @end

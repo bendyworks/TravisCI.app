@@ -13,6 +13,9 @@
 
 - (void)fetchJobs;
 
+@property (readonly) UIImage *statusImage;
+@property (readonly) UIColor *statusTextColor;
+
 @property (nonatomic, strong) NSNumber *remote_id;
 @property (nonatomic, strong) NSString *state;
 @property (nonatomic, strong) NSString *number;

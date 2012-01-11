@@ -8,8 +8,9 @@
 
 #import "BWAppDelegate.h"
 #import "BWRepositoryListViewController.h"
-#import <RestKit/RestKit.h>
 #import "BWPusherHandler.h"
+#import "BWAwesome.h"
+#import <RestKit/RestKit.h>
 
 @interface BWAppDelegate()
 - (void)setupRestKit;
@@ -46,7 +47,7 @@
 
     [self setupRestKit];
 
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    if (IS_IPAD) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
