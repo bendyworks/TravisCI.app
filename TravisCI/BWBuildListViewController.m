@@ -110,18 +110,23 @@
 
 #pragma mark - Table view delegate
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([@"goToJobList" isEqualToString:segue.identifier]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        BWBuild *build = [BWBuild presenterWithObject:[self.fetchedResults objectAtIndexPath:indexPath]];
+        [build fetchJobs];
+        // [self.detailViewController configureViewAndSetBuild:build];
+
+        [[segue destinationViewController] setValue:build forKey:@"build"];
+    }
+    
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.jobListController == nil) {
-        self.jobListController = [[BWJobListViewController alloc] initWithStyle:UITableViewStylePlain];
-    }
-
-    BWBuild *build = [BWBuild presenterWithObject:[self.fetchedResults objectAtIndexPath:indexPath]];
-    [build fetchJobs];
-    // [self.detailViewController configureViewAndSetBuild:build];
-    
-    self.jobListController.build = build;
-    [self.navigationController pushViewController:self.jobListController animated:YES];
+    [self performSegueWithIdentifier:@"goToJobList" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
 #pragma mark - Fetched results controller

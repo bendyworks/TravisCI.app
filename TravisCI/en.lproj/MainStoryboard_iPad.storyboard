@@ -110,6 +110,9 @@
                     <navigationItem key="navigationItem" title="Builds" id="trj-1e-Pox"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <segue destination="xN8-qm-INP" kind="push" identifier="goToJobList" id="gOD-kA-bAx"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1363" y="-630"/>
@@ -117,11 +120,12 @@
         <scene sceneID="IoZ-WB-XL8">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Phc-UD-pLx" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="" title="Master" clearsSelectionOnViewWillAppear="NO" id="xN8-qm-INP" customClass="BWBuildListViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="" title="Master" clearsSelectionOnViewWillAppear="NO" id="xN8-qm-INP" customClass="BWJobListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="7jJ-VU-QxY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="788"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="xN8-qm-INP" id="jI1-Ug-TGK"/>
@@ -142,6 +146,9 @@
     <classes>
         <class className="BWBuildListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BWBuildListViewController.h"/>
+        </class>
+        <class className="BWJobListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWJobListViewController.h"/>
         </class>
         <class className="BWRepositoryListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BWRepositoryListViewController.h"/>

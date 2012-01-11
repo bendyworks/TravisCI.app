@@ -105,6 +105,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Builds" id="xta-8J-YIb"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <segue destination="gZo-xS-nDq" kind="push" identifier="goToJobList" id="MQz-Ei-AEB"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1042" y="64"/>
