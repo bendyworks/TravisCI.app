@@ -63,4 +63,9 @@
     return ret;
 }
 
+- (NSString *)formattedNumber
+{
+    return [NSString stringWithFormat:@"Build #%@", self.number];
+}
+
 @end

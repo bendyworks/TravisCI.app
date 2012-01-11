@@ -109,22 +109,10 @@
 - (void)configureCell:(BWBuildTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     BWBuild *build = [BWBuild presenterWithObject:[self.fetchedResults objectAtIndexPath:indexPath]];
-    NSString *buildNumber = [NSString stringWithFormat:@"Build #%@", build.number];
-    [cell.buildNumber setText:buildNumber];
+
+    [cell.buildNumber setText:build.formattedNumber];
     [cell.commit setText:build.commit];
     [cell.message setText:build.message];
-
-    NSString *statusImage = @"status_yellow";
-    UIColor *textColor = [BWColor textColor];
-    if (build.result) {
-        if (build.result == [NSNumber numberWithInt:0]) {
-            statusImage = @"status_green";
-            textColor = [BWColor buildPassedColor];
-        } else {
-            statusImage = @"status_red";
-            textColor = [BWColor buildFailedColor];
-        }
-    }
     [cell.buildNumber setTextColor:build.statusTextColor];
     [cell.statusImage setImage:build.statusImage];
 }
