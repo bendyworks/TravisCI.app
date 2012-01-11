@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DA311A0B14B63CA200F351C7 /* BWCommandBuildFinished.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */; };
 		DA311A0F14B658D100F351C7 /* BWCDObjectMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */; };
-		DA4FAE9A14BCD80500F2E174 /* BWSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4FAE9914BCD80500F2E174 /* BWSplashViewController.m */; };
 		DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4FAE9C14BCDB8A00F2E174 /* BWBuildTableCell.m */; };
 		DA4FAE9F14BCDBC200F2E174 /* BWBuildTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4FAE9E14BCDBC200F2E174 /* BWBuildTableCell.xib */; };
 		DA548CFE14BCB5B9007580B4 /* BWCDJob.m in Sources */ = {isa = PBXBuildFile; fileRef = DA548CFD14BCB5B9007580B4 /* BWCDJob.m */; };
@@ -89,6 +88,9 @@
 		DAADBF7F14BCF44C000F655E /* BWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF7E14BCF44C000F655E /* BWTableViewCell.m */; };
 		DAADBF8214BCF751000F655E /* BWColor.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF8114BCF751000F655E /* BWColor.m */; };
 		DAADBF8714BDEED8000F655E /* BWJobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF8614BDEED8000F655E /* BWJobDetailViewController.m */; };
+		DAADBF8C14BE3354000F655E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAADBF8B14BE3354000F655E /* QuartzCore.framework */; };
+		DAADBF8F14BE46F5000F655E /* BWRepositoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF8E14BE46F5000F655E /* BWRepositoryDetailViewController.m */; };
+		DAADBF9514BE47F5000F655E /* BWSplashView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAADBF9414BE47F5000F655E /* BWSplashView.xib */; };
 		DAC3873C14A1318500927334 /* NSDate+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873B14A1318500927334 /* NSDate+Formatting.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DAC3873E14A134BB00927334 /* NSDate_FormattingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */; };
 /* End PBXBuildFile section */
@@ -150,8 +152,6 @@
 		DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCommandBuildFinished.m; sourceTree = "<group>"; };
 		DA311A0D14B658D100F351C7 /* BWCDObjectMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDObjectMananger.h; sourceTree = "<group>"; };
 		DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDObjectMananger.m; sourceTree = "<group>"; };
-		DA4FAE9814BCD80500F2E174 /* BWSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWSplashViewController.h; sourceTree = "<group>"; };
-		DA4FAE9914BCD80500F2E174 /* BWSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWSplashViewController.m; sourceTree = "<group>"; };
 		DA4FAE9B14BCDB8A00F2E174 /* BWBuildTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBuildTableCell.h; sourceTree = "<group>"; };
 		DA4FAE9C14BCDB8A00F2E174 /* BWBuildTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuildTableCell.m; sourceTree = "<group>"; };
 		DA4FAE9E14BCDBC200F2E174 /* BWBuildTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BWBuildTableCell.xib; sourceTree = "<group>"; };
@@ -267,6 +267,10 @@
 		DAADBF8314BDDDC3000F655E /* BWAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWAwesome.h; sourceTree = "<group>"; };
 		DAADBF8514BDEED8000F655E /* BWJobDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWJobDetailViewController.h; sourceTree = "<group>"; };
 		DAADBF8614BDEED8000F655E /* BWJobDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWJobDetailViewController.m; sourceTree = "<group>"; };
+		DAADBF8B14BE3354000F655E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DAADBF8D14BE46F5000F655E /* BWRepositoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWRepositoryDetailViewController.h; sourceTree = "<group>"; };
+		DAADBF8E14BE46F5000F655E /* BWRepositoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryDetailViewController.m; sourceTree = "<group>"; };
+		DAADBF9414BE47F5000F655E /* BWSplashView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BWSplashView.xib; sourceTree = "<group>"; };
 		DAC3873A14A1318500927334 /* NSDate+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Formatting.h"; path = "DistanceOfTimeInWords/NSDate+Formatting.h"; sourceTree = "<group>"; };
 		DAC3873B14A1318500927334 /* NSDate+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Formatting.m"; path = "DistanceOfTimeInWords/NSDate+Formatting.m"; sourceTree = "<group>"; };
 		DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FormattingSpec.m; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAADBF8C14BE3354000F655E /* QuartzCore.framework in Frameworks */,
 				DA7C59AD14BCA5E300569F66 /* libxml2.dylib in Frameworks */,
 				DA7C59AC14BCA26A00569F66 /* CoreGraphics.framework in Frameworks */,
 				DA7C59AB14BCA25600569F66 /* Security.framework in Frameworks */,
@@ -441,6 +446,7 @@
 		DA966CF0149FAC3900C229CB = {
 			isa = PBXGroup;
 			children = (
+				DAADBF8B14BE3354000F655E /* QuartzCore.framework */,
 				DA65E45A14A0F78E0066A7E4 /* libKiwi.a */,
 				DA966D07149FAC3900C229CB /* TravisCI */,
 				DA966D2F149FAC3900C229CB /* TravisCITests */,
@@ -490,8 +496,6 @@
 				DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */,
 				DA966D08149FAC3900C229CB /* Supporting Files */,
 				DA311A0C14B63CAA00F351C7 /* Pusher */,
-				DA4FAE9814BCD80500F2E174 /* BWSplashViewController.h */,
-				DA4FAE9914BCD80500F2E174 /* BWSplashViewController.m */,
 				DAADBF8014BCF750000F655E /* BWColor.h */,
 				DAADBF8114BCF751000F655E /* BWColor.m */,
 				DAADBF8314BDDDC3000F655E /* BWAwesome.h */,
@@ -611,6 +615,9 @@
 			children = (
 				DAADBF8514BDEED8000F655E /* BWJobDetailViewController.h */,
 				DAADBF8614BDEED8000F655E /* BWJobDetailViewController.m */,
+				DAADBF8D14BE46F5000F655E /* BWRepositoryDetailViewController.h */,
+				DAADBF8E14BE46F5000F655E /* BWRepositoryDetailViewController.m */,
+				DAADBF9414BE47F5000F655E /* BWSplashView.xib */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -751,6 +758,7 @@
 				DA948D6814B7A34D00360BA9 /* BWJobTableCell.xib in Resources */,
 				DAA3934C14BCD732007AFBD4 /* travis.background.png in Resources */,
 				DA4FAE9F14BCDBC200F2E174 /* BWBuildTableCell.xib in Resources */,
+				DAADBF9514BE47F5000F655E /* BWSplashView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,11 +829,11 @@
 				DA7C599C14BB9CE700569F66 /* BWCDRepository.m in Sources */,
 				DA7C59A414BC9DB500569F66 /* NSDictionary+BWTravisCI.m in Sources */,
 				DA548CFE14BCB5B9007580B4 /* BWCDJob.m in Sources */,
-				DA4FAE9A14BCD80500F2E174 /* BWSplashViewController.m in Sources */,
 				DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */,
 				DAADBF7F14BCF44C000F655E /* BWTableViewCell.m in Sources */,
 				DAADBF8214BCF751000F655E /* BWColor.m in Sources */,
 				DAADBF8714BDEED8000F655E /* BWJobDetailViewController.m in Sources */,
+				DAADBF8F14BE46F5000F655E /* BWRepositoryDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

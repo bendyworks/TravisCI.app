@@ -1,25 +1,20 @@
 //
-//  BWSplashViewController.m
+//  BWRepositoryDetailViewController.m
 //  TravisCI
 //
-//  Created by Bradley Grzesiak on 1/10/12.
+//  Created by Bradley Grzesiak on 1/11/12.
 //  Copyright (c) 2012 Bendyworks. All rights reserved.
 //
 
-#import "BWSplashViewController.h"
-#import "BWAwesome.h"
+#import "BWRepositoryDetailViewController.h"
 
-@interface BWSplashViewController()
-
+@interface BWRepositoryDetailViewController()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
-
 @end
 
+@implementation BWRepositoryDetailViewController
 
-
-@implementation BWSplashViewController
-
-@synthesize masterPopoverController = _masterPopoverController;
+@synthesize splashView, masterPopoverController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,10 +57,21 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (self.splashView == nil) {
+        [[NSBundle mainBundle] loadNibNamed:@"BWSplashView" owner:self options:nil];
+    }
+    [self.view addSubview:self.splashView];
+}
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+	return YES;
+}
 
-#pragma mark - Split view
+#pragma mark split view delegate
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
@@ -80,6 +86,5 @@
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
 }
-
 
 @end
