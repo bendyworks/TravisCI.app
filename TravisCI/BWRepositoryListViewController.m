@@ -158,21 +158,9 @@
     cell.duration.text = [repository durationText];
     cell.finished.text = [repository finishedText];
 
-
-    NSString *statusImage = @"status_yellow";
-    UIColor *textColor = [BWColor textColor];
-    if (repository.last_build_status != nil && repository.last_build_finished_at) {
-        if (repository.last_build_status == [NSNumber numberWithInt:0]) {
-            statusImage = @"status_green";
-            textColor = [BWColor buildPassedColor];
-        } else {
-            statusImage = @"status_red";
-            textColor = [BWColor buildFailedColor];
-        }
-    }
-    [cell.slug setTextColor:textColor];
-    [cell.buildNumber setTextColor:textColor];
-    [cell.statusImage setImage:[UIImage imageNamed:statusImage]];
+    [cell.slug setTextColor:repository.statusTextColor];
+    [cell.buildNumber setTextColor:repository.statusTextColor];
+    [cell.statusImage setImage:repository.statusImage];
 }
 
 - (void)refreshRepositoryList

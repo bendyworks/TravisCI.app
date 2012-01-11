@@ -7,7 +7,6 @@
 //
 
 #import "BWBuild.h"
-#import "BWColor.h"
 #import "RestKit/CoreData.h"
 
 @implementation BWBuild
@@ -36,32 +35,14 @@
     return shaAndBranch;
 }
 
-- (UIImage *)statusImage
+- (BWStatus)currentStatus
 {
-    NSString *ret = @"status_yellow";
     if (self.result) {
-        if (self.result == [NSNumber numberWithInt:0]) {
-            ret = @"status_green";
-        } else {
-            ret = @"status_red";
-        }
+        return (self.result == [NSNumber numberWithInt:0]) ? BWStatusPassed : BWStatusFailed;
     }
-    return [UIImage imageNamed:ret];
+    return BWStatusPending;
 }
 
-- (UIColor *)statusTextColor
-{
-    UIColor *ret = [BWColor textColor];
-    if (self.result) {
-        if (self.result == [NSNumber numberWithInt:0]) {
-            ret = [BWColor buildPassedColor];
-        } else {
-            ret = [BWColor buildFailedColor];
-        }
-    }
-
-    return ret;
-}
 
 - (NSString *)formattedNumber
 {

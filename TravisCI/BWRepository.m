@@ -47,6 +47,14 @@
                               delegate:self];
 }
 
+- (BWStatus)currentStatus
+{
+    if (self.last_build_status != nil && self.last_build_finished_at) {
+        return (self.last_build_status == [NSNumber numberWithInt:0]) ? BWStatusPassed : BWStatusFailed;
+    }
+    return BWStatusPending;
+}
+
 #pragma mark RKObjectLoaderDelegate methods
 
 //- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects { }

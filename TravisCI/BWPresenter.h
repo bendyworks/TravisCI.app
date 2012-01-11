@@ -8,9 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    BWStatusPending,
+    BWStatusPassed,
+    BWStatusFailed
+} BWStatus;
+
 @interface BWPresenter : NSObject
 + (id)presenterWithObject:(id)obj;
 - (id)initWithObject:(id)obj;
+
+- (BWStatus)currentStatus;
+- (UIImage *)statusImage;
+- (UIColor *)statusTextColor;
 
 @property (nonatomic, strong) id object;
 @end

@@ -60,4 +60,13 @@
     return [[self.object valueForKey:@"finished_at"] distanceOfTimeInWords];
 }
 
+
+- (BWStatus)currentStatus
+{
+    if (self.status) {
+        return (self.status == [NSNumber numberWithInt:0]) ? BWStatusPassed : BWStatusFailed;
+    }
+    return BWStatusPending;
+}
+
 @end

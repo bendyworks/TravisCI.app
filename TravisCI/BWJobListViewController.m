@@ -95,21 +95,9 @@
 {
     BWJob *job = [self jobAtIndexPath:indexPath];
 
-    NSString *statusImage = @"status_yellow";
-    UIColor *textColor = [BWColor textColor];
-    if (job.status != nil) {
-        if (job.status == [NSNumber numberWithInt:0]) {
-            statusImage = @"status_green";
-            textColor = [BWColor buildPassedColor];
-        } else {
-            statusImage = @"status_red";
-            textColor = [BWColor buildFailedColor];
-        }
-    }
-    
-    [cell.buildIcon setImage:[UIImage imageNamed:statusImage]];
+    [cell.buildIcon setImage:job.statusImage];
     [cell.number setText:job.number];
-    [cell.number setTextColor:textColor];
+    [cell.number setTextColor:job.statusTextColor];
     [cell.language setText:job.language];
     [cell.env setText:job.env];
     [cell.duration setText:job.durationText];
