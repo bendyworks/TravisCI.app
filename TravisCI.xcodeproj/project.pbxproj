@@ -88,6 +88,7 @@
 		DAA41BF714A5186200C97A37 /* BWCommandBuildStarted.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA41BF614A5186200C97A37 /* BWCommandBuildStarted.m */; };
 		DAADBF7F14BCF44C000F655E /* BWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF7E14BCF44C000F655E /* BWTableViewCell.m */; };
 		DAADBF8214BCF751000F655E /* BWColor.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF8114BCF751000F655E /* BWColor.m */; };
+		DAADBF8714BDEED8000F655E /* BWJobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF8614BDEED8000F655E /* BWJobDetailViewController.m */; };
 		DAC3873C14A1318500927334 /* NSDate+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873B14A1318500927334 /* NSDate+Formatting.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DAC3873E14A134BB00927334 /* NSDate_FormattingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */; };
 /* End PBXBuildFile section */
@@ -264,6 +265,8 @@
 		DAADBF8014BCF750000F655E /* BWColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWColor.h; sourceTree = "<group>"; };
 		DAADBF8114BCF751000F655E /* BWColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWColor.m; sourceTree = "<group>"; };
 		DAADBF8314BDDDC3000F655E /* BWAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWAwesome.h; sourceTree = "<group>"; };
+		DAADBF8514BDEED8000F655E /* BWJobDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWJobDetailViewController.h; sourceTree = "<group>"; };
+		DAADBF8614BDEED8000F655E /* BWJobDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWJobDetailViewController.m; sourceTree = "<group>"; };
 		DAC3873A14A1318500927334 /* NSDate+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Formatting.h"; path = "DistanceOfTimeInWords/NSDate+Formatting.h"; sourceTree = "<group>"; };
 		DAC3873B14A1318500927334 /* NSDate+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Formatting.m"; path = "DistanceOfTimeInWords/NSDate+Formatting.m"; sourceTree = "<group>"; };
 		DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FormattingSpec.m; sourceTree = "<group>"; };
@@ -480,6 +483,7 @@
 				DA7C59A114BC9D7200569F66 /* core_ext */,
 				DA683C88149FEBE1000477AF /* Models */,
 				DA7C59A014BC933D00569F66 /* Navigation */,
+				DAADBF8414BDEEA7000F655E /* Detail */,
 				DA966D10149FAC3900C229CB /* BWAppDelegate.h */,
 				DA966D11149FAC3900C229CB /* BWAppDelegate.m */,
 				DA966D13149FAC3900C229CB /* MainStoryboard_iPhone.storyboard */,
@@ -600,6 +604,15 @@
 				DAA41BEA14A3E0BC00C97A37 /* status_yellow.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		DAADBF8414BDEEA7000F655E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DAADBF8514BDEED8000F655E /* BWJobDetailViewController.h */,
+				DAADBF8614BDEED8000F655E /* BWJobDetailViewController.m */,
+			);
+			name = Detail;
 			sourceTree = "<group>";
 		};
 		DAC3873914A1316C00927334 /* DistanceOfTimeInWords */ = {
@@ -812,6 +825,7 @@
 				DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */,
 				DAADBF7F14BCF44C000F655E /* BWTableViewCell.m in Sources */,
 				DAADBF8214BCF751000F655E /* BWColor.m in Sources */,
+				DAADBF8714BDEED8000F655E /* BWJobDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

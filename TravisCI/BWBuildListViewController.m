@@ -45,31 +45,17 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self addObserver:self forKeyPath:@"repository" options:NSKeyValueObservingOptionNew context:nil];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    [self removeObserver:self forKeyPath:@"repository" context:nil];
-
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self addObserver:self forKeyPath:@"repository" options:NSKeyValueObservingOptionNew context:nil];
     self.navigationItem.title = self.repository.slug;
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self removeObserver:self forKeyPath:@"repository" context:nil];
+    [super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }

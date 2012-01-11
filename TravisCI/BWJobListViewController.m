@@ -7,6 +7,7 @@
 //
 
 #import "BWJobListViewController.h"
+#import "BWJobDetailViewController.h"
 #import "RestKit/CoreData.h"
 #import "BWJob.h"
 #import "BWJobTableCell.h"
@@ -25,6 +26,7 @@
 
 
 @synthesize fetchedResultsController = __fetchedResultsController;
+@synthesize jobDetailViewController = _jobDetailViewController;
 @synthesize jobCellNib, build;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -38,18 +40,6 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self addObserver:self forKeyPath:@"build" options:NSKeyValueObservingOptionNew context:nil];
-}
-
-- (void)viewDidUnload
-{
-    [self removeObserver:self forKeyPath:@"build" context:nil];
-    [super viewDidUnload];
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     self.fetchedResultsController = nil;
@@ -57,8 +47,14 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self addObserver:self forKeyPath:@"build" options:NSKeyValueObservingOptionNew context:nil];
     self.navigationItem.title = [NSString stringWithFormat:@"Build #%d", [self.build.number integerValue]];
     [super viewWillAppear:animated];
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self removeObserver:self forKeyPath:@"build" context:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
@@ -109,12 +105,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    self.jobDetailViewController.job = [self jobAtIndexPath:indexPath];
+    [self.navigationController performSegueWithIdentifier:@"Push" sender:self];
 }
 
 - (UINib *)jobCellNib
@@ -207,6 +199,15 @@
 - (BWJob *)jobAtIndexPath:(NSIndexPath *)indexPath
 {
     return [BWJob presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+}
+
+- (BWJobDetailViewController *)jobDetailViewController
+{
+    if (_jobDetailViewController) {
+        return _jobDetailViewController;
+    }
+    _jobDetailViewController = [[BWJobDetailViewController alloc] init];
+    return _jobDetailViewController;
 }
 
 @end

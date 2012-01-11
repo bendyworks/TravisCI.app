@@ -71,14 +71,22 @@
     return cell;
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([@"goToBuilds" isEqualToString:segue.identifier]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        BWRepository *repository = [BWRepository presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+        [repository fetchBuilds];
+        //    [self.detailViewController configureViewAndSetRepository:repository];
+        [[segue destinationViewController] setValue:repository forKey:@"repository"];
+    }
+
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BWRepository *repository = [BWRepository presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
-    [repository fetchBuilds];
-//    [self.detailViewController configureViewAndSetRepository:repository];
-
-    self.buildListController.repository = repository;
-    [self.navigationController pushViewController:self.buildListController animated:YES];
+    [self performSegueWithIdentifier:@"goToBuilds" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
 - (UINib *)repositoryCellNib
