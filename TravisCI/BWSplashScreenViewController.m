@@ -1,21 +1,19 @@
 //
-//  BWRepositoryDetailViewController.m
+//  BWSplashScreenViewController.m
 //  TravisCI
 //
-//  Created by Bradley Grzesiak on 1/11/12.
+//  Created by Bradley Grzesiak on 1/12/12.
 //  Copyright (c) 2012 Bendyworks. All rights reserved.
 //
 
-#import "BWRepositoryDetailViewController.h"
-#import "BWAwesome.h"
-#import <QuartzCore/QuartzCore.h>
+#import "BWSplashScreenViewController.h"
 
-@implementation BWRepositoryDetailViewController
-
-@synthesize splashView;
+@implementation BWSplashScreenViewController
+@synthesize splashImage;
 
 - (void)awakeFromNib
 {
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -24,6 +22,18 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
+{
+    CGFloat heightOffset = -44.0f;
+    CGFloat widthOffset = 0.0f;
+    if (UIInterfaceOrientationIsLandscape(interfaceOrientation)) {
+        heightOffset = -176.0f;
+        widthOffset = -32.0f;
+    }
+    CGRect newRect = CGRectMake(widthOffset, heightOffset, 768.0f, 1004.0f);
+    [self.splashImage setFrame:newRect];
 }
 
 #pragma mark - View lifecycle
@@ -45,16 +55,11 @@
 
 - (void)viewDidUnload
 {
+    [self setSplashImage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

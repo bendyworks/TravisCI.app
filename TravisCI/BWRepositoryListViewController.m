@@ -87,7 +87,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"goToBuilds" sender:[tableView cellForRowAtIndexPath:indexPath]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"repositorySelected" object:nil];
 }
 
 - (UINib *)repositoryCellNib

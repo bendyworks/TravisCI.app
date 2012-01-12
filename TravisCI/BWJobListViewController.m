@@ -105,8 +105,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.jobDetailViewController.job = [self jobAtIndexPath:indexPath];
-    [self.navigationController performSegueWithIdentifier:@"Push" sender:self];
+    //TODO: make not crash
+//    self.jobDetailViewController.job = [self jobAtIndexPath:indexPath];
+//    [self.navigationController performSegueWithIdentifier:@"Push" sender:self];
 }
 
 - (UINib *)jobCellNib

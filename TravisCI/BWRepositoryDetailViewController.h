@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BWRepositoryDetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface BWRepositoryDetailViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UIView *splashView;
 

@@ -10,7 +10,7 @@
 
 @class BWRepositoryDetailViewController;
 
-@interface BWDetailContainerViewController : UIViewController
+@interface BWDetailContainerViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (nonatomic, strong) UIViewController *splashViewController;
 @property (nonatomic, strong) BWRepositoryDetailViewController *repositoryDetailViewController;
