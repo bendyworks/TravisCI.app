@@ -57,7 +57,11 @@
 
 #pragma mark RKObjectLoaderDelegate methods
 
-//- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects { }
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+    // objects == [build_1, build_2, ...]
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"buildsLoaded" object:self];
+}
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {

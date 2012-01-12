@@ -78,8 +78,8 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         BWRepository *repository = [BWRepository presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
         [repository fetchBuilds];
-        //    [self.detailViewController configureViewAndSetRepository:repository];
         [[segue destinationViewController] setValue:repository forKey:@"repository"];
+        //[self.detailViewController configureViewAndSetRepository:repository];
     }
 
 }
@@ -87,6 +87,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"goToBuilds" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"repositorySelected" object:nil];
 }
 
 - (UINib *)repositoryCellNib

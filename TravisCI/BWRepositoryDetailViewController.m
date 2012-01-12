@@ -7,8 +7,11 @@
 //
 
 #import "BWRepositoryDetailViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface BWRepositoryDetailViewController()
+- (void)showLoadingIndicator;
+- (void)dismissSplashScreen:(NSNotification *)notification;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @end
 
@@ -16,13 +19,10 @@
 
 @synthesize splashView, masterPopoverController;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)awakeFromNib
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissSplashScreen:) name:@"buildsLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoadingIndicator) name:@"repositorySelected" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,8 +61,26 @@
 {
     if (self.splashView == nil) {
         [[NSBundle mainBundle] loadNibNamed:@"BWSplashView" owner:self options:nil];
+        UIView *loadingIndicator = [self.splashView viewWithTag:1];
+        loadingIndicator.layer.cornerRadius = 8.0f;
+        loadingIndicator.layer.masksToBounds  = YES;
+
+        [self.view addSubview:self.splashView];
     }
-    [self.view addSubview:self.splashView];
+}
+
+- (void)showLoadingIndicator
+{
+    [self.splashView viewWithTag:1].hidden = NO;
+}
+
+- (void)dismissSplashScreen:(NSNotification *)notification
+{
+    [UIView animateWithDuration:0.2
+                     animations:^{self.splashView.alpha = 0.0;}
+                     completion:^(BOOL finished){ [self.splashView removeFromSuperview]; self.splashView = nil;}];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"buildsLoaded" object:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
