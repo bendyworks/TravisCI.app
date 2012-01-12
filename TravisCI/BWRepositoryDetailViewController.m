@@ -7,6 +7,7 @@
 //
 
 #import "BWRepositoryDetailViewController.h"
+#import "BWAwesome.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface BWRepositoryDetailViewController()
@@ -21,8 +22,10 @@
 
 - (void)awakeFromNib
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissSplashScreen:) name:@"buildsLoaded" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoadingIndicator) name:@"repositorySelected" object:nil];
+    if (IS_IPAD) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissSplashScreen:) name:@"buildsLoaded" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoadingIndicator) name:@"repositorySelected" object:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,11 +72,14 @@
     }
 }
 
+// applicable only for iPad
 - (void)showLoadingIndicator
 {
     [self.splashView viewWithTag:1].hidden = NO;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"repositorySelected" object:nil];
 }
 
+// applicable only for iPad
 - (void)dismissSplashScreen:(NSNotification *)notification
 {
     [UIView animateWithDuration:0.2

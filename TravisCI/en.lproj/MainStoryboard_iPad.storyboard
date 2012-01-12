@@ -22,17 +22,59 @@
         <scene sceneID="QO6-6w-86f">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufd-7x-Ggp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="00b-N6-Lh8" customClass="BWRepositoryDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepositoryDetailViewController" id="00b-N6-Lh8" customClass="BWRepositoryDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Gw-1L-9a7">
-                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Repository" lineBreakMode="tailTruncation" minimumFontSize="10" id="g0u-Z2-L91">
+                                <rect key="frame" x="358" y="469" width="83" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vCS-dT-EjI"/>
+                    <navigationItem key="navigationItem" title="Repository" id="vCS-dT-EjI"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="533" y="253"/>
+            <point key="canvasLocation" x="-89" y="1365"/>
+        </scene>
+        <scene sceneID="znb-G8-9oh">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aut-H5-1wE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="n66-qe-nST" customClass="BWBuildDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mMg-WW-q17">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Build" id="ZC9-MW-y1W"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1003" y="2553"/>
+        </scene>
+        <scene sceneID="8hc-5Q-x9a">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EPn-D8-vNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="erE-Mg-3Bk" customClass="BWJobDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XPH-FQ-9Tj">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Job" id="h1h-66-iqu"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1867" y="2559"/>
         </scene>
         <scene sceneID="18">
             <objects>
@@ -80,7 +122,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="00b-N6-Lh8" kind="relationship" relationship="rootViewController" id="OWf-XJ-w3S"/>
+                        <segue destination="7uV-rE-qcA" kind="relationship" relationship="rootViewController" id="MKo-j7-Nhr"/>
                     </connections>
                 </navigationController>
             </objects>
@@ -133,10 +175,81 @@
             </objects>
             <point key="canvasLocation" x="1832" y="-630"/>
         </scene>
+        <scene sceneID="Etc-zI-3LX">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="57O-5d-vA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="SplashViewController" id="xxf-AZ-K36" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pIA-uF-4DI">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Splash" lineBreakMode="tailTruncation" minimumFontSize="10" id="DlK-Yx-mcR">
+                                <rect key="frame" x="350" y="464" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RVZ-Ja-O4Y"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-1027" y="1365"/>
+        </scene>
+        <scene sceneID="xcT-tL-LIC">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TbU-DW-2Ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="k7d-vJ-Y1O" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YBm-Ff-IKR"/>
+                </pageViewController>
+            </objects>
+            <point key="canvasLocation" x="1023" y="1365"/>
+        </scene>
+        <scene sceneID="uE1-PU-wHH">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cd1-so-0tz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="zqj-NM-4GK" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="uWB-V8-j7F"/>
+                </pageViewController>
+            </objects>
+            <point key="canvasLocation" x="1873" y="1365"/>
+        </scene>
+        <scene sceneID="kXh-FH-hMf">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ai2-6Q-DCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="7uV-rE-qcA" customClass="BWDetailContainerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zhC-Il-8nu">
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GGL-s9-nyG"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="685" y="281"/>
+        </scene>
     </scenes>
     <classes>
+        <class className="BWBuildDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWBuildDetailViewController.h"/>
+        </class>
         <class className="BWBuildListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BWBuildListViewController.h"/>
+        </class>
+        <class className="BWDetailContainerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWDetailContainerViewController.h"/>
+        </class>
+        <class className="BWJobDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWJobDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="number" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="BWJobListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BWJobListViewController.h"/>
