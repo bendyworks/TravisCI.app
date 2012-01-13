@@ -132,7 +132,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLe-dX-RsF" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="" title="Master" clearsSelectionOnViewWillAppear="NO" id="D7g-5d-MFG" customClass="BWBuildListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="7Am-90-RHE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="69" sectionHeaderHeight="22" sectionFooterHeight="22" id="7Am-90-RHE">
                         <rect key="frame" x="0.0" y="64" width="320" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,7 +157,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Phc-UD-pLx" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="" title="Master" clearsSelectionOnViewWillAppear="NO" id="xN8-qm-INP" customClass="BWJobListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="7jJ-VU-QxY">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="127" sectionHeaderHeight="22" sectionFooterHeight="22" id="7jJ-VU-QxY">
                         <rect key="frame" x="0.0" y="64" width="320" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -103,11 +103,6 @@
     [cell.statusImage setImage:build.statusImage];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 69.0f;
-}
-
 #pragma mark - Table view delegate
 
 
