@@ -37,6 +37,23 @@
     return ret;
 }
 
+- (NSDictionary *)subdictionaryWithoutKeys:(NSString *)keys, ...
+{
+    NSString *key;
+    NSMutableSet *keySet = [NSMutableSet set];
+    va_list args;
+    va_start(args, keys);
+    for (key = keys; key != nil; key = va_arg(args, NSString*))
+    {
+        [keySet addObject:key];
+    }
+    va_end(args);
+    
+    NSMutableDictionary *ret = [self mutableCopy];
+    [ret removeObjectsForKeys:[keySet allObjects]];
+    return [NSDictionary dictionaryWithDictionary:ret];
+}
+
 - (NSArray *)detectFromKeys:(NSString *)keys, ...
 {
     NSString *key;

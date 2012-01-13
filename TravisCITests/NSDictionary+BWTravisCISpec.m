@@ -63,6 +63,29 @@ describe(@"NSDictionary+BWTravisCI", ^{
         
     });
     
+    
+    describe(@"subdictionaryWithoutKeys", ^{
+        context(@"matching nothing", ^{
+            it(@"returns a copy", ^{
+                NSDictionary *result = [subject subdictionaryWithoutKeys:@"foo", nil];
+                [[result should] equal:[subject copy]];
+            });
+        });
+        
+        context(@"matching something", ^{
+            it(@"returns a subset dictionary", ^{
+                NSDictionary *result = [subject subdictionaryWithoutKeys:@"b", nil];
+                [[result should] equal:[NSDictionary dictionaryWithObjectsAndKeys:@"1", @"a", @"3", @"c", nil]];
+            });
+        });
+
+        context(@"matching everything", ^{
+            it(@"returns an empty dictionary", ^{
+                NSDictionary *result = [subject subdictionaryWithoutKeys:@"a", @"b", @"c", nil];
+                [[result should] equal:[NSDictionary dictionary]];
+            });
+        });
+    });
 });
 
 SPEC_END

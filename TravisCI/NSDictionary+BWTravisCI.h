@@ -13,6 +13,9 @@
 - (NSDictionary *)subdictionaryUsingKeys:(NSString *)keys, ...
     NS_REQUIRES_NIL_TERMINATION;
 
+- (NSDictionary *)subdictionaryWithoutKeys:(NSString *)keys, ...
+    NS_REQUIRES_NIL_TERMINATION;
+
 - (NSArray *)detectFromKeys:(NSString *)keys, ...
     NS_REQUIRES_NIL_TERMINATION;
 
