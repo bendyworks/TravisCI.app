@@ -46,7 +46,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGp-Gu-hg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="sVz-6Z-uXe" customClass="BWJobDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q0A-Th-fyM">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="eLq-CI-N74">
@@ -61,7 +61,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Job" id="lRn-vM-5C3"/>
                     <connections>
-                        <outlet property="number" destination="eLq-CI-N74" id="Zbu-Nm-VzV"/>
+                        <outlet property="number" destination="eLq-CI-N74" id="ZNO-K5-Av9"/>
                     </connections>
                 </viewController>
             </objects>
@@ -140,6 +140,9 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="sVz-6Z-uXe" kind="push" identifier="showJobDetail" id="UF9-k7-ntq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>

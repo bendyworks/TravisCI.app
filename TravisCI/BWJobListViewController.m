@@ -6,13 +6,17 @@
 //  Copyright (c) 2012 Bendyworks. All rights reserved.
 //
 
+#import "BWAwesome.h"
+#import "BWAppDelegate.h"
 #import "BWJobListViewController.h"
 #import "BWJobDetailViewController.h"
+#import "BWDetailContainerViewController.h"
 #import "RestKit/CoreData.h"
 #import "BWJob.h"
 #import "BWJobTableCell.h"
 #import "BWBuild.h"
 #import "BWColor.h"
+
 
 @interface BWJobListViewController()
 
@@ -101,13 +105,25 @@
 
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([@"showJobDetail" isEqualToString:segue.identifier]) {
+        [[segue destinationViewController] setJob:sender];
+    }
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //TODO: make not crash
-//    self.jobDetailViewController.job = [self jobAtIndexPath:indexPath];
-//    [self.navigationController performSegueWithIdentifier:@"Push" sender:self];
+    BWJob *job = [self jobAtIndexPath:indexPath];
+    if (IS_IPAD) {
+        BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
+        [appDelegate.detailContainerViewController showJobDetailFor:job];
+    } else {
+        [self performSegueWithIdentifier:@"showJobDetail" sender:job];
+//        [self.navigationController pushViewController:self.jobDetailViewController animated:YES];
+    }
 }
 
 - (UINib *)jobCellNib

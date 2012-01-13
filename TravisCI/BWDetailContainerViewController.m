@@ -8,6 +8,7 @@
 
 #import "BWDetailContainerViewController.h"
 #import "BWRepositoryDetailViewController.h"
+#import "BWJobDetailViewController.h"
 
 @interface BWDetailContainerViewController()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -16,13 +17,14 @@
 
 @implementation BWDetailContainerViewController
 
-@synthesize splashViewController = _splashViewController, repositoryDetailViewController = _repositoryDetailViewController;
+@synthesize splashViewController = _splashViewController, repositoryDetailViewController = _repositoryDetailViewController, jobDetailViewController = _jobDetailViewController;
 @synthesize masterPopoverController = _masterPopoverController;
 
 - (void)awakeFromNib
 {
     [self addChildViewController:self.splashViewController];
-    [self addChildViewController:self.repositoryDetailViewController];
+//    [self addChildViewController:self.repositoryDetailViewController];
+    [self addChildViewController:self.jobDetailViewController];
     
     [self.view addSubview:self.splashViewController.view];
 }
@@ -33,6 +35,18 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (void)showJobDetailFor:(BWJob *)job
+{
+    self.jobDetailViewController.job = job;
+
+    [self transitionFromViewController:self.splashViewController
+                      toViewController:self.jobDetailViewController
+                              duration:0.5f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:nil
+                            completion:^(BOOL finished) {}];
 }
 
 #pragma mark - View lifecycle
@@ -81,6 +95,14 @@
         _repositoryDetailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"RepositoryDetailViewController"];
     }
     return _repositoryDetailViewController;
+}
+
+- (BWJobDetailViewController *)jobDetailViewController
+{
+    if (_jobDetailViewController == nil) {
+        _jobDetailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"JobDetailViewController"];
+    }
+    return _jobDetailViewController;
 }
 
 #pragma mark split view delegate

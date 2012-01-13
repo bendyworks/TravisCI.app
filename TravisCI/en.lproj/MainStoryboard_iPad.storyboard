@@ -63,15 +63,27 @@
         <scene sceneID="8hc-5Q-x9a">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPn-D8-vNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="erE-Mg-3Bk" customClass="BWJobDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JobDetailViewController" id="erE-Mg-3Bk" customClass="BWJobDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XPH-FQ-9Tj">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Job View Controller" lineBreakMode="tailTruncation" minimumFontSize="10" id="l8F-oC-5Ll">
+                                <rect key="frame" x="388" y="371" width="149" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Job" id="h1h-66-iqu"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="number" destination="l8F-oC-5Ll" id="ilY-lZ-kgJ"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1867" y="2559"/>

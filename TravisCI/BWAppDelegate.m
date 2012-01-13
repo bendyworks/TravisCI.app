@@ -8,6 +8,7 @@
 
 #import "BWAppDelegate.h"
 #import "BWRepositoryListViewController.h"
+#import "BWDetailContainerViewController.h"
 #import "BWPusherHandler.h"
 #import "BWAwesome.h"
 #import <RestKit/RestKit.h>
@@ -19,6 +20,7 @@
 @implementation BWAppDelegate
 
 @synthesize window = _window;
+@synthesize detailContainerViewController = _detailContainerViewController;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 
@@ -50,6 +52,7 @@
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
+        self.detailContainerViewController = (id)navigationController.topViewController;
         
         UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
         BWRepositoryListViewController *controller = (BWRepositoryListViewController *)masterNavigationController.topViewController;

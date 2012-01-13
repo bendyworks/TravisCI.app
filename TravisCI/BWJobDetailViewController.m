@@ -13,13 +13,8 @@
 
 @synthesize job, number;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)awakeFromNib
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,10 +27,29 @@
 
 #pragma mark - View lifecycle
 
+- (void)configureView
+{
+    [self.number setText:self.job.number];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.number setText:job.number];
+    [self addObserver:self forKeyPath:@"job" options:NSKeyValueObservingOptionNew context:nil];
+    [self configureView];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self removeObserver:self forKeyPath:@"job"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([@"job" isEqualToString:keyPath]) {
+        [self configureView];
+    }
 }
 
 /*

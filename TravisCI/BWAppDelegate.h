@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class BWPusherHandler;
+@class BWPusherHandler, BWDetailContainerViewController;
 
 @interface BWAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) BWDetailContainerViewController *detailContainerViewController;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 
