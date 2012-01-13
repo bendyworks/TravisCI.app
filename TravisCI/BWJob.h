@@ -30,5 +30,6 @@
 - (NSString *)configString;
 - (NSString *)lastLogLine;
 - (NSString *)logSubtitle;
+- (NSDictionary *)config;
 
 @end

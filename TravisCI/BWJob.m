@@ -12,14 +12,6 @@
 #import "BWBuild.h"
 #import "NSString+BWTravisCI.h"
 
-@interface BWJob()
-
--(NSDictionary *)config;
-
-@end
-
-
-
 
 @implementation BWJob
 
@@ -35,7 +27,18 @@
 
 - (NSDictionary *)config
 {
-    return [self.object valueForKey:@"config"];
+    NSDictionary *configDict = [[self.object valueForKey:@"config"] subdictionaryWithoutKeys:@".configured", @"notifications", nil];
+    return configDict;
+}
+
+- (NSString *)configString
+{
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[self.config count]];
+    for (NSString *key in self.config) {
+        id value = [self.config valueForKey:key];
+        [array addObject:[NSString stringWithFormat:@"%@: %@", key, value]];
+    }
+    return [array componentsJoinedByString:@", "];
 }
 
 - (NSString *)env
@@ -89,17 +92,6 @@
 - (NSString *)message
 {
     return self.build.message;
-}
-
-- (NSString *)configString
-{
-    NSDictionary *configDict = [self.config subdictionaryWithoutKeys:@".configured", @"notifications", nil];
-    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[configDict count]];
-    for (NSString *key in configDict) {
-        id value = [configDict valueForKey:key];
-        [array addObject:[NSString stringWithFormat:@"%@: %@", key, value]];
-    }
-    return [array componentsJoinedByString:@", "];
 }
 
 - (NSString *)lastLogLine

@@ -14,6 +14,7 @@
 		DA4D892714C0AE5E001869BE /* NSString+BWTravisCI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D892614C0AE5E001869BE /* NSString+BWTravisCI.m */; };
 		DA4D892A14C0B852001869BE /* NSArray+BWTravisCI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D892914C0B852001869BE /* NSArray+BWTravisCI.m */; };
 		DA4D892C14C0B886001869BE /* NSArray+BWTravisCISpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D892B14C0B886001869BE /* NSArray+BWTravisCISpec.m */; };
+		DA4D894014C0DE59001869BE /* BWEnumerableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D893F14C0DE59001869BE /* BWEnumerableTableViewController.m */; };
 		DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4FAE9C14BCDB8A00F2E174 /* BWBuildTableCell.m */; };
 		DA4FAE9F14BCDBC200F2E174 /* BWBuildTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4FAE9E14BCDBC200F2E174 /* BWBuildTableCell.xib */; };
 		DA548CFE14BCB5B9007580B4 /* BWCDJob.m in Sources */ = {isa = PBXBuildFile; fileRef = DA548CFD14BCB5B9007580B4 /* BWCDJob.m */; };
@@ -166,6 +167,8 @@
 		DA4D892814C0B852001869BE /* NSArray+BWTravisCI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BWTravisCI.h"; sourceTree = "<group>"; };
 		DA4D892914C0B852001869BE /* NSArray+BWTravisCI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BWTravisCI.m"; sourceTree = "<group>"; };
 		DA4D892B14C0B886001869BE /* NSArray+BWTravisCISpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BWTravisCISpec.m"; sourceTree = "<group>"; };
+		DA4D893C14C0D4C9001869BE /* BWEnumerableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWEnumerableTableViewController.h; sourceTree = "<group>"; };
+		DA4D893F14C0DE59001869BE /* BWEnumerableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWEnumerableTableViewController.m; sourceTree = "<group>"; };
 		DA4FAE9B14BCDB8A00F2E174 /* BWBuildTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBuildTableCell.h; sourceTree = "<group>"; };
 		DA4FAE9C14BCDB8A00F2E174 /* BWBuildTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuildTableCell.m; sourceTree = "<group>"; };
 		DA4FAE9E14BCDBC200F2E174 /* BWBuildTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BWBuildTableCell.xib; sourceTree = "<group>"; };
@@ -467,8 +470,6 @@
 		DA966CF0149FAC3900C229CB = {
 			isa = PBXGroup;
 			children = (
-				DAADBF8B14BE3354000F655E /* QuartzCore.framework */,
-				DA65E45A14A0F78E0066A7E4 /* libKiwi.a */,
 				DA966D07149FAC3900C229CB /* TravisCI */,
 				DA966D2F149FAC3900C229CB /* TravisCITests */,
 				DA966CFE149FAC3900C229CB /* Frameworks */,
@@ -489,6 +490,8 @@
 		DA966CFE149FAC3900C229CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA65E45A14A0F78E0066A7E4 /* libKiwi.a */,
+				DAADBF8B14BE3354000F655E /* QuartzCore.framework */,
 				DA683D1514A0F258000477AF /* SenTestingKit.framework */,
 				DA683C72149FC660000477AF /* libxml2.dylib */,
 				DA683C70149FC657000477AF /* SystemConfiguration.framework */,
@@ -520,6 +523,8 @@
 				DAADBF8014BCF750000F655E /* BWColor.h */,
 				DAADBF8114BCF751000F655E /* BWColor.m */,
 				DAADBF8314BDDDC3000F655E /* BWAwesome.h */,
+				DA4D893C14C0D4C9001869BE /* BWEnumerableTableViewController.h */,
+				DA4D893F14C0DE59001869BE /* BWEnumerableTableViewController.m */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";
@@ -866,6 +871,7 @@
 				DA4D892114C08934001869BE /* BWCDRepository.m in Sources */,
 				DA4D892714C0AE5E001869BE /* NSString+BWTravisCI.m in Sources */,
 				DA4D892A14C0B852001869BE /* NSArray+BWTravisCI.m in Sources */,
+				DA4D894014C0DE59001869BE /* BWEnumerableTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "BWJobDetailViewController.h"
 #import "BWJob.h"
+#import "BWEnumerableTableViewController.h"
 
 @implementation BWJobDetailViewController
 @synthesize finishedLabel;
@@ -81,6 +82,8 @@
         NSURL *url = [NSURL URLWithString:self.job.compare];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [webView loadRequest:request];
+    } else if ([@"config" isEqualToString:segue.identifier]) {
+        ((BWEnumerableTableViewController *)vc).data = self.job.config;
     }
 }
 
