@@ -9,6 +9,8 @@
 #import "BWJob.h"
 #import "NSDictionary+BWTravisCI.h"
 #import "NSDate+Formatting.h"
+#import "BWBuild.h"
+#import "NSString+BWTravisCI.h"
 
 @interface BWJob()
 
@@ -67,6 +69,54 @@
         return (self.status == [NSNumber numberWithInt:0]) ? BWStatusPassed : BWStatusFailed;
     }
     return BWStatusPending;
+}
+
+- (NSString *)commit
+{
+    return self.build.commit;
+}
+
+- (NSString *)compare
+{
+    return self.build.compare_url;
+}
+
+- (NSString *)author
+{
+    return self.build.author_name;
+}
+
+- (NSString *)message
+{
+    return self.build.message;
+}
+
+- (NSString *)configString
+{
+    NSDictionary *configDict = [self.config subdictionaryWithoutKeys:@".configured", @"notifications", nil];
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[configDict count]];
+    for (NSString *key in configDict) {
+        id value = [configDict valueForKey:key];
+        [array addObject:[NSString stringWithFormat:@"%@: %@", key, value]];
+    }
+    return [array componentsJoinedByString:@", "];
+}
+
+- (NSString *)lastLogLine
+{
+    return [self.log lastLine];
+}
+
+- (NSString *)logSubtitle
+{
+    NSUInteger numberOfLines = [[self.log componentsSeparatedByCharactersInSet:
+                                 [NSCharacterSet newlineCharacterSet]] count];
+    return [NSString stringWithFormat:@"%d more lines previously", numberOfLines];
+}
+
+- (BWBuild *)build
+{
+    return [BWBuild presenterWithObject:[self.object valueForKey:@"build"]];
 }
 
 @end
