@@ -12,10 +12,9 @@
 #import "BWBuild.h"
 #import "NSString+BWTravisCI.h"
 
-
 @implementation BWJob
 
-@dynamic log, number, result, state, status;
+@dynamic log, number, result, state, status, remote_id;
 
 
 - (NSString *)language
@@ -109,6 +108,43 @@
 - (BWBuild *)build
 {
     return [BWBuild presenterWithObject:[self.object valueForKey:@"build"]];
+}
+
+- (void)fetchDetails
+{
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+
+    NSString *resourcePath = [NSString stringWithFormat:@"/jobs/%@.json", self.remote_id];
+    [manager loadObjectsAtResourcePath:resourcePath
+                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDJob"]
+                              delegate:self];
+}
+
+- (void)subscribeToLogUpdates
+{
+    
+}
+
+- (void)unsubscribeFromLogUpdates
+{
+    
+}
+
+#pragma - RKObjectLoaderDelegate methods
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    NSLog(@"object loader did fail with error: %@", error);
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+    NSLog(@"objects (job) loaded: %@", objects);
+}
+
+- (void)objectLoaderDidFinishLoading:(RKObjectLoader *)objectLoader
+{
+    NSLog(@"yay?");
 }
 
 @end

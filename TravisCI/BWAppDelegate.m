@@ -114,6 +114,7 @@
     [buildJobMapping mapAttributes:@"config", @"finished_at", @"log", @"number", @"repository_id", @"result", @"started_at", @"state", @"status", nil];
     [buildJobMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
     buildJobMapping.primaryKeyAttribute = @"remote_id";
+    [manager.mappingProvider setMapping:buildJobMapping forKeyPath:@"BWCDJob"];
     
     [buildMapping mapKeyPath:@"matrix"
               toRelationship:@"jobs"

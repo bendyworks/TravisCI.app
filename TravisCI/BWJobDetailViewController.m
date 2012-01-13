@@ -37,8 +37,15 @@
 
 #pragma mark - View lifecycle
 
+- (void)configureLogView
+{
+    [self.logTitle setText:[self.job lastLogLine]];
+    [self.logSubtitle setText:[self.job logSubtitle]];
+}
+
 - (void)configureView
 {
+    
 //    [self.number setText:self.job.number];
     [self.finishedLabel setText:[self.job finishedText]];
     [self.durationLabel setText:[self.job durationText]];
@@ -47,27 +54,34 @@
     [self.authorLabel setText:self.job.author];
     [self.messageLabel setText:self.job.message];
     [self.configLabel setText:self.job.configString];
-    [self.logTitle setText:[self.job lastLogLine]];
-    [self.logSubtitle setText:[self.job logSubtitle]];
+    [self configureLogView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self addObserver:self forKeyPath:@"job" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
+    [self.job fetchDetails];
+    [self.job subscribeToLogUpdates];
     [self configureView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self removeObserver:self forKeyPath:@"job"];
+    [self.job unsubscribeFromLogUpdates];
+    [self removeObserver:self forKeyPath:@"job.object"];
+    [self removeObserver:self forKeyPath:@"job.object.log"];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ([@"job" isEqualToString:keyPath]) {
+    if ([@"job.object" isEqualToString:keyPath]) {
         [self configureView];
+    } else if ([@"job.object.log" isEqualToString:keyPath]) {
+        NSLog(@"job.log change observed! %@", change);
+        [self configureLogView];
     }
 }
 
@@ -84,6 +98,9 @@
         [webView loadRequest:request];
     } else if ([@"config" isEqualToString:segue.identifier]) {
         ((BWEnumerableTableViewController *)vc).data = self.job.config;
+    } else if ([@"log" isEqualToString:segue.identifier]) {
+        UITextView *textView = (UITextView *)vc.view;
+        [textView setText:self.job.log];
     }
 }
 

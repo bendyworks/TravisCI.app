@@ -7,16 +7,18 @@
 //
 
 #import "BWPresenter.h"
+#import "RestKit/CoreData.h"
 
 @class BWBuild;
 
-@interface BWJob : BWPresenter
+@interface BWJob : BWPresenter <RKObjectLoaderDelegate>
 
 @property (strong, nonatomic) NSString *log;
 @property (strong, nonatomic) NSString *number;
 @property (strong, nonatomic) NSNumber *result;
 @property (strong, nonatomic) NSString *state;
 @property (strong, nonatomic) NSNumber *status;
+@property (strong, nonatomic) NSNumber *remote_id;
 @property (readonly) BWBuild *build;
 
 - (NSString *)language;
@@ -31,5 +33,9 @@
 - (NSString *)lastLogLine;
 - (NSString *)logSubtitle;
 - (NSDictionary *)config;
+
+- (void)fetchDetails;
+- (void)subscribeToLogUpdates;
+- (void)unsubscribeFromLogUpdates;
 
 @end
