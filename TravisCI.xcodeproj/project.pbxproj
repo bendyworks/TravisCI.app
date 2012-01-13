@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA311A0B14B63CA200F351C7 /* BWCommandBuildFinished.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */; };
 		DA311A0F14B658D100F351C7 /* BWCDObjectMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */; };
+		DA4D892114C08934001869BE /* BWCDRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D892014C08934001869BE /* BWCDRepository.m */; };
 		DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4FAE9C14BCDB8A00F2E174 /* BWBuildTableCell.m */; };
 		DA4FAE9F14BCDBC200F2E174 /* BWBuildTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4FAE9E14BCDBC200F2E174 /* BWBuildTableCell.xib */; };
 		DA548CFE14BCB5B9007580B4 /* BWCDJob.m in Sources */ = {isa = PBXBuildFile; fileRef = DA548CFD14BCB5B9007580B4 /* BWCDJob.m */; };
@@ -29,7 +30,6 @@
 		DA703B7714A2874B00C6CF6C /* BWPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA703B7614A2874B00C6CF6C /* BWPresenter.m */; };
 		DA7C596614BB4F4500569F66 /* BWBuildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C596514BB4F4500569F66 /* BWBuildListViewController.m */; };
 		DA7C599914BB9CA000569F66 /* BWCDBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C599814BB9C9F00569F66 /* BWCDBuild.m */; };
-		DA7C599C14BB9CE700569F66 /* BWCDRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C599B14BB9CE600569F66 /* BWCDRepository.m */; };
 		DA7C59A414BC9DB500569F66 /* NSDictionary+BWTravisCI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C59A314BC9DB500569F66 /* NSDictionary+BWTravisCI.m */; };
 		DA7C59A714BCA0F000569F66 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C5C149FC501000477AF /* libRestKit.a */; };
 		DA7C59A814BCA23A00569F66 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6A149FC627000477AF /* CFNetwork.framework */; };
@@ -154,6 +154,8 @@
 		DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCommandBuildFinished.m; sourceTree = "<group>"; };
 		DA311A0D14B658D100F351C7 /* BWCDObjectMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDObjectMananger.h; sourceTree = "<group>"; };
 		DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDObjectMananger.m; sourceTree = "<group>"; };
+		DA4D891F14C08934001869BE /* BWCDRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDRepository.h; sourceTree = "<group>"; };
+		DA4D892014C08934001869BE /* BWCDRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDRepository.m; sourceTree = "<group>"; };
 		DA4FAE9B14BCDB8A00F2E174 /* BWBuildTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBuildTableCell.h; sourceTree = "<group>"; };
 		DA4FAE9C14BCDB8A00F2E174 /* BWBuildTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuildTableCell.m; sourceTree = "<group>"; };
 		DA4FAE9E14BCDBC200F2E174 /* BWBuildTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BWBuildTableCell.xib; sourceTree = "<group>"; };
@@ -183,8 +185,6 @@
 		DA7C596514BB4F4500569F66 /* BWBuildListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuildListViewController.m; sourceTree = "<group>"; };
 		DA7C599714BB9C9F00569F66 /* BWCDBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDBuild.h; sourceTree = "<group>"; };
 		DA7C599814BB9C9F00569F66 /* BWCDBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDBuild.m; sourceTree = "<group>"; };
-		DA7C599A14BB9CE600569F66 /* BWCDRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDRepository.h; sourceTree = SOURCE_ROOT; };
-		DA7C599B14BB9CE600569F66 /* BWCDRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDRepository.m; sourceTree = SOURCE_ROOT; };
 		DA7C59A214BC9DB500569F66 /* NSDictionary+BWTravisCI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BWTravisCI.h"; sourceTree = "<group>"; };
 		DA7C59A314BC9DB500569F66 /* NSDictionary+BWTravisCI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BWTravisCI.m"; sourceTree = "<group>"; };
 		DA7C59B014BCA65E00569F66 /* NSDictionary+BWTravisCISpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BWTravisCISpec.m"; sourceTree = "<group>"; };
@@ -378,10 +378,10 @@
 		DA703B7014A2788300C6CF6C /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				DA4D891F14C08934001869BE /* BWCDRepository.h */,
+				DA4D892014C08934001869BE /* BWCDRepository.m */,
 				DA65E45E14A11CF80066A7E4 /* BWRepository.h */,
 				DA65E45F14A11CF80066A7E4 /* BWRepository.m */,
-				DA7C599A14BB9CE600569F66 /* BWCDRepository.h */,
-				DA7C599B14BB9CE600569F66 /* BWCDRepository.m */,
 			);
 			name = Repository;
 			sourceTree = "<group>";
@@ -837,7 +837,6 @@
 				DA948D6614B7A29800360BA9 /* BWJobTableCell.m in Sources */,
 				DA7C596614BB4F4500569F66 /* BWBuildListViewController.m in Sources */,
 				DA7C599914BB9CA000569F66 /* BWCDBuild.m in Sources */,
-				DA7C599C14BB9CE700569F66 /* BWCDRepository.m in Sources */,
 				DA7C59A414BC9DB500569F66 /* NSDictionary+BWTravisCI.m in Sources */,
 				DA548CFE14BCB5B9007580B4 /* BWCDJob.m in Sources */,
 				DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */,
@@ -848,6 +847,7 @@
 				DAADBF9814BF3831000F655E /* BWBuildDetailViewController.m in Sources */,
 				DA7EE4F214BF86A600FC7A8F /* BWDetailContainerViewController.m in Sources */,
 				DA7EE4F514BF959600FC7A8F /* BWSplashScreenViewController.m in Sources */,
+				DA4D892114C08934001869BE /* BWCDRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
