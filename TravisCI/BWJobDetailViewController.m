@@ -127,23 +127,11 @@
     }
 }
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-*/
-
 - (void)viewDidUnload
 {
+
+    [super viewDidUnload];
+
     [self setFinishedLabel:nil];
     [self setDurationLabel:nil];
     [self setCommitLabel:nil];
@@ -153,9 +141,6 @@
     [self setConfigLabel:nil];
     [self setLogTitle:nil];
     [self setLogSubtitle:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -10,6 +10,4 @@
 
 @interface BWRepositoryDetailViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UIView *splashView;
-
 @end

@@ -60,6 +60,13 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
 
+-(void)viewDidUnload
+{
+    [super viewDidUnload];
+    self.jobListController = nil;
+    self.buildCellNib = nil;
+    self.fetchedResults = nil;
+}
 
 #pragma mark Custom cells
 

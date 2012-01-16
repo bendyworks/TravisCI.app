@@ -53,6 +53,13 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    self.buildListController = nil;
+    self.repositoryCellNib = nil;
+    self.fetchedResultsController = nil;
+}
 
 #pragma mark - Table methods
 

@@ -63,6 +63,13 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    self.fetchedResultsController = nil;
+    self.jobCellNib = nil;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return [[self.fetchedResultsController sections] count]; }
