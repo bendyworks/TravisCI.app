@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA311A0B14B63CA200F351C7 /* BWCommandBuildFinished.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */; };
 		DA311A0F14B658D100F351C7 /* BWCDObjectMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */; };
+		DA435ED714C4AB500058D007 /* BWPadJobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA435ED614C4AB500058D007 /* BWPadJobDetailViewController.m */; };
 		DA4D892114C08934001869BE /* BWCDRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D892014C08934001869BE /* BWCDRepository.m */; };
 		DA4D892414C0AE16001869BE /* NSString+BWTravisCISpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D892314C0AE16001869BE /* NSString+BWTravisCISpec.m */; };
 		DA4D892714C0AE5E001869BE /* NSString+BWTravisCI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D892614C0AE5E001869BE /* NSString+BWTravisCI.m */; };
@@ -94,7 +95,7 @@
 		DAA41BF714A5186200C97A37 /* BWCommandBuildStarted.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA41BF614A5186200C97A37 /* BWCommandBuildStarted.m */; };
 		DAADBF7F14BCF44C000F655E /* BWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF7E14BCF44C000F655E /* BWTableViewCell.m */; };
 		DAADBF8214BCF751000F655E /* BWColor.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF8114BCF751000F655E /* BWColor.m */; };
-		DAADBF8714BDEED8000F655E /* BWJobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF8614BDEED8000F655E /* BWJobDetailViewController.m */; };
+		DAADBF8714BDEED8000F655E /* BWPhoneJobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF8614BDEED8000F655E /* BWPhoneJobDetailViewController.m */; };
 		DAADBF8C14BE3354000F655E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAADBF8B14BE3354000F655E /* QuartzCore.framework */; };
 		DAADBF8F14BE46F5000F655E /* BWRepositoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF8E14BE46F5000F655E /* BWRepositoryDetailViewController.m */; };
 		DAADBF9814BF3831000F655E /* BWBuildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF9714BF3831000F655E /* BWBuildDetailViewController.m */; };
@@ -159,6 +160,8 @@
 		DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCommandBuildFinished.m; sourceTree = "<group>"; };
 		DA311A0D14B658D100F351C7 /* BWCDObjectMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDObjectMananger.h; sourceTree = "<group>"; };
 		DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDObjectMananger.m; sourceTree = "<group>"; };
+		DA435ED514C4AB500058D007 /* BWPadJobDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWPadJobDetailViewController.h; sourceTree = "<group>"; };
+		DA435ED614C4AB500058D007 /* BWPadJobDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPadJobDetailViewController.m; sourceTree = "<group>"; };
 		DA4D891F14C08934001869BE /* BWCDRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDRepository.h; sourceTree = "<group>"; };
 		DA4D892014C08934001869BE /* BWCDRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDRepository.m; sourceTree = "<group>"; };
 		DA4D892314C0AE16001869BE /* NSString+BWTravisCISpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BWTravisCISpec.m"; sourceTree = "<group>"; };
@@ -284,8 +287,8 @@
 		DAADBF8014BCF750000F655E /* BWColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWColor.h; sourceTree = "<group>"; };
 		DAADBF8114BCF751000F655E /* BWColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWColor.m; sourceTree = "<group>"; };
 		DAADBF8314BDDDC3000F655E /* BWAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWAwesome.h; sourceTree = "<group>"; };
-		DAADBF8514BDEED8000F655E /* BWJobDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWJobDetailViewController.h; sourceTree = "<group>"; };
-		DAADBF8614BDEED8000F655E /* BWJobDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWJobDetailViewController.m; sourceTree = "<group>"; };
+		DAADBF8514BDEED8000F655E /* BWPhoneJobDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWPhoneJobDetailViewController.h; sourceTree = "<group>"; };
+		DAADBF8614BDEED8000F655E /* BWPhoneJobDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPhoneJobDetailViewController.m; sourceTree = "<group>"; };
 		DAADBF8B14BE3354000F655E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DAADBF8D14BE46F5000F655E /* BWRepositoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWRepositoryDetailViewController.h; sourceTree = "<group>"; };
 		DAADBF8E14BE46F5000F655E /* BWRepositoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryDetailViewController.m; sourceTree = "<group>"; };
@@ -649,8 +652,10 @@
 				DAADBF8E14BE46F5000F655E /* BWRepositoryDetailViewController.m */,
 				DAADBF9614BF3831000F655E /* BWBuildDetailViewController.h */,
 				DAADBF9714BF3831000F655E /* BWBuildDetailViewController.m */,
-				DAADBF8514BDEED8000F655E /* BWJobDetailViewController.h */,
-				DAADBF8614BDEED8000F655E /* BWJobDetailViewController.m */,
+				DAADBF8514BDEED8000F655E /* BWPhoneJobDetailViewController.h */,
+				DAADBF8614BDEED8000F655E /* BWPhoneJobDetailViewController.m */,
+				DA435ED514C4AB500058D007 /* BWPadJobDetailViewController.h */,
+				DA435ED614C4AB500058D007 /* BWPadJobDetailViewController.m */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -863,7 +868,7 @@
 				DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */,
 				DAADBF7F14BCF44C000F655E /* BWTableViewCell.m in Sources */,
 				DAADBF8214BCF751000F655E /* BWColor.m in Sources */,
-				DAADBF8714BDEED8000F655E /* BWJobDetailViewController.m in Sources */,
+				DAADBF8714BDEED8000F655E /* BWPhoneJobDetailViewController.m in Sources */,
 				DAADBF8F14BE46F5000F655E /* BWRepositoryDetailViewController.m in Sources */,
 				DAADBF9814BF3831000F655E /* BWBuildDetailViewController.m in Sources */,
 				DA7EE4F214BF86A600FC7A8F /* BWDetailContainerViewController.m in Sources */,
@@ -872,6 +877,7 @@
 				DA4D892714C0AE5E001869BE /* NSString+BWTravisCI.m in Sources */,
 				DA4D892A14C0B852001869BE /* NSArray+BWTravisCI.m in Sources */,
 				DA4D894014C0DE59001869BE /* BWEnumerableTableViewController.m in Sources */,
+				DA435ED714C4AB500058D007 /* BWPadJobDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

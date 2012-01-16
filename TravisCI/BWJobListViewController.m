@@ -9,7 +9,7 @@
 #import "BWAwesome.h"
 #import "BWAppDelegate.h"
 #import "BWJobListViewController.h"
-#import "BWJobDetailViewController.h"
+#import "BWPhoneJobDetailViewController.h"
 #import "BWDetailContainerViewController.h"
 #import "RestKit/CoreData.h"
 #import "BWJob.h"
@@ -225,12 +225,12 @@
     return [BWJob presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
 }
 
-- (BWJobDetailViewController *)jobDetailViewController
+- (BWPhoneJobDetailViewController *)jobDetailViewController
 {
     if (_jobDetailViewController) {
         return _jobDetailViewController;
     }
-    _jobDetailViewController = [[BWJobDetailViewController alloc] init];
+    _jobDetailViewController = [[BWPhoneJobDetailViewController alloc] init];
     return _jobDetailViewController;
 }
 

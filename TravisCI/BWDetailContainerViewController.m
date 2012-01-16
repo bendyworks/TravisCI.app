@@ -8,7 +8,7 @@
 
 #import "BWDetailContainerViewController.h"
 #import "BWRepositoryDetailViewController.h"
-#import "BWJobDetailViewController.h"
+#import "BWPhoneJobDetailViewController.h"
 
 @interface BWDetailContainerViewController()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -83,7 +83,7 @@
     return _repositoryDetailViewController;
 }
 
-- (BWJobDetailViewController *)jobDetailViewController
+- (BWPhoneJobDetailViewController *)jobDetailViewController
 {
     if (_jobDetailViewController == nil) {
         _jobDetailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"JobDetailViewController"];
