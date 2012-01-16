@@ -39,7 +39,7 @@
 
 - (void)showJobDetailFor:(BWJob *)job
 {
-    self.jobDetailViewController.job = job;
+    [self.jobDetailViewController setValue:job forKey:@"job"];
 
     [self transitionFromViewController:self.splashViewController
                       toViewController:self.jobDetailViewController
@@ -83,7 +83,7 @@
     return _repositoryDetailViewController;
 }
 
-- (BWPhoneJobDetailViewController *)jobDetailViewController
+- (id)jobDetailViewController
 {
     if (_jobDetailViewController == nil) {
         _jobDetailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"JobDetailViewController"];

@@ -24,6 +24,10 @@
 @property (readonly) UILabel *configLabel;
 @property (readonly) UILabel *logLabel;
 
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) IBOutlet UITextView *largeTextArea;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *largeTextAreaToggle;
+
 - (void)askToViewSafariForCompare;
 
 @end

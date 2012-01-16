@@ -9,13 +9,17 @@
 #import "BWPadJobDetailViewController.h"
 #import "BWJob.h"
 #import "BWEnumerableTableViewController.h"
+#import "BWPadJobDetailHalfViewController.h"
 
 @interface BWPadJobDetailViewController ()
-- (UITableViewController *)jobDetail1;
-- (UITableViewController *)jobDetail2;
+- (BWPadJobDetailViewController *)jobDetail1;
+- (BWPadJobDetailViewController *)jobDetail2;
 @end
 
 @implementation BWPadJobDetailViewController
+@synthesize toolbar;
+@synthesize largeTextArea;
+@synthesize largeTextAreaToggle;
 
 @synthesize job, number;
 
@@ -38,45 +42,14 @@
 #pragma Fake IBOutlets
 
 
-- (UILabel *)finishedLabel
-{
-    return (UILabel *)[[self jobDetail1].tableView viewWithTag:1];
-}
-
-- (UILabel *)durationLabel
-{
-    return (UILabel *)[[self jobDetail1].tableView viewWithTag:2];
-}
-
-- (UILabel *)commitLabel
-{
-    return (UILabel *)[[self jobDetail1].tableView viewWithTag:3];
-}
-
-- (UILabel *)compareLabel
-{
-    return (UILabel *)[[self jobDetail1].tableView viewWithTag:4];
-}
-
-- (UILabel *)authorLabel
-{
-    return (UILabel *)[[self jobDetail2].tableView viewWithTag:5];
-}
-
-- (UILabel *)messageLabel
-{
-    return (UILabel *)[[self jobDetail2].tableView viewWithTag:6];
-}
-
-- (UILabel *)configLabel
-{
-    return (UILabel *)[[self jobDetail2].tableView viewWithTag:7];
-}
-
-- (UILabel *)logLabel
-{
-    return (UILabel *)[[self jobDetail2].tableView viewWithTag:8];
-}
+- (UILabel *)finishedLabel { return [self jobDetail1].finishedLabel; }
+- (UILabel *)durationLabel { return [self jobDetail1].durationLabel; }
+- (UILabel *)commitLabel   { return [self jobDetail1].commitLabel;   }
+- (UILabel *)compareLabel  { return [self jobDetail1].compareLabel;  }
+- (UILabel *)authorLabel   { return [self jobDetail2].authorLabel;   }
+- (UILabel *)messageLabel  { return [self jobDetail2].messageLabel;  }
+- (UILabel *)configLabel   { return [self jobDetail2].configLabel;   }
+- (UILabel *)logLabel      { return [self jobDetail2].logLabel;      }
 
 - (UITableViewController *)jobDetail1 { return (UITableViewController *)[[self childViewControllers] objectAtIndex:0]; }
 - (UITableViewController *)jobDetail2 { return (UITableViewController *)[[self childViewControllers] objectAtIndex:1]; }
@@ -86,6 +59,7 @@
 
 - (void)configureLogView
 {
+    [self.largeTextArea setText:job.log];
 }
 
 - (void)configureView
@@ -99,6 +73,12 @@
     [self.authorLabel setText:self.job.author];
     [self.messageLabel setText:self.job.message];
     [self.configLabel setText:self.job.configString];
+
+    [[self jobDetail1].view setNeedsLayout];
+    [[self jobDetail2].view setNeedsLayout];
+    
+    [self.toolbar setNeedsLayout];
+
     [self configureLogView];
 }
 
@@ -106,11 +86,11 @@
 {
     [super viewWillAppear:animated];
     
-    //    [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
-    //    [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
-    //    [self.job fetchDetails];
-    //    [self.job subscribeToLogUpdates];
-    //    [self configureView];
+    [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
+    [self.job fetchDetails];
+    [self.job subscribeToLogUpdates];
+    [self configureView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -124,21 +104,77 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, 384.0f, 199.0f);
-    CGRect jobDetailFrame2 = CGRectMake(384.0f, 0.0f, 384.0f, 199.0f);
-    [self.view addSubview:[self jobDetail1].view];
-    [self.view addSubview:[self jobDetail2].view];
+
+    CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, 384.0f, 154.0f + 64.0f);
+    CGRect jobDetailFrame2 = CGRectMake(384.0f, 0.0f, 384.0f, 154.0f + 64.0f);
     [[self jobDetail1].view setFrame:jobDetailFrame1];
     [[self jobDetail2].view setFrame:jobDetailFrame2];
+    [self.view addSubview:[self jobDetail1].view];
+    [self.view addSubview:[self jobDetail2].view];
+    
+    [[self jobDetail1].view setNeedsLayout];
+    [[self jobDetail2].view setNeedsLayout];
+    
+    [self.largeTextAreaToggle addTarget:self
+                                 action:@selector(switchLargeTextArea:)
+                       forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)viewDidUnload
 {
+    [self setLargeTextArea:nil];
+    [self setLargeTextAreaToggle:nil];
+    [self setToolbar:nil];
     [super viewDidUnload];
+
+    [[self jobDetail1].view removeFromSuperview];
+    [[self jobDetail2].view removeFromSuperview];
+
     for (UIViewController *child in self.childViewControllers) {
         [child removeFromParentViewController];
     }
 }
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [UIView beginAnimations:@"rotateJobDetailViewController" context:nil];
+    [UIView setAnimationDuration:duration];
+    
+    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
+        CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, 384.0f, 154.0f);
+        CGRect jobDetailFrame2 = CGRectMake(384.0f, 0.0f, 384.0f, 154.0f);
+        [[self jobDetail1].view setFrame:jobDetailFrame1];
+        [[self jobDetail2].view setFrame:jobDetailFrame2];
+        [self.view addSubview:[self jobDetail1].view];
+        [self.view addSubview:[self jobDetail2].view];
+    } else {
+        CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, 352.0f, 154.0f);
+        CGRect jobDetailFrame2 = CGRectMake(352.0f, 0.0f, 352.0f, 154.0f);
+        [[self jobDetail1].view setFrame:jobDetailFrame1];
+        [[self jobDetail2].view setFrame:jobDetailFrame2];
+        [self.view addSubview:[self jobDetail1].view];
+        [self.view addSubview:[self jobDetail2].view];
+    }
+    
+    [UIView commitAnimations];
+}
+
+- (void)switchLargeTextArea:(id)sender
+{
+    UISegmentedControl *seg = (UISegmentedControl *)sender;
+    switch (seg.selectedSegmentIndex) {
+        case 0:
+            [self.largeTextArea setText:self.job.log];
+            break;
+        case 1:
+            [self.largeTextArea setText:self.job.message];
+            break;
+        case 2:
+            [self.largeTextArea setText:[self.job.config description]];
+            break;
+    }
+}
+
 
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

@@ -16,6 +16,6 @@
 
 @property (nonatomic, strong) UIViewController *splashViewController;
 @property (nonatomic, strong) BWRepositoryDetailViewController *repositoryDetailViewController;
-@property (nonatomic, strong) BWPhoneJobDetailViewController *jobDetailViewController;
+@property (nonatomic, strong) id jobDetailViewController;
 
 @end
