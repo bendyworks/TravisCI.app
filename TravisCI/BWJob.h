@@ -11,7 +11,7 @@
 
 @class BWBuild;
 
-@interface BWJob : BWPresenter <RKObjectLoaderDelegate>
+@interface BWJob : BWPresenter
 
 @property (strong, nonatomic) NSString *log;
 @property (strong, nonatomic) NSString *number;

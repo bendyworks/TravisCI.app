@@ -115,9 +115,11 @@
     RKObjectManager *manager = [RKObjectManager sharedManager];
 
     NSString *resourcePath = [NSString stringWithFormat:@"/jobs/%@.json", self.remote_id];
+    // do not set delegate to self. If self is a property of a view controller that gets dealloc'ed before
+    // the request is finished, the app will crash with EXC_BAD_ACCESS
     [manager loadObjectsAtResourcePath:resourcePath
                          objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDJob"]
-                              delegate:self];
+                              delegate:nil];
 }
 
 - (void)subscribeToLogUpdates
@@ -128,23 +130,6 @@
 - (void)unsubscribeFromLogUpdates
 {
     
-}
-
-#pragma - RKObjectLoaderDelegate methods
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    NSLog(@"object loader did fail with error: %@", error);
-}
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
-{
-    NSLog(@"objects (job) loaded: %@", objects);
-}
-
-- (void)objectLoaderDidFinishLoading:(RKObjectLoader *)objectLoader
-{
-    NSLog(@"yay?");
 }
 
 @end
