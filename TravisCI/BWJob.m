@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Bendyworks. All rights reserved.
 //
 
+#import "BWAppDelegate.h"
 #import "BWJob.h"
 #import "NSDictionary+BWTravisCI.h"
 #import "NSDate+Formatting.h"
@@ -124,12 +125,14 @@
 
 - (void)subscribeToLogUpdates
 {
-    
+    BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
+    [appDelegate subscribeToLogChannelForJob:self];
 }
 
 - (void)unsubscribeFromLogUpdates
 {
-    
+    BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
+    [appDelegate unsubscribeFromLogChannelForJob:self];
 }
 
 @end

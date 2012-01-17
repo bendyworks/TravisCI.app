@@ -75,4 +75,27 @@
     [objectStore save];
 }
 
++ (void)appendToJobLog:(NSDictionary *)logDictionary
+{
+    NSNumber *jobId = [logDictionary valueForKey:@"id"];
+    
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+    RKManagedObjectStore *objectStore = manager.objectStore;
+    NSManagedObjectContext *moc = [objectStore managedObjectContext];
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"BWCDJob" inManagedObjectContext:moc];
+
+    NSManagedObject *job = [objectStore findOrCreateInstanceOfEntity:entityDesc
+                                             withPrimaryKeyAttribute:@"remote_id"
+                                                            andValue:jobId];
+    NSString *existingLog = [job valueForKey:@"log"];
+    NSString *newLog = [existingLog stringByAppendingString:[logDictionary valueForKey:@"_log"]];
+    [job setValue:newLog forKey:@"log"];
+    
+    NSError *error = [objectStore save];
+
+    if (error != nil) {
+        NSLog(@"Error saving: %@", error);
+    }
+}
+
 @end

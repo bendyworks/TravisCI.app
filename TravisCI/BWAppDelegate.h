@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class BWPusherHandler, BWDetailContainerViewController;
+@class BWPusherHandler, BWDetailContainerViewController, BWJob;
 
 @interface BWAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,6 +17,10 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 
 @property (nonatomic, strong) BWPusherHandler *pusherHandler;
+
+- (void)subscribeToLogChannelForJob:(BWJob *)job;
+- (void)unsubscribeFromLogChannelForJob:(BWJob *)job;
+
 
 - (void)saveContext;
 - (NSURL *)applicationCacheDirectory;

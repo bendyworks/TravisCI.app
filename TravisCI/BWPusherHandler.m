@@ -13,6 +13,7 @@
 #import "BWCommandBuildStarted.h"
 #import "BWCommandBuildFinished.h"
 #import "BWCommandJobFinished.h"
+#import "BWCommandJobLog.h"
 
 #import "RestKit/RestKit.h"
 
@@ -27,7 +28,7 @@
 
 
 @implementation BWPusherHandler
-@synthesize client;
+@synthesize client, subscribedChannels;
 
 + (id)pusherHandlerWithKey:(NSString *)apiKey
 {
@@ -39,6 +40,7 @@
 {
     self = [super init];
     if (self != nil) {
+        self.subscribedChannels = [NSMutableDictionary dictionary];
         [self setupPusherWithKey:apiKey];
     }
     return self;
@@ -59,6 +61,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveEvent:) name:PTPusherEventReceivedNotification object:channel];
 #endif
 
+}
+
+- (void)subscribeToChannel:(NSString *)channelName
+{
+    NSLog(@"subscribing to %@", channelName);
+    PTPusherChannel *channel = [self.client subscribeToChannelNamed:channelName];
+    [self.subscribedChannels setValue:channel forKey:channelName];
+
+    [channel bindToEventNamed:@"job:log" target:[[BWCommandJobLog alloc] init] action:@selector(jobLogAppended:)];
+}
+
+- (void)unsubscribeFromChannel:(NSString *)channelName
+{
+    NSLog(@"unsubscribing from %@", channelName);
+    [self.client unsubscribeFromChannel:[self.subscribedChannels valueForKey:channelName]];
 }
 
 - (void)didReceiveEvent:(NSNotification *)note

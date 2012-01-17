@@ -10,6 +10,7 @@
 #import "BWRepositoryListViewController.h"
 #import "BWDetailContainerViewController.h"
 #import "BWPusherHandler.h"
+#import "BWJob.h"
 #import "BWAwesome.h"
 #import <RestKit/RestKit.h>
 
@@ -127,7 +128,19 @@
 
     // do same two lines above, but for job -> build ?
 }
-						
+
+- (void)subscribeToLogChannelForJob:(BWJob *)job
+{
+    NSString *channelName = [NSString stringWithFormat:@"job-%d", [job.remote_id integerValue]];
+    [self.pusherHandler subscribeToChannel:channelName];
+}
+
+- (void)unsubscribeFromLogChannelForJob:(BWJob *)job
+{
+    NSString *channelName = [NSString stringWithFormat:@"job-%d", [job.remote_id integerValue]];
+    [self.pusherHandler unsubscribeFromChannel:channelName];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {}
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {}

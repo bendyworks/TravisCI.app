@@ -16,5 +16,9 @@
 + (id)pusherHandlerWithKey:(NSString *)apiKey;
 - (id)initWithKey:(NSString *)apiKey;
 
+- (void)subscribeToChannel:(NSString *)channelName;
+- (void)unsubscribeFromChannel:(NSString *)channelName;
+
 @property (nonatomic, strong) PTPusher *client;
+@property (nonatomic, strong) NSMutableDictionary *subscribedChannels;
 @end
