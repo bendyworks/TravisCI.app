@@ -45,12 +45,6 @@
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    NSLog(@"table width: %f", self.tableView.frame.size.width);
-}
-
 - (void)viewDidUnload {
     [self setFinishedLabel:nil];
     [self setDurationLabel:nil];

@@ -28,10 +28,6 @@
 @synthesize job, number;
 @synthesize shouldUnsubscribeFromLogUpdates;
 
-- (void)awakeFromNib
-{
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -99,7 +95,6 @@
     if ([@"job.object" isEqualToString:keyPath]) {
         [self configureView];
     } else if ([@"job.object.log" isEqualToString:keyPath]) {
-        NSLog(@"job.log change observed! %@", change);
         [self configureLogView];
     }
 }
@@ -119,6 +114,7 @@
     } else if ([@"config" isEqualToString:segue.identifier]) {
         ((BWEnumerableTableViewController *)vc).data = self.job.config;
     } else if ([@"log" isEqualToString:segue.identifier]) {
+        [vc setValue:self.job forKey:@"job"];
         UITextView *textView = (UITextView *)vc.view;
         [textView setText:self.job.log];
     }

@@ -136,7 +136,6 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([@"job" isEqualToString:keyPath]) {
-        NSLog(@"job changed");
         id oldJob = [change valueForKey:NSKeyValueChangeOldKey];
         if ([NSNull null] != oldJob) {
             [(BWJob *)oldJob unsubscribeFromLogUpdates];
@@ -144,7 +143,6 @@
         [(BWJob *)[change valueForKey:NSKeyValueChangeNewKey] subscribeToLogUpdates];
         [self configureView];
     } else if ([@"job.object.log" isEqualToString:keyPath]) {
-        NSLog(@"job.object.log changed");
         [self configureLogView];
     }
 }
