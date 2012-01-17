@@ -10,10 +10,6 @@
 #import "BWRepositoryDetailViewController.h"
 #import "BWPhoneJobDetailViewController.h"
 
-@interface BWDetailContainerViewController()
-@property (strong, nonatomic) UIPopoverController *masterPopoverController;
-@end
-
 
 @implementation BWDetailContainerViewController
 
@@ -39,6 +35,9 @@
 
 - (void)showJobDetailFor:(BWJob *)job
 {
+    UIView *view = [self.jobDetailViewController valueForKey:@"view"];
+    view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    
     [self.jobDetailViewController setValue:job forKey:@"job"];
 
     [self transitionFromViewController:self.splashViewController
@@ -53,7 +52,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
 	return YES;
 }
 

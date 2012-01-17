@@ -17,5 +17,6 @@
 @property (nonatomic, strong) UIViewController *splashViewController;
 @property (nonatomic, strong) BWRepositoryDetailViewController *repositoryDetailViewController;
 @property (nonatomic, strong) id jobDetailViewController;
+@property (strong, nonatomic) UIPopoverController *masterPopoverController;
 
 @end

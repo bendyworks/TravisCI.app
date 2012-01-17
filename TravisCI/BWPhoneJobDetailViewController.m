@@ -54,6 +54,9 @@
     [self.authorLabel setText:self.job.author];
     [self.messageLabel setText:self.job.message];
     [self.configLabel setText:self.job.configString];
+    
+    [self setTitle:[NSString stringWithFormat:@"Job #%@", self.job.number]];
+    
     [self configureLogView];
 }
 

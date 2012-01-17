@@ -25,7 +25,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
 	return YES;
 }
 
@@ -48,7 +47,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"table height: %f", self.tableView.frame.size.height);
+    [super viewWillAppear:animated];
+    NSLog(@"table width: %f", self.tableView.frame.size.width);
 }
 
 - (void)viewDidUnload {

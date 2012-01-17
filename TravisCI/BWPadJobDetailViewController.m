@@ -14,6 +14,13 @@
 @interface BWPadJobDetailViewController ()
 - (BWPadJobDetailViewController *)jobDetail1;
 - (BWPadJobDetailViewController *)jobDetail2;
+- (void)layoutPortrait;
+- (void)layoutLandscape;
+- (void)configureView;
+- (void)configureLogView;
+- (void)configureViewWithoutLog;
+- (void)doLayout;
+- (void)doLayoutForOrientation:(UIInterfaceOrientation)orientation;
 @end
 
 @implementation BWPadJobDetailViewController
@@ -23,23 +30,123 @@
 
 @synthesize job, number;
 
-- (void)awakeFromNib
+- (void)didReceiveMemoryWarning { [super didReceiveMemoryWarning]; }
+
+#pragma mark - View lifecycle
+
+- (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     UITableViewController *jobDetail1 = (UITableViewController *)[[self storyboard] instantiateViewControllerWithIdentifier:@"JobDetail1"];
     UITableViewController *jobDetail2 = (UITableViewController *)[[self storyboard] instantiateViewControllerWithIdentifier:@"JobDetail2"];
     [self addChildViewController:jobDetail1];
     [self addChildViewController:jobDetail2];
+    [self doLayout];
+    jobDetail1.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
+    jobDetail2.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
+    [self.view addSubview:jobDetail1.view];
+    [self.view addSubview:jobDetail2.view];
+    NSLog(@"initial autoresizing masks: %x %x", jobDetail1.view.autoresizingMask, jobDetail2.view.autoresizingMask);
+
+    [self.largeTextAreaToggle addTarget:self
+                                 action:@selector(switchLargeTextArea:)
+                       forControlEvents:UIControlEventValueChanged];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+    [super viewWillAppear:animated];
+
+    [self.jobDetail2.view setNeedsLayout];
     
-    // Release any cached data, images, etc that aren't in use.
+    [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
+
+    [self.job fetchDetails];
+    [self.job subscribeToLogUpdates];
+
+    [self configureView];
 }
 
-#pragma Fake IBOutlets
+- (void)configureView
+{
+    [self configureViewWithoutLog];
+    [self configureLogView];
+}
+
+- (void) configureViewWithoutLog
+{
+    [self.finishedLabel setText:[self.job finishedText]];
+    [self.durationLabel setText:[self.job durationText]];
+    [self.commitLabel setText:self.job.commit];
+    [self.compareLabel setText:self.job.compare];
+    [self.authorLabel setText:self.job.author];
+    [self.messageLabel setText:self.job.message];
+    [self.configLabel setText:self.job.configString];
+    
+    [self.parentViewController setTitle:[NSString stringWithFormat:@"Job #%@", self.job.number]];
+
+//    [[self jobDetail1].view setNeedsLayout];
+//    [[self jobDetail2].view setNeedsLayout];
+    
+}
+
+- (void)configureLogView
+{
+    [self.largeTextArea setText:job.log];
+}
+
+- (void)doLayoutForOrientation:(UIInterfaceOrientation)orientation
+{
+    [self layoutPortrait];
+
+//    if (UIInterfaceOrientationIsPortrait(orientation)) {
+//        [self layoutPortrait];
+//    } else {
+//        [self layoutLandscape];
+//    }
+    
+    [[self jobDetail1].view setNeedsLayout];
+    [[self jobDetail2].view setNeedsLayout];
+}
+
+- (void)doLayout
+{
+    [self doLayoutForOrientation:[UIApplication sharedApplication].statusBarOrientation];
+}
+
+- (void)layoutPortrait
+{
+    CGFloat width = (768.0f) / 2.0f;
+    NSLog(@"width: %f", width);
+    CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, width, 154.0f);
+    CGRect jobDetailFrame2 = CGRectMake(width, 0.0f, width, 154.0f);
+    [[self jobDetail1].view setFrame:jobDetailFrame1];
+    [[self jobDetail2].view setFrame:jobDetailFrame2];
+}
+
+- (void)layoutLandscape
+{
+    CGFloat width = (1024.0f - 320.0f) / 2.0f;
+    NSLog(@"width: %f", width);
+    CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, width, 154.0f);
+    CGRect jobDetailFrame2 = CGRectMake(width, 0.0f, width, 154.0f);
+    [[self jobDetail1].view setFrame:jobDetailFrame1];
+    [[self jobDetail2].view setFrame:jobDetailFrame2];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    [self.job unsubscribeFromLogUpdates];
+
+    [self removeObserver:self forKeyPath:@"job.object"];
+    [self removeObserver:self forKeyPath:@"job.object.log"];
+}
+
+#pragma mark Fake IBOutlets
 
 
 - (UILabel *)finishedLabel { return [self jobDetail1].finishedLabel; }
@@ -54,110 +161,24 @@
 - (UITableViewController *)jobDetail1 { return (UITableViewController *)[[self childViewControllers] objectAtIndex:0]; }
 - (UITableViewController *)jobDetail2 { return (UITableViewController *)[[self childViewControllers] objectAtIndex:1]; }
 
+#pragma mark rotation
 
-#pragma mark - View lifecycle
-
-- (void)configureLogView
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    [self.largeTextArea setText:job.log];
-}
-
-- (void)configureView
-{
-    
-    //    [self.number setText:self.job.number];
-    [self.finishedLabel setText:[self.job finishedText]];
-    [self.durationLabel setText:[self.job durationText]];
-    [self.commitLabel setText:self.job.commit];
-    [self.compareLabel setText:self.job.compare];
-    [self.authorLabel setText:self.job.author];
-    [self.messageLabel setText:self.job.message];
-    [self.configLabel setText:self.job.configString];
-
-    [[self jobDetail1].view setNeedsLayout];
-    [[self jobDetail2].view setNeedsLayout];
-    
-    [self.toolbar setNeedsLayout];
-
-    [self configureLogView];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
-    [self.job fetchDetails];
-    [self.job subscribeToLogUpdates];
-    [self configureView];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.job unsubscribeFromLogUpdates];
-    [self removeObserver:self forKeyPath:@"job.object"];
-    [self removeObserver:self forKeyPath:@"job.object.log"];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, 384.0f, 154.0f + 64.0f);
-    CGRect jobDetailFrame2 = CGRectMake(384.0f, 0.0f, 384.0f, 154.0f + 64.0f);
-    [[self jobDetail1].view setFrame:jobDetailFrame1];
-    [[self jobDetail2].view setFrame:jobDetailFrame2];
-    [self.view addSubview:[self jobDetail1].view];
-    [self.view addSubview:[self jobDetail2].view];
-    
-    [[self jobDetail1].view setNeedsLayout];
-    [[self jobDetail2].view setNeedsLayout];
-    
-    [self.largeTextAreaToggle addTarget:self
-                                 action:@selector(switchLargeTextArea:)
-                       forControlEvents:UIControlEventValueChanged];
-}
-
-- (void)viewDidUnload
-{
-    [self setLargeTextArea:nil];
-    [self setLargeTextAreaToggle:nil];
-    [self setToolbar:nil];
-    [super viewDidUnload];
-
-    [[self jobDetail1].view removeFromSuperview];
-    [[self jobDetail2].view removeFromSuperview];
-
-    for (UIViewController *child in self.childViewControllers) {
-        [child removeFromParentViewController];
-    }
+    NSLog(@"did rotate tableview1 frame: %@", NSStringFromCGRect(self.jobDetail1.view.frame));
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    [UIView beginAnimations:@"rotateJobDetailViewController" context:nil];
-    [UIView setAnimationDuration:duration];
-    
-    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
-        CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, 384.0f, 154.0f);
-        CGRect jobDetailFrame2 = CGRectMake(384.0f, 0.0f, 384.0f, 154.0f);
-        [[self jobDetail1].view setFrame:jobDetailFrame1];
-        [[self jobDetail2].view setFrame:jobDetailFrame2];
-        [self.view addSubview:[self jobDetail1].view];
-        [self.view addSubview:[self jobDetail2].view];
-    } else {
-        CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, 352.0f, 154.0f);
-        CGRect jobDetailFrame2 = CGRectMake(352.0f, 0.0f, 352.0f, 154.0f);
-        [[self jobDetail1].view setFrame:jobDetailFrame1];
-        [[self jobDetail2].view setFrame:jobDetailFrame2];
-        [self.view addSubview:[self jobDetail1].view];
-        [self.view addSubview:[self jobDetail2].view];
-    }
-    
-    [UIView commitAnimations];
+    NSLog(@"will rotate tableview1 frame: %@", NSStringFromCGRect(self.jobDetail1.view.frame));
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+	return YES;
+}
+
+#pragma mark toolbar
 
 - (void)switchLargeTextArea:(id)sender
 {
@@ -180,9 +201,8 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([@"job.object" isEqualToString:keyPath]) {
-        [self configureView];
+        [self configureViewWithoutLog];
     } else if ([@"job.object.log" isEqualToString:keyPath]) {
-        NSLog(@"job.log change observed! %@", change);
         [self configureLogView];
     }
 }
@@ -229,10 +249,20 @@
     }
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (void)viewDidUnload
 {
-    // Return YES for supported orientations
-	return YES;
+    [super viewDidUnload];
+
+    [self setLargeTextArea:nil];
+    [self setLargeTextAreaToggle:nil];
+    [self setToolbar:nil];
+    
+//    [[self jobDetail1].view removeFromSuperview];
+//    [[self jobDetail2].view removeFromSuperview];
+
+//    for (UIViewController *child in self.childViewControllers) {
+//        [child removeFromParentViewController];
+//    }
 }
 
 @end

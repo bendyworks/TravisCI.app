@@ -25,11 +25,11 @@
                 <viewController storyboardIdentifier="JobDetailViewController" wantsFullScreenLayout="YES" id="erE-Mg-3Bk" customClass="BWPadJobDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XPH-FQ-9Tj">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="MZk-NS-Flr">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="MZk-NS-Flr">
                                 <rect key="frame" x="0.0" y="153" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Iv1-1K-h8k"/>
                                     <barButtonItem style="plain" id="iuw-sb-6Fg">
@@ -46,9 +46,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="DSd-k7-umI"/>
                                 </items>
                             </toolbar>
-                            <textView clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="XLn-kf-Y2W">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="XLn-kf-Y2W">
                                 <rect key="frame" x="0.0" y="197" width="768" height="763"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Tumblr raw denim cred brooklyn, biodiesel irony portland 8-bit chambray salvia. Etsy gluten-free cardigan butcher, farm-to-table portland yr fap tofu locavore master cleanse seitan mlkshk. Cardigan mixtape PBR, artisan food truck mlkshk twee iphone portland wolf VHS synth yr fixie. Beard mlkshk lo-fi, before they sold out thundercats tattooed master cleanse organic lomo twee four loko 3 wolf moon. Skateboard vinyl trust fund banksy biodiesel. Messenger bag wes anderson pitchfork jean shorts dreamcatcher viral. High life portland twee squid, jean shorts art party vegan.
 
@@ -58,7 +58,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Job" id="h1h-66-iqu"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -78,7 +78,7 @@
                 <tableViewController storyboardIdentifier="JobDetail1" id="HfX-4a-Afp" customClass="BWPadJobDetailHalfViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="g3h-sX-w6d">
                         <rect key="frame" x="0.0" y="0.0" width="384" height="154"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="0Bc-hu-kVS">
@@ -188,7 +188,7 @@
                 <tableViewController storyboardIdentifier="JobDetail2" id="2NI-5O-AJE" customClass="BWPadJobDetailHalfViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="WIX-Dv-HUR">
                         <rect key="frame" x="0.0" y="0.0" width="384" height="154"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="LaW-SM-98g">
@@ -435,6 +435,12 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ai2-6Q-DCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7uV-rE-qcA" customClass="BWDetailContainerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qdr-Vz-fUG">
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
                     <navigationItem key="navigationItem" id="GGL-s9-nyG"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>

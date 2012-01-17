@@ -126,7 +126,9 @@
     BWJob *job = [self jobAtIndexPath:indexPath];
     if (IS_IPAD) {
         BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
-        [appDelegate.detailContainerViewController showJobDetailFor:job];
+        BWDetailContainerViewController *detailContainer = appDelegate.detailContainerViewController;
+        [detailContainer showJobDetailFor:job];
+        [detailContainer.masterPopoverController dismissPopoverAnimated:YES];
     } else {
         [self performSegueWithIdentifier:@"showJobDetail" sender:job];
 //        [self.navigationController pushViewController:self.jobDetailViewController animated:YES];
