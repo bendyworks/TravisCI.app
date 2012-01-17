@@ -1,6 +1,14 @@
 TravisCI.app
 ============
 
+screenshots
+-----------
+
+![iPad Screenshot](https://raw.github.com/bendyworks/TravisCI.app/master/doc/iPad_screenshot.png)
+
+![iPhone Screenshot](https://raw.github.com/bendyworks/TravisCI.app/master/doc/iPhone_screenshot.png)
+
+
 local setup
 -----------
 
