@@ -441,57 +441,68 @@
                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GGL-s9-nyG"/>
+                    <navigationItem key="navigationItem" id="GGL-s9-nyG">
+                        <barButtonItem key="rightBarButtonItem" title="Credits" id="VPe-JE-Wrf">
+                            <connections>
+                                <segue destination="XFI-GT-Evb" kind="modal" id="3My-ko-cGx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="685" y="281"/>
+        </scene>
+        <scene sceneID="LbW-4T-QEP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iuw-4l-gvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController modalPresentationStyle="currentContext" id="dbx-pq-UBK" customClass="BWCreditsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="RlZ-ND-uYI">
+                        <rect key="frame" x="0.0" y="64" width="540" height="556"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="dbx-pq-UBK" id="Mkg-LT-ihB"/>
+                            <outlet property="delegate" destination="dbx-pq-UBK" id="4WL-79-vYO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Thanks!" id="uYX-ae-qYx">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="52C-Uo-U2y">
+                            <connections>
+                                <action selector="closeModal:" destination="dbx-pq-UBK" id="eRt-wd-ls6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="2307" y="355"/>
+        </scene>
+        <scene sceneID="6v0-8b-T6b">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L4n-qa-DYf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController modalPresentationStyle="formSheet" id="XFI-GT-Evb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DPt-ox-35Z">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dbx-pq-UBK" kind="relationship" relationship="rootViewController" id="5YV-If-ub6"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1627" y="355"/>
         </scene>
     </scenes>
     <resources>
         <image name="travis.background.png" width="1024" height="1024"/>
     </resources>
-    <classes>
-        <class className="BWBuildListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWBuildListViewController.h"/>
-        </class>
-        <class className="BWDetailContainerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWDetailContainerViewController.h"/>
-        </class>
-        <class className="BWJobListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWJobListViewController.h"/>
-        </class>
-        <class className="BWPadJobDetailHalfViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWPadJobDetailHalfViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="authorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="commitLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="compareLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="configLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="finishedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="logLinesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BWPadJobDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWPadJobDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="largeTextArea" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="largeTextAreaToggle" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="BWRepositoryListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWRepositoryListViewController.h"/>
-        </class>
-        <class className="BWSplashScreenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWSplashScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="splashImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

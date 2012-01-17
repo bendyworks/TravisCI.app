@@ -33,7 +33,13 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Repositories" id="36"/>
+                    <navigationItem key="navigationItem" title="Repositories" id="36">
+                        <barButtonItem key="rightBarButtonItem" title="Credits" id="KzA-eB-uW2">
+                            <connections>
+                                <segue destination="teF-L8-Fnd" kind="modal" id="is7-FV-Nig"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="Bjj-Jp-cIk" kind="push" identifier="goToBuilds" id="kH2-Z8-ju3"/>
                     </connections>
@@ -297,6 +303,30 @@
             </objects>
             <point key="canvasLocation" x="-524" y="824"/>
         </scene>
+        <scene sceneID="keU-aD-zAJ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXx-Ge-Mad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="WZT-6K-ayc" customClass="BWCreditsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Q39-u3-gPj">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="WZT-6K-ayc" id="d54-tm-bPf"/>
+                            <outlet property="delegate" destination="WZT-6K-ayc" id="SQy-Th-I61"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Thanks!" id="7vE-J1-6a2">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="VOD-3z-5XQ">
+                            <connections>
+                                <action selector="closeModal:" destination="WZT-6K-ayc" id="H0a-Iy-nvj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="851" y="-819"/>
+        </scene>
         <scene sceneID="ejg-cd-e55">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqs-wo-Wiq" sceneMemberID="firstResponder"/>
@@ -473,6 +503,23 @@
             </objects>
             <point key="canvasLocation" x="-3" y="1420"/>
         </scene>
+        <scene sceneID="NUO-wl-Wnh">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eZ9-xR-xJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController modalTransitionStyle="flipHorizontal" id="teF-L8-Fnd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="l3m-xw-92X">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WZT-6K-ayc" kind="relationship" relationship="rootViewController" id="Kk2-ya-uwo"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="325" y="-819"/>
+        </scene>
     </scenes>
     <classes>
         <class className="BWBuildListViewController" superclassName="UITableViewController">
@@ -486,6 +533,9 @@
                 <relationship kind="outlet" name="message" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="statusImage" candidateClass="UIImageView"/>
             </relationships>
+        </class>
+        <class className="BWCreditsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWCreditsViewController.h"/>
         </class>
         <class className="BWEnumerableTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BWEnumerableTableViewController.h"/>

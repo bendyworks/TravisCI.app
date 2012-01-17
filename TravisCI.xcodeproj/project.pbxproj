@@ -14,6 +14,7 @@
 		DA435EDD14C615290058D007 /* BWCommandJobFinished.m in Sources */ = {isa = PBXBuildFile; fileRef = DA435EDC14C615290058D007 /* BWCommandJobFinished.m */; };
 		DA435EE014C61AC40058D007 /* BWCommandJobLog.m in Sources */ = {isa = PBXBuildFile; fileRef = DA435EDF14C61AC40058D007 /* BWCommandJobLog.m */; };
 		DA435EE314C62AB00058D007 /* BWLiveLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA435EE214C62AB00058D007 /* BWLiveLogViewController.m */; };
+		DA435EE614C634880058D007 /* BWCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA435EE514C634870058D007 /* BWCreditsViewController.m */; };
 		DA4D892114C08934001869BE /* BWCDRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D892014C08934001869BE /* BWCDRepository.m */; };
 		DA4D892414C0AE16001869BE /* NSString+BWTravisCISpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D892314C0AE16001869BE /* NSString+BWTravisCISpec.m */; };
 		DA4D892714C0AE5E001869BE /* NSString+BWTravisCI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4D892614C0AE5E001869BE /* NSString+BWTravisCI.m */; };
@@ -174,6 +175,8 @@
 		DA435EDF14C61AC40058D007 /* BWCommandJobLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCommandJobLog.m; sourceTree = "<group>"; };
 		DA435EE114C62AB00058D007 /* BWLiveLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLiveLogViewController.h; sourceTree = "<group>"; };
 		DA435EE214C62AB00058D007 /* BWLiveLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLiveLogViewController.m; sourceTree = "<group>"; };
+		DA435EE414C634860058D007 /* BWCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCreditsViewController.h; sourceTree = "<group>"; };
+		DA435EE514C634870058D007 /* BWCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCreditsViewController.m; sourceTree = "<group>"; };
 		DA4D891F14C08934001869BE /* BWCDRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDRepository.h; sourceTree = "<group>"; };
 		DA4D892014C08934001869BE /* BWCDRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDRepository.m; sourceTree = "<group>"; };
 		DA4D892314C0AE16001869BE /* NSString+BWTravisCISpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BWTravisCISpec.m"; sourceTree = "<group>"; };
@@ -369,6 +372,15 @@
 			name = Pusher;
 			sourceTree = "<group>";
 		};
+		DA435EE714C6348C0058D007 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				DA435EE414C634860058D007 /* BWCreditsViewController.h */,
+				DA435EE514C634870058D007 /* BWCreditsViewController.m */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
 		DA683C52149FC500000477AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,6 +545,7 @@
 				DA683C88149FEBE1000477AF /* Models */,
 				DA7C59A014BC933D00569F66 /* Navigation */,
 				DAADBF8414BDEEA7000F655E /* Detail */,
+				DA435EE714C6348C0058D007 /* Modal */,
 				DA966D10149FAC3900C229CB /* BWAppDelegate.h */,
 				DA966D11149FAC3900C229CB /* BWAppDelegate.m */,
 				DA966D13149FAC3900C229CB /* MainStoryboard_iPhone.storyboard */,
@@ -902,6 +915,7 @@
 				DA435EDD14C615290058D007 /* BWCommandJobFinished.m in Sources */,
 				DA435EE014C61AC40058D007 /* BWCommandJobLog.m in Sources */,
 				DA435EE314C62AB00058D007 /* BWLiveLogViewController.m in Sources */,
+				DA435EE614C634880058D007 /* BWCreditsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
