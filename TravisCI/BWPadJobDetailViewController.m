@@ -14,8 +14,6 @@
 @interface BWPadJobDetailViewController ()
 - (BWPadJobDetailViewController *)jobDetail1;
 - (BWPadJobDetailViewController *)jobDetail2;
-- (void)layoutPortrait;
-- (void)layoutLandscape;
 - (void)configureView;
 - (void)configureLogView;
 - (void)configureViewWithoutLog;
@@ -23,13 +21,9 @@
 @end
 
 @implementation BWPadJobDetailViewController
-@synthesize toolbar;
-@synthesize largeTextArea;
-@synthesize largeTextAreaToggle;
 
-@synthesize job, number;
-
-- (void)didReceiveMemoryWarning { [super didReceiveMemoryWarning]; }
+@synthesize toolbar, largeTextArea, largeTextAreaToggle;
+@synthesize job;
 
 #pragma mark - View lifecycle
 
@@ -38,14 +32,7 @@
 {
     [super viewDidLoad];
     
-    UITableViewController *jobDetail1 = (UITableViewController *)[[self storyboard] instantiateViewControllerWithIdentifier:@"JobDetail1"];
-    UITableViewController *jobDetail2 = (UITableViewController *)[[self storyboard] instantiateViewControllerWithIdentifier:@"JobDetail2"];
-    [self addChildViewController:jobDetail1];
-    [self addChildViewController:jobDetail2];
-    [self.view addSubview:jobDetail1.view];
-    [self.view addSubview:jobDetail2.view];
     [self doLayout];
-    NSLog(@"initial autoresizing masks: %x %x", jobDetail1.view.autoresizingMask, jobDetail2.view.autoresizingMask);
 
     [self.largeTextAreaToggle addTarget:self
                                  action:@selector(switchLargeTextArea:)
@@ -58,6 +45,7 @@
 
     [self.jobDetail2.view setNeedsLayout];
 
+    [self addObserver:self forKeyPath:@"job" options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
 
@@ -91,43 +79,35 @@
     [self.largeTextArea setText:job.log];
 }
 
+// There is an unwanted "snap" on the right table (jobDetail2) when you:
+//   * start the app in landscape
+//   * show this viewcontroller
+//   * switch to portrait
+// PDI
 - (void)doLayout
 {
+    UITableViewController *jobDetail1 = (UITableViewController *)[[self storyboard] instantiateViewControllerWithIdentifier:@"JobDetail1"];
+    UITableViewController *jobDetail2 = (UITableViewController *)[[self storyboard] instantiateViewControllerWithIdentifier:@"JobDetail2"];
 
-    if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
-        [self layoutPortrait];
-    } else {
-        [self layoutLandscape];
-    }
+    [self addChildViewController:jobDetail1];
+    [self addChildViewController:jobDetail2];
+
+    [self.view addSubview:jobDetail1.view];
+    [self.view addSubview:jobDetail2.view];
+
+    jobDetail1.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
+    jobDetail2.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
+
+    CGFloat width = (768.0f) / 2.0f;
+    CGFloat height = 154.0f;
+    CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, width, height);
+    CGRect jobDetailFrame2 = CGRectMake(width, 0.0f, width, height);
+
+    [jobDetail1.view setFrame:jobDetailFrame1];
+    [jobDetail2.view setFrame:jobDetailFrame2];
     
-    [[self jobDetail1].view setNeedsLayout];
-    [[self jobDetail2].view setNeedsLayout];
-}
-
-- (void)layoutPortrait
-{
-    [self jobDetail1].view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
-    [self jobDetail2].view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
-
-    CGFloat width = (768.0f) / 2.0f;
-    NSLog(@"width: %f", width);
-    CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, width, 154.0f);
-    CGRect jobDetailFrame2 = CGRectMake(width, 0.0f, width, 154.0f);
-    [[self jobDetail1].view setFrame:jobDetailFrame1];
-    [[self jobDetail2].view setFrame:jobDetailFrame2];
-}
-
-- (void)layoutLandscape
-{
-    [self jobDetail1].view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
-    [self jobDetail2].view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
-
-    CGFloat width = (768.0f) / 2.0f;
-    NSLog(@"width: %f", width);
-    CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, width, 154.0f);
-    CGRect jobDetailFrame2 = CGRectMake(width, 0.0f, width, 154.0f);
-    [[self jobDetail1].view setFrame:jobDetailFrame1];
-    [[self jobDetail2].view setFrame:jobDetailFrame2];
+    [jobDetail1.view setNeedsLayout];
+    [jobDetail2.view setNeedsLayout];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -136,6 +116,7 @@
 
     [self.job unsubscribeFromLogUpdates];
 
+    [self removeObserver:self forKeyPath:@"job"];
     [self removeObserver:self forKeyPath:@"job.object"];
     [self removeObserver:self forKeyPath:@"job.object.log"];
 }
@@ -155,22 +136,22 @@
 - (UITableViewController *)jobDetail1 { return (UITableViewController *)[[self childViewControllers] objectAtIndex:0]; }
 - (UITableViewController *)jobDetail2 { return (UITableViewController *)[[self childViewControllers] objectAtIndex:1]; }
 
+#pragma mark Observing the model layer
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([@"job" isEqualToString:keyPath]) {
+        [self configureView];
+    } else if ([@"job.object" isEqualToString:keyPath]) {
+        [self configureViewWithoutLog];
+    } else if ([@"job.object.log" isEqualToString:keyPath]) {
+        [self configureLogView];
+    }
+}
+
 #pragma mark rotation
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    NSLog(@"did rotate tableview1 frame: %@", NSStringFromCGRect(self.jobDetail1.view.frame));
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    NSLog(@"will rotate tableview1 frame: %@", NSStringFromCGRect(self.jobDetail1.view.frame));
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	return YES;
-}
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
 
 #pragma mark toolbar
 
@@ -190,35 +171,7 @@
     }
 }
 
-
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if ([@"job.object" isEqualToString:keyPath]) {
-        [self configureViewWithoutLog];
-    } else if ([@"job.object.log" isEqualToString:keyPath]) {
-        [self configureLogView];
-    }
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    UIViewController *vc = [segue destinationViewController];
-    if ([@"message" isEqualToString:segue.identifier]) {
-        UITextView *textView = (UITextView *)vc.view;
-        [textView setText:self.job.message];
-    } else if ([@"compare" isEqualToString:segue.identifier]) {
-        UIWebView *webView = (UIWebView *)vc.view;
-        NSURL *url = [NSURL URLWithString:self.job.compare];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [webView loadRequest:request];
-    } else if ([@"config" isEqualToString:segue.identifier]) {
-        ((BWEnumerableTableViewController *)vc).data = self.job.config;
-    } else if ([@"log" isEqualToString:segue.identifier]) {
-        UITextView *textView = (UITextView *)vc.view;
-        [textView setText:self.job.log];
-    }
-}
+#pragma mark Show Safari for compare_url
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -243,6 +196,10 @@
     }
 }
 
+#pragma mark Unloading
+
+- (void)didReceiveMemoryWarning { [super didReceiveMemoryWarning]; }
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -250,6 +207,8 @@
     [self setLargeTextArea:nil];
     [self setLargeTextAreaToggle:nil];
     [self setToolbar:nil];
+    
+    [self setJob:nil];
     
     [[self jobDetail1].view removeFromSuperview];
     [[self jobDetail2].view removeFromSuperview];

@@ -14,7 +14,6 @@
 
 @property (nonatomic, strong) BWJob *job;
 
-@property (nonatomic, strong) IBOutlet UILabel *number;
 @property (readonly) UILabel *finishedLabel;
 @property (readonly) UILabel *durationLabel;
 @property (readonly) UILabel *commitLabel;
