@@ -68,6 +68,7 @@
     NSLog(@"subscribing to %@", channelName);
     PTPusherChannel *channel = [self.client subscribeToChannelNamed:channelName];
     [self.subscribedChannels setValue:channel forKey:channelName];
+    NSLog(@"subscribed channels: %@", self.subscribedChannels);
 
     [channel bindToEventNamed:@"job:log" target:[[BWCommandJobLog alloc] init] action:@selector(jobLogAppended:)];
 }
@@ -75,7 +76,11 @@
 - (void)unsubscribeFromChannel:(NSString *)channelName
 {
     NSLog(@"unsubscribing from %@", channelName);
-    [self.client unsubscribeFromChannel:[self.subscribedChannels valueForKey:channelName]];
+    PTPusherChannel *channel = [self.subscribedChannels valueForKey:channelName];
+    [self.subscribedChannels removeObjectForKey:channelName];
+
+    [self.client unsubscribeFromChannel:channel];
+    NSLog(@"subscribed channels: %@", self.subscribedChannels);
 }
 
 - (void)didReceiveEvent:(NSNotification *)note

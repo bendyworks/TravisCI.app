@@ -10,6 +10,10 @@
 #import "BWJob.h"
 #import "BWEnumerableTableViewController.h"
 
+@interface BWPhoneJobDetailViewController()
+@property (nonatomic, assign) BOOL shouldUnsubscribeFromLogUpdates;
+@end
+
 @implementation BWPhoneJobDetailViewController
 @synthesize finishedLabel;
 @synthesize durationLabel;
@@ -22,6 +26,7 @@
 @synthesize logSubtitle;
 
 @synthesize job, number;
+@synthesize shouldUnsubscribeFromLogUpdates;
 
 - (void)awakeFromNib
 {
@@ -63,6 +68,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
+    self.shouldUnsubscribeFromLogUpdates = YES;
     [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
     [self.job fetchDetails];
@@ -73,9 +80,18 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.job unsubscribeFromLogUpdates];
+
     [self removeObserver:self forKeyPath:@"job.object"];
     [self removeObserver:self forKeyPath:@"job.object.log"];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+
+    if (self.shouldUnsubscribeFromLogUpdates) {
+        [self.job unsubscribeFromLogUpdates];
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -90,6 +106,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    self.shouldUnsubscribeFromLogUpdates = NO;
     UIViewController *vc = [segue destinationViewController];
     if ([@"message" isEqualToString:segue.identifier]) {
         UITextView *textView = (UITextView *)vc.view;
