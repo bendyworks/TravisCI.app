@@ -41,9 +41,33 @@
                                                             withPrimaryKeyAttribute:@"remote_id"
                                                                            andValue:repository_id];
     
+    RKObjectMapping *mapping = [manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"];
     RKObjectMappingOperation *mappingOp = [RKObjectMappingOperation mappingOperationFromObject:repositoryDictionary
                                                                                       toObject:repository
-                                                                                   withMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]];
+                                                                                   withMapping:mapping];
+    
+    NSError *error = nil;
+    [mappingOp performMapping:&error];
+    
+    [objectStore save];
+}
+
++ (void)updateJobFromDictionary:(NSDictionary *)jobDictionary
+{
+    NSNumber *jobId = [jobDictionary valueForKey:@"id"];
+    
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+    RKManagedObjectStore *objectStore = manager.objectStore;
+    NSManagedObjectContext *moc = [objectStore managedObjectContext];
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"BWCDJob" inManagedObjectContext:moc];
+    NSManagedObject *job = [objectStore findOrCreateInstanceOfEntity:entityDesc
+                                             withPrimaryKeyAttribute:@"remote_id"
+                                                            andValue:jobId];
+    
+    RKObjectMapping *mapping = [manager.mappingProvider objectMappingForKeyPath:@"BWCDJob"];
+    RKObjectMappingOperation *mappingOp = [RKObjectMappingOperation mappingOperationFromObject:jobDictionary
+                                                                                      toObject:job
+                                                                                   withMapping:mapping];
     
     NSError *error = nil;
     [mappingOp performMapping:&error];

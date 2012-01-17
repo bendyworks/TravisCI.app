@@ -12,5 +12,5 @@
 
 + (NSManagedObject *)buildWithID:(NSNumber *)build_id;
 + (void)updateRepositoryFromDictionary:(NSDictionary *)repositoryDictionary;
-
++ (void)updateJobFromDictionary:(NSDictionary *)jobDictionary;
 @end

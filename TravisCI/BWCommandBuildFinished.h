@@ -11,6 +11,6 @@
 
 @interface BWCommandBuildFinished : NSObject
 
-- (void)buildWasFinsihed:(PTPusherEvent *)event;
+- (void)buildWasFinished:(PTPusherEvent *)event;
 
 @end

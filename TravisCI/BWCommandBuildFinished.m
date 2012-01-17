@@ -7,8 +7,6 @@
 //
 
 #import "BWCommandBuildFinished.h"
-#import "RestKit/RKObjectManager.h"
-#import "RestKit/RKObjectMapping.h"
 #import "BWCDObjectMananger.h"
 
 
@@ -39,7 +37,7 @@
  * }
 */
 
-- (void)buildWasFinsihed:(PTPusherEvent *)event
+- (void)buildWasFinished:(PTPusherEvent *)event
 {
     NSDictionary *repositoryDictionary = [[event data] valueForKey:@"repository"];
     [BWCDObjectMananger updateRepositoryFromDictionary: repositoryDictionary];
