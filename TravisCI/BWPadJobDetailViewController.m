@@ -75,7 +75,9 @@
 
 - (void)configureLogView
 {
-    [self.largeTextArea setText:job.log];
+    if (self.largeTextAreaToggle.selectedSegmentIndex == 0) {
+        [self.largeTextArea setText:job.log];
+    }
 }
 
 // There is an unwanted "snap" on the right table (jobDetail2) when you:
