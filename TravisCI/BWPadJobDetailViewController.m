@@ -20,7 +20,6 @@
 - (void)configureLogView;
 - (void)configureViewWithoutLog;
 - (void)doLayout;
-- (void)doLayoutForOrientation:(UIInterfaceOrientation)orientation;
 @end
 
 @implementation BWPadJobDetailViewController
@@ -34,6 +33,7 @@
 
 #pragma mark - View lifecycle
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,11 +42,9 @@
     UITableViewController *jobDetail2 = (UITableViewController *)[[self storyboard] instantiateViewControllerWithIdentifier:@"JobDetail2"];
     [self addChildViewController:jobDetail1];
     [self addChildViewController:jobDetail2];
-    [self doLayout];
-    jobDetail1.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
-    jobDetail2.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
     [self.view addSubview:jobDetail1.view];
     [self.view addSubview:jobDetail2.view];
+    [self doLayout];
     NSLog(@"initial autoresizing masks: %x %x", jobDetail1.view.autoresizingMask, jobDetail2.view.autoresizingMask);
 
     [self.largeTextAreaToggle addTarget:self
@@ -59,7 +57,7 @@
     [super viewWillAppear:animated];
 
     [self.jobDetail2.view setNeedsLayout];
-    
+
     [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
 
@@ -86,10 +84,6 @@
     [self.configLabel setText:self.job.configString];
     
     [self.parentViewController setTitle:[NSString stringWithFormat:@"Job #%@", self.job.number]];
-
-//    [[self jobDetail1].view setNeedsLayout];
-//    [[self jobDetail2].view setNeedsLayout];
-    
 }
 
 - (void)configureLogView
@@ -97,27 +91,24 @@
     [self.largeTextArea setText:job.log];
 }
 
-- (void)doLayoutForOrientation:(UIInterfaceOrientation)orientation
+- (void)doLayout
 {
-    [self layoutPortrait];
 
-//    if (UIInterfaceOrientationIsPortrait(orientation)) {
-//        [self layoutPortrait];
-//    } else {
-//        [self layoutLandscape];
-//    }
+    if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
+        [self layoutPortrait];
+    } else {
+        [self layoutLandscape];
+    }
     
     [[self jobDetail1].view setNeedsLayout];
     [[self jobDetail2].view setNeedsLayout];
 }
 
-- (void)doLayout
-{
-    [self doLayoutForOrientation:[UIApplication sharedApplication].statusBarOrientation];
-}
-
 - (void)layoutPortrait
 {
+    [self jobDetail1].view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
+    [self jobDetail2].view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
+
     CGFloat width = (768.0f) / 2.0f;
     NSLog(@"width: %f", width);
     CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, width, 154.0f);
@@ -128,7 +119,10 @@
 
 - (void)layoutLandscape
 {
-    CGFloat width = (1024.0f - 320.0f) / 2.0f;
+    [self jobDetail1].view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
+    [self jobDetail2].view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
+
+    CGFloat width = (768.0f) / 2.0f;
     NSLog(@"width: %f", width);
     CGRect jobDetailFrame1 = CGRectMake(0.0f, 0.0f, width, 154.0f);
     CGRect jobDetailFrame2 = CGRectMake(width, 0.0f, width, 154.0f);
@@ -257,12 +251,12 @@
     [self setLargeTextAreaToggle:nil];
     [self setToolbar:nil];
     
-//    [[self jobDetail1].view removeFromSuperview];
-//    [[self jobDetail2].view removeFromSuperview];
+    [[self jobDetail1].view removeFromSuperview];
+    [[self jobDetail2].view removeFromSuperview];
 
-//    for (UIViewController *child in self.childViewControllers) {
-//        [child removeFromParentViewController];
-//    }
+    for (UIViewController *child in self.childViewControllers) {
+        [child removeFromParentViewController];
+    }
 }
 
 @end
