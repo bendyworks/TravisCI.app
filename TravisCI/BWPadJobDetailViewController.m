@@ -34,6 +34,10 @@
     
     [self doLayout];
 
+    [self addObserver:self forKeyPath:@"job" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
+
     [self.largeTextAreaToggle addTarget:self
                                  action:@selector(switchLargeTextArea:)
                        forControlEvents:UIControlEventValueChanged];
@@ -44,10 +48,6 @@
     [super viewWillAppear:animated];
 
     [self.jobDetail2.view setNeedsLayout];
-
-    [self addObserver:self forKeyPath:@"job" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
 
     [self.job fetchDetails];
     [self.job subscribeToLogUpdates];
@@ -115,10 +115,6 @@
     [super viewWillDisappear:animated];
 
     [self.job unsubscribeFromLogUpdates];
-
-    [self removeObserver:self forKeyPath:@"job"];
-    [self removeObserver:self forKeyPath:@"job.object"];
-    [self removeObserver:self forKeyPath:@"job.object.log"];
 }
 
 #pragma mark Fake IBOutlets
@@ -141,10 +137,13 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([@"job" isEqualToString:keyPath]) {
+        NSLog(@"job changed");
         [self configureView];
     } else if ([@"job.object" isEqualToString:keyPath]) {
+        NSLog(@"job.object changed");
         [self configureViewWithoutLog];
     } else if ([@"job.object.log" isEqualToString:keyPath]) {
+        NSLog(@"job.object.log changed");
         [self configureLogView];
     }
 }
@@ -203,6 +202,10 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    
+    [self removeObserver:self forKeyPath:@"job.object.log"];
+    [self removeObserver:self forKeyPath:@"job.object"];
+    [self removeObserver:self forKeyPath:@"job"];
 
     [self setLargeTextArea:nil];
     [self setLargeTextAreaToggle:nil];
