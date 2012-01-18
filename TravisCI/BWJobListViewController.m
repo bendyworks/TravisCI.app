@@ -109,7 +109,8 @@
     [cell.env setText:job.env];
     [cell.duration setText:job.durationText];
     [cell.finished_at setText:job.finishedText];
-
+    cell.accessibilityLabel = job.accessibilityLabel;
+    cell.accessibilityHint = job.accessibilityHint;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

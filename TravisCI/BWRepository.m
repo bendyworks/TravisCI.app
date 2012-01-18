@@ -73,4 +73,25 @@
     [alert show];
 }
 
+- (NSString *)accessibilityLabel
+{
+    NSArray *userAndRepo = [self.slug componentsSeparatedByString:@"/"];
+    return [NSString stringWithFormat:@"%@ by %@", [userAndRepo objectAtIndex:1], [userAndRepo objectAtIndex:0]];
+}
+
+- (NSString *)accessibilityHint
+{
+    switch (self.currentStatus) {
+        case BWStatusPending:
+            return @"Most recent build is still building";
+            break;
+        case BWStatusPassed:
+            return [NSString stringWithFormat:@"Most recent build passed %@ and took %@", self.finishedText, self.durationText];
+            break;
+        case BWStatusFailed:
+            return [NSString stringWithFormat:@"Most recent build failed %@ and took %@", self.finishedText, self.durationText];
+    }
+    return @"";
+}
+
 @end

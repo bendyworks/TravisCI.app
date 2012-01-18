@@ -161,6 +161,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES" link="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="0Hd-fk-rf1" detailTextLabel="v9K-tK-grb" style="IBUITableViewCellStyleValue2" id="srI-gj-Uel">
                                         <rect key="frame" x="0.0" y="187" width="320" height="44"/>
@@ -213,6 +216,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES" button="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <segue destination="cE4-L1-CCw" kind="push" identifier="message" id="0Re-kF-G9H"/>
                                         </connections>
@@ -242,6 +248,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES" button="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <segue destination="iIm-3p-Mzw" kind="push" identifier="config" id="xFM-4N-Gn8"/>
                                         </connections>
@@ -275,6 +284,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" hint="This job's log. May update frequently when job is running." label="Logs">
+                                            <accessibilityTraits key="traits" none="YES" button="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <segue destination="JBD-Ua-o9b" kind="push" identifier="log" id="Baq-8U-cXs"/>
                                         </connections>

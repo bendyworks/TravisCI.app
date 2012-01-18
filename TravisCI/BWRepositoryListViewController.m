@@ -176,6 +176,9 @@
     [cell.slug setTextColor:repository.statusTextColor];
     [cell.buildNumber setTextColor:repository.statusTextColor];
     [cell.statusImage setImage:repository.statusImage];
+    
+    cell.accessibilityLabel = repository.accessibilityLabel;
+    cell.accessibilityHint = repository.accessibilityHint;
 }
 
 - (void)refreshRepositoryList

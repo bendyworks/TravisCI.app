@@ -108,6 +108,8 @@
     [cell.message setText:build.message];
     [cell.buildNumber setTextColor:build.statusTextColor];
     [cell.statusImage setImage:build.statusImage];
+    [cell setAccessibilityLabel:build.accessibilityLabel];
+    [cell setAccessibilityHint:build.accessibilityHint];
 }
 
 #pragma mark - Table view delegate

@@ -49,4 +49,26 @@
     return [NSString stringWithFormat:@"Build #%@", self.number];
 }
 
+- (NSString *)accessibilityLabel
+{
+    NSString *__status;
+    switch (self.currentStatus) {
+        case BWStatusPending:
+            __status = @"is still building";
+            break;
+        case BWStatusPassed:
+            __status = @"passed";
+            break;
+        case BWStatusFailed:
+            __status = @"failed";
+            break;
+    }
+    return [NSString stringWithFormat:@"%@  %@", self.formattedNumber, __status];
+}
+
+- (NSString *)accessibilityHint
+{
+    return [NSString stringWithFormat:@"Commit message is \"%@\"", self.message];
+}
+
 @end
