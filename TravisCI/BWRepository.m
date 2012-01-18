@@ -44,7 +44,7 @@
     NSString *resourcePath = [NSString stringWithFormat:@"/repositories/%@/builds.json", self.remote_id];
     [manager loadObjectsAtResourcePath:resourcePath
                          objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDBuild"]
-                              delegate:self];
+                              delegate:nil];
 }
 
 - (BWStatus)currentStatus
@@ -53,24 +53,6 @@
         return (self.last_build_status == [NSNumber numberWithInt:0]) ? BWStatusPassed : BWStatusFailed;
     }
     return BWStatusPending;
-}
-
-#pragma mark RKObjectLoaderDelegate methods
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
-{
-    // objects == [build_1, build_2, ...]
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"buildsLoaded" object:self];
-}
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                    message:[error localizedDescription]
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
 }
 
 - (NSString *)accessibilityLabel

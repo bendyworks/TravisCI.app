@@ -9,7 +9,7 @@
 #import "BWPresenter.h"
 #import "RestKit/RKObjectLoader.h"
 
-@interface BWBuild : BWPresenter <RKObjectLoaderDelegate>
+@interface BWBuild : BWPresenter
 
 - (void)fetchJobs;
 

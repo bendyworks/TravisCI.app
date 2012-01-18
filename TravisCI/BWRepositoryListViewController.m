@@ -187,21 +187,7 @@
 
     [manager loadObjectsAtResourcePath:@"/repositories.json"
                          objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]
-                              delegate:self];
-}
-
-#pragma mark RKObjectLoaderDelegate methods
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects { }
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                    message:[error localizedDescription]
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+                              delegate:nil];
 }
 
 #pragma mark Getters and Setters

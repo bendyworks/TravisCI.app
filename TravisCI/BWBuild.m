@@ -20,12 +20,7 @@
     NSString *resourcePath = [NSString stringWithFormat:@"/builds/%@.json", self.remote_id];
     [manager loadObjectsAtResourcePath:resourcePath
                          objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDBuild"]
-                              delegate:self];
-}
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    NSLog(@"object loader failed with error: %@", error);
+                              delegate:nil];
 }
 
 - (NSString *)commit

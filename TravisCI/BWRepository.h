@@ -9,7 +9,7 @@
 #import "BWPresenter.h"
 #import "RestKit/RKObjectLoader.h"
 
-@interface BWRepository : BWPresenter <RKObjectLoaderDelegate>
+@interface BWRepository : BWPresenter
 
 - (NSString *)durationText;
 - (NSString *)finishedText;

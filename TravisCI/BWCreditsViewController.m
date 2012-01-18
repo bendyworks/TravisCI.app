@@ -69,6 +69,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     [cell.textLabel setText:[sponsor valueForKey:@"name"]];
     [cell.detailTextLabel setText:[sponsor valueForKey:@"why"]];
+    cell.accessibilityTraits |= UIAccessibilityTraitLink;
 
     return cell;
 }
