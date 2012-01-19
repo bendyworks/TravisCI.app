@@ -13,7 +13,7 @@
 
 @implementation BWRepository
 
-@dynamic remote_id, slug, last_build_number, last_build_status, last_build_duration, last_build_id, last_build_started_at, last_build_finished_at;
+@dynamic remote_id, slug, last_build_number, last_build_status, last_build_result, last_build_duration, last_build_id, last_build_started_at, last_build_finished_at;
 
 - (NSString *)finishedText
 {
@@ -49,8 +49,8 @@
 
 - (BWStatus)currentStatus
 {
-    if (self.last_build_status != nil && self.last_build_finished_at) {
-        return (self.last_build_status == [NSNumber numberWithInt:0]) ? BWStatusPassed : BWStatusFailed;
+    if (self.last_build_result != nil && self.last_build_finished_at) {
+        return (self.last_build_result == [NSNumber numberWithInt:0]) ? BWStatusPassed : BWStatusFailed;
     }
     return BWStatusPending;
 }

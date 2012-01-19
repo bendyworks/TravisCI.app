@@ -51,23 +51,26 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
     [self addObserver:self forKeyPath:@"build" options:NSKeyValueObservingOptionNew context:nil];
     self.navigationItem.title = [NSString stringWithFormat:@"Build #%d", [self.build.number integerValue]];
-    [super viewWillAppear:animated];
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
     [self removeObserver:self forKeyPath:@"build" context:nil];
+
+    [super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
     self.fetchedResultsController = nil;
     self.jobCellNib = nil;
+
+    [super viewDidUnload];
 }
 
 #pragma mark - Table view data source
