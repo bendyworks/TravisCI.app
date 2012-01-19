@@ -12,5 +12,6 @@
 
 - (NSString *)lastLine;
 - (NSUInteger)numberOfNewlines;
+- (NSString *)stringBySimulatingCarriageReturn;
 
 @end

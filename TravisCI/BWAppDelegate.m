@@ -76,7 +76,6 @@
 //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
     
     RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:TRAVIS_CI_URL]; // sets up singleton shared object manager
-//    manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI.sqlite"];
     manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI-cache.sqlite"
                                                                  inDirectory:[[self applicationCacheDirectory] path]
                                                        usingSeedDatabaseName:nil

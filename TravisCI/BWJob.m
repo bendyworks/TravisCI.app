@@ -94,6 +94,12 @@
     return self.build.message;
 }
 
+- (NSString *)log
+{
+    NSString *ret = [self.object valueForKey:@"log"];
+    return [ret stringBySimulatingCarriageReturn];
+}
+
 - (NSString *)lastLogLine
 {
     return [self.log lastLine];

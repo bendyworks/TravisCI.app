@@ -40,4 +40,51 @@
     return ret;
 }
 
+- (NSString *)stringBySimulatingCarriageReturn
+{
+    NSString *ret = self;
+    NSString *matcher = nil;
+    NSStringCompareOptions compareOptions = NSRegularExpressionSearch;
+    NSRange wholeRange = {0, 0};
+
+    matcher = @"\r\r";
+    wholeRange = NSMakeRange(0, [ret length]);
+    ret = [ret stringByReplacingOccurrencesOfString:matcher withString:@"\r"];
+
+    matcher = @"\033[K";
+    wholeRange = NSMakeRange(0, [ret length]);
+    ret = [ret stringByReplacingOccurrencesOfString:matcher withString:@""];
+
+    matcher = @"(?:\[2K|\033\(B)";
+    wholeRange = NSMakeRange(0, [ret length]);
+    ret = [ret stringByReplacingOccurrencesOfString:matcher withString:@"" options:compareOptions range:wholeRange];
+
+    NSMutableString *history = [NSMutableString string];
+    NSUInteger cursor = 0;
+    NSMutableString *currentLine = [NSMutableString string];
+
+    const char *utf8string = [ret UTF8String];
+    for (NSInteger i = 0; utf8string[i] != 0; i++) {
+        char chr = utf8string[i];
+        if (chr == '\n') {
+            // flush currentLine to history
+            [history appendString:[NSString stringWithFormat:@"%@\n", currentLine]];
+            [currentLine deleteCharactersInRange:NSMakeRange(0, [currentLine length])];
+            cursor = 0;
+        } else if (chr == '\r') {
+            cursor = 0;
+        } else {
+            if (cursor == 0 && [currentLine length] > 0) {
+                [currentLine deleteCharactersInRange:NSMakeRange(0, [currentLine length])];
+            }
+            [currentLine appendFormat:@"%c", chr];
+            cursor++;
+        }
+    }
+
+    [history appendString:currentLine];
+
+    return history;
+}
+
 @end
