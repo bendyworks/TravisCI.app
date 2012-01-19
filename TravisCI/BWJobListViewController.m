@@ -164,7 +164,10 @@
     NSPredicate *findByBuildId = [NSPredicate predicateWithFormat:@"build.remote_id = %@", self.build.remote_id];
     [fetchRequest setPredicate:findByBuildId];
 
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"number" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"number" ascending:YES comparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+        return [obj1 compare:obj2 options:kCFCompareNumerically];
+    }];
+
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
 
     [fetchRequest setSortDescriptors:sortDescriptors];
