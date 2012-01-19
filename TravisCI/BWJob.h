@@ -38,4 +38,5 @@
 - (void)subscribeToLogUpdates;
 - (void)unsubscribeFromLogUpdates;
 
+- (NSString *)formattedNumberOfLinesInLog;
 @end

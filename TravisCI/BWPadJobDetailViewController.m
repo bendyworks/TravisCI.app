@@ -12,8 +12,8 @@
 #import "BWPadJobDetailHalfViewController.h"
 
 @interface BWPadJobDetailViewController ()
-- (BWPadJobDetailViewController *)jobDetail1;
-- (BWPadJobDetailViewController *)jobDetail2;
+- (BWPadJobDetailHalfViewController *)jobDetail1;
+- (BWPadJobDetailHalfViewController *)jobDetail2;
 - (void)configureView;
 - (void)configureLogView;
 - (void)configureViewWithoutLog;
@@ -78,6 +78,7 @@
     if (self.largeTextAreaToggle.selectedSegmentIndex == 0) {
         [self.largeTextArea setText:job.log];
     }
+    [self.logLabel setText:[job formattedNumberOfLinesInLog]];
 }
 
 // There is an unwanted "snap" on the right table (jobDetail2) when you:
@@ -128,7 +129,7 @@
 - (UILabel *)authorLabel   { return [self jobDetail2].authorLabel;   }
 - (UILabel *)messageLabel  { return [self jobDetail2].messageLabel;  }
 - (UILabel *)configLabel   { return [self jobDetail2].configLabel;   }
-- (UILabel *)logLabel      { return [self jobDetail2].logLabel;      }
+- (UILabel *)logLabel      { return [self jobDetail2].logLinesLabel;      }
 
 - (UITableViewController *)jobDetail1 { return (UITableViewController *)[[self childViewControllers] objectAtIndex:0]; }
 - (UITableViewController *)jobDetail2 { return (UITableViewController *)[[self childViewControllers] objectAtIndex:1]; }

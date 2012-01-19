@@ -31,6 +31,32 @@ describe(@"NSString+BWTravisCI", ^{
         });
 
     });
+    
+    describe(@"numberOfNewlines", ^{
+        context(@"with no newlines", ^{
+            it(@"returns 0", ^{
+                NSString *subject = @"a b c";
+                NSInteger result = [subject numberOfNewlines];
+                [[theValue(result) should] equal:theValue(0)];
+            });
+        });
+        
+        context(@"with 1 newline", ^{
+            it(@"returns 1", ^{
+                NSString *subject = @"a b c\nd e f";
+                NSInteger result = [subject numberOfNewlines];
+                [[theValue(result) should] equal:theValue(1)];
+            });
+        });
+        
+        context(@"with 1 newline in the middle and 1 at the end", ^{
+            it(@"returns 2", ^{
+                NSString *subject = @"a b c\nd e f\n";
+                NSInteger result = [subject numberOfNewlines];
+                [[theValue(result) should] equal:theValue(2)];
+            });
+        });
+    });
 });
 
 SPEC_END

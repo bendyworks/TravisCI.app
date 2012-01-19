@@ -101,9 +101,14 @@
 
 - (NSString *)logSubtitle
 {
-    NSUInteger numberOfLines = [[self.log componentsSeparatedByCharactersInSet:
-                                 [NSCharacterSet newlineCharacterSet]] count];
+    NSUInteger numberOfLines = [self.log numberOfNewlines];
     return [NSString stringWithFormat:@"%d more lines previously", numberOfLines];
+}
+
+- (NSString *)formattedNumberOfLinesInLog
+{
+    NSUInteger lines = [self.log numberOfNewlines] + 1;
+    return [NSString stringWithFormat:@"%d lines", lines];
 }
 
 - (BWBuild *)build

@@ -28,4 +28,16 @@
     return ret;
 }
 
+- (NSUInteger)numberOfNewlines
+{
+    NSUInteger ret = 0;
+    const char *utf8string = [self UTF8String];
+    for (NSInteger i = 0; utf8string[i] != 0; i++) {
+        if (utf8string[i] == '\n') {
+            ret++;
+        }
+    }
+    return ret;
+}
+
 @end

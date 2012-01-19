@@ -11,5 +11,6 @@
 @interface NSString (BWTravisCI)
 
 - (NSString *)lastLine;
+- (NSUInteger)numberOfNewlines;
 
 @end
