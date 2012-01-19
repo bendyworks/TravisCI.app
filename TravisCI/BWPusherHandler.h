@@ -12,7 +12,7 @@
 
 @class PTPusher;
 
-@interface BWPusherHandler : NSObject <PTPusherDelegate>
+@interface BWPusherHandler : NSObject
 + (id)pusherHandlerWithKey:(NSString *)apiKey;
 - (id)initWithKey:(NSString *)apiKey;
 

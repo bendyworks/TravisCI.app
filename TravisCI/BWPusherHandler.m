@@ -48,7 +48,7 @@
 
 - (void)setupPusherWithKey:(NSString *)apiKey
 {
-    self.client = [PTPusher pusherWithKey:apiKey delegate:self];
+    self.client = [PTPusher pusherWithKey:apiKey delegate:nil];
     self.client.reconnectAutomatically = YES;
     
     PTPusherChannel *channel = [self.client subscribeToChannelNamed:@"common"];
@@ -65,34 +65,25 @@
 
 - (void)subscribeToChannel:(NSString *)channelName
 {
-    NSLog(@"subscribing to %@", channelName);
     PTPusherChannel *channel = [self.client subscribeToChannelNamed:channelName];
     [self.subscribedChannels setValue:channel forKey:channelName];
-    NSLog(@"subscribed channels: %@", self.subscribedChannels);
 
     [channel bindToEventNamed:@"job:log" target:[[BWCommandJobLog alloc] init] action:@selector(jobLogAppended:)];
 }
 
 - (void)unsubscribeFromChannel:(NSString *)channelName
 {
-    NSLog(@"unsubscribing from %@", channelName);
     PTPusherChannel *channel = [self.subscribedChannels valueForKey:channelName];
     [self.subscribedChannels removeObjectForKey:channelName];
 
     [self.client unsubscribeFromChannel:channel];
-    NSLog(@"subscribed channels: %@", self.subscribedChannels);
 }
 
+// will only get called if PUSHER_EVENT_LOGGING is true
 - (void)didReceiveEvent:(NSNotification *)note
 {
     PTPusherEvent *event = (PTPusherEvent *)[[note userInfo] valueForKey:PTPusherEventUserInfoKey];
     NSLog(@"pusher - notification: %@", [event data]);
 }
-
-#pragma mark - Pusher Delegate methods
-
-- (void)pusher:(PTPusher *)pusher connectionDidConnect:(PTPusherConnection *)connection { NSLog(@"pusher - did connect: %@", connection); }
-- (void)pusher:(PTPusher *)pusher didSubscribeToChannel:(PTPusherChannel *)channel { NSLog(@"pusher - did subscribe to channel: %@", channel); }
-- (void)pusher:(PTPusher *)pusher didUnsubscribeToChannel:(PTPusherChannel *)channel { NSLog(@"pusher - did unsubscribe to channel: %@", channel); }
 
 @end
