@@ -8,8 +8,12 @@
 
 #import "BWCreditsViewController.h"
 
+@interface BWCreditsViewController ()
+- (void)goToGithub;
+@end
+
 @implementation BWCreditsViewController
-@synthesize credits;
+@synthesize credits, forkMe;
 
 - (void)viewDidLoad
 {
@@ -38,6 +42,62 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation { return YES; }
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (UIEventSubtypeMotionShake == motion) {
+        if (YES == self.forkMe.hidden) {
+            self.forkMe.hidden = NO;
+            [UIView animateWithDuration:1.0f animations:^{
+                self.forkMe.alpha = 1.0f;
+            }];
+        } else {
+            [UIView animateWithDuration:1.0f animations:^{
+                self.forkMe.alpha = 0.0f;
+            } completion:^(BOOL finished) {
+                self.forkMe.hidden = YES;
+            }];
+        }
+    }
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.forkMe = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"forkme.png"]];
+    self.forkMe.hidden = YES;
+    self.forkMe.alpha = 0.0f;
+    self.forkMe.frame = CGRectMake(0.0f, 0.0f, 149.0f, 149.0f);
+    
+    self.forkMe.userInteractionEnabled = YES;
+    UIGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToGithub)];
+    [self.forkMe addGestureRecognizer:gestureRecognizer];
+
+    [self.view addSubview:self.forkMe];
+    [self.view bringSubviewToFront:self.forkMe];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self becomeFirstResponder];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+
+    [self.forkMe removeFromSuperview];
+    self.forkMe = nil;
+}
+
+- (void)goToGithub
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/bendyworks/TravisCI.app"]];
+}
 
 #pragma mark - Dismissal
 

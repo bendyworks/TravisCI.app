@@ -11,5 +11,6 @@
 @interface BWCreditsViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *credits;
+@property (nonatomic, strong) UIImageView *forkMe;
 
 @end
