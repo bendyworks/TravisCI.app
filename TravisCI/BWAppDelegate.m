@@ -192,5 +192,26 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark - Network failure messages
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error"
+                                                    message:@"Could not connect to the Travis CI service"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Bummer"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection failedWithError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error"
+                                                    message:@"Could not connect to the Travis CI realtime service"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Bummer"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
 
 @end

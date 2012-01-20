@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestKit/RKObjectLoader.h"
+#import "PTPusherDelegate.h"
 @class BWPusherHandler, BWDetailContainerViewController, BWJob;
 
-@interface BWAppDelegate : UIResponder <UIApplicationDelegate>
+@interface BWAppDelegate : UIResponder <UIApplicationDelegate, RKObjectLoaderDelegate, PTPusherDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) BWDetailContainerViewController *detailContainerViewController;
