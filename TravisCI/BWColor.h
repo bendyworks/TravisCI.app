@@ -14,5 +14,6 @@
 + (UIColor *)fadedTextColor;
 + (UIColor *)buildPassedColor;
 + (UIColor *)buildFailedColor;
++ (UIColor *)cellTintColor;
 
 @end
