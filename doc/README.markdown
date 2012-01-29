@@ -1,6 +1,8 @@
 TravisCI.app
 ============
 
+Get it on the [App Store!](http://itunes.apple.com/us/app/travisci/id496877270)
+
 screenshots
 -----------
 
