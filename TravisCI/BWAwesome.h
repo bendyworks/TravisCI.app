@@ -2,7 +2,7 @@
 //  BWAwesome.h
 //
 //  Created by Bradley Grzesiak & Jaymes Waters on 12/13/11.
-//  Copyright (c) 2012 Bendyworks. All rights reserved.
+//  Refer to MIT-LICENSE file at root of project for copyright info
 //
 
 #ifndef BWAwesome_h

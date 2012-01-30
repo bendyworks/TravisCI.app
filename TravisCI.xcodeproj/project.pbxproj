@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2EFED9014D74FC3001C25AD /* MIT-LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A2EFED8F14D74FC3001C25AD /* MIT-LICENSE */; };
 		DA311A0B14B63CA200F351C7 /* BWCommandBuildFinished.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */; };
 		DA311A0F14B658D100F351C7 /* BWCDObjectMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */; };
 		DA435ED714C4AB500058D007 /* BWPadJobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA435ED614C4AB500058D007 /* BWPadJobDetailViewController.m */; };
@@ -165,6 +166,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A2EFED8F14D74FC3001C25AD /* MIT-LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MIT-LICENSE"; sourceTree = "<group>"; };
 		DA311A0914B63CA200F351C7 /* BWCommandBuildFinished.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCommandBuildFinished.h; sourceTree = "<group>"; };
 		DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCommandBuildFinished.m; sourceTree = "<group>"; };
 		DA311A0D14B658D100F351C7 /* BWCDObjectMananger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDObjectMananger.h; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 		DA966CF0149FAC3900C229CB = {
 			isa = PBXGroup;
 			children = (
+				A2EFED8F14D74FC3001C25AD /* MIT-LICENSE */,
 				DA966D07149FAC3900C229CB /* TravisCI */,
 				DA966D2F149FAC3900C229CB /* TravisCITests */,
 				DA966CFE149FAC3900C229CB /* Frameworks */,
@@ -846,6 +849,7 @@
 				DA435F1114C8CCE80058D007 /* iTunesArtwork in Resources */,
 				DA435F1214C8CCE80058D007 /* iTunesArtwork (512x512px) in Resources */,
 				DA435F1414C9C4400058D007 /* forkme.png in Resources */,
+				A2EFED9014D74FC3001C25AD /* MIT-LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

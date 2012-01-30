@@ -3,7 +3,7 @@
 //  TravisCI
 //
 //  Created by Bradley Grzesiak on 1/18/12.
-//  Copyright (c) 2012 Bendyworks. All rights reserved.
+//  Refer to MIT-LICENSE file at root of project for copyright info
 //
 
 #import <Foundation/Foundation.h>
