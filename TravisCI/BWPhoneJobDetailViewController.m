@@ -59,6 +59,11 @@
     [self configureLogView];
 }
 
+- (void)awakeFromNib
+{
+    [self.tableView setAccessibilityLabel:@"Job Detail"];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
