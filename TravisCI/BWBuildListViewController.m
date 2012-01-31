@@ -45,6 +45,11 @@
 
 #pragma mark - View lifecycle
 
+- (void)awakeFromNib
+{
+    [self.tableView setAccessibilityLabel:@"Builds"];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [self addObserver:self forKeyPath:@"repository" options:NSKeyValueObservingOptionNew context:nil];

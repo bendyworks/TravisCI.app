@@ -50,11 +50,15 @@
     [self.tableView reloadData];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)awakeFromNib
+{
+    [self.tableView setAccessibilityLabel:@"Jobs"];    
+}
 
+- (void)viewWillAppear:(BOOL)animated {
     [self addObserver:self forKeyPath:@"build" options:NSKeyValueObservingOptionNew context:nil];
     self.navigationItem.title = [NSString stringWithFormat:@"Build #%d", [self.build.number integerValue]];
+    [super viewWillAppear:animated];
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
