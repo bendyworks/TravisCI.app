@@ -16,17 +16,16 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self.job.object addObserver:self forKeyPath:@"log" options:NSKeyValueObservingOptionNew context:nil];
     [super viewWillAppear:animated];
-    [self.job addObserver:self forKeyPath:@"object.log" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [self.job.object removeObserver:self forKeyPath:@"log"];
     [super viewWillDisappear:animated];
-    
-    [self.job removeObserver:self forKeyPath:@"object.log"];
 }
-
+    
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     [self.textView setText:self.job.log];

@@ -46,8 +46,6 @@
 
 - (void)configureView
 {
-    
-//    [self.number set Text:self.job.number];
     [self.finishedLabel setText:[self.job finishedText]];
     [self.durationLabel setText:[self.job durationText]];
     [self.commitLabel setText:self.job.commit];
