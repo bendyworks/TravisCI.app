@@ -209,6 +209,64 @@ json_get '/builds/103.json' do
 }
 end
 
+json_get '/builds/203.json' do
+{
+  id: 203,
+  repository_id: 20,
+  number: "3",
+  started_at: "2012-01-31T17:41:41Z",
+  finished_at: "2012-01-31T17:42:06Z",
+  duration: 45,
+  state: "finished",
+  config: {
+    language: "node_js",
+    node_js: [
+      0.4,
+      0.6
+    ],
+    ".configured" => true
+  },
+  status: 0,
+  result: 0,
+  matrix: [
+    {
+      id: 210,
+      repository_id: 10,
+      number: "1.1",
+      state: "finished",
+      started_at: "2012-01-31T17:41:41Z",
+      finished_at: "2012-01-31T17:42:01Z",
+      config: {
+        language: "node_js",
+        node_js: 0.6,
+        ".configured" => true
+      },
+      status: 0,
+      result: 0,
+      build_id: 605126,
+      commit: "52ad0e2e46f8756207cd18b5aaac688358247141",
+      branch: "master",
+      message: "Fix dev dependencies for testint purposes",
+      committed_at: "2012-01-31T17:39:27Z",
+      committer_name: nil,
+      committer_email: nil,
+      author_name: "Diogo Resende",
+      author_email: "dresende@thinkdigital.pt",
+      compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
+    }
+  ],
+  commit: "52ad0e4e46f8756207cd18b5aaac688358247141",
+  branch: "master",
+  message: "some message",
+  committed_at: "2012-01-31T17:39:27Z",
+  committer_name: nil,
+  committer_email: nil,
+  author_name: "Diogo Resende",
+  author_email: "dresende@thinkdigital.pt",
+  compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
+}
+end
+
 json_get '/jobs/110.json' do
 {
   id: 110,
@@ -236,7 +294,6 @@ json_get '/jobs/110.json' do
   author_email: "dresende@thinkdigital.pt",
   compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
 }
-
 end
 
 json_get '/jobs/111.json' do
@@ -266,5 +323,33 @@ json_get '/jobs/111.json' do
   author_email: "dresende@thinkdigital.pt",
   compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
 }
+end
 
+json_get '/jobs/210.json' do
+{
+  id: 210,
+  repository_id: 20,
+  number: "1.1",
+  state: "finished",
+  started_at: "2012-01-31T17:41:41Z",
+  finished_at: "2012-01-31T17:42:06Z",
+  config: {
+    language: "node_js",
+    node_js: 0.4,
+    ".configured" => true
+  },
+  status: 0,
+  log: "first log line\n",
+  result: 0,
+  build_id: 605126,
+  commit: "52ad0e2e46f8756207cd18b5aaac688358247141",
+  branch: "master",
+  message: "Fix dev dependencies for testint purposes",
+  committed_at: "2012-01-31T17:39:27Z",
+  committer_name: nil,
+  committer_email: nil,
+  author_name: "Diogo Resende",
+  author_email: "dresende@thinkdigital.pt",
+  compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
+}
 end
