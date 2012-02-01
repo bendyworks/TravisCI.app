@@ -15,7 +15,7 @@ require 'pusher'
 
 Pusher.app_id = '2523'
 Pusher.key = '19623b7a28de248aef28'
-Pusher.secret = File.read(File.expand_path('pusher_secret_key.txt', File.dirname('$0a'))).strip
+Pusher.secret = File.read(File.expand_path('pusher_secret_key.txt', File.dirname('$0'))).strip
 
 channel = %Q($1)
 event = %Q($2)
