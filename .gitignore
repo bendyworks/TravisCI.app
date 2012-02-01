@@ -2,3 +2,4 @@ TravisCI.xcodeproj/project.xcworkspace
 TravisCI.xcodeproj/xcuserdata
 TravisCI.xcworkspace/xcuserdata/
 build
+automation/pusher_secret_key.txt
