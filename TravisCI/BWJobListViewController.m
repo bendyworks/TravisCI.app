@@ -55,11 +55,13 @@
     [self.tableView setAccessibilityLabel:@"Jobs"];    
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     [self addObserver:self forKeyPath:@"build" options:NSKeyValueObservingOptionNew context:nil];
     self.navigationItem.title = [NSString stringWithFormat:@"Build #%d", [self.build.number integerValue]];
     [super viewWillAppear:animated];
 }
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     [self removeObserver:self forKeyPath:@"build" context:nil];
@@ -133,13 +135,13 @@
 {
     BWJob *job = [self jobAtIndexPath:indexPath];
     if (IS_IPAD) {
+        [self removeObserver:self forKeyPath:@"build" context:nil];
         BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
         BWDetailContainerViewController *detailContainer = appDelegate.detailContainerViewController;
         [detailContainer showJobDetailFor:job];
         [detailContainer.masterPopoverController dismissPopoverAnimated:YES];
     } else {
         [self performSegueWithIdentifier:@"showJobDetail" sender:job];
-//        [self.navigationController pushViewController:self.jobDetailViewController animated:YES];
     }
 }
 
