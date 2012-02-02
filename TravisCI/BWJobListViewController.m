@@ -145,13 +145,6 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ((indexPath.row % 2) == 0) {
-        [cell setBackgroundColor:[BWColor cellTintColor]];
-    }
-}
-
 - (UINib *)jobCellNib
 {
     if (jobCellNib == nil) {
