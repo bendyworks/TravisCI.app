@@ -17,11 +17,14 @@
 #import "BWBuild.h"
 #import "BWColor.h"
 
-
 @interface BWJobListViewController()
 
 - (void)configureCell:(BWJobTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (BWJob *)jobAtIndexPath:(NSIndexPath *)indexPath;
+- (void)stopObservingBuild;
+- (void)startObservingBuild;
+
+@property BOOL currentlyObservingBuild;
 
 @end
 
@@ -32,6 +35,7 @@
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize jobDetailViewController = _jobDetailViewController;
 @synthesize jobCellNib, build;
+@synthesize currentlyObservingBuild;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,6 +44,21 @@
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
     return self;
+}
+
+- (void)startObservingBuild
+{
+    [self stopObservingBuild];
+    [self addObserver:self forKeyPath:@"build" options:NSKeyValueObservingOptionNew context:nil];
+    self.currentlyObservingBuild = YES;
+}
+
+- (void)stopObservingBuild
+{
+    if (self.currentlyObservingBuild) {
+        [self removeObserver:self forKeyPath:@"build" context:nil];
+        self.currentlyObservingBuild = NO;
+    }
 }
 
 #pragma mark - View lifecycle
@@ -57,15 +76,14 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self addObserver:self forKeyPath:@"build" options:NSKeyValueObservingOptionNew context:nil];
+    [self startObservingBuild];
     self.navigationItem.title = [NSString stringWithFormat:@"Build #%d", [self.build.number integerValue]];
     [super viewWillAppear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [self removeObserver:self forKeyPath:@"build" context:nil];
-
+    [self stopObservingBuild];
     [super viewDidDisappear:animated];
 }
 
@@ -135,7 +153,7 @@
 {
     BWJob *job = [self jobAtIndexPath:indexPath];
     if (IS_IPAD) {
-        [self removeObserver:self forKeyPath:@"build" context:nil];
+        [self stopObservingBuild];
         BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
         BWDetailContainerViewController *detailContainer = appDelegate.detailContainerViewController;
         [detailContainer showJobDetailFor:job];
