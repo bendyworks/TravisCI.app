@@ -17,5 +17,7 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResults;
 @property (nonatomic, strong) BWRepository *repository;
 @property (nonatomic, strong) BWJobListViewController *jobListController;
+@property (strong, nonatomic) IBOutlet UILabel *repositoryName;
+@property (strong, nonatomic) IBOutlet UILabel *authorName;
 
 @end

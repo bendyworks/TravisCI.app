@@ -20,6 +20,8 @@
 @end
 
 @implementation BWBuildListViewController
+@synthesize repositoryName;
+@synthesize authorName;
 
 @synthesize fetchedResults = __fetchedResults;
 @synthesize repository, jobListController, buildCellNib;
@@ -53,7 +55,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self addObserver:self forKeyPath:@"repository" options:NSKeyValueObservingOptionNew context:nil];
-    self.navigationItem.title = self.repository.slug;
+    NSArray *slugInfo = [self.repository.slug componentsSeparatedByString:@"/"];
+    [self.authorName setText:[slugInfo objectAtIndex:0]];
+    [self.repositoryName setText:[slugInfo objectAtIndex:1]];
     [super viewWillAppear:animated];
 }
 
@@ -67,6 +71,8 @@
 
 -(void)viewDidUnload
 {
+    [self setRepositoryName:nil];
+    [self setAuthorName:nil];
     [super viewDidUnload];
     self.jobListController = nil;
     self.buildCellNib = nil;
