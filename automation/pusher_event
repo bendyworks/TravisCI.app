@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+  source "$HOME/.rvm/scripts/rvm"
+elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+  source "/usr/local/rvm/scripts/rvm"
+else
+  printf "ERROR: An RVM installation was not found.\n"
+fi
+
+rvm use 1.9.3@travis-ci.app
+
+ruby_program=$(cat <<EOP
+require 'pusher'
+
+Pusher.app_id = '2523'
+Pusher.key = '19623b7a28de248aef28'
+Pusher.secret = File.read(File.expand_path('pusher_secret_key.txt', File.dirname('$0'))).strip
+
+channel = %Q($1)
+event = %Q($2)
+data = %Q($3)
+
+if channel && event && data
+  Pusher[channel].trigger(event, data)
+else
+  puts 'usage: pusher_event <channel> <event> <data>'
+end
+EOP
+)
+ruby -e "$ruby_program"

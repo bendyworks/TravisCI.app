@@ -46,8 +46,6 @@
 
 - (void)configureView
 {
-    
-//    [self.number set Text:self.job.number];
     [self.finishedLabel setText:[self.job finishedText]];
     [self.durationLabel setText:[self.job durationText]];
     [self.commitLabel setText:self.job.commit];
@@ -59,6 +57,11 @@
     [self setTitle:[NSString stringWithFormat:@"Job #%@", self.job.number]];
     
     [self configureLogView];
+}
+
+- (void)awakeFromNib
+{
+    [self.tableView setAccessibilityLabel:@"Job Detail"];
 }
 
 - (void)viewWillAppear:(BOOL)animated

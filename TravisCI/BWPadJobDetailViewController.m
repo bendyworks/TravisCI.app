@@ -36,7 +36,6 @@
 
     NSKeyValueObservingOptions newAndOld = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
     [self addObserver:self forKeyPath:@"job" options:newAndOld context:nil];
-    [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
 
     [self.largeTextAreaToggle addTarget:self
                                  action:@selector(switchLargeTextArea:)
@@ -140,12 +139,15 @@
 {
     if ([@"job" isEqualToString:keyPath]) {
         id oldJob = [change valueForKey:NSKeyValueChangeOldKey];
+        BWJob *newJob = (BWJob *)[change valueForKey:NSKeyValueChangeNewKey];
         if ([NSNull null] != oldJob) {
             [(BWJob *)oldJob unsubscribeFromLogUpdates];
+            [((BWJob *)oldJob).object removeObserver:self forKeyPath:@"log"];
         }
-        [(BWJob *)[change valueForKey:NSKeyValueChangeNewKey] subscribeToLogUpdates];
+        [newJob.object addObserver:self forKeyPath:@"log" options:NSKeyValueObservingOptionNew context:nil];
+        [newJob subscribeToLogUpdates];
         [self configureView];
-    } else if ([@"job.object.log" isEqualToString:keyPath]) {
+    } else if ([@"log" isEqualToString:keyPath]) {
         [self configureLogView];
     }
 }
@@ -205,7 +207,7 @@
 {
     [super viewDidUnload];
     
-    [self removeObserver:self forKeyPath:@"job.object.log"];
+    [self.job.object removeObserver:self forKeyPath:@"log"];
     [self removeObserver:self forKeyPath:@"job"];
 
     [self setLargeTextArea:nil];
