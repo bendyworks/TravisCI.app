@@ -15,4 +15,7 @@
 + (UIColor *)buildPassedColor;
 + (UIColor *)buildFailedColor;
 
++ (NSArray *)gradientColors;
++ (UIView *)gradientViewForFrame:(UITableViewCell *)cell;
+
 @end

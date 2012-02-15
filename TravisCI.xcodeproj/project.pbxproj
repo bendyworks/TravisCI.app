@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A216883A14EC5C31008F3E4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAADBF8B14BE3354000F655E /* QuartzCore.framework */; };
 		A22C953714EC0AD700C5DF8A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6A149FC627000477AF /* CFNetwork.framework */; };
 		A22C953814EC0AD700C5DF8A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D05149FAC3900C229CB /* CoreData.framework */; };
 		A22C953914EC0AD700C5DF8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
@@ -322,6 +323,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A216883A14EC5C31008F3E4F /* QuartzCore.framework in Frameworks */,
 				DA683C73149FC660000477AF /* libxml2.dylib in Frameworks */,
 				DA683C71149FC657000477AF /* SystemConfiguration.framework in Frameworks */,
 				DA683C6F149FC63B000477AF /* Security.framework in Frameworks */,

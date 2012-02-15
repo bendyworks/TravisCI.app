@@ -121,7 +121,6 @@
 {
     BWJobTableCell *cell = [BWJobTableCell cellForTableView:tableView fromNib:self.jobCellNib];
     [self configureCell:cell atIndexPath:indexPath];
-
     return cell;
 }
 
@@ -138,6 +137,12 @@
     [cell.finished_at setText:job.finishedText];
     cell.accessibilityLabel = job.accessibilityLabel;
     cell.accessibilityHint = job.accessibilityHint;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [BWColor gradientViewForFrame:cell];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -100,6 +100,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BWBuildTableCell *cell = [BWBuildTableCell cellForTableView:tableView fromNib:self.buildCellNib];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [BWColor gradientViewForFrame:cell];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }

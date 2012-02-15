@@ -180,6 +180,9 @@
     
     cell.accessibilityLabel = repository.accessibilityLabel;
     cell.accessibilityHint = repository.accessibilityHint;
+
+    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [BWColor gradientViewForFrame:cell];
 }
 
 - (void)refreshRepositoryList
