@@ -13,7 +13,9 @@ describe(@"BWRepository", ^{
     
     describe(@"durationText", ^{
         context(@"not finished", ^{
-            
+            it(@"works", ^{
+                [[theValue(YES) should] equal:theValue(YES)];
+            });
         });
         context(@"finished", ^{
             xit(@"returns the formatted time difference between started and finished", ^{

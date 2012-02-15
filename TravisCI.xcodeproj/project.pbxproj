@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A22C953714EC0AD700C5DF8A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6A149FC627000477AF /* CFNetwork.framework */; };
+		A22C953814EC0AD700C5DF8A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D05149FAC3900C229CB /* CoreData.framework */; };
+		A22C953914EC0AD700C5DF8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
+		A22C953A14EC0AD700C5DF8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
+		A22C953B14EC0AD700C5DF8A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C72149FC660000477AF /* libxml2.dylib */; };
+		A22C953C14EC0AD700C5DF8A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6C149FC634000477AF /* MobileCoreServices.framework */; };
+		A22C953D14EC0AD700C5DF8A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6E149FC63B000477AF /* Security.framework */; };
+		A22C953E14EC0AD700C5DF8A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C70149FC657000477AF /* SystemConfiguration.framework */; };
+		A22C953F14EC0AD700C5DF8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
 		A2EFED9014D74FC3001C25AD /* MIT-LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A2EFED8F14D74FC3001C25AD /* MIT-LICENSE */; };
 		DA311A0B14B63CA200F351C7 /* BWCommandBuildFinished.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */; };
 		DA311A0F14B658D100F351C7 /* BWCDObjectMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */; };
@@ -53,13 +62,6 @@
 		DA7C596614BB4F4500569F66 /* BWBuildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C596514BB4F4500569F66 /* BWBuildListViewController.m */; };
 		DA7C599914BB9CA000569F66 /* BWCDBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C599814BB9C9F00569F66 /* BWCDBuild.m */; };
 		DA7C59A414BC9DB500569F66 /* NSDictionary+BWTravisCI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C59A314BC9DB500569F66 /* NSDictionary+BWTravisCI.m */; };
-		DA7C59A714BCA0F000569F66 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C5C149FC501000477AF /* libRestKit.a */; };
-		DA7C59A814BCA23A00569F66 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6A149FC627000477AF /* CFNetwork.framework */; };
-		DA7C59A914BCA24300569F66 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6C149FC634000477AF /* MobileCoreServices.framework */; };
-		DA7C59AA14BCA24E00569F66 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C70149FC657000477AF /* SystemConfiguration.framework */; };
-		DA7C59AB14BCA25600569F66 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6E149FC63B000477AF /* Security.framework */; };
-		DA7C59AC14BCA26A00569F66 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D03149FAC3900C229CB /* CoreGraphics.framework */; };
-		DA7C59AD14BCA5E300569F66 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C72149FC660000477AF /* libxml2.dylib */; };
 		DA7C59B114BCA65E00569F66 /* NSDictionary+BWTravisCISpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7C59B014BCA65E00569F66 /* NSDictionary+BWTravisCISpec.m */; };
 		DA7EE4F214BF86A600FC7A8F /* BWDetailContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7EE4F114BF86A600FC7A8F /* BWDetailContainerViewController.m */; };
 		DA7EE4F514BF959600FC7A8F /* BWSplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7EE4F414BF959600FC7A8F /* BWSplashScreenViewController.m */; };
@@ -79,9 +81,6 @@
 		DA966D18149FAC3900C229CB /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */; };
 		DA966D1B149FAC3900C229CB /* TravisCI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA966D19149FAC3900C229CB /* TravisCI.xcdatamodeld */; };
 		DA966D1E149FAC3900C229CB /* BWRepositoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */; };
-		DA966D2A149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
-		DA966D2B149FAC3900C229CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D01149FAC3900C229CB /* Foundation.framework */; };
-		DA966D2C149FAC3900C229CB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966D05149FAC3900C229CB /* CoreData.framework */; };
 		DA966D34149FAC3900C229CB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA966D32149FAC3900C229CB /* InfoPlist.strings */; };
 		DAA3934C14BCD732007AFBD4 /* travis.background.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA3934B14BCD732007AFBD4 /* travis.background.png */; };
 		DAA41BC914A3DDDB00C97A37 /* NSDictionary+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA41BAD14A3DDDB00C97A37 /* NSDictionary+QueryString.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -143,13 +142,6 @@
 			remoteInfo = RestKitFrameworkTests;
 		};
 		DA683C67149FC5F2000477AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DA683C51149FC500000477AF /* RestKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 25160D1514564E810060A5C5;
-			remoteInfo = RestKit;
-		};
-		DA7C59A514BCA0EB00569F66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DA683C51149FC500000477AF /* RestKit.xcodeproj */;
 			proxyType = 1;
@@ -347,19 +339,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22C953714EC0AD700C5DF8A /* CFNetwork.framework in Frameworks */,
+				A22C953814EC0AD700C5DF8A /* CoreData.framework in Frameworks */,
+				A22C953914EC0AD700C5DF8A /* CoreGraphics.framework in Frameworks */,
+				A22C953A14EC0AD700C5DF8A /* Foundation.framework in Frameworks */,
+				A22C953B14EC0AD700C5DF8A /* libxml2.dylib in Frameworks */,
+				A22C953C14EC0AD700C5DF8A /* MobileCoreServices.framework in Frameworks */,
+				A22C953D14EC0AD700C5DF8A /* Security.framework in Frameworks */,
+				A22C953E14EC0AD700C5DF8A /* SystemConfiguration.framework in Frameworks */,
+				A22C953F14EC0AD700C5DF8A /* UIKit.framework in Frameworks */,
 				DAADBF8C14BE3354000F655E /* QuartzCore.framework in Frameworks */,
-				DA7C59AD14BCA5E300569F66 /* libxml2.dylib in Frameworks */,
-				DA7C59AC14BCA26A00569F66 /* CoreGraphics.framework in Frameworks */,
-				DA7C59AB14BCA25600569F66 /* Security.framework in Frameworks */,
-				DA7C59AA14BCA24E00569F66 /* SystemConfiguration.framework in Frameworks */,
-				DA7C59A914BCA24300569F66 /* MobileCoreServices.framework in Frameworks */,
-				DA7C59A814BCA23A00569F66 /* CFNetwork.framework in Frameworks */,
-				DA7C59A714BCA0F000569F66 /* libRestKit.a in Frameworks */,
 				DA65E45B14A0F78E0066A7E4 /* libKiwi.a in Frameworks */,
 				DA683D1614A0F258000477AF /* SenTestingKit.framework in Frameworks */,
-				DA966D2A149FAC3900C229CB /* UIKit.framework in Frameworks */,
-				DA966D2B149FAC3900C229CB /* Foundation.framework in Frameworks */,
-				DA966D2C149FAC3900C229CB /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,7 +743,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DA7C59A614BCA0EB00569F66 /* PBXTargetDependency */,
 				DA966D2E149FAC3900C229CB /* PBXTargetDependency */,
 			);
 			name = TravisCITests;
@@ -961,11 +951,6 @@
 			name = RestKit;
 			targetProxy = DA683C67149FC5F2000477AF /* PBXContainerItemProxy */;
 		};
-		DA7C59A614BCA0EB00569F66 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RestKit;
-			targetProxy = DA7C59A514BCA0EB00569F66 /* PBXContainerItemProxy */;
-		};
 		DA966D2E149FAC3900C229CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DA966CFA149FAC3900C229CB /* TravisCI */;
@@ -1079,7 +1064,7 @@
 					"\"$(SOURCE_ROOT)/RestKit/Build\"",
 				);
 				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(SOURCE_ROOT)/libPusher/build/**";
+				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1101,7 +1086,7 @@
 					"\"$(SOURCE_ROOT)/RestKit/Build\"",
 				);
 				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(SOURCE_ROOT)/libPusher/build/**";
+				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1125,18 +1110,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(SOURCE_ROOT)/libPusher/Vendor/ZTWebSocket",
-					"$(SOURCE_ROOT)/libPusher/Library",
-					"\"$(SOURCE_ROOT)/RestKit/Build\"",
-					/Users/bendyworks/dev/ios/Kiwi/Kiwi,
+					"\"$(SOURCE_ROOT)/libPusher/Vendor/ZTWebSocket\"",
+					"\"$(SOURCE_ROOT)/libPusher/Library\"",
+					"\"$(SOURCE_ROOT)/../Kiwi/Kiwi\"",
 				);
 				INFOPLIST_FILE = "TravisCITests/TravisCITests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../Kiwi/build/Debug-iphonesimulator\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1157,18 +1141,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(SOURCE_ROOT)/libPusher/Vendor/ZTWebSocket",
-					"$(SOURCE_ROOT)/libPusher/Library",
-					"\"$(SOURCE_ROOT)/RestKit/Build\"",
-					/Users/bendyworks/dev/ios/Kiwi/Kiwi,
+					"\"$(SOURCE_ROOT)/libPusher/Vendor/ZTWebSocket\"",
+					"\"$(SOURCE_ROOT)/libPusher/Library\"",
+					"\"$(SOURCE_ROOT)/../Kiwi/Kiwi\"",
 				);
 				INFOPLIST_FILE = "TravisCITests/TravisCITests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../Kiwi/build/Debug-iphonesimulator\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1214,7 +1197,7 @@
 					"\"$(SOURCE_ROOT)/RestKit/Build\"",
 				);
 				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(SOURCE_ROOT)/libPusher/build/**";
+				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1238,18 +1221,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(SOURCE_ROOT)/libPusher/Vendor/ZTWebSocket",
-					"$(SOURCE_ROOT)/libPusher/Library",
-					"\"$(SOURCE_ROOT)/RestKit/Build\"",
-					/Users/bendyworks/dev/ios/Kiwi/Kiwi,
+					"\"$(SOURCE_ROOT)/libPusher/Vendor/ZTWebSocket\"",
+					"\"$(SOURCE_ROOT)/libPusher/Library\"",
+					"\"$(SOURCE_ROOT)/../Kiwi/Kiwi\"",
 				);
 				INFOPLIST_FILE = "TravisCITests/TravisCITests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../Kiwi/build/Debug-iphonesimulator\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				USER_HEADER_SEARCH_PATHS = "";
