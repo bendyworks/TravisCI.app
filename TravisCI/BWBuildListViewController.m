@@ -17,6 +17,7 @@
 
 @interface BWBuildListViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)setNavigationTitleProperties:(UIInterfaceOrientation)toInterfaceOrientation;
 @end
 
 @implementation BWBuildListViewController
@@ -59,6 +60,37 @@
     [self.authorName setText:[slugInfo objectAtIndex:0]];
     [self.repositoryName setText:[slugInfo objectAtIndex:1]];
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self setNavigationTitleProperties:(UIInterfaceOrientation)[[UIDevice currentDevice] orientation]]; //bit of a hack... don't always assume deviceOrientation == interfaceOrientation!
+}
+
+- (void)setNavigationTitleProperties:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+        UIColor *tinColor = [UIColor colorWithRed:0.443f green:0.471f blue:0.502f alpha:1.0f];
+        [self.authorName setTextColor:tinColor];
+        [self.authorName setShadowColor:[UIColor whiteColor]];
+        [self.authorName setShadowOffset:CGSizeMake(0.0f, 0.0f)];
+        [self.repositoryName setTextColor:tinColor];
+        [self.repositoryName setShadowColor:[UIColor whiteColor]];
+        [self.repositoryName setShadowOffset:CGSizeMake(0.0f, 1.0f)];
+    } else {
+        [self.authorName setTextColor:[UIColor whiteColor]];
+        [self.authorName setShadowColor:[UIColor darkGrayColor]];
+        [self.authorName setShadowOffset:CGSizeMake(0.0f, -1.0f)];
+        [self.repositoryName setTextColor:[UIColor whiteColor]];
+        [self.repositoryName setShadowColor:[UIColor darkGrayColor]];
+        [self.repositoryName setShadowOffset:CGSizeMake(0.0f, -1.0f)];
+    }
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self setNavigationTitleProperties:toInterfaceOrientation];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
