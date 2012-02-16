@@ -11,7 +11,7 @@
 
 @class BWBuildListViewController;
 
-@interface BWRepositoryListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface BWRepositoryListViewController : UITableViewController <NSFetchedResultsControllerDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) UINib *repositoryCellNib;
 @property (nonatomic, strong) BWBuildListViewController *buildListController;
