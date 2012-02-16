@@ -10,7 +10,7 @@
 
 @class BWRepository, BWJobListViewController;
 
-@interface BWBuildListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface BWBuildListViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) UINib *buildCellNib;
 

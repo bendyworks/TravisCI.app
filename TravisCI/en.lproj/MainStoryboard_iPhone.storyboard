@@ -402,7 +402,11 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="x0Z-AB-oQ0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fio-VA-Bb1">
+                            <connections>
+                                <action selector="askToToggleFavorite:" destination="Bjj-Jp-cIk" id="kgh-Bk-sEk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

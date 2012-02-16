@@ -111,6 +111,18 @@
     self.fetchedResults = nil;
 }
 
+- (IBAction)askToToggleFavorite:(id)sender {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Add to Favorites?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Add", nil];
+    [sheet showFromBarButtonItem:sender animated:YES];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        // add to favorites list
+    }
+}
+
 #pragma mark Custom cells
 
 - (UINib *)buildCellNib
