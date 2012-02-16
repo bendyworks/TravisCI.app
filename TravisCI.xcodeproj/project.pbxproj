@@ -359,6 +359,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A251FBA014ED9CC40062AA59 /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				DAADBF8514BDEED8000F655E /* BWPhoneJobDetailViewController.h */,
+				DAADBF8614BDEED8000F655E /* BWPhoneJobDetailViewController.m */,
+			);
+			name = Phone;
+			sourceTree = "<group>";
+		};
+		A251FBA114ED9CCC0062AA59 /* Pad */ = {
+			isa = PBXGroup;
+			children = (
+				DA7EE4F314BF959600FC7A8F /* BWSplashScreenViewController.h */,
+				DA7EE4F414BF959600FC7A8F /* BWSplashScreenViewController.m */,
+				DA435ED514C4AB500058D007 /* BWPadJobDetailViewController.h */,
+				DA435ED614C4AB500058D007 /* BWPadJobDetailViewController.m */,
+				DA435ED814C4B69E0058D007 /* BWPadJobDetailHalfViewController.h */,
+				DA435ED914C4B69F0058D007 /* BWPadJobDetailHalfViewController.m */,
+			);
+			name = Pad;
+			sourceTree = "<group>";
+		};
 		DA311A0C14B63CAA00F351C7 /* Pusher */ = {
 			isa = PBXGroup;
 			children = (
@@ -685,18 +707,12 @@
 			children = (
 				DA7EE4F014BF86A600FC7A8F /* BWDetailContainerViewController.h */,
 				DA7EE4F114BF86A600FC7A8F /* BWDetailContainerViewController.m */,
-				DA7EE4F314BF959600FC7A8F /* BWSplashScreenViewController.h */,
-				DA7EE4F414BF959600FC7A8F /* BWSplashScreenViewController.m */,
 				DAADBF8D14BE46F5000F655E /* BWRepositoryDetailViewController.h */,
 				DAADBF8E14BE46F5000F655E /* BWRepositoryDetailViewController.m */,
 				DAADBF9614BF3831000F655E /* BWBuildDetailViewController.h */,
 				DAADBF9714BF3831000F655E /* BWBuildDetailViewController.m */,
-				DAADBF8514BDEED8000F655E /* BWPhoneJobDetailViewController.h */,
-				DAADBF8614BDEED8000F655E /* BWPhoneJobDetailViewController.m */,
-				DA435ED514C4AB500058D007 /* BWPadJobDetailViewController.h */,
-				DA435ED614C4AB500058D007 /* BWPadJobDetailViewController.m */,
-				DA435ED814C4B69E0058D007 /* BWPadJobDetailHalfViewController.h */,
-				DA435ED914C4B69F0058D007 /* BWPadJobDetailHalfViewController.m */,
+				A251FBA014ED9CC40062AA59 /* Phone */,
+				A251FBA114ED9CCC0062AA59 /* Pad */,
 				DA435EE114C62AB00058D007 /* BWLiveLogViewController.h */,
 				DA435EE214C62AB00058D007 /* BWLiveLogViewController.m */,
 			);
