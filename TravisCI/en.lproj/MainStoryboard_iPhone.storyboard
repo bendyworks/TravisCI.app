@@ -29,6 +29,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Dzo-5w-EDf">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="12" id="qNd-Gg-t08"/>
+                            </connections>
+                        </searchBar>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="12" id="16"/>
@@ -43,9 +51,19 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchDisplayController" destination="N8o-Vw-oSC" id="cKU-Sy-uGd"/>
                         <segue destination="Bjj-Jp-cIk" kind="push" identifier="goToBuilds" id="kH2-Z8-ju3"/>
                     </connections>
                 </tableViewController>
+                <searchDisplayController id="N8o-Vw-oSC">
+                    <connections>
+                        <outlet property="delegate" destination="12" id="mko-WH-mRW"/>
+                        <outlet property="searchBar" destination="Dzo-5w-EDf" id="fx1-ux-iVm"/>
+                        <outlet property="searchContentsController" destination="12" id="Lrs-cA-shE"/>
+                        <outlet property="searchResultsDataSource" destination="12" id="cU8-rZ-vfa"/>
+                        <outlet property="searchResultsDelegate" destination="12" id="cIJ-Ol-w7u"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-258" y="-208"/>
         </scene>

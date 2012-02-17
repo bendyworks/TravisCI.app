@@ -7,22 +7,20 @@
 //
 
 #import "BWRepositoryListViewController.h"
-#import "BWRepositoryTableCell.h"
 #import "BWBuildListViewController.h"
-#import "BWColor.h"
 #import "BWAwesome.h"
+#import "BWRepositoryDataSource.h"
 
 #import "BWRepository.h"
 
 @interface BWRepositoryListViewController ()
-- (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)refreshRepositoryList;
+- (NSArray *)scopeButtonTitles;
 @end
 
 @implementation BWRepositoryListViewController
-@synthesize repositoryCellNib;
 
-@synthesize fetchedResultsController = __fetchedResultsController;
+@synthesize repositoryDataSource = _repositoryDataSource;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize buildListController = _buildListController;
 
@@ -48,7 +46,7 @@
 - (void)viewWillAppear:(BOOL)animated { 
 
     [super viewWillAppear:animated];
-
+    [self.tableView setDataSource:self.repositoryDataSource];
     [self refreshRepositoryList];
 }
 
@@ -58,33 +56,16 @@
 {
     [super viewDidUnload];
     self.buildListController = nil;
-    self.repositoryCellNib = nil;
-    self.fetchedResultsController = nil;
+    self.repositoryDataSource = nil;
 }
 
-#pragma mark - Table methods
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return [[self.fetchedResultsController sections] count]; }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    BWRepositoryTableCell *cell = [BWRepositoryTableCell cellForTableView:tableView fromNib:self.repositoryCellNib];
-    [self configureCell:cell atIndexPath:indexPath];
-    return cell;
-}
-
+#pragma mark Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([@"goToBuilds" isEqualToString:segue.identifier]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        BWRepository *repository = [BWRepository presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+        BWRepository *repository = [BWRepository presenterWithObject:[[self repositoryDataSource] objectAtIndexPath:indexPath]];
         [repository fetchBuilds];
         [[segue destinationViewController] setValue:repository forKey:@"repository"];
         //[self.detailViewController configureViewAndSetRepository:repository];
@@ -92,48 +73,14 @@
 
 }
 
+#pragma mark UITableViewDelegate methods
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"goToBuilds" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
-- (UINib *)repositoryCellNib
-{
-    if (repositoryCellNib == nil) {
-        self.repositoryCellNib = [BWRepositoryTableCell nib];
-    }
-    return repositoryCellNib;
-}
-
-#pragma mark - Fetched results controller
-
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (__fetchedResultsController != nil) {
-        return __fetchedResultsController;
-    }
-
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"last_build_started_at" ascending:NO];
-    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-
-    [fetchRequest setSortDescriptors:sortDescriptors];
-
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"RepositoryList"];
-    aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
-
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-
-    return __fetchedResultsController;
-}
+#pragma mark - Fetched results controller delegate
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller { [self.tableView beginUpdates]; }
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller  { [self.tableView endUpdates];   }
@@ -154,7 +101,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:(BWRepositoryTableCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self.repositoryDataSource configureCell:(BWRepositoryTableCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
@@ -164,32 +111,40 @@
     }
 }
 
-- (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    BWRepository *repository = [BWRepository presenterWithObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-    cell.slug.text = repository.slug;
-    cell.buildNumber.text = [NSString stringWithFormat:@"#%@", repository.last_build_number];
-
-
-    cell.duration.text = [repository durationText];
-    cell.finished.text = [repository finishedText];
-
-    [cell.slug setTextColor:repository.statusTextColor];
-    [cell.buildNumber setTextColor:repository.statusTextColor];
-    [cell.statusImage setImage:repository.statusImage];
-    
-    cell.accessibilityLabel = repository.accessibilityLabel;
-    cell.accessibilityHint = repository.accessibilityHint;
-
-    cell.backgroundColor = [UIColor clearColor];
-    cell.backgroundView = [BWColor gradientViewForFrame:cell];
-}
-
 - (void)refreshRepositoryList
 {
     RKObjectManager *manager = [RKObjectManager sharedManager];
 
     [manager loadObjectsAtResourcePath:@"/repositories.json"
+                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]
+                              delegate:nil];
+}
+
+- (BWRepositoryDataSource *)repositoryDataSource
+{
+    if ( ! _repositoryDataSource) {
+        _repositoryDataSource = [BWRepositoryDataSource repositoryDataSourceWithFetchedResultsControllerDelegate:self];
+    }
+    return _repositoryDataSource;
+}
+
+- (NSArray *)scopeButtonTitles
+{
+    return [NSArray arrayWithObjects:@"All", @"Usernames", nil];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [self.searchDisplayController.searchBar setScopeButtonTitles:[self scopeButtonTitles]];
+    [self.searchDisplayController.searchBar setShowsScopeBar:YES];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+    
+    NSString *resourcePath = [NSString stringWithFormat:@"/repositories.json?search=%@", searchBar.text];
+    [manager loadObjectsAtResourcePath:resourcePath
                          objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]
                               delegate:nil];
 }

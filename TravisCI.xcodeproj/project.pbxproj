@@ -17,6 +17,7 @@
 		A22C953D14EC0AD700C5DF8A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6E149FC63B000477AF /* Security.framework */; };
 		A22C953E14EC0AD700C5DF8A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C70149FC657000477AF /* SystemConfiguration.framework */; };
 		A22C953F14EC0AD700C5DF8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
+		A2EA5A5414EEB954005EBF2F /* BWRepositoryDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA5A5314EEB954005EBF2F /* BWRepositoryDataSource.m */; };
 		A2EFED9014D74FC3001C25AD /* MIT-LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A2EFED8F14D74FC3001C25AD /* MIT-LICENSE */; };
 		DA311A0B14B63CA200F351C7 /* BWCommandBuildFinished.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */; };
 		DA311A0F14B658D100F351C7 /* BWCDObjectMananger.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0E14B658D100F351C7 /* BWCDObjectMananger.m */; };
@@ -159,6 +160,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A2EA5A5214EEB954005EBF2F /* BWRepositoryDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWRepositoryDataSource.h; sourceTree = "<group>"; };
+		A2EA5A5314EEB954005EBF2F /* BWRepositoryDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryDataSource.m; sourceTree = "<group>"; };
 		A2EFED8F14D74FC3001C25AD /* MIT-LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MIT-LICENSE"; sourceTree = "<group>"; };
 		DA311A0914B63CA200F351C7 /* BWCommandBuildFinished.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCommandBuildFinished.h; sourceTree = "<group>"; };
 		DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCommandBuildFinished.m; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 			children = (
 				DAADBF8514BDEED8000F655E /* BWPhoneJobDetailViewController.h */,
 				DAADBF8614BDEED8000F655E /* BWPhoneJobDetailViewController.m */,
+				DA4D893C14C0D4C9001869BE /* BWEnumerableTableViewController.h */,
+				DA4D893F14C0DE59001869BE /* BWEnumerableTableViewController.m */,
 			);
 			name = Phone;
 			sourceTree = "<group>";
@@ -379,6 +384,15 @@
 				DA435ED914C4B69F0058D007 /* BWPadJobDetailHalfViewController.m */,
 			);
 			name = Pad;
+			sourceTree = "<group>";
+		};
+		A2EA5A5114EEB7DA005EBF2F /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A2EA5A5214EEB954005EBF2F /* BWRepositoryDataSource.h */,
+				A2EA5A5314EEB954005EBF2F /* BWRepositoryDataSource.m */,
+			);
+			name = "Data Sources";
 			sourceTree = "<group>";
 		};
 		DA311A0C14B63CAA00F351C7 /* Pusher */ = {
@@ -567,23 +581,22 @@
 		DA966D07149FAC3900C229CB /* TravisCI */ = {
 			isa = PBXGroup;
 			children = (
-				DA7C59AE14BCA60800569F66 /* Custom Cells */,
 				DA7C59A114BC9D7200569F66 /* core_ext */,
 				DA683C88149FEBE1000477AF /* Models */,
 				DA7C59A014BC933D00569F66 /* Navigation */,
 				DAADBF8414BDEEA7000F655E /* Detail */,
 				DA435EE714C6348C0058D007 /* Modal */,
+				DA7C59AE14BCA60800569F66 /* Custom Cells */,
+				DA311A0C14B63CAA00F351C7 /* Pusher */,
+				A2EA5A5114EEB7DA005EBF2F /* Data Sources */,
 				DA966D10149FAC3900C229CB /* BWAppDelegate.h */,
 				DA966D11149FAC3900C229CB /* BWAppDelegate.m */,
 				DA966D13149FAC3900C229CB /* MainStoryboard_iPhone.storyboard */,
 				DA966D16149FAC3900C229CB /* MainStoryboard_iPad.storyboard */,
-				DA966D08149FAC3900C229CB /* Supporting Files */,
-				DA311A0C14B63CAA00F351C7 /* Pusher */,
 				DAADBF8014BCF750000F655E /* BWColor.h */,
 				DAADBF8114BCF751000F655E /* BWColor.m */,
 				DAADBF8314BDDDC3000F655E /* BWAwesome.h */,
-				DA4D893C14C0D4C9001869BE /* BWEnumerableTableViewController.h */,
-				DA4D893F14C0DE59001869BE /* BWEnumerableTableViewController.m */,
+				DA966D08149FAC3900C229CB /* Supporting Files */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";
@@ -946,6 +959,7 @@
 				DA435EE314C62AB00058D007 /* BWLiveLogViewController.m in Sources */,
 				DA435EE614C634880058D007 /* BWCreditsViewController.m in Sources */,
 				DA435EEA14C779990058D007 /* BWLiveString.m in Sources */,
+				A2EA5A5414EEB954005EBF2F /* BWRepositoryDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
