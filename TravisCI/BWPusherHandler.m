@@ -50,9 +50,9 @@
 {
     self.client = [PTPusher pusherWithKey:apiKey delegate:(id <PTPusherDelegate>)[UIApplication sharedApplication].delegate];
     self.client.reconnectAutomatically = YES;
-    
+
     PTPusherChannel *channel = [self.client subscribeToChannelNamed:@"common"];
-    
+
     [channel bindToEventNamed:@"build:started" target:[[BWCommandBuildStarted alloc] init] action:@selector(buildWasStarted:)];
     [channel bindToEventNamed:@"build:finished" target:[[BWCommandBuildFinished alloc] init] action:@selector(buildWasFinished:)];
     [channel bindToEventNamed:@"job:finished" target:[[BWCommandJobFinished alloc] init] action:@selector(jobWasFinished:)];

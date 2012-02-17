@@ -1,6 +1,6 @@
 //
 //  BWTableViewCell.m
-//  
+//
 //
 //  Created by Bradley Grzesiak on 1/10/12.
 //  Refer to MIT-LICENSE file at root of project for copyright info
@@ -19,15 +19,15 @@
 {
     NSString *cellID = [self cellIdentifier];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    
+
     if (cell == nil) {
         NSArray *nibObjects = [nib instantiateWithOwner:nil options:nil];
-        
+
         NSAssert2(([nibObjects count] > 0) &&
-                  [[nibObjects objectAtIndex:0] isKindOfClass:[self class]], 
+                  [[nibObjects objectAtIndex:0] isKindOfClass:[self class]],
                   @"Nib '%@' does not appear to contain a valid %@",
                   [self nibName], NSStringFromClass([self class]));
-        
+
         cell = [nibObjects objectAtIndex:0];
     }
     return cell;
@@ -59,7 +59,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-    
+
     // Configure the view for the selected state
 }
 

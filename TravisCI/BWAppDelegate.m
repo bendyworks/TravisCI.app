@@ -54,7 +54,7 @@
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
         self.detailContainerViewController = (id)navigationController.topViewController;
-        
+
         UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
         BWRepositoryListViewController *controller = (BWRepositoryListViewController *)masterNavigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
@@ -71,10 +71,10 @@
 
 - (void)setupRestKit
 {
-    
+
 //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
-    
+
     RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:TRAVIS_CI_URL]; // sets up singleton shared object manager
     manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI-cache.sqlite"
                                                                  inDirectory:[[self applicationCacheDirectory] path]
@@ -100,13 +100,13 @@
                                                         inManagedObjectContext:self.managedObjectContext];
     RKManagedObjectMapping *buildMapping = [RKManagedObjectMapping mappingForEntity:buildDescription];
     [buildMapping mapAttributes:@"duration",@"finished_at",@"number",@"result",@"started_at",
-                                @"state", @"status", @"author_email", @"author_name", @"branch", 
+                                @"state", @"status", @"author_email", @"author_name", @"branch",
                                 @"committed_at", @"committer_email", @"committer_name", @"compare_url",
                                 @"message", @"commit", @"repository_id", nil];
     [buildMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
     buildMapping.primaryKeyAttribute = @"remote_id";
 
-    
+
     // This mapping isn't right yet.
     NSEntityDescription *jobDescription = [NSEntityDescription entityForName:@"BWCDJob"
                                                       inManagedObjectContext:self.managedObjectContext];
@@ -115,7 +115,7 @@
     [buildJobMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
     buildJobMapping.primaryKeyAttribute = @"remote_id";
     [manager.mappingProvider setMapping:buildJobMapping forKeyPath:@"BWCDJob"];
-    
+
     [buildMapping mapKeyPath:@"matrix"
               toRelationship:@"jobs"
                  withMapping:buildJobMapping];
@@ -179,7 +179,7 @@
 - (NSManagedObjectModel *)managedObjectModel
 {
     if (__managedObjectModel != nil) { return __managedObjectModel; }
-    
+
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"TravisCI" withExtension:@"momd"];
     __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return __managedObjectModel;

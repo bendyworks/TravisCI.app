@@ -1,6 +1,6 @@
 //
 //  BWTableViewCell.h
-//  
+//
 //
 //  Created by Bradley Grzesiak on 1/10/12.
 //  Refer to MIT-LICENSE file at root of project for copyright info

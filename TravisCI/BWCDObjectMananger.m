@@ -33,29 +33,29 @@
 + (void)updateRepositoryFromDictionary:(NSDictionary *)repositoryDictionary
 {
     NSNumber *repository_id = [repositoryDictionary valueForKey:@"id"];
-    
+
     RKObjectManager *manager = [RKObjectManager sharedManager];
     RKManagedObjectStore *objectStore = manager.objectStore;
     NSManagedObjectContext *moc = [objectStore managedObjectContext];
     NSManagedObject *repository = [objectStore findOrCreateInstanceOfEntity:[NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:moc]
                                                             withPrimaryKeyAttribute:@"remote_id"
                                                                            andValue:repository_id];
-    
+
     RKObjectMapping *mapping = [manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"];
     RKObjectMappingOperation *mappingOp = [RKObjectMappingOperation mappingOperationFromObject:repositoryDictionary
                                                                                       toObject:repository
                                                                                    withMapping:mapping];
-    
+
     NSError *error = nil;
     [mappingOp performMapping:&error];
-    
+
     [objectStore save];
 }
 
 + (void)updateJobFromDictionary:(NSDictionary *)jobDictionary
 {
     NSNumber *jobId = [jobDictionary valueForKey:@"id"];
-    
+
     RKObjectManager *manager = [RKObjectManager sharedManager];
     RKManagedObjectStore *objectStore = manager.objectStore;
     NSManagedObjectContext *moc = [objectStore managedObjectContext];
@@ -63,22 +63,22 @@
     NSManagedObject *job = [objectStore findOrCreateInstanceOfEntity:entityDesc
                                              withPrimaryKeyAttribute:@"remote_id"
                                                             andValue:jobId];
-    
+
     RKObjectMapping *mapping = [manager.mappingProvider objectMappingForKeyPath:@"BWCDJob"];
     RKObjectMappingOperation *mappingOp = [RKObjectMappingOperation mappingOperationFromObject:jobDictionary
                                                                                       toObject:job
                                                                                    withMapping:mapping];
-    
+
     NSError *error = nil;
     [mappingOp performMapping:&error];
-    
+
     [objectStore save];
 }
 
 + (void)appendToJobLog:(NSDictionary *)logDictionary
 {
     NSNumber *jobId = [logDictionary valueForKey:@"id"];
-    
+
     RKObjectManager *manager = [RKObjectManager sharedManager];
     RKManagedObjectStore *objectStore = manager.objectStore;
     NSManagedObjectContext *moc = [objectStore managedObjectContext];
@@ -90,7 +90,7 @@
     NSString *existingLog = [job valueForKey:@"log"];
     NSString *newLog = [existingLog stringByAppendingString:[logDictionary valueForKey:@"_log"]];
     [job setValue:newLog forKey:@"log"];
-    
+
     NSError *error = [objectStore save];
 
     if (error != nil) {

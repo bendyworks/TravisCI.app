@@ -43,7 +43,7 @@
 //    self.detailViewController = (BWRepositoryViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
-- (void)viewWillAppear:(BOOL)animated { 
+- (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
     [self.tableView setDataSource:self.repositoryDataSource];
@@ -90,20 +90,20 @@
       newIndexPath:(NSIndexPath *)newIndexPath
 {
     UITableView *tableView = self.tableView;
-    
+
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
+
         case NSFetchedResultsChangeDelete:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
+
         case NSFetchedResultsChangeUpdate:
             [self.repositoryDataSource configureCell:(BWRepositoryTableCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
-            
+
         case NSFetchedResultsChangeMove:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];
@@ -142,7 +142,7 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     RKObjectManager *manager = [RKObjectManager sharedManager];
-    
+
     NSString *resourcePath = [NSString stringWithFormat:@"/repositories.json?search=%@", searchBar.text];
     [manager loadObjectsAtResourcePath:resourcePath
                          objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]
@@ -156,9 +156,9 @@
     if (_buildListController != nil) {
         return _buildListController;
     }
-    
+
     _buildListController = [[BWBuildListViewController alloc] initWithStyle:UITableViewStylePlain];
-    
+
     return _buildListController;
 }
 

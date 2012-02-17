@@ -45,9 +45,9 @@
     NSString *Months   = NSLocalizedString(@"months", @"More than one month in time");
     NSString *Year     = NSLocalizedString(@"year", @"One year in time");
     NSString *Years    = NSLocalizedString(@"years", @"More than one year in time");
-    
+
     seconds = fabs(seconds);
-    
+
     int minutes   = (int)round(seconds / SECONDS_PER_MINUTE);
     int hours     = (int)round(seconds / SECONDS_PER_HOUR);
     int days      = (int)round(seconds / SECONDS_PER_DAY);
@@ -55,11 +55,11 @@
     int years     = (int)floor(seconds / SECONDS_PER_YEAR);
     int offset    = (int)round(floor((float)years / 4.0) * 1440.0);
     int remainder = (minutes - offset) % 525600;
-    
+
     int number;
     NSString *measure;
     NSString *modifier = @"";
-    
+
     switch (minutes) {
         case 0 ... 1:
             measure = Seconds;
@@ -166,9 +166,9 @@
 - (NSString *)distanceOfTimeInWords:(NSDate *)date {
     NSString *Ago      = NSLocalizedString(@"ago", @"Denotes past dates");
     NSString *FromNow  = NSLocalizedString(@"from now", @"Denotes future dates");
-    
+
     NSTimeInterval since = [self timeIntervalSinceDate:date];
-    
+
     NSString *direction = since <= 0.0 ? Ago : FromNow;
 
     return [NSString stringWithFormat:@"%@ %@",[[self class] rangeOfTimeInWordsFromSeconds:since], direction];

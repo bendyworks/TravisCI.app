@@ -40,7 +40,7 @@
 - (void)fetchBuilds
 {
     RKObjectManager *manager = [RKObjectManager sharedManager];
-    
+
     NSString *resourcePath = [NSString stringWithFormat:@"/repositories/%@/builds.json", self.remote_id];
     [manager loadObjectsAtResourcePath:resourcePath
                          objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDBuild"]

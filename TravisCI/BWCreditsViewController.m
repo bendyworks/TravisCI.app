@@ -18,7 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     self.credits = [NSArray arrayWithObjects:
                     [NSDictionary dictionaryWithObjectsAndKeys:@"Bendyworks", @"name", @"developed this app", @"why", @"http://bendyworks.com", @"site", nil],
                     [NSDictionary dictionaryWithObjectsAndKeys:@"Heroku", @"name", @"application platform", @"why", @"http://heroku.com/", @"site", nil],
@@ -72,7 +72,7 @@
     self.forkMe.hidden = YES;
     self.forkMe.alpha = 0.0f;
     self.forkMe.frame = CGRectMake(0.0f, 0.0f, 149.0f, 149.0f);
-    
+
     self.forkMe.userInteractionEnabled = YES;
     UIGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToGithub)];
     [self.forkMe addGestureRecognizer:gestureRecognizer];

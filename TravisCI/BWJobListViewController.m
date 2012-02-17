@@ -71,7 +71,7 @@
 
 - (void)awakeFromNib
 {
-    [self.tableView setAccessibilityLabel:@"Jobs"];    
+    [self.tableView setAccessibilityLabel:@"Jobs"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -183,7 +183,7 @@
     if (__fetchedResultsController != nil) {
         return __fetchedResultsController;
     }
-    
+
     NSManagedObjectContext *moc = [[RKObjectManager sharedManager].objectStore managedObjectContext];
 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -200,7 +200,7 @@
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
 
     [fetchRequest setSortDescriptors:sortDescriptors];
-    
+
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                                                 managedObjectContext:moc
                                                                                                   sectionNameKeyPath:nil
@@ -212,15 +212,15 @@
 	if (![self.fetchedResultsController performFetch:&error]) {
 	    /*
 	     Replace this implementation with code to handle the error appropriately.
-         
-	     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+
+	     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
 	     */
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
-    
+
     return __fetchedResultsController;
-}    
+}
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
@@ -232,20 +232,20 @@
       newIndexPath:(NSIndexPath *)newIndexPath
 {
     UITableView *tableView = self.tableView;
-    
+
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
+
         case NSFetchedResultsChangeDelete:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
+
         case NSFetchedResultsChangeUpdate:
             [self configureCell:(BWJobTableCell *)[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
-            
+
         case NSFetchedResultsChangeMove:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];

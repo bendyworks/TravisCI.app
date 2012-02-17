@@ -35,7 +35,7 @@
     self = [super init];
     if (self) {
         self.fetchedResultsController = [self initializeFetchedResultsControllerWithDelegate:_frcDelegate];
-        
+
         NSError *error = nil;
         [self.fetchedResultsController performFetch:&error];
         NSLog(@"Error? %@", error);
@@ -54,7 +54,7 @@
 
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"last_build_started_at" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-    
+
     [fetchRequest setSortDescriptors:sortDescriptors];
 
     NSFetchedResultsController *ret = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
@@ -62,7 +62,7 @@
                                                                             sectionNameKeyPath:nil
                                                                                      cacheName:nil];
     ret.delegate = _frcDelegate;
-    
+
     return ret;
 }
 
@@ -70,17 +70,17 @@
 
 - (void)showAll
 {
-    
+
 }
 
 - (void)searchAll:(NSString *)query
 {
-    
+
 }
 
 - (void)searchUsername:(NSString *)query
 {
-    
+
 }
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath
@@ -111,18 +111,18 @@
     BWRepository *repository = [BWRepository presenterWithObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     cell.slug.text = repository.slug;
     cell.buildNumber.text = [NSString stringWithFormat:@"#%@", repository.last_build_number];
-    
-    
+
+
     cell.duration.text = [repository durationText];
     cell.finished.text = [repository finishedText];
-    
+
     [cell.slug setTextColor:repository.statusTextColor];
     [cell.buildNumber setTextColor:repository.statusTextColor];
     [cell.statusImage setImage:repository.statusImage];
-    
+
     cell.accessibilityLabel = repository.accessibilityLabel;
     cell.accessibilityHint = repository.accessibilityHint;
-    
+
     cell.backgroundColor = [UIColor clearColor];
     cell.backgroundView = [BWColor gradientViewForFrame:cell];
 }

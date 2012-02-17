@@ -44,7 +44,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    
+
     id value = [self.data objectAtIndex:index];
 
     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -69,7 +69,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    
+
     [cell.textLabel setText:key];
     id value = [self.data objectForKey:key];
 
@@ -82,7 +82,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell.detailTextLabel setText:[value description]];
     }
-    
+
     return cell;
 }
 
@@ -91,7 +91,7 @@
 {
     if ([[self.data class] respondsToSelector:@selector(dictionary)]) {
         NSArray *sortedKeys = [[self.data allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-        
+
         NSString *key = [sortedKeys objectAtIndex:indexPath.row];
 
         return [self tableView:tableView cellForRowAtKey:key];
@@ -111,7 +111,7 @@
         NSString *key = [sortedKeys objectAtIndex:indexPath.row];
 
         nextController.data = [self.data objectForKey:key];
-        
+
         [self.navigationController pushViewController:nextController animated:YES];
     }
 }

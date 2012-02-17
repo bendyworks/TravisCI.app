@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [self doLayout];
 
     NSKeyValueObservingOptions newAndOld = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
@@ -68,7 +68,7 @@
     [self.authorLabel setText:self.job.author];
     [self.messageLabel setText:self.job.message];
     [self.configLabel setText:self.job.configString];
-    
+
     [self.parentViewController setTitle:[NSString stringWithFormat:@"Job #%@", self.job.number]];
 }
 
@@ -106,7 +106,7 @@
 
     [jobDetail1.view setFrame:jobDetailFrame1];
     [jobDetail2.view setFrame:jobDetailFrame2];
-    
+
     [jobDetail1.view setNeedsLayout];
     [jobDetail2.view setNeedsLayout];
 }
@@ -206,16 +206,16 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    
+
     [self.job.object removeObserver:self forKeyPath:@"log"];
     [self removeObserver:self forKeyPath:@"job"];
 
     [self setLargeTextArea:nil];
     [self setLargeTextAreaToggle:nil];
     [self setToolbar:nil];
-    
+
     [self setJob:nil];
-    
+
     [[self jobDetail1].view removeFromSuperview];
     [[self jobDetail2].view removeFromSuperview];
 

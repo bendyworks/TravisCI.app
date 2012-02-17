@@ -21,7 +21,7 @@
     [self addChildViewController:self.splashViewController];
 //    [self addChildViewController:self.repositoryDetailViewController];
     [self addChildViewController:self.jobDetailViewController];
-    
+
     [self.view addSubview:self.splashViewController.view];
 }
 
@@ -29,7 +29,7 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -37,7 +37,7 @@
 {
     UIView *view = [self.jobDetailViewController valueForKey:@"view"];
     view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    
+
     [self.jobDetailViewController setValue:job forKey:@"job"];
 
     [self transitionFromViewController:self.splashViewController

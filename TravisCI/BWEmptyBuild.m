@@ -24,7 +24,7 @@
         self.compare_url = @"-";
         self.message = @"-";
     }
-    return self;    
+    return self;
 }
 
 @end

@@ -26,7 +26,7 @@
         [keySet addObject:key];
     }
     va_end(args);
-    
+
     NSMutableDictionary *ret = [NSMutableDictionary dictionaryWithCapacity:[keySet count]];
     for (key in keySet) {
         if ((value = [self objectForKey:key])) {
@@ -48,7 +48,7 @@
         [keySet addObject:key];
     }
     va_end(args);
-    
+
     NSMutableDictionary *ret = [self mutableCopy];
     [ret removeObjectsForKeys:[keySet allObjects]];
     return [NSDictionary dictionaryWithDictionary:ret];
@@ -66,7 +66,7 @@
         [keySet addObject:key];
     }
     va_end(args);
-    
+
     for (key in keySet) {
         if ((value = [self objectForKey:key])) {
             return [NSArray arrayWithObjects:key, value, nil];
