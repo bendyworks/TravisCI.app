@@ -47,6 +47,7 @@
 
     [super viewWillAppear:animated];
     [self.tableView setDataSource:self.repositoryDataSource];
+    [self.searchDisplayController setSearchResultsDataSource:self.repositoryDataSource];
     [self refreshRepositoryList];
 }
 
@@ -65,7 +66,10 @@
 {
     if ([@"goToBuilds" isEqualToString:segue.identifier]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        BWRepository *repository = [BWRepository presenterWithObject:[[self repositoryDataSource] objectAtIndexPath:indexPath]];
+        if (nil == indexPath) {
+            indexPath = [self.searchDisplayController.searchResultsTableView indexPathForCell:sender];
+        }
+        BWRepository *repository = [BWRepository presenterWithObject:[self.repositoryDataSource objectAtIndexPath:indexPath]];
         [repository fetchBuilds];
         [[segue destinationViewController] setValue:repository forKey:@"repository"];
         //[self.detailViewController configureViewAndSetRepository:repository];
@@ -80,36 +84,10 @@
     [self performSegueWithIdentifier:@"goToBuilds" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 84.0f; }
+
 #pragma mark - Fetched results controller delegate
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller { [self.tableView beginUpdates]; }
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller  { [self.tableView endUpdates];   }
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
-       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath
-{
-    UITableView *tableView = self.tableView;
-
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-
-        case NSFetchedResultsChangeUpdate:
-            [self.repositoryDataSource configureCell:(BWRepositoryTableCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            break;
-
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
-}
 
 - (void)refreshRepositoryList
 {
@@ -139,14 +117,14 @@
     [self.searchDisplayController.searchBar setShowsScopeBar:YES];
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self.repositoryDataSource searchAll:searchText];
+}
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    RKObjectManager *manager = [RKObjectManager sharedManager];
-
-    NSString *resourcePath = [NSString stringWithFormat:@"/repositories.json?search=%@", searchBar.text];
-    [manager loadObjectsAtResourcePath:resourcePath
-                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]
-                              delegate:nil];
+    [self.repositoryDataSource searchAllRemotely:searchBar.text];
 }
 
 #pragma mark Getters and Setters

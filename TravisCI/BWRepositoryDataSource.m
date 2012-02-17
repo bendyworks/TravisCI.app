@@ -15,12 +15,11 @@
 
 @interface BWRepositoryDataSource ()
 - (id)initWithFetchedResultsControllerDelegate:(id<NSFetchedResultsControllerDelegate>)_frcDelegate;
-- (NSFetchedResultsController *)initializeFetchedResultsControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)_frcDelegate;
 - (UINib *)repositoryCellNib;
 @end
 
 @implementation BWRepositoryDataSource
-@synthesize fetchedResultsController;
+@synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize repositoryCellNib;
 
 #pragma mark initializer
@@ -34,36 +33,13 @@
 {
     self = [super init];
     if (self) {
-        self.fetchedResultsController = [self initializeFetchedResultsControllerWithDelegate:_frcDelegate];
+        self.fetchedResultsController.delegate = _frcDelegate;
 
         NSError *error = nil;
         [self.fetchedResultsController performFetch:&error];
         NSLog(@"Error? %@", error);
     }
     return self;
-}
-
-- (NSFetchedResultsController *)initializeFetchedResultsControllerWithDelegate:(id<NSFetchedResultsControllerDelegate>)_frcDelegate
-{
-    NSManagedObjectContext *moc = [[RKObjectManager sharedManager].objectStore managedObjectContext];
-
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"BWCDRepository"
-                                              inManagedObjectContext:moc];
-    [fetchRequest setEntity:entity];
-
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"last_build_started_at" ascending:NO];
-    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-
-    [fetchRequest setSortDescriptors:sortDescriptors];
-
-    NSFetchedResultsController *ret = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                          managedObjectContext:moc
-                                                                            sectionNameKeyPath:nil
-                                                                                     cacheName:nil];
-    ret.delegate = _frcDelegate;
-
-    return ret;
 }
 
 #pragma mark API
@@ -75,13 +51,35 @@
 
 - (void)searchAll:(NSString *)query
 {
+    NSFetchRequest *fetchRequest = self.fetchedResultsController.fetchRequest;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"slug CONTAINS[cd] %@", query];
+    [fetchRequest setPredicate:predicate];
 
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
+    NSLog(@"ERROR! %@", error);
 }
 
 - (void)searchUsername:(NSString *)query
 {
 
 }
+
+- (void)searchAllRemotely:(NSString *)query
+{
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+
+    NSString *resourcePath = [NSString stringWithFormat:@"/repositories.json?search=%@", query];
+    [manager loadObjectsAtResourcePath:resourcePath
+                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]
+                              delegate:nil];
+}
+
+- (void)searchUsernameRemotely:(NSString *)query
+{
+
+}
+
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -135,5 +133,28 @@
     return repositoryCellNib;
 }
 
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if ( ! _fetchedResultsController) {
+        NSManagedObjectContext *moc = [[RKObjectManager sharedManager].objectStore managedObjectContext];
+
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"BWCDRepository"
+                                                  inManagedObjectContext:moc];
+        [fetchRequest setEntity:entity];
+
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"last_build_started_at" ascending:NO];
+        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+
+        [fetchRequest setSortDescriptors:sortDescriptors];
+
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                        managedObjectContext:moc
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+    }
+    return _fetchedResultsController;
+}
 
 @end

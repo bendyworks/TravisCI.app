@@ -17,6 +17,7 @@
 		A22C953D14EC0AD700C5DF8A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6E149FC63B000477AF /* Security.framework */; };
 		A22C953E14EC0AD700C5DF8A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C70149FC657000477AF /* SystemConfiguration.framework */; };
 		A22C953F14EC0AD700C5DF8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
+		A26DCBBE14EEFF3400E600F0 /* BWFetchedRepositoriesResultsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A26DCBBD14EEFF3400E600F0 /* BWFetchedRepositoriesResultsDelegate.m */; };
 		A2EA5A5414EEB954005EBF2F /* BWRepositoryDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EA5A5314EEB954005EBF2F /* BWRepositoryDataSource.m */; };
 		A2EFED9014D74FC3001C25AD /* MIT-LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A2EFED8F14D74FC3001C25AD /* MIT-LICENSE */; };
 		DA311A0B14B63CA200F351C7 /* BWCommandBuildFinished.m in Sources */ = {isa = PBXBuildFile; fileRef = DA311A0A14B63CA200F351C7 /* BWCommandBuildFinished.m */; };
@@ -160,6 +161,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A26DCBBC14EEFF3400E600F0 /* BWFetchedRepositoriesResultsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWFetchedRepositoriesResultsDelegate.h; sourceTree = "<group>"; };
+		A26DCBBD14EEFF3400E600F0 /* BWFetchedRepositoriesResultsDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWFetchedRepositoriesResultsDelegate.m; sourceTree = "<group>"; };
 		A2EA5A5214EEB954005EBF2F /* BWRepositoryDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWRepositoryDataSource.h; sourceTree = "<group>"; };
 		A2EA5A5314EEB954005EBF2F /* BWRepositoryDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryDataSource.m; sourceTree = "<group>"; };
 		A2EFED8F14D74FC3001C25AD /* MIT-LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MIT-LICENSE"; sourceTree = "<group>"; };
@@ -386,6 +389,17 @@
 			name = Pad;
 			sourceTree = "<group>";
 		};
+		A26DCBBF14EEFF5500E600F0 /* RepositoryList */ = {
+			isa = PBXGroup;
+			children = (
+				DA966D1C149FAC3900C229CB /* BWRepositoryListViewController.h */,
+				DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */,
+				A26DCBBC14EEFF3400E600F0 /* BWFetchedRepositoriesResultsDelegate.h */,
+				A26DCBBD14EEFF3400E600F0 /* BWFetchedRepositoriesResultsDelegate.m */,
+			);
+			name = RepositoryList;
+			sourceTree = "<group>";
+		};
 		A2EA5A5114EEB7DA005EBF2F /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,8 +500,7 @@
 		DA7C59A014BC933D00569F66 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				DA966D1C149FAC3900C229CB /* BWRepositoryListViewController.h */,
-				DA966D1D149FAC3900C229CB /* BWRepositoryListViewController.m */,
+				A26DCBBF14EEFF5500E600F0 /* RepositoryList */,
 				DA7C596414BB4F4500569F66 /* BWBuildListViewController.h */,
 				DA7C596514BB4F4500569F66 /* BWBuildListViewController.m */,
 				DA948D5B14B7920700360BA9 /* BWJobListViewController.h */,
@@ -787,7 +800,7 @@
 		DA966CF2149FAC3900C229CB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = Bendyworks;
 			};
 			buildConfigurationList = DA966CF5149FAC3900C229CB /* Build configuration list for PBXProject "TravisCI" */;
@@ -960,6 +973,7 @@
 				DA435EE614C634880058D007 /* BWCreditsViewController.m in Sources */,
 				DA435EEA14C779990058D007 /* BWLiveString.m in Sources */,
 				A2EA5A5414EEB954005EBF2F /* BWRepositoryDataSource.m in Sources */,
+				A26DCBBE14EEFF3400E600F0 /* BWFetchedRepositoriesResultsDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,9 @@
 - (void)showAll;
 - (void)searchAll:(NSString *)query;
 - (void)searchUsername:(NSString *)query;
+- (void)searchAllRemotely:(NSString *)query;
+- (void)searchUsernameRemotely:(NSString *)query;
+
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
