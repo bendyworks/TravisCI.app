@@ -17,8 +17,6 @@
 @interface BWRepositoryListViewController ()
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)refreshRepositoryList;
-- (void)searchRepositoriesWithString:(NSString *)text andScope:(NSInteger)scopeIndex;
-- (void)filterTableWithString:(NSString *)text andScope:(NSInteger)scopeIndex;
 @end
 
 @implementation BWRepositoryListViewController
@@ -81,15 +79,11 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { return 84.0f; }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([@"goToBuilds" isEqualToString:segue.identifier]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        if (nil == indexPath) {
-            indexPath = [[[self searchDisplayController] searchResultsTableView] indexPathForCell:sender];
-        }
         BWRepository *repository = [BWRepository presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
         [repository fetchBuilds];
         [[segue destinationViewController] setValue:repository forKey:@"repository"];
@@ -128,7 +122,7 @@
 
     [fetchRequest setSortDescriptors:sortDescriptors];
 
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"RepositoryList"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
 
@@ -200,44 +194,6 @@
                               delegate:nil];
 }
 
-#pragma mark -
-#pragma mark UISearchBar
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [self searchRepositoriesWithString:searchBar.text andScope:searchBar.selectedScopeButtonIndex];
-    [self filterTableWithString:searchBar.text andScope:searchBar.selectedScopeButtonIndex];
-}
-
-- (void)filterTableWithString:(NSString *)text andScope:(NSInteger)scopeIndex
-{
-    NSPredicate *predicate;
-    if (scopeIndex == 0) { // all
-        predicate = [NSPredicate predicateWithFormat:@"slug CONTAINS[cd] %@", text];
-    } else { // usernames
-        predicate = [NSPredicate predicateWithFormat:@"slug BEGINSWITH[cd] %@", text];
-    }
-    NSFetchRequest *fetchRequest = self.fetchedResultsController.fetchRequest;
-    [fetchRequest setPredicate:predicate];
-//    [self.fetchedResultsController performFetch:nil];
-}
-
-
-- (void)searchRepositoriesWithString:(NSString *)text andScope:(NSInteger)scopeIndex
-{
-    
-    RKObjectManager *manager = [RKObjectManager sharedManager];
-
-    if (scopeIndex == 0) { // all        
-        [manager loadObjectsAtResourcePath:[NSString stringWithFormat:@"/repositories.json?search=%@", text]
-                             objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]
-                                  delegate:nil];
-    } else { // usernames
-        [manager loadObjectsAtResourcePath:[NSString stringWithFormat:@"/repositories.json?owner_name=%@", text]
-                             objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]
-                                  delegate:nil];    }
-}
-
 #pragma mark Getters and Setters
 
 - (BWBuildListViewController *)buildListController
@@ -250,6 +206,5 @@
     
     return _buildListController;
 }
-
 
 @end
