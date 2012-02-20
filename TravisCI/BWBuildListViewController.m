@@ -161,8 +161,7 @@
     [fetchRequest setPredicate:findByRepositoryId];
     [fetchRequest setSortDescriptors:sortDescriptors];
 
-    NSString *cacheName = [NSString stringWithFormat:@"BuildListForRepoID-%@", self.repository.remote_id];
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:moc sectionNameKeyPath:nil cacheName:cacheName];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:moc sectionNameKeyPath:nil cacheName:nil];
     aFetchedResultsController.delegate = self;
     self.fetchedResults = aFetchedResultsController;
 
