@@ -43,12 +43,12 @@
         [self touchTimeStampFile];
     }
 
-    return appOpenedLast;
+    return floor(appOpenedLast);
 }
 
 + (NSInteger)timeSinceAppLastOpened
 {
-    return [self timeIntervalFromFile] - [[NSDate date] timeIntervalSinceReferenceDate];
+    return [[NSDate date] timeIntervalSinceReferenceDate] - [self timeIntervalFromFile];
 }
 
 @end

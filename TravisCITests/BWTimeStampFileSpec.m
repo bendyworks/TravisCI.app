@@ -22,4 +22,23 @@ describe(@"touchTimeStampFile", ^{
     });
 });
 
+describe(@"timeIntervalFromFile", ^{
+    it(@"should equal what is stored in the timestamp file", ^{
+        [BWTimeStampFile touchTimeStampFile];
+        NSString *filePath = [BWTimeStampFile performSelector:@selector(timeStampFilePath)];
+        NSInteger expected = [[NSString stringWithContentsOfFile:filePath encoding:NSUnicodeStringEncoding error:nil] doubleValue];
+        [[theValue([BWTimeStampFile timeIntervalFromFile]) should] equal:theValue(expected)];
+        CleanUpCacheFile();
+    });
+});
+
+describe(@"timeSinceAppLastOpened", ^{
+    it(@"returns time difference", ^{
+        NSTimeInterval testValue = 351471900;
+        NSInteger expected = [[NSDate date] timeIntervalSinceReferenceDate] - testValue;
+        [BWTimeStampFile stub:@selector(timeIntervalFromFile) andReturn:theValue(testValue)];
+        [[theValue([BWTimeStampFile timeSinceAppLastOpened]) should] equal:theValue(expected)];
+    });
+});
+
 SPEC_END
