@@ -61,11 +61,14 @@
 
 - (void)cleanCacheIfNeeded
 {
-    if ([BWTimeStampFile timeSinceAppLastOpened] > CACHE_EXPIRATION_IN_SECONDS) {
+    if ([BWTimeStampFile secondsSinceAppLastClosed] > CACHE_EXPIRATION_IN_SECONDS) {
         [NSFetchedResultsController deleteCacheWithName:nil]; // deletes all previously saved NSFetchedResults caches
         NSError *error = nil;
         NSURL *cd_file = [[self applicationCacheDirectory] URLByAppendingPathComponent:TRAVIS_CI_CD_FILE_NAME];
         [[NSFileManager defaultManager] removeItemAtURL:cd_file error:&error];
+        if (error) {
+            NSLog(@"ERROR removing cache: %@", error);
+        }
     }
 }
 
@@ -159,15 +162,17 @@
     [self.pusherHandler unsubscribeFromChannel:channelName];
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {}
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [BWTimeStampFile touchTimeStampFile];
+    [self saveContext];
+}
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {}
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    [BWTimeStampFile touchTimeStampFile];
-}
+- (void)applicationDidEnterBackground:(UIApplication *)application {}
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {

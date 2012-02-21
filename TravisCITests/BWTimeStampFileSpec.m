@@ -32,12 +32,12 @@ describe(@"timeIntervalFromFile", ^{
     });
 });
 
-describe(@"timeSinceAppLastOpened", ^{
+describe(@"secondsSinceAppLastClosed", ^{
     it(@"returns time difference", ^{
         NSTimeInterval testValue = 351471900;
         NSInteger expected = [[NSDate date] timeIntervalSinceReferenceDate] - testValue;
         [BWTimeStampFile stub:@selector(timeIntervalFromFile) andReturn:theValue(testValue)];
-        [[theValue([BWTimeStampFile timeSinceAppLastOpened]) should] equal:theValue(expected)];
+        [[theValue([BWTimeStampFile secondsSinceAppLastClosed]) should] equal:theValue(expected)];
     });
 });
 

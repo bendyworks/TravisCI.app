@@ -37,7 +37,7 @@
     NSError *error = nil;
     NSString *timeStampFileString = [NSString stringWithContentsOfFile:[self timeStampFilePath] encoding:NSUnicodeStringEncoding error:&error];
 
-    if ( ! timeStampFileString) {
+    if (timeStampFileString) {
         appOpenedLast = [timeStampFileString doubleValue];
     } else {
         [self touchTimeStampFile];
@@ -46,7 +46,7 @@
     return floor(appOpenedLast);
 }
 
-+ (NSInteger)timeSinceAppLastOpened
++ (NSInteger)secondsSinceAppLastClosed
 {
     return [[NSDate date] timeIntervalSinceReferenceDate] - [self timeIntervalFromFile];
 }

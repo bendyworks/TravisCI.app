@@ -12,5 +12,5 @@
 
 + (void)touchTimeStampFile;
 + (NSTimeInterval)timeIntervalFromFile;
-+ (NSInteger)timeSinceAppLastOpened;
++ (NSInteger)secondsSinceAppLastClosed;
 @end
