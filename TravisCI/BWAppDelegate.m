@@ -12,10 +12,13 @@
 #import "BWPusherHandler.h"
 #import "BWJob.h"
 #import "BWAwesome.h"
+#import "BWTimeStampFile.h"
 #import <RestKit/RestKit.h>
 
 @interface BWAppDelegate()
 - (void)setupRestKit;
+- (void)prepareViewController;
+- (void)cleanCacheIfNeeded;
 @end
 
 @implementation BWAppDelegate
@@ -43,30 +46,30 @@
     #define TRAVIS_CI_URL @"http://localhost"
 #endif
 
+#define TRAVIS_CI_CD_FILE_NAME @"TravisCI-cache.sqlite"
+#define CACHE_EXPIRATION_IN_SECONDS 28800
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    [self cleanCacheIfNeeded];
     [self setupRestKit];
-
-    if (IS_IPAD) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
-        self.detailContainerViewController = (id)navigationController.topViewController;
-        
-        UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
-        BWRepositoryListViewController *controller = (BWRepositoryListViewController *)masterNavigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
-    } else {
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        BWRepositoryListViewController *controller = (BWRepositoryListViewController *)navigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
-    }
-
+    [self prepareViewController];
     self.pusherHandler = [BWPusherHandler pusherHandlerWithKey:PUSHER_API_KEY];
-
     return YES;
+}
+
+- (void)cleanCacheIfNeeded
+{
+    if ([BWTimeStampFile secondsSinceAppLastClosed] > CACHE_EXPIRATION_IN_SECONDS) {
+        [NSFetchedResultsController deleteCacheWithName:nil]; // deletes all previously saved NSFetchedResults caches
+        NSError *error = nil;
+        NSURL *cd_file = [[self applicationCacheDirectory] URLByAppendingPathComponent:TRAVIS_CI_CD_FILE_NAME];
+        [[NSFileManager defaultManager] removeItemAtURL:cd_file error:&error];
+        if (error) {
+            NSLog(@"ERROR removing cache: %@", error);
+        }
+    }
 }
 
 - (void)setupRestKit
@@ -74,9 +77,10 @@
     
 //    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
-    
+
+
     RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:TRAVIS_CI_URL]; // sets up singleton shared object manager
-    manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"TravisCI-cache.sqlite"
+    manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:TRAVIS_CI_CD_FILE_NAME
                                                                  inDirectory:[[self applicationCacheDirectory] path]
                                                        usingSeedDatabaseName:nil
                                                           managedObjectModel:self.managedObjectModel
@@ -128,6 +132,24 @@
     // do same two lines above, but for job -> build ?
 }
 
+- (void)prepareViewController
+{
+    if (IS_IPAD) {
+        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+        splitViewController.delegate = (id)navigationController.topViewController;
+        self.detailContainerViewController = (id)navigationController.topViewController;
+
+        UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
+        BWRepositoryListViewController *controller = (BWRepositoryListViewController *)masterNavigationController.topViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+    } else {
+        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+        BWRepositoryListViewController *controller = (BWRepositoryListViewController *)navigationController.topViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+    }
+}
+
 - (void)subscribeToLogChannelForJob:(BWJob *)job
 {
     NSString *channelName = [NSString stringWithFormat:@"job-%d", [job.remote_id integerValue]];
@@ -140,16 +162,21 @@
     [self.pusherHandler unsubscribeFromChannel:channelName];
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {}
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [BWTimeStampFile touchTimeStampFile];
+    [self saveContext];
+}
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {}
 
+- (void)applicationDidEnterBackground:(UIApplication *)application {}
+
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [BWTimeStampFile touchTimeStampFile];
     [self saveContext];
 }
 

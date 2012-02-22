@@ -7,7 +7,6 @@
 //
 
 #import "BWPresenter.h"
-#import "RestKit/RKObjectLoader.h"
 
 @interface BWRepository : BWPresenter
 
