@@ -7,7 +7,7 @@
 //
 
 #import "BWPhoneJobDetailViewController.h"
-#import "BWJob.h"
+#import "BWJob+All.h"
 #import "BWEnumerableTableViewController.h"
 
 @interface BWPhoneJobDetailViewController()

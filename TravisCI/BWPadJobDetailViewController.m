@@ -7,7 +7,7 @@
 //
 
 #import "BWPadJobDetailViewController.h"
-#import "BWJob.h"
+#import "BWJob+All.h"
 #import "BWEnumerableTableViewController.h"
 #import "BWPadJobDetailHalfViewController.h"
 
@@ -139,12 +139,12 @@
 {
     if ([@"job" isEqualToString:keyPath]) {
         id oldJob = [change valueForKey:NSKeyValueChangeOldKey];
-        BWJob *newJob = (BWJob *)[change valueForKey:NSKeyValueChangeNewKey];
+        BWCDJob *newJob = (BWCDJob *)[change valueForKey:NSKeyValueChangeNewKey];
         if ([NSNull null] != oldJob) {
-            [(BWJob *)oldJob unsubscribeFromLogUpdates];
-            [((BWJob *)oldJob).object removeObserver:self forKeyPath:@"log"];
+            [(BWCDJob *)oldJob unsubscribeFromLogUpdates];
+            [((BWCDJob *)oldJob) removeObserver:self forKeyPath:@"log"];
         }
-        [newJob.object addObserver:self forKeyPath:@"log" options:NSKeyValueObservingOptionNew context:nil];
+        [newJob addObserver:self forKeyPath:@"log" options:NSKeyValueObservingOptionNew context:nil];
         [newJob subscribeToLogUpdates];
         [self configureView];
     } else if ([@"log" isEqualToString:keyPath]) {
@@ -207,7 +207,7 @@
 {
     [super viewDidUnload];
     
-    [self.job.object removeObserver:self forKeyPath:@"log"];
+    [self.job removeObserver:self forKeyPath:@"log"];
     [self removeObserver:self forKeyPath:@"job"];
 
     [self setLargeTextArea:nil];

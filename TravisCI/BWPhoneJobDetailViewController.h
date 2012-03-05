@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class BWJob;
+@class BWCDJob;
 
 @interface BWPhoneJobDetailViewController : UITableViewController <UIAlertViewDelegate>
 
-@property (nonatomic, strong) BWJob *job;
+@property (nonatomic, strong) BWCDJob *job;
 
 @property (nonatomic, strong) IBOutlet UILabel *number;
 @property (strong, nonatomic) IBOutlet UILabel *finishedLabel;

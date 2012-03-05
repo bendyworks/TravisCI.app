@@ -70,7 +70,7 @@
 		DA7EE4F514BF959600FC7A8F /* BWSplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7EE4F414BF959600FC7A8F /* BWSplashScreenViewController.m */; };
 		DA8D7ACF14B606D5009A731B /* BWEmptyBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8D7ACE14B606D5009A731B /* BWEmptyBuild.m */; };
 		DA948D5D14B7920700360BA9 /* BWJobListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA948D5C14B7920700360BA9 /* BWJobListViewController.m */; };
-		DA948D6014B79DF900360BA9 /* BWJob.m in Sources */ = {isa = PBXBuildFile; fileRef = DA948D5F14B79DF900360BA9 /* BWJob.m */; };
+		DA948D6014B79DF900360BA9 /* BWJob+Presenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA948D5F14B79DF900360BA9 /* BWJob+Presenter.m */; };
 		DA948D6614B7A29800360BA9 /* BWJobTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA948D6514B7A29800360BA9 /* BWJobTableCell.m */; };
 		DA948D6814B7A34D00360BA9 /* BWJobTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA948D6714B7A34D00360BA9 /* BWJobTableCell.xib */; };
 		DA966D00149FAC3900C229CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA966CFF149FAC3900C229CB /* UIKit.framework */; };
@@ -242,8 +242,8 @@
 		DA8D7ACE14B606D5009A731B /* BWEmptyBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWEmptyBuild.m; sourceTree = "<group>"; };
 		DA948D5B14B7920700360BA9 /* BWJobListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWJobListViewController.h; sourceTree = "<group>"; };
 		DA948D5C14B7920700360BA9 /* BWJobListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWJobListViewController.m; sourceTree = "<group>"; };
-		DA948D5E14B79DF900360BA9 /* BWJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWJob.h; sourceTree = "<group>"; };
-		DA948D5F14B79DF900360BA9 /* BWJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWJob.m; sourceTree = "<group>"; };
+		DA948D5E14B79DF900360BA9 /* BWJob+Presenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BWJob+Presenter.h"; sourceTree = "<group>"; };
+		DA948D5F14B79DF900360BA9 /* BWJob+Presenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BWJob+Presenter.m"; sourceTree = "<group>"; };
 		DA948D6414B7A29700360BA9 /* BWJobTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWJobTableCell.h; sourceTree = "<group>"; };
 		DA948D6514B7A29800360BA9 /* BWJobTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWJobTableCell.m; sourceTree = "<group>"; };
 		DA948D6714B7A34D00360BA9 /* BWJobTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BWJobTableCell.xib; sourceTree = "<group>"; };
@@ -318,6 +318,7 @@
 		DAADBF8E14BE46F5000F655E /* BWRepositoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryDetailViewController.m; sourceTree = "<group>"; };
 		DAADBF9614BF3831000F655E /* BWBuildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBuildDetailViewController.h; sourceTree = "<group>"; };
 		DAADBF9714BF3831000F655E /* BWBuildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuildDetailViewController.m; sourceTree = "<group>"; };
+		DAC2E04A150563E000A5858F /* BWJob+All.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BWJob+All.h"; sourceTree = "<group>"; };
 		DAC3873A14A1318500927334 /* NSDate+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Formatting.h"; path = "DistanceOfTimeInWords/NSDate+Formatting.h"; sourceTree = "<group>"; };
 		DAC3873B14A1318500927334 /* NSDate+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Formatting.m"; path = "DistanceOfTimeInWords/NSDate+Formatting.m"; sourceTree = "<group>"; };
 		DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FormattingSpec.m; sourceTree = "<group>"; };
@@ -521,10 +522,11 @@
 		DA948D6114B79E0100360BA9 /* Job */ = {
 			isa = PBXGroup;
 			children = (
+				DAC2E04A150563E000A5858F /* BWJob+All.h */,
 				DA548CFC14BCB5B9007580B4 /* BWCDJob.h */,
 				DA548CFD14BCB5B9007580B4 /* BWCDJob.m */,
-				DA948D5E14B79DF900360BA9 /* BWJob.h */,
-				DA948D5F14B79DF900360BA9 /* BWJob.m */,
+				DA948D5E14B79DF900360BA9 /* BWJob+Presenter.h */,
+				DA948D5F14B79DF900360BA9 /* BWJob+Presenter.m */,
 			);
 			name = Job;
 			sourceTree = "<group>";
@@ -929,7 +931,7 @@
 				DA311A0B14B63CA200F351C7 /* BWCommandBuildFinished.m in Sources */,
 				DA311A0F14B658D100F351C7 /* BWCDObjectMananger.m in Sources */,
 				DA948D5D14B7920700360BA9 /* BWJobListViewController.m in Sources */,
-				DA948D6014B79DF900360BA9 /* BWJob.m in Sources */,
+				DA948D6014B79DF900360BA9 /* BWJob+Presenter.m in Sources */,
 				DA948D6614B7A29800360BA9 /* BWJobTableCell.m in Sources */,
 				DA7C596614BB4F4500569F66 /* BWBuildListViewController.m in Sources */,
 				DA7C599914BB9CA000569F66 /* BWCDBuild.m in Sources */,

@@ -10,7 +10,7 @@
 #import "BWRepositoryListViewController.h"
 #import "BWDetailContainerViewController.h"
 #import "BWPusherHandler.h"
-#import "BWJob.h"
+#import "BWJob+presenter.h"
 #import "BWAwesome.h"
 #import "BWTimeStampFile.h"
 #import <RestKit/RestKit.h>
@@ -150,13 +150,13 @@
     }
 }
 
-- (void)subscribeToLogChannelForJob:(BWJob *)job
+- (void)subscribeToLogChannelForJob:(BWCDJob *)job
 {
     NSString *channelName = [NSString stringWithFormat:@"job-%d", [job.remote_id integerValue]];
     [self.pusherHandler subscribeToChannel:channelName];
 }
 
-- (void)unsubscribeFromLogChannelForJob:(BWJob *)job
+- (void)unsubscribeFromLogChannelForJob:(BWCDJob *)job
 {
     NSString *channelName = [NSString stringWithFormat:@"job-%d", [job.remote_id integerValue]];
     [self.pusherHandler unsubscribeFromChannel:channelName];

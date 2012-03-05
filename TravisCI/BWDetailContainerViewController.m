@@ -33,7 +33,7 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)showJobDetailFor:(BWJob *)job
+- (void)showJobDetailFor:(BWCDJob *)job
 {
     UIView *view = [self.jobDetailViewController valueForKey:@"view"];
     view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;

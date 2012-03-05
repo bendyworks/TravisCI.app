@@ -34,6 +34,8 @@
     return BWStatusPending;
 }
 
+
+
 - (UIImage *)statusImage
 {
     NSString *imageName = nil;
