@@ -79,10 +79,11 @@ thenIShouldSeeJobLogFullscreen = (window, first_log_line) ->
   log
 
 thenIShouldSeeTheUpdatedLiveJobLog = (log, first_log_line, new_log_line) ->
-  if log.value() == (first_log_line + new_log_line)
-    UIALogger.logPass("live log displayed correctly")
+  expected = (first_log_line + new_log_line)
+  if log.value() == expected
+    UIALogger.logPass("Live log displayed correctly")
   else
-    UIALogger.logFail("live log is not correct")
+    UIALogger.logFail("Live log is not correct, expected: #{expected} got: #{log.value()}")
 
 whenITapTheBackButton = (window) ->
   window.navigationBar().leftButton().tap()

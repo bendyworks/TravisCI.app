@@ -104,10 +104,12 @@ thenIShouldSeeJobLogFullscreen = function(window, first_log_line) {
 };
 
 thenIShouldSeeTheUpdatedLiveJobLog = function(log, first_log_line, new_log_line) {
-  if (log.value() === (first_log_line + new_log_line)) {
-    return UIALogger.logPass("live log displayed correctly");
+  var expected;
+  expected = first_log_line + new_log_line;
+  if (log.value() === expected) {
+    return UIALogger.logPass("Live log displayed correctly");
   } else {
-    return UIALogger.logFail("live log is not correct");
+    return UIALogger.logFail("Live log is not correct, expected: " + expected + " got: " + (log.value()));
   }
 };
 

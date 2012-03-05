@@ -40,7 +40,9 @@ task :test => :coffeescript do
     'UIARESULTSPATH' => '~/dev/ios/TravisCI/automation/results'
   }.map{|key,val| "-e #{key} #{val}"}.join(' ')
 
-  stdout_str, status = Open3.capture2("instruments -t #{template} #{app} #{variables}")
+  cmd = "instruments -t #{template} #{app} #{variables}"
+
+  stdout_str, status = Open3.capture2(cmd)
 
   stdout_str.each_line do |line|
     if line =~ /^\d{4}/
@@ -53,7 +55,7 @@ task :test => :coffeescript do
       puts line
     end
   end
-  status.success?
+
 end
 
 task :default => [:build, :test]
