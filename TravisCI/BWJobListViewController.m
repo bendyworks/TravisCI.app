@@ -14,7 +14,7 @@
 #import "RestKit/CoreData.h"
 #import "BWJob+All.h"
 #import "BWJobTableCell.h"
-#import "BWBuild.h"
+#import "BWBuild+All.h"
 #import "BWColor.h"
 
 @interface BWJobListViewController()

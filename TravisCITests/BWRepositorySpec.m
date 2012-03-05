@@ -1,14 +1,14 @@
 #import "Kiwi.h"
-#import "BWRepository.h"
+#import "BWCDRepository.h"
 
 SPEC_BEGIN(BWRepositorySpec)
 
-describe(@"BWRepository", ^{
+describe(@"BWCDRepository", ^{
 
-    __block BWRepository *subject = nil;
+    __block BWCDRepository *subject = nil;
 
     beforeEach(^{
-        subject = [[BWRepository alloc] init];
+        subject = [[BWCDRepository alloc] init];
     });
     
     describe(@"durationText", ^{

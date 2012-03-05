@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class BWRepository, BWJobListViewController;
+@class BWCDRepository, BWJobListViewController;
 
 @interface BWBuildListViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) UINib *buildCellNib;
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResults;
-@property (nonatomic, strong) BWRepository *repository;
+@property (nonatomic, strong) BWCDRepository *repository;
 @property (nonatomic, strong) BWJobListViewController *jobListController;
 @property (strong, nonatomic) IBOutlet UILabel *repositoryName;
 @property (strong, nonatomic) IBOutlet UILabel *authorName;

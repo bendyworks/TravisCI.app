@@ -12,7 +12,7 @@
 #import "BWColor.h"
 #import "BWAwesome.h"
 
-#import "BWRepository.h"
+#import "BWRepository+All.h"
 
 @interface BWRepositoryListViewController ()
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -84,7 +84,7 @@
 {
     if ([@"goToBuilds" isEqualToString:segue.identifier]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        BWRepository *repository = [BWRepository presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+        BWCDRepository *repository = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [repository fetchBuilds];
         [[segue destinationViewController] setValue:repository forKey:@"repository"];
         //[self.detailViewController configureViewAndSetRepository:repository];
@@ -166,7 +166,7 @@
 
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    BWRepository *repository = [BWRepository presenterWithObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    BWCDRepository *repository = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.slug.text = repository.slug;
     cell.buildNumber.text = [NSString stringWithFormat:@"#%@", repository.last_build_number];
 

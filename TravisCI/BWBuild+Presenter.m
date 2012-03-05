@@ -6,12 +6,14 @@
 //  Refer to MIT-LICENSE file at root of project for copyright info
 //
 
-#import "BWBuild.h"
+#import "BWBuild+Presenter.h"
+#import "BWPresenter.h"
 #import "RestKit/CoreData.h"
 
-@implementation BWBuild
+@implementation BWCDBuild (Presenter)
 
-@dynamic state, result, remote_id, number, author_email, author_name, commit, committer_name, compare_url, message, repository_id;
+PRESENT_statusImage
+PRESENT_statusTextColor
 
 - (void)fetchJobs
 {
@@ -25,8 +27,16 @@
 
 - (NSString *)commit
 {
-    NSString *sha8 = [(NSString *)[self.object valueForKey:@"commit"] substringToIndex:8];
-    NSString *shaAndBranch = [NSString stringWithFormat:@"%@ (%@)", sha8, [self.object valueForKey:@"branch"]];
+    [self willAccessValueForKey:@"commit"];
+    NSString *commit = [self primitiveValueForKey:@"commit"];
+    [self didAccessValueForKey:@"commit"];
+
+    [self willAccessValueForKey:@"branch"];
+    NSString *branch = [self primitiveValueForKey:@"branch"];
+    [self didAccessValueForKey:@"branch"];
+
+    NSString *sha8 = [commit substringToIndex:8];
+    NSString *shaAndBranch = [NSString stringWithFormat:@"%@ (%@)", sha8, branch];
     return shaAndBranch;
 }
 

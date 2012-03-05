@@ -36,6 +36,7 @@
 - (UIImage *)statusImage;
 - (UIColor *)statusTextColor;
 
+
 - (void)fetchDetails;
 - (void)subscribeToLogUpdates;
 - (void)unsubscribeFromLogUpdates;

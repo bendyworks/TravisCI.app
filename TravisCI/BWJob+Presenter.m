@@ -11,40 +11,13 @@
 #import "NSDictionary+BWTravisCI.h"
 #import "NSDate+Formatting.h"
 #import "BWCDBuild.h"
-#import "BWBuild.h"
+#import "BWCDBuild.h"
 #import "NSString+BWTravisCI.h"
-#import "BWColor.h"
+#import "BWPresenter.h"
 
-#define PRESENT_statusImage - (UIImage *)statusImage \
-{ \
-    NSString *imageName = nil; \
-    switch ([self currentStatus]) { \
-    case BWStatusPending: \
-        imageName = @"status_yellow"; \
-        break; \
-    case BWStatusFailed: \
-        imageName = @"status_red"; \
-        break; \
-    case BWStatusPassed: \
-        imageName = @"status_green"; \
-        break; \
-    } \
-    return [UIImage imageNamed:imageName]; \
-}
-
-#define PRESENT_statusTextColor - (UIColor *)statusTextColor \
-{ \
-    switch ([self currentStatus]) { \
-        case BWStatusPending: \
-            return [BWColor textColor]; \
-        case BWStatusFailed: \
-            return [BWColor buildFailedColor]; \
-        case BWStatusPassed: \
-            return [BWColor buildPassedColor]; \
-    } \
-    return nil; \
-}
-
+@interface BWCDJob (Presenter)
+- (BWStatus)currentStatus;
+@end
 
 @implementation BWCDJob (Presenter)
 
@@ -131,7 +104,9 @@ PRESENT_statusTextColor
 
 - (NSString *)log
 {
-    NSString *ret = [self valueForKey:@"log"];
+    [self willAccessValueForKey:@"log"];
+    NSString *ret = [self primitiveValueForKey:@"log"];
+    [self didAccessValueForKey:@"log"];
     return [ret stringBySimulatingCarriageReturn];
 }
 
@@ -152,10 +127,10 @@ PRESENT_statusTextColor
     return [NSString stringWithFormat:@"%d lines", lines];
 }
 
-- (BWBuild *)build
+- (BWCDBuild *)build
 {
     [self willAccessValueForKey:@"build"];
-    BWBuild *ret = [BWBuild presenterWithObject:[self primitiveValueForKey:@"build"]];
+    BWCDBuild *ret = [self primitiveValueForKey:@"build"];
     [self didAccessValueForKey:@"build"];
     return ret;
 }

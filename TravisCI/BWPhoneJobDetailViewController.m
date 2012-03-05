@@ -69,8 +69,8 @@
     [super viewWillAppear:animated];
 
     self.shouldUnsubscribeFromLogUpdates = YES;
-    [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"job" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"job.log" options:NSKeyValueObservingOptionNew context:nil];
     [self.job fetchDetails];
     [self.job subscribeToLogUpdates];
     [self configureView];
@@ -80,8 +80,8 @@
 {
     [super viewWillDisappear:animated];
 
-    [self removeObserver:self forKeyPath:@"job.object"];
-    [self removeObserver:self forKeyPath:@"job.object.log"];
+    [self removeObserver:self forKeyPath:@"job"];
+    [self removeObserver:self forKeyPath:@"job.log"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -95,9 +95,9 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ([@"job.object" isEqualToString:keyPath]) {
+    if ([@"job" isEqualToString:keyPath]) {
         [self configureView];
-    } else if ([@"job.object.log" isEqualToString:keyPath]) {
+    } else if ([@"job.log" isEqualToString:keyPath]) {
         [self configureLogView];
     }
 }

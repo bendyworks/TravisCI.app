@@ -7,6 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BWColor.h"
+
+#ifndef BWPresenter_h
+#define BWPresenter_h
 
 typedef enum {
     BWStatusPending,
@@ -14,13 +18,34 @@ typedef enum {
     BWStatusFailed
 } BWStatus;
 
-@interface BWPresenter : NSObject
-+ (id)presenterWithObject:(id)obj;
-- (id)initWithObject:(id)obj;
+#define PRESENT_statusImage - (UIImage *)statusImage \
+{ \
+    NSString *imageName = nil; \
+    switch ([self currentStatus]) { \
+        case BWStatusPending: \
+            imageName = @"status_yellow"; \
+            break; \
+        case BWStatusFailed: \
+            imageName = @"status_red"; \
+            break; \
+        case BWStatusPassed: \
+            imageName = @"status_green"; \
+            break; \
+    } \
+    return [UIImage imageNamed:imageName]; \
+}
 
-- (BWStatus)currentStatus;
-- (UIImage *)statusImage;
-- (UIColor *)statusTextColor;
+#define PRESENT_statusTextColor - (UIColor *)statusTextColor \
+{ \
+    switch ([self currentStatus]) { \
+        case BWStatusPending: \
+            return [BWColor textColor]; \
+        case BWStatusFailed: \
+            return [BWColor buildFailedColor]; \
+        case BWStatusPassed: \
+            return [BWColor buildPassedColor]; \
+    } \
+    return nil; \
+}
 
-@property (nonatomic, strong) id object;
-@end
+#endif
