@@ -25,7 +25,7 @@
     [self.job.object removeObserver:self forKeyPath:@"log"];
     [super viewWillDisappear:animated];
 }
-    
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     [self.textView setText:self.job.log];

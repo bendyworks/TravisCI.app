@@ -21,7 +21,7 @@ channel = %Q($1)
 event = %Q($2)
 data = %Q($3)
 
-if channel && event && data
+if !channel.empty? && !event.empty? && !data.empty?
   Pusher[channel].trigger(event, data)
 else
   puts 'usage: pusher_event <channel> <event> <data>'

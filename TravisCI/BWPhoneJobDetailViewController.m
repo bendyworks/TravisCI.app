@@ -32,7 +32,7 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -53,9 +53,9 @@
     [self.authorLabel setText:self.job.author];
     [self.messageLabel setText:self.job.message];
     [self.configLabel setText:self.job.configString];
-    
+
     [self setTitle:[NSString stringWithFormat:@"Job #%@", self.job.number]];
-    
+
     [self configureLogView];
 }
 
@@ -162,10 +162,6 @@
     [self setLogSubtitle:nil];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-	return YES;
-}
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
 
 @end
