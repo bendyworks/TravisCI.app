@@ -17,6 +17,7 @@
 
 @interface BWCDJob (Presenter)
 - (BWStatus)currentStatus;
+- (void)fetchDetails;
 @end
 
 @implementation BWCDJob (Presenter)
@@ -145,6 +146,18 @@ PRESENT_statusTextColor
     [manager loadObjectsAtResourcePath:resourcePath
                          objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDJob"]
                               delegate:nil];
+}
+
+- (void)fetchDetailsIfNeeded
+{    
+    if (([self.log length] < 1)     ||
+        ([self.number length] < 1)  ||
+        self.config == nil          ||
+        ([self.compare length] < 1) ||
+        ([self.author length] < 1)  ||
+        ([self.message length] < 1)) {
+        [self fetchDetails];
+    }
 }
 
 - (void)subscribeToLogUpdates

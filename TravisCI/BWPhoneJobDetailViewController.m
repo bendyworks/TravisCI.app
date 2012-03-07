@@ -12,6 +12,8 @@
 
 @interface BWPhoneJobDetailViewController()
 @property (nonatomic, assign) BOOL shouldUnsubscribeFromLogUpdates;
+- (void)stopObservingJob;
+- (void)startObservingJob;
 @end
 
 @implementation BWPhoneJobDetailViewController
@@ -69,9 +71,8 @@
     [super viewWillAppear:animated];
 
     self.shouldUnsubscribeFromLogUpdates = YES;
-    [self addObserver:self forKeyPath:@"job" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"job.log" options:NSKeyValueObservingOptionNew context:nil];
-    [self.job fetchDetails];
+    [self startObservingJob];
+    [self.job fetchDetailsIfNeeded];
     [self.job subscribeToLogUpdates];
     [self configureView];
 }
@@ -79,9 +80,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-
-    [self removeObserver:self forKeyPath:@"job"];
-    [self removeObserver:self forKeyPath:@"job.log"];
+    [self stopObservingJob];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -97,7 +96,7 @@
 {
     if ([@"job" isEqualToString:keyPath]) {
         [self configureView];
-    } else if ([@"job.log" isEqualToString:keyPath]) {
+    } else if ([@"log" isEqualToString:keyPath]) {
         [self configureLogView];
     }
 }
@@ -148,7 +147,6 @@
 
 - (void)viewDidUnload
 {
-
     [super viewDidUnload];
 
     [self setFinishedLabel:nil];
@@ -163,5 +161,21 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
+
+
+#pragma mark -
+#pragma mark job methods
+
+- (void)startObservingJob
+{
+    [self addObserver:self forKeyPath:@"job" options:NSKeyValueObservingOptionNew context:nil];
+    [job addObserver:self forKeyPath:@"log" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)stopObservingJob
+{
+    [self removeObserver:self forKeyPath:@"job"];
+    [job removeObserver:self forKeyPath:@"log"];
+}
 
 @end

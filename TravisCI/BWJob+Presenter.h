@@ -37,7 +37,7 @@
 - (UIColor *)statusTextColor;
 
 
-- (void)fetchDetails;
+- (void)fetchDetailsIfNeeded;
 - (void)subscribeToLogUpdates;
 - (void)unsubscribeFromLogUpdates;
 

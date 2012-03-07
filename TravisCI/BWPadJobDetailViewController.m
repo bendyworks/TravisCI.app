@@ -48,7 +48,7 @@
 
     [self.jobDetail2.view setNeedsLayout];
 
-    [self.job fetchDetails];
+    [self.job fetchDetailsIfNeeded];
 
     [self configureView];
 }
