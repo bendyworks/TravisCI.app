@@ -157,6 +157,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BWCDJob *job = [self jobAtIndexPath:indexPath];
+
+    [job fetchDetails];
+
     if (IS_IPAD) {
         [self stopObservingBuild];
         BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;

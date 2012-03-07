@@ -17,7 +17,6 @@
 
 @interface BWCDJob (Presenter)
 - (BWStatus)currentStatus;
-- (void)fetchDetails;
 @end
 
 @implementation BWCDJob (Presenter)
