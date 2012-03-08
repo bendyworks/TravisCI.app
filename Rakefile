@@ -8,9 +8,8 @@ task :clean do
 end
 
 task :coffeescript do
-  test_files = 'automation/uiautomation.coffee'
-  js_file = 'automation/uiautomation.js'
-  system "coffee -b -p #{test_files} > #{js_file}"
+  test_files = 'automation/*.coffee'
+  system "coffee -b -c #{test_files}"
 end
 
 task :build do
@@ -33,12 +32,13 @@ task :build do
     clean build"
 end
 
-task :test => :coffeescript do
+def run_test_with_script path
+  project_dir = Dir.pwd
   template = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Instruments/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate'
-  app = '~/dev/ios/TravisCI/build/TravisCI.app'
+  app = File.join(project_dir, 'build', 'TravisCI.app')
   variables = {
-    'UIASCRIPT' => '~/dev/ios/TravisCI/automation/uiautomation.js',
-    'UIARESULTSPATH' => '~/dev/ios/TravisCI/automation/results'
+    'UIASCRIPT' => File.join(project_dir, 'automation', path),
+    'UIARESULTSPATH' => File.join(project_dir, 'automation', 'results')
   }.map{|key,val| "-e #{key} #{val}"}.join(' ')
 
   cmd = "instruments -t #{template} #{app} #{variables}"
@@ -56,7 +56,19 @@ task :test => :coffeescript do
       puts line
     end
   end
+end
 
+task :test_iphone do
+  run_test_with_script 'iphone.js'
+end
+
+task :test_ipad do
+  run_test_with_script 'ipad.js'
+end
+
+task :test => :coffeescript do
+  Rake::Task['test_iphone'].execute
+  Rake::Task['test_ipad'].execute
 end
 
 task :default => [:build, :test]
