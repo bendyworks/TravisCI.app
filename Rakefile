@@ -20,6 +20,7 @@ task :build do
   sdk = 'iphonesimulator5.0'
   variables = {
     'TARGETED_DEVICE_FAMILY' => 1,
+    'GCC_PREPROCESSOR_DEFINITIONS' => 'TEST_MODE=1',
     'CONFIGURATION_BUILD_DIR' => '~/dev/ios/TravisCI/build'
   }.map{|key,val| "#{key}=#{val}"}.join(' ')
 
