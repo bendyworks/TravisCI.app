@@ -13,12 +13,13 @@ task :coffeescript do
 end
 
 task :build do
+  @current_build ||=1
   workspace = '~/dev/ios/TravisCI/TravisCI.xcworkspace'
   scheme = 'TravisCI'
   configuration = 'Debug'
   sdk = 'iphonesimulator5.0'
   variables = {
-    'TARGETED_DEVICE_FAMILY' => 1,
+    'TARGETED_DEVICE_FAMILY' => @current_build,
     'GCC_PREPROCESSOR_DEFINITIONS' => 'TEST_MODE=1',
     'CONFIGURATION_BUILD_DIR' => '~/dev/ios/TravisCI/build'
   }.map{|key,val| "#{key}=#{val}"}.join(' ')
@@ -58,17 +59,26 @@ def run_test_with_script path
   end
 end
 
-task :test_iphone do
-  run_test_with_script 'iphone.js'
+task :build_for_ipad do
+  @current_build = 2
+  Rake::Task['build'].execute
 end
 
-task :test_ipad do
+task :build_for_iphone do
+  @current_build = 1
+  Rake::Task['build'].execute
+end
+
+task :test_ipad => :coffeescript do
   run_test_with_script 'ipad.js'
 end
 
-task :test => :coffeescript do
-  Rake::Task['test_iphone'].execute
-  Rake::Task['test_ipad'].execute
+task :test_iphone => :coffeescript do
+  run_test_with_script 'iphone.js'
 end
 
-task :default => [:build, :test]
+task :test => :coffeescript do
+  run_test_with_script 'iphone.js'
+end
+
+task :default => [:build_for_iphone, :test_iphone]
