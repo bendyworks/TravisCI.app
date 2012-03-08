@@ -1,4 +1,4 @@
-var assertElementPresent, build_list, current_log, first_log_line, givenISeeRepositoryList, job_detail, job_list, log, new_log_line, repo_list, target, thenIShouldSeeJobDetailView, thenIShouldSeeJobLogFullscreen, thenIShouldSeeTheJobLogFullscreen, thenIShouldSeeTheListOfBuilds, thenIShouldSeeTheListOfJobs, thenIShouldSeeTheUpdatedLiveJobLog, whenITapJobLog, whenITapTheBackButton, whenITapTheFirstBuild, whenITapTheFirstJob, whenITapTheFirstRepo, whenITapTheSecondRepo, whenPusherSendsAnUpdateAboutThatJob, window;
+var assertElementPresent, build_list, first_log_line, givenISeeRepositoryList, job_detail, job_list, log, new_log_line, repo_list, target, thenIShouldSeeJobDetailView, thenIShouldSeeJobLogFullscreen, thenIShouldSeeTheJobLogFullscreen, thenIShouldSeeTheListOfBuilds, thenIShouldSeeTheListOfJobs, thenIShouldSeeTheUpdatedLiveJobLog, whenITapJobLog, whenITapTheBackButton, whenITapTheFirstBuild, whenITapTheFirstJob, whenITapTheFirstRepo, whenITapTheSecondRepo, whenPusherSendsAnUpdateAboutThatJob, window;
 
 assertElementPresent = function(el, el_name) {
   el_name = el_name != null ? el_name : {
@@ -143,7 +143,7 @@ first_log_line = "log line one\n";
 
 log = thenIShouldSeeJobLogFullscreen(window, first_log_line);
 
-new_log_line = "log line 2";
+new_log_line = "pushed log line";
 
 whenPusherSendsAnUpdateAboutThatJob(target, "110", new_log_line);
 
@@ -163,15 +163,13 @@ whenITapJobLog(job_detail);
 
 thenIShouldSeeTheJobLogFullscreen(window);
 
-current_log = first_log_line + new_log_line;
+log = thenIShouldSeeJobLogFullscreen(window, first_log_line);
 
-log = thenIShouldSeeJobLogFullscreen(window, current_log);
-
-new_log_line = "log line 3";
+new_log_line = "Another pushed log line";
 
 whenPusherSendsAnUpdateAboutThatJob(target, "110", new_log_line);
 
-thenIShouldSeeTheUpdatedLiveJobLog(log, current_log, new_log_line);
+thenIShouldSeeTheUpdatedLiveJobLog(log, first_log_line, new_log_line);
 
 whenITapTheBackButton(window);
 
