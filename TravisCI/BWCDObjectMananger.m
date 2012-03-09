@@ -21,10 +21,16 @@
     RKObjectManager *manager = [RKObjectManager sharedManager];
     RKManagedObjectStore *objectStore = manager.objectStore;
     NSManagedObjectContext *moc = [objectStore managedObjectContext];
-    NSEntityDescription *repositoryDescription = [NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:moc];
-    NSManagedObject *repository = [objectStore findOrCreateInstanceOfEntity:repositoryDescription
-                                                    withPrimaryKeyAttribute:@"remote_id"
-                                                                   andValue:repository_id];
+
+    BWCDRepository *repository = [BWCDRepository findFirstByAttribute:@"remote_id" withValue:repository_id inContext:moc];
+
+    if (repository == nil) {
+        NSEntityDescription *repositoryDescription = [NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:moc];
+        repository = (BWCDRepository *)[objectStore findOrCreateInstanceOfEntity:repositoryDescription
+                                                         withPrimaryKeyAttribute:@"remote_id"
+                                                                        andValue:repository_id];
+        [moc insertObject:repository];
+    }
 
     RKObjectMapping *mapping = [manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"];
     RKObjectMappingOperation *mappingOp = [RKObjectMappingOperation mappingOperationFromObject:repositoryDictionary
@@ -33,8 +39,14 @@
 
     NSError *error = nil;
     [mappingOp performMapping:&error];
-
-    [objectStore save];
+    if (error != nil) {
+        NSLog(@"Error mapping: %@", error);
+    } else {
+        [moc save:&error];
+        if (error != nil) {
+            NSLog(@"Error mapping: %@", error);
+        }
+    }
 }
 
 + (void)updateJobFromDictionary:(NSDictionary *)jobDictionary
