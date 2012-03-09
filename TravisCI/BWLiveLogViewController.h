@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class BWJob;
+@class BWCDJob;
 
 @interface BWLiveLogViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UITextView *textView;
-@property (nonatomic, strong) BWJob *job;
+@property (nonatomic, strong) BWCDJob *job;
 
 @end

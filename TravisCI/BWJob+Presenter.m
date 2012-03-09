@@ -7,16 +7,22 @@
 //
 
 #import "BWAppDelegate.h"
-#import "BWJob.h"
+#import "BWJob+Presenter.h"
 #import "NSDictionary+BWTravisCI.h"
 #import "NSDate+Formatting.h"
-#import "BWBuild.h"
+#import "BWCDBuild.h"
+#import "BWCDBuild.h"
 #import "NSString+BWTravisCI.h"
+#import "BWPresenter.h"
 
-@implementation BWJob
+@interface BWCDJob (Presenter)
+- (BWStatus)currentStatus;
+@end
 
-@dynamic log, number, result, state, status, remote_id;
+@implementation BWCDJob (Presenter)
 
+PRESENT_statusImage
+PRESENT_statusTextColor
 
 - (NSString *)language
 {
@@ -27,7 +33,9 @@
 
 - (NSDictionary *)config
 {
-    NSDictionary *configDict = [[self.object valueForKey:@"config"] subdictionaryWithoutKeys:@".configured", @"notifications", nil];
+    [self willAccessValueForKey:@"config"];
+    NSDictionary *configDict = [[self primitiveValueForKey:@"config"] subdictionaryWithoutKeys:@".configured", @"notifications", nil];
+    [self didAccessValueForKey:@"config"];
     return configDict;
 }
 
@@ -48,12 +56,12 @@
 
 - (NSString *)durationText
 {
-    NSDate *finished_at = [self.object valueForKey:@"finished_at"];
-    NSTimeInterval duration = [finished_at timeIntervalSinceDate:[self.object valueForKey:@"started_at"]];
+    NSDate *finished_at = [self valueForKey:@"finished_at"];
+    NSTimeInterval duration = [finished_at timeIntervalSinceDate:[self valueForKey:@"started_at"]];
     if (duration != 0) {
         return [NSDate rangeOfTimeInWordsFromSeconds:duration];
     } else {
-        NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:[self.object valueForKey:@"started_at"]];
+        NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:[self valueForKey:@"started_at"]];
         NSInteger timeSinceNow = [[NSNumber numberWithDouble:fabs(interval)] integerValue];
         return [NSDate rangeOfTimeInWordsFromSeconds:timeSinceNow];
     }
@@ -62,7 +70,7 @@
 
 - (NSString *)finishedText
 {
-    return [[self.object valueForKey:@"finished_at"] distanceOfTimeInWords];
+    return [[self valueForKey:@"finished_at"] distanceOfTimeInWords];
 }
 
 
@@ -96,7 +104,9 @@
 
 - (NSString *)log
 {
-    NSString *ret = [self.object valueForKey:@"log"];
+    [self willAccessValueForKey:@"log"];
+    NSString *ret = [self primitiveValueForKey:@"log"];
+    [self didAccessValueForKey:@"log"];
     return [ret stringBySimulatingCarriageReturn];
 }
 
@@ -117,9 +127,12 @@
     return [NSString stringWithFormat:@"%d lines", lines];
 }
 
-- (BWBuild *)build
+- (BWCDBuild *)build
 {
-    return [BWBuild presenterWithObject:[self.object valueForKey:@"build"]];
+    [self willAccessValueForKey:@"build"];
+    BWCDBuild *ret = [self primitiveValueForKey:@"build"];
+    [self didAccessValueForKey:@"build"];
+    return ret;
 }
 
 - (void)fetchDetails
@@ -132,6 +145,18 @@
     [manager loadObjectsAtResourcePath:resourcePath
                          objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDJob"]
                               delegate:nil];
+}
+
+- (void)fetchDetailsIfNeeded
+{    
+    if (([self.log length] < 1)     ||
+        ([self.number length] < 1)  ||
+        self.config == nil          ||
+        ([self.compare length] < 1) ||
+        ([self.author length] < 1)  ||
+        ([self.message length] < 1)) {
+        [self fetchDetails];
+    }
 }
 
 - (void)subscribeToLogUpdates

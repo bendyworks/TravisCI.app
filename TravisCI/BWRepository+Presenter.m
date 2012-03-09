@@ -6,14 +6,16 @@
 //  Refer to MIT-LICENSE file at root of project for copyright info
 //
 
-#import "BWRepository.h"
+#import "BWRepository+Presenter.h"
 #import "RestKit/RKObjectManager.h"
 
 #import "NSDate+Formatting.h"
+#import "BWPresenter.h"
 
-@implementation BWRepository
+@implementation BWCDRepository (Presenter)
 
-@dynamic remote_id, slug, last_build_number, last_build_status, last_build_result, last_build_duration, last_build_id, last_build_started_at, last_build_finished_at;
+PRESENT_statusImage
+PRESENT_statusTextColor
 
 - (NSString *)finishedText
 {

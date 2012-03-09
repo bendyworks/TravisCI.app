@@ -104,9 +104,23 @@ thenIShouldSeeTheJobLogFullscreen(window)
 first_log_line = "log line one\n"
 log =         thenIShouldSeeJobLogFullscreen(window, first_log_line)
 
-new_log_line =  "log line 2"
+new_log_line =  "pushed log line"
 whenPusherSendsAnUpdateAboutThatJob(target, "110", new_log_line)
-thenIShouldSeeTheUpdatedLiveJobLog(log, first_log_line, new_log_line);  
+thenIShouldSeeTheUpdatedLiveJobLog(log, first_log_line, new_log_line)
+
+# When I go back and re-enter job-detail
+# Then I should still be observing the log updates
+whenITapTheBackButton(window); # job log -> job detail
+whenITapTheBackButton(window); # job detail -> job list
+job_list =    thenIShouldSeeTheListOfJobs(window)
+whenITapTheFirstJob(job_list)
+job_detail =  thenIShouldSeeJobDetailView(window)
+whenITapJobLog(job_detail)
+thenIShouldSeeTheJobLogFullscreen(window)
+log =         thenIShouldSeeJobLogFullscreen(window, first_log_line)
+new_log_line =  "Another pushed log line"
+whenPusherSendsAnUpdateAboutThatJob(target, "110", new_log_line)
+thenIShouldSeeTheUpdatedLiveJobLog(log, first_log_line, new_log_line)
 
 whenITapTheBackButton(window); # job log -> job detail
 whenITapTheBackButton(window); # job detail -> job list

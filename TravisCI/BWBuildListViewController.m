@@ -7,8 +7,8 @@
 //
 
 #import "BWBuildListViewController.h"
-#import "BWRepository.h"
-#import "BWBuild.h"
+#import "BWRepository+All.h"
+#import "BWBuild+All.h"
 #import "BWBuildTableCell.h"
 #import "BWJobListViewController.h"
 #import "BWColor.h"
@@ -158,7 +158,7 @@
 
 - (void)configureCell:(BWBuildTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    BWBuild *build = [BWBuild presenterWithObject:[self.fetchedResults objectAtIndexPath:indexPath]];
+    BWCDBuild *build = [self.fetchedResults objectAtIndexPath:indexPath];
 
     [cell.buildNumber setText:build.formattedNumber];
     [cell.commit setText:build.commit];
@@ -176,7 +176,7 @@
 {
     if ([@"goToJobList" isEqualToString:segue.identifier]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        BWBuild *build = [BWBuild presenterWithObject:[self.fetchedResults objectAtIndexPath:indexPath]];
+        BWCDBuild *build = [self.fetchedResults objectAtIndexPath:indexPath];
         [build fetchJobs];
         // [self.detailViewController configureViewAndSetBuild:build];
 

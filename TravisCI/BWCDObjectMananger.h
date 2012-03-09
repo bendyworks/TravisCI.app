@@ -10,7 +10,6 @@
 
 @interface BWCDObjectMananger : NSObject
 
-+ (NSManagedObject *)buildWithID:(NSNumber *)build_id;
 + (void)updateRepositoryFromDictionary:(NSDictionary *)repositoryDictionary;
 + (void)updateJobFromDictionary:(NSDictionary *)jobDictionary;
 + (void)appendToJobLog:(NSDictionary *)logDictionary;

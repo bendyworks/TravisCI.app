@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class BWRepositoryDetailViewController, BWPhoneJobDetailViewController, BWJob;
+@class BWRepositoryDetailViewController, BWPhoneJobDetailViewController, BWCDJob;
 
 @interface BWDetailContainerViewController : UIViewController <UISplitViewControllerDelegate>
 
-- (void)showJobDetailFor:(BWJob *)job;
+- (void)showJobDetailFor:(BWCDJob *)job;
 
 @property (nonatomic, strong) UIViewController *splashViewController;
 @property (nonatomic, strong) BWRepositoryDetailViewController *repositoryDetailViewController;

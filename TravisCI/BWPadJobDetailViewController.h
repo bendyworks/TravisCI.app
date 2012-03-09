@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class BWJob;
+@class BWCDJob;
 
 @interface BWPadJobDetailViewController : UIViewController
 
-@property (nonatomic, strong) BWJob *job;
+@property (nonatomic, strong) BWCDJob *job;
 
 @property (readonly) UILabel *finishedLabel;
 @property (readonly) UILabel *durationLabel;

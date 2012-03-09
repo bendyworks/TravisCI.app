@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class BWBuild, BWPhoneJobDetailViewController;
+@class BWCDBuild, BWPhoneJobDetailViewController;
 
 @interface BWJobListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) UINib *jobCellNib;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, strong) BWBuild *build;
+@property (nonatomic, strong) BWCDBuild *build;
 @property (readonly, strong) BWPhoneJobDetailViewController *jobDetailViewController;
 
 @end

@@ -12,15 +12,15 @@
 #import "BWPhoneJobDetailViewController.h"
 #import "BWDetailContainerViewController.h"
 #import "RestKit/CoreData.h"
-#import "BWJob.h"
+#import "BWJob+All.h"
 #import "BWJobTableCell.h"
-#import "BWBuild.h"
+#import "BWBuild+All.h"
 #import "BWColor.h"
 
 @interface BWJobListViewController()
 
 - (void)configureCell:(BWJobTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-- (BWJob *)jobAtIndexPath:(NSIndexPath *)indexPath;
+- (BWCDJob *)jobAtIndexPath:(NSIndexPath *)indexPath;
 - (void)stopObservingBuild;
 - (void)startObservingBuild;
 
@@ -109,7 +109,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BWJob *job = [self jobAtIndexPath:indexPath];
+    BWCDJob *job = [self jobAtIndexPath:indexPath];
     if (job.env) {
         return 127.0f;
     } else {
@@ -126,7 +126,7 @@
 
 - (void)configureCell:(BWJobTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    BWJob *job = [self jobAtIndexPath:indexPath];
+    BWCDJob *job = [self jobAtIndexPath:indexPath];
 
     [cell.buildIcon setImage:job.statusImage];
     [cell.number setText:job.number];
@@ -156,7 +156,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BWJob *job = [self jobAtIndexPath:indexPath];
+    BWCDJob *job = [self jobAtIndexPath:indexPath];
+
+    [job fetchDetails];
+
     if (IS_IPAD) {
         [self stopObservingBuild];
         BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
@@ -258,9 +261,9 @@
     [self.tableView endUpdates];
 }
 
-- (BWJob *)jobAtIndexPath:(NSIndexPath *)indexPath
+- (BWCDJob *)jobAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [BWJob presenterWithObject:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+    return [[self fetchedResultsController] objectAtIndexPath:indexPath];
 }
 
 - (BWPhoneJobDetailViewController *)jobDetailViewController

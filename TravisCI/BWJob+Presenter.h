@@ -6,12 +6,12 @@
 //  Refer to MIT-LICENSE file at root of project for copyright info
 //
 
-#import "BWPresenter.h"
+#import "BWCDJob.h"
 #import "RestKit/CoreData.h"
 
 @class BWBuild;
 
-@interface BWJob : BWPresenter
+@interface BWCDJob (BWPresenter)
 
 @property (strong, nonatomic) NSString *log;
 @property (strong, nonatomic) NSString *number;
@@ -33,8 +33,12 @@
 - (NSString *)lastLogLine;
 - (NSString *)logSubtitle;
 - (NSDictionary *)config;
+- (UIImage *)statusImage;
+- (UIColor *)statusTextColor;
+
 
 - (void)fetchDetails;
+- (void)fetchDetailsIfNeeded;
 - (void)subscribeToLogUpdates;
 - (void)unsubscribeFromLogUpdates;
 

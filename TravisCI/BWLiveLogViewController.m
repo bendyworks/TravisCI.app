@@ -8,7 +8,7 @@
 
 #import "BWLiveLogViewController.h"
 
-#import "BWJob.h"
+#import "BWJob+All.h"
 
 @implementation BWLiveLogViewController
 
@@ -16,16 +16,16 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.job.object addObserver:self forKeyPath:@"log" options:NSKeyValueObservingOptionNew context:nil];
+    [self.job addObserver:self forKeyPath:@"log" options:NSKeyValueObservingOptionNew context:nil];
     [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.job.object removeObserver:self forKeyPath:@"log"];
+    [self.job removeObserver:self forKeyPath:@"log"];
     [super viewWillDisappear:animated];
 }
-    
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     [self.textView setText:self.job.log];

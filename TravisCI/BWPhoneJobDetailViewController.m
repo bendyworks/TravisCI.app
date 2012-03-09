@@ -7,11 +7,13 @@
 //
 
 #import "BWPhoneJobDetailViewController.h"
-#import "BWJob.h"
+#import "BWJob+All.h"
 #import "BWEnumerableTableViewController.h"
 
 @interface BWPhoneJobDetailViewController()
 @property (nonatomic, assign) BOOL shouldUnsubscribeFromLogUpdates;
+- (void)stopObservingJob;
+- (void)startObservingJob;
 @end
 
 @implementation BWPhoneJobDetailViewController
@@ -32,7 +34,7 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -53,9 +55,9 @@
     [self.authorLabel setText:self.job.author];
     [self.messageLabel setText:self.job.message];
     [self.configLabel setText:self.job.configString];
-    
+
     [self setTitle:[NSString stringWithFormat:@"Job #%@", self.job.number]];
-    
+
     [self configureLogView];
 }
 
@@ -69,9 +71,8 @@
     [super viewWillAppear:animated];
 
     self.shouldUnsubscribeFromLogUpdates = YES;
-    [self addObserver:self forKeyPath:@"job.object" options:NSKeyValueObservingOptionNew context:nil];
-    [self addObserver:self forKeyPath:@"job.object.log" options:NSKeyValueObservingOptionNew context:nil];
-    [self.job fetchDetails];
+    [self startObservingJob];
+    [self.job fetchDetailsIfNeeded];
     [self.job subscribeToLogUpdates];
     [self configureView];
 }
@@ -79,9 +80,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-
-    [self removeObserver:self forKeyPath:@"job.object"];
-    [self removeObserver:self forKeyPath:@"job.object.log"];
+    [self stopObservingJob];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -95,9 +94,9 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ([@"job.object" isEqualToString:keyPath]) {
+    if ([@"job" isEqualToString:keyPath]) {
         [self configureView];
-    } else if ([@"job.object.log" isEqualToString:keyPath]) {
+    } else if ([@"log" isEqualToString:keyPath]) {
         [self configureLogView];
     }
 }
@@ -148,7 +147,6 @@
 
 - (void)viewDidUnload
 {
-
     [super viewDidUnload];
 
     [self setFinishedLabel:nil];
@@ -162,10 +160,22 @@
     [self setLogSubtitle:nil];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
+
+
+#pragma mark -
+#pragma mark job methods
+
+- (void)startObservingJob
 {
-    // Return YES for supported orientations
-	return YES;
+    [self addObserver:self forKeyPath:@"job" options:NSKeyValueObservingOptionNew context:nil];
+    [job addObserver:self forKeyPath:@"log" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)stopObservingJob
+{
+    [self removeObserver:self forKeyPath:@"job"];
+    [job removeObserver:self forKeyPath:@"log"];
 }
 
 @end

@@ -10,7 +10,7 @@
 #import "BWRepositoryListViewController.h"
 #import "BWDetailContainerViewController.h"
 #import "BWPusherHandler.h"
-#import "BWJob.h"
+#import "BWJob+presenter.h"
 #import "BWAwesome.h"
 #import "BWTimeStampFile.h"
 #import <RestKit/RestKit.h>
@@ -30,20 +30,13 @@
 
 @synthesize pusherHandler = _pusherHandler;
 
-#define USE_ACTUAL_TRAVIS_CI_PUSHER_DATA 1
-#define USE_ACTUAL_TRAVIS_CI_DATA 1
-
 // these PUSHER_API_KEY values are not sensitive to exposure
-#if USE_ACTUAL_TRAVIS_CI_PUSHER_DATA
-  #define PUSHER_API_KEY @"23ed642e81512118260e"
-#else
-  #define PUSHER_API_KEY @"19623b7a28de248aef28"
-#endif
-
-#if USE_ACTUAL_TRAVIS_CI_DATA
-    #define TRAVIS_CI_URL @"http://travis-ci.org"
-#else
+#if TEST_MODE
     #define TRAVIS_CI_URL @"http://localhost"
+    #define PUSHER_API_KEY @"19623b7a28de248aef28"
+#else
+    #define TRAVIS_CI_URL @"http://travis-ci.org"
+    #define PUSHER_API_KEY @"23ed642e81512118260e"
 #endif
 
 #define TRAVIS_CI_CD_FILE_NAME @"TravisCI-cache.sqlite"
@@ -150,13 +143,13 @@
     }
 }
 
-- (void)subscribeToLogChannelForJob:(BWJob *)job
+- (void)subscribeToLogChannelForJob:(BWCDJob *)job
 {
     NSString *channelName = [NSString stringWithFormat:@"job-%d", [job.remote_id integerValue]];
     [self.pusherHandler subscribeToChannel:channelName];
 }
 
-- (void)unsubscribeFromLogChannelForJob:(BWJob *)job
+- (void)unsubscribeFromLogChannelForJob:(BWCDJob *)job
 {
     NSString *channelName = [NSString stringWithFormat:@"job-%d", [job.remote_id integerValue]];
     [self.pusherHandler unsubscribeFromChannel:channelName];

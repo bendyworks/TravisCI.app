@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "RestKit/RKObjectLoader.h"
 #import "PTPusherDelegate.h"
-@class BWPusherHandler, BWDetailContainerViewController, BWJob;
+
+@class BWPusherHandler, BWDetailContainerViewController, BWCDJob;
 
 @interface BWAppDelegate : UIResponder <UIApplicationDelegate, RKObjectLoaderDelegate, PTPusherDelegate>
 
@@ -20,8 +21,8 @@
 
 @property (nonatomic, strong) BWPusherHandler *pusherHandler;
 
-- (void)subscribeToLogChannelForJob:(BWJob *)job;
-- (void)unsubscribeFromLogChannelForJob:(BWJob *)job;
+- (void)subscribeToLogChannelForJob:(BWCDJob *)job;
+- (void)unsubscribeFromLogChannelForJob:(BWCDJob *)job;
 
 
 - (void)saveContext;
