@@ -7,6 +7,11 @@ task :clean do
   puts 'done.'
 end
 
+task :clean_db do
+  print 'Cleaning the applications sqlite cache database'
+  system 'rm -rf ls -1d ~/Library/Application\ Support/iPhone\ Simulator/**/Applications/**/Library/Caches/TravisCI*.sqlite'
+end
+
 task :coffeescript do
   test_files = 'automation/*.coffee'
   system "coffee -b -c #{test_files}"
@@ -59,26 +64,43 @@ def run_test_with_script path
   end
 end
 
-task :build_for_ipad do
-  @current_build = 2
-  Rake::Task['build'].execute
+task :ipad do
+  Rake::Task['ipad:build'].execute
+  Rake::Task['ipad:test'].execute
 end
 
-task :build_for_iphone do
-  @current_build = 1
-  Rake::Task['build'].execute
+namespace :ipad do
+  task :build do
+    @current_build = 2
+    Rake::Task['clean_db'].execute
+    Rake::Task['build'].execute
+  end
+
+  task :test => :coffeescript do
+    run_test_with_script 'ipad.js'
+  end
 end
 
-task :test_ipad => :coffeescript do
-  run_test_with_script 'ipad.js'
+task :iphone do
+  Rake::Task['iphone:build'].execute
+  Rake::Task['iphone:test'].execute
 end
 
-task :test_iphone => :coffeescript do
-  run_test_with_script 'iphone.js'
+namespace :iphone do
+  task :build do
+    @current_build = 1
+    Rake::Task['clean_db'].execute
+    Rake::Task['build'].execute
+  end
+
+  task :test => :coffeescript do
+    run_test_with_script 'iphone.js'
+  end
 end
 
 task :test => :coffeescript do
-  run_test_with_script 'iphone.js'
+  Rake::Task['iphone'].execute
+  Rake::Task['ipad'].execute
 end
 
-task :default => [:build_for_iphone, :test_iphone]
+task :default => :test
