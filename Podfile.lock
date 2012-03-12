@@ -1,0 +1,30 @@
+PODS:
+  - JSONKit (1.4)
+  - LibComponentLogging-Core (1.1.4)
+  - LibComponentLogging-NSLog (1.0.2):
+    - LibComponentLogging-Core (>= 1.1.4)
+  - RestKit/CoreData (0.9.3.1):
+    - RestKit (= 0.9.3.1)
+    - RestKit/ObjectMapping
+  - RestKit/Network (0.9.3.1):
+    - LibComponentLogging-NSLog
+    - RestKit (= 0.9.3.1)
+  - RestKit/ObjectMapping (0.9.3.1):
+    - RestKit (= 0.9.3.1)
+    - RestKit/Network
+  - RestKit/ObjectMapping/JSONKit (0.9.3.1):
+    - JSONKit
+    - RestKit (= 0.9.3.1)
+    - RestKit/ObjectMapping (= 0.9.3.1)
+  - SocketRocket (0.1)
+  - libPusher (1.2):
+    - JSONKit (= 1.4)
+    - SocketRocket (from `git://github.com/square/SocketRocket', commit `ec6c145f4a')
+
+DOWNLOAD_ONLY:
+  - RestKit (0.9.3.1)
+
+DEPENDENCIES:
+  - RestKit/CoreData (= 0.9.3.1)
+  - RestKit/ObjectMapping/JSONKit (= 0.9.3.1)
+  - libPusher
