@@ -65,6 +65,10 @@
 
 - (void)subscribeToChannel:(NSString *)channelName
 {
+    if ([self.subscribedChannels valueForKey:channelName]) {
+        return;
+    }
+
     PTPusherChannel *channel = [self.client subscribeToChannelNamed:channelName];
     [self.subscribedChannels setValue:channel forKey:channelName];
 
