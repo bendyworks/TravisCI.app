@@ -6,3 +6,4 @@ automation/pusher_secret_key.txt
 automation/results
 automation/*.js
 instrumentscli*
+bundler_bin
