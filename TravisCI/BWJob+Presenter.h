@@ -7,7 +7,7 @@
 //
 
 #import "BWCDJob.h"
-#import "RestKit/CoreData.h"
+#import "CoreData.h"
 
 @class BWBuild;
 

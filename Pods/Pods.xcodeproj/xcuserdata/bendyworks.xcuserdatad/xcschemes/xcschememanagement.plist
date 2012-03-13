@@ -7,92 +7,17 @@
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>278AEE10765E4B0C9714DF66</key>
+		<key>520FB255B6EE4D7F9F07D936</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E8330158F294E8F88E56DC4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>605D8502F5064D15A3F056F6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>651809D730F74650A40FB608</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6E4D00BE7A2B4328A0CD802B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7649B49EB3354852B0F07FD6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7B8D3C4418AB404EB2190A90</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>87C7CABA08404261849B631F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>93D24247770B453291BB9591</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>98010B52FEDD4230982B88C3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9EA987D9A8FE4547A121F31A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A219C12559A24A72805B345B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BB17BCC2187D4FAC91DDB41D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D7D8F7B5B68B4D9D9FCA55B7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D976B4CF86C241F293CC825D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ED18D44E5400458F8B9CCBA9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F680253DFF644122B51D6C54</key>
+		<key>D827A630F9A641ECAEBB28F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

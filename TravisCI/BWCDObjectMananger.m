@@ -7,7 +7,7 @@
 //
 
 #import "BWCDObjectMananger.h"
-#import "RestKit/CoreData.h"
+#import <CoreData.h>
 #import "BWCDRepository.h"
 #import "BWJob+all.h"
 

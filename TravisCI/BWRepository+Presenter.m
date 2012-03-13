@@ -7,7 +7,7 @@
 //
 
 #import "BWRepository+Presenter.h"
-#import "RestKit/RKObjectManager.h"
+#import "CoreData.h"
 
 #import "NSDate+Formatting.h"
 #import "BWPresenter.h"

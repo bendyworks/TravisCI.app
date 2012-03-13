@@ -8,7 +8,7 @@
 
 #import "BWBuild+Presenter.h"
 #import "BWPresenter.h"
-#import "RestKit/CoreData.h"
+#import "CoreData.h"
 
 @implementation BWCDBuild (Presenter)
 
