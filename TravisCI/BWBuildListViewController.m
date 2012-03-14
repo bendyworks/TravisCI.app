@@ -70,21 +70,23 @@
 
 - (void)setNavigationTitleProperties:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
-        UIColor *tinColor = [UIColor colorWithRed:0.443f green:0.471f blue:0.502f alpha:1.0f];
-        [self.authorName setTextColor:tinColor];
-        [self.authorName setShadowColor:[UIColor whiteColor]];
-        [self.authorName setShadowOffset:CGSizeMake(0.0f, 0.0f)];
-        [self.repositoryName setTextColor:tinColor];
-        [self.repositoryName setShadowColor:[UIColor whiteColor]];
-        [self.repositoryName setShadowOffset:CGSizeMake(0.0f, 1.0f)];
-    } else {
-        [self.authorName setTextColor:[UIColor whiteColor]];
-        [self.authorName setShadowColor:[UIColor darkGrayColor]];
-        [self.authorName setShadowOffset:CGSizeMake(0.0f, -1.0f)];
-        [self.repositoryName setTextColor:[UIColor whiteColor]];
-        [self.repositoryName setShadowColor:[UIColor darkGrayColor]];
-        [self.repositoryName setShadowOffset:CGSizeMake(0.0f, -1.0f)];
+    if ([[[UIDevice currentDevice] systemVersion] isEqualToString:@"5.0"]) {
+        if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+            UIColor *tinColor = [UIColor colorWithRed:0.443f green:0.471f blue:0.502f alpha:1.0f];
+            [self.authorName setTextColor:tinColor];
+            [self.authorName setShadowColor:[UIColor whiteColor]];
+            [self.authorName setShadowOffset:CGSizeMake(0.0f, 0.0f)];
+            [self.repositoryName setTextColor:tinColor];
+            [self.repositoryName setShadowColor:[UIColor whiteColor]];
+            [self.repositoryName setShadowOffset:CGSizeMake(0.0f, 1.0f)];
+        } else {
+            [self.authorName setTextColor:[UIColor whiteColor]];
+            [self.authorName setShadowColor:[UIColor darkGrayColor]];
+            [self.authorName setShadowOffset:CGSizeMake(0.0f, -1.0f)];
+            [self.repositoryName setTextColor:[UIColor whiteColor]];
+            [self.repositoryName setShadowColor:[UIColor darkGrayColor]];
+            [self.repositoryName setShadowOffset:CGSizeMake(0.0f, -1.0f)];
+        }
     }
 }
 

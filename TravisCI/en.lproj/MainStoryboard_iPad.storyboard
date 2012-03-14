@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="5">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
         <scene sceneID="14">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13" sceneMemberID="firstResponder"/>
@@ -19,6 +21,7 @@
             </objects>
             <point key="canvasLocation" x="448" y="-630"/>
         </scene>
+        <!--Pad Job Detail View Controller - Job-->
         <scene sceneID="8hc-5Q-x9a">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPn-D8-vNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -72,6 +75,7 @@
             </objects>
             <point key="canvasLocation" x="-196" y="1365"/>
         </scene>
+        <!--Pad Job Detail Half View Controller-->
         <scene sceneID="jZ4-xv-74a">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4q-fy-bkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -113,7 +117,7 @@
                                         <rect key="frame" x="0.0" y="55" width="384" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="364" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="364" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qzn-nw-04L">
@@ -139,7 +143,7 @@
                                         <rect key="frame" x="0.0" y="99" width="384" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="364" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="364" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Commit" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OCQ-oV-UYm">
@@ -182,6 +186,7 @@
             </objects>
             <point key="canvasLocation" x="901" y="1391"/>
         </scene>
+        <!--Pad Job Detail Half View Controller-->
         <scene sceneID="vKX-LE-ECr">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XbC-yB-C42" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -223,7 +228,7 @@
                                         <rect key="frame" x="0.0" y="55" width="384" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="364" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="364" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Author" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O35-Nd-yfg">
@@ -249,7 +254,7 @@
                                         <rect key="frame" x="0.0" y="99" width="384" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="364" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="364" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Log Lines" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vqc-fM-plJ">
@@ -290,6 +295,7 @@
             </objects>
             <point key="canvasLocation" x="943" y="1757"/>
         </scene>
+        <!--View Controller-->
         <scene sceneID="7Z6-ab-yMz">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="De4-Dh-q0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -307,6 +313,7 @@
             </objects>
             <point key="canvasLocation" x="843" y="2159"/>
         </scene>
+        <!--Split View Controller-->
         <scene sceneID="18">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -322,6 +329,7 @@
             </objects>
             <point key="canvasLocation" x="-687" y="-630"/>
         </scene>
+        <!--Repository List View Controller - Master-->
         <scene sceneID="24">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
@@ -345,6 +353,7 @@
             </objects>
             <point key="canvasLocation" x="876" y="-630"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="50">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -359,6 +368,7 @@
             </objects>
             <point key="canvasLocation" x="-366" y="248"/>
         </scene>
+        <!--Build List View Controller - Master-->
         <scene sceneID="DbP-Zl-9qp">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLe-dX-RsF" sceneMemberID="firstResponder"/>
@@ -384,18 +394,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="21"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" red="0.44313728809356689" green="0.47058826684951782" blue="0.50196081399917603" alpha="1" colorSpace="deviceRGB"/>
                                     <nil key="highlightedColor"/>
-                                    <color key="shadowColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="gPh-UL-Ee1">
                                     <rect key="frame" x="0.0" y="12" width="128" height="21"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" red="0.44313728809356689" green="0.47058826684951782" blue="0.50196081399917603" alpha="1" colorSpace="deviceRGB"/>
                                     <nil key="highlightedColor"/>
-                                    <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -412,6 +420,7 @@
             </objects>
             <point key="canvasLocation" x="1363" y="-630"/>
         </scene>
+        <!--Job List View Controller - Master-->
         <scene sceneID="IoZ-WB-XL8">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Phc-UD-pLx" sceneMemberID="firstResponder"/>
@@ -434,6 +443,7 @@
             </objects>
             <point key="canvasLocation" x="1832" y="-630"/>
         </scene>
+        <!--Splash Screen View Controller-->
         <scene sceneID="Etc-zI-3LX">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57O-5d-vA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -459,6 +469,7 @@
             </objects>
             <point key="canvasLocation" x="-1027" y="1365"/>
         </scene>
+        <!--Detail Container View Controller-->
         <scene sceneID="kXh-FH-hMf">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ai2-6Q-DCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -482,6 +493,7 @@
             </objects>
             <point key="canvasLocation" x="685" y="281"/>
         </scene>
+        <!--Credits View Controller - Thanks!-->
         <scene sceneID="LbW-4T-QEP">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iuw-4l-gvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -509,6 +521,7 @@
             </objects>
             <point key="canvasLocation" x="2307" y="355"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="6v0-8b-T6b">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4n-qa-DYf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -531,6 +544,54 @@
     <resources>
         <image name="travis.background.png" width="1024" height="1024"/>
     </resources>
+    <classes>
+        <class className="BWBuildListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWBuildListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authorName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="repositoryName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BWCreditsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWCreditsViewController.h"/>
+        </class>
+        <class className="BWDetailContainerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWDetailContainerViewController.h"/>
+        </class>
+        <class className="BWJobListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWJobListViewController.h"/>
+        </class>
+        <class className="BWPadJobDetailHalfViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWPadJobDetailHalfViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="authorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="commitLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="compareLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="configLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="finishedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="logLinesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BWPadJobDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWPadJobDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="largeTextArea" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="largeTextAreaToggle" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="BWRepositoryListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWRepositoryListViewController.h"/>
+        </class>
+        <class className="BWSplashScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BWSplashScreenViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="splashImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
