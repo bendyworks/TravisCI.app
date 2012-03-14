@@ -79,7 +79,8 @@
                                                           managedObjectModel:self.managedObjectModel
                                                                     delegate:nil];
 
-    manager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+//    manager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+
 
 
     NSEntityDescription *repositoryDescription = [NSEntityDescription entityForName:@"BWCDRepository"

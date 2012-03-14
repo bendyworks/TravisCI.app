@@ -3,15 +3,15 @@ PODS:
   - LibComponentLogging-Core (1.1.4)
   - LibComponentLogging-NSLog (1.0.2):
     - LibComponentLogging-Core (>= 1.1.4)
-  - RestKit/CoreData (0.9.3):
-    - JSONKit
-    - RestKit (= 0.9.3)
   - RestKit/Network (0.9.3):
     - LibComponentLogging-NSLog
     - RestKit (= 0.9.3)
   - RestKit/ObjectMapping (0.9.3):
     - RestKit (= 0.9.3)
     - RestKit/Network
+  - RestKit/ObjectMapping/CoreData (0.9.3):
+    - RestKit (= 0.9.3)
+    - RestKit/ObjectMapping (= 0.9.3)
   - SocketRocket (0.1)
   - libPusher (1.2):
     - JSONKit (= 1.4)
@@ -21,6 +21,6 @@ DOWNLOAD_ONLY:
   - RestKit (0.9.3)
 
 DEPENDENCIES:
-  - RestKit/CoreData
-  - RestKit/ObjectMapping
+  - RestKit/Network
+  - RestKit/ObjectMapping/CoreData
   - libPusher

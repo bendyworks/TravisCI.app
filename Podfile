@@ -1,4 +1,4 @@
 platform :ios
-dependency 'RestKit/ObjectMapping'
-dependency 'RestKit/CoreData'
 dependency 'libPusher'
+dependency 'RestKit/Network'
+dependency 'RestKit/ObjectMapping/CoreData'

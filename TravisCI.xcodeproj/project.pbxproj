@@ -96,9 +96,10 @@
 		DAADBF8C14BE3354000F655E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAADBF8B14BE3354000F655E /* QuartzCore.framework */; };
 		DAADBF8F14BE46F5000F655E /* BWRepositoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF8E14BE46F5000F655E /* BWRepositoryDetailViewController.m */; };
 		DAADBF9814BF3831000F655E /* BWBuildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAADBF9714BF3831000F655E /* BWBuildDetailViewController.m */; };
+		DAB7F4EB1511424F00DF673C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB7F4EA1511424F00DF673C /* libPods.a */; };
+		DAB7F4ED151145D300DF673C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB7F4EC151145D300DF673C /* libicucore.dylib */; };
 		DAC3873C14A1318500927334 /* NSDate+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873B14A1318500927334 /* NSDate+Formatting.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DAC3873E14A134BB00927334 /* NSDate_FormattingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC3873D14A134BB00927334 /* NSDate_FormattingSpec.m */; };
-		ED4CB2CA1F414640B5222E57 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD089E513F5147D4B12821F1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +237,8 @@
 		DAADBF8E14BE46F5000F655E /* BWRepositoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryDetailViewController.m; sourceTree = "<group>"; };
 		DAADBF9614BF3831000F655E /* BWBuildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBuildDetailViewController.h; sourceTree = "<group>"; };
 		DAADBF9714BF3831000F655E /* BWBuildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuildDetailViewController.m; sourceTree = "<group>"; };
+		DAB7F4EA1511424F00DF673C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPods.a; path = "Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		DAB7F4EC151145D300DF673C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		DAC2E04B15056F9800A5858F /* BWJob+All.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BWJob+All.h"; sourceTree = "<group>"; };
 		DAC2E04C15056FAA00A5858F /* BWBuild+All.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BWBuild+All.h"; sourceTree = "<group>"; };
 		DAC2E04D150570C200A5858F /* BWRepository+All.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BWRepository+All.h"; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB7F4ED151145D300DF673C /* libicucore.dylib in Frameworks */,
+				DAB7F4EB1511424F00DF673C /* libPods.a in Frameworks */,
 				A216883A14EC5C31008F3E4F /* QuartzCore.framework in Frameworks */,
 				DA683C73149FC660000477AF /* libxml2.dylib in Frameworks */,
 				DA683C71149FC657000477AF /* SystemConfiguration.framework in Frameworks */,
@@ -259,7 +264,6 @@
 				DA966D02149FAC3900C229CB /* Foundation.framework in Frameworks */,
 				DA966D04149FAC3900C229CB /* CoreGraphics.framework in Frameworks */,
 				DA966D06149FAC3900C229CB /* CoreData.framework in Frameworks */,
-				ED4CB2CA1F414640B5222E57 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +341,7 @@
 		DA683C66149FC520000477AF /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				DAB7F4EA1511424F00DF673C /* libPods.a */,
 				DAC3873914A1316C00927334 /* DistanceOfTimeInWords */,
 			);
 			name = Vendor;
@@ -441,6 +446,7 @@
 		DA966CF0149FAC3900C229CB = {
 			isa = PBXGroup;
 			children = (
+				DAB7F4EC151145D300DF673C /* libicucore.dylib */,
 				A2EFED8F14D74FC3001C25AD /* MIT-LICENSE */,
 				DA966D07149FAC3900C229CB /* TravisCI */,
 				DA966D2F149FAC3900C229CB /* TravisCITests */,
@@ -903,7 +909,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -925,7 +931,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1044,7 +1050,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "TravisCI/TravisCI-Info.plist";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",

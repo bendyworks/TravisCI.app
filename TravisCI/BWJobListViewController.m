@@ -11,7 +11,7 @@
 #import "BWJobListViewController.h"
 #import "BWPhoneJobDetailViewController.h"
 #import "BWDetailContainerViewController.h"
-#import "RestKit/CoreData.h"
+#import "CoreData.h"
 #import "BWJob+All.h"
 #import "BWJobTableCell.h"
 #import "BWBuild+All.h"
