@@ -29,13 +29,15 @@ task :build do
     'CONFIGURATION_BUILD_DIR' => '~/dev/ios/TravisCI/build'
   }.map{|key,val| "#{key}=#{val}"}.join(' ')
 
-  system "xcodebuild \
+  exited_with_0 = system "xcodebuild \
     -workspace #{workspace} \
     -scheme #{scheme} \
     -configuration #{configuration} \
     -sdk #{sdk} \
     #{variables} \
     clean build"
+
+  raise 'Build failed' unless exited_with_0
 end
 
 def run_test_with_script path
