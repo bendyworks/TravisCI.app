@@ -1,4 +1,4 @@
 PODS_ROOT = $(SRCROOT)/Pods
-HEADER_SEARCH_PATHS = "$(PODS_ROOT)/Headers" "$(PODS_ROOT)/Headers/JSONKit" "$(PODS_ROOT)/Headers/LibComponentLogging" "$(PODS_ROOT)/Headers/RestKit" "$(PODS_ROOT)/Headers/RestKit/Network" "$(PODS_ROOT)/Headers/RestKit/ObjectMapping" "$(PODS_ROOT)/Headers/RestKit/RKCoreData" "$(PODS_ROOT)/Headers/RestKit/Support" "$(PODS_ROOT)/Headers/SocketRocket" "$(PODS_ROOT)/Headers/libPusher"
+HEADER_SEARCH_PATHS = "$(PODS_ROOT)/Headers" "$(PODS_ROOT)/Headers/JSONKit" "$(PODS_ROOT)/Headers/LibComponentLogging" "$(PODS_ROOT)/Headers/RestKit" "$(PODS_ROOT)/Headers/RestKit/Network" "$(PODS_ROOT)/Headers/RestKit/ObjectMapping" "$(PODS_ROOT)/Headers/RestKit/RKCoreData" "$(PODS_ROOT)/Headers/RestKit/Support" "$(PODS_ROOT)/Headers/RestKit/Support/Parsers/JSON" "$(PODS_ROOT)/Headers/SocketRocket" "$(PODS_ROOT)/Headers/libPusher"
 ALWAYS_SEARCH_USER_PATHS = YES
 OTHER_LDFLAGS = -ObjC -all_load -framework CFNetwork -framework Security -framework MobileCoreServices -framework SystemConfiguration -framework CoreData -framework CFNetwork -framework Security -licucore

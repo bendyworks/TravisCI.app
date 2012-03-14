@@ -31,7 +31,7 @@
 @synthesize pusherHandler = _pusherHandler;
 
 // these PUSHER_API_KEY values are not sensitive to exposure
-#if TEST_MODE
+#ifdef TEST_MODE
     #define TRAVIS_CI_URL @"http://localhost"
     #define PUSHER_API_KEY @"19623b7a28de248aef28"
 #else

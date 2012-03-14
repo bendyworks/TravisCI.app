@@ -12,6 +12,10 @@ PODS:
   - RestKit/ObjectMapping/CoreData (0.9.3):
     - RestKit (= 0.9.3)
     - RestKit/ObjectMapping (= 0.9.3)
+  - RestKit/ObjectMapping/JSONKit (0.9.3):
+    - JSONKit
+    - RestKit (= 0.9.3)
+    - RestKit/ObjectMapping (= 0.9.3)
   - SocketRocket (0.1)
   - libPusher (1.2):
     - JSONKit (= 1.4)
@@ -23,4 +27,5 @@ DOWNLOAD_ONLY:
 DEPENDENCIES:
   - RestKit/Network
   - RestKit/ObjectMapping/CoreData
+  - RestKit/ObjectMapping/JSONKit
   - libPusher
