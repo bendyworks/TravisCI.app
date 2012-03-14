@@ -45,7 +45,7 @@ PRESENT_statusTextColor
     
     NSString *resourcePath = [NSString stringWithFormat:@"/repositories/%@/builds.json", self.remote_id];
     [manager loadObjectsAtResourcePath:resourcePath
-                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDBuild"]
+                         objectMapping:[manager.mappingProvider mappingForKeyPath:@"BWCDBuild"]
                               delegate:nil];
 }
 

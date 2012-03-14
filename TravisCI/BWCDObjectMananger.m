@@ -32,7 +32,7 @@
         [moc insertObject:repository];
     }
 
-    RKObjectMapping *mapping = [manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"];
+    RKObjectMapping *mapping = [manager.mappingProvider mappingForKeyPath:@"BWCDRepository"];
     RKObjectMappingOperation *mappingOp = [RKObjectMappingOperation mappingOperationFromObject:repositoryDictionary
                                                                                       toObject:repository
                                                                                    withMapping:mapping];
@@ -68,7 +68,7 @@
         [moc insertObject:job];
     }
 
-    RKObjectMapping *mapping = [manager.mappingProvider objectMappingForKeyPath:@"BWCDJob"];
+    RKObjectMapping *mapping = [manager.mappingProvider mappingForKeyPath:@"BWCDJob"];
     RKObjectMappingOperation *mappingOp = [RKObjectMappingOperation mappingOperationFromObject:jobDictionary
                                                                                       toObject:job
                                                                                    withMapping:mapping];
