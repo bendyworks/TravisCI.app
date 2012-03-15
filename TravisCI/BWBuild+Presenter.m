@@ -8,7 +8,7 @@
 
 #import "BWBuild+Presenter.h"
 #import "BWPresenter.h"
-#import "RestKit/CoreData.h"
+#import "CoreData.h"
 
 @implementation BWCDBuild (Presenter)
 
@@ -21,7 +21,7 @@ PRESENT_statusTextColor
     
     NSString *resourcePath = [NSString stringWithFormat:@"/builds/%@.json", self.remote_id];
     [manager loadObjectsAtResourcePath:resourcePath
-                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDBuild"]
+                         objectMapping:[manager.mappingProvider mappingForKeyPath:@"BWCDBuild"]
                               delegate:nil];
 }
 

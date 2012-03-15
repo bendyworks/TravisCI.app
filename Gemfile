@@ -5,3 +5,6 @@ gem 'sinatra'
 gem 'json'
 gem 'pusher'
 gem 'colorful'
+
+gem 'cocoapods'
+gem 'xcodeproj'

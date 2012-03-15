@@ -1,6 +1,0 @@
-[submodule "RestKit"]
-	path = RestKit
-	url = git://github.com/RestKit/RestKit.git
-[submodule "libPusher"]
-	path = libPusher
-	url = git://github.com/bendyworks/libPusher.git

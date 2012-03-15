@@ -13,7 +13,7 @@
 #import "BWJobListViewController.h"
 #import "BWColor.h"
 #import "BWAwesome.h"
-#import "RestKit/CoreData.h"
+#import "CoreData.h"
 
 @interface BWBuildListViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;

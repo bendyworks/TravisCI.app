@@ -143,7 +143,7 @@ PRESENT_statusTextColor
     // do not set delegate to self. If self is a property of a view controller that gets dealloc'ed before
     // the request is finished, the app will crash with EXC_BAD_ACCESS
     [manager loadObjectsAtResourcePath:resourcePath
-                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDJob"]
+                         objectMapping:[manager.mappingProvider mappingForKeyPath:@"BWCDJob"]
                               delegate:nil];
 }
 

@@ -193,7 +193,7 @@
     RKObjectManager *manager = [RKObjectManager sharedManager];
 
     [manager loadObjectsAtResourcePath:@"/repositories.json"
-                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDRepository"]
+                         objectMapping:[manager.mappingProvider mappingForKeyPath:@"BWCDRepository"]
                               delegate:nil];
 }
 

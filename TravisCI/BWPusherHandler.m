@@ -48,7 +48,7 @@
 
 - (void)setupPusherWithKey:(NSString *)apiKey
 {
-    self.client = [PTPusher pusherWithKey:apiKey delegate:(id <PTPusherDelegate>)[UIApplication sharedApplication].delegate];
+    self.client = [PTPusher pusherWithKey:apiKey delegate:(id <PTPusherDelegate>)[UIApplication sharedApplication].delegate encrypted:YES];
     self.client.reconnectAutomatically = YES;
     
     PTPusherChannel *channel = [self.client subscribeToChannelNamed:@"common"];

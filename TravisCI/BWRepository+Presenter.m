@@ -7,7 +7,7 @@
 //
 
 #import "BWRepository+Presenter.h"
-#import "RestKit/RKObjectManager.h"
+#import "CoreData.h"
 
 #import "NSDate+Formatting.h"
 #import "BWPresenter.h"
@@ -45,7 +45,7 @@ PRESENT_statusTextColor
     
     NSString *resourcePath = [NSString stringWithFormat:@"/repositories/%@/builds.json", self.remote_id];
     [manager loadObjectsAtResourcePath:resourcePath
-                         objectMapping:[manager.mappingProvider objectMappingForKeyPath:@"BWCDBuild"]
+                         objectMapping:[manager.mappingProvider mappingForKeyPath:@"BWCDBuild"]
                               delegate:nil];
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RestKit/RKObjectLoader.h"
+#import <CoreData.h>
 #import "PTPusherDelegate.h"
 
 @class BWPusherHandler, BWDetailContainerViewController, BWCDJob;

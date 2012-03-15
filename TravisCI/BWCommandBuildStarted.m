@@ -7,8 +7,8 @@
 //
 
 #import "BWCommandBuildStarted.h"
-#import "RestKit/RKObjectManager.h"
-#import "RestKit/RKObjectMapping.h"
+#import "RKObjectManager.h"
+#import "RKObjectMapping.h"
 #import "BWCDObjectMananger.h"
 
 @implementation BWCommandBuildStarted
