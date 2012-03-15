@@ -97,6 +97,7 @@ namespace :iphone do
 
   task :test => :coffeescript do
     run_test_with_script 'iphone.js'
+    run_test_with_script 'iphone_follow.js'
   end
 end
 
