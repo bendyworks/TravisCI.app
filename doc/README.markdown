@@ -14,31 +14,29 @@ screenshots
 local setup
 -----------
 
-To run in a developement environment:
-
-* run a test version of the travis-ci found in the automation directory
-
-`cd automation`
-
-add a rvmrc file
+gem and pod setup:
 
 `gem install bundler`
 
 `bundle`
 
-`ruby test_travis_server.rb`
+`pod install TravisCI.xcodeproj`
 
-* bind localhost:80 to 5000
 
-`sudo ssh -L 80:localhost:4567 localhost`
+test
+----
 
-* tell TravisCI.app not to use actual travis data
+start the localport binding:
 
-`USE_ACTUAL_TRAVIS_CI_DATA 0`
+`./automation/http_tunnel.sh`
 
-* tell TravisCI.app not to use actual pusher data
+start the test travisci server:
 
-`USE_ACTUAL_TRAVIS_CI_PUSHER_DATA 0`
+`ruby automation/test_travis_server.rb`
+
+test:
+
+`rake`
 
 deploy
 ---------
