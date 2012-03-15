@@ -10,6 +10,7 @@
 #import "BWRepositoryListViewController.h"
 #import "BWDetailContainerViewController.h"
 #import "BWPusherHandler.h"
+#import "BWFavoriteList.h"
 #import "BWJob+presenter.h"
 #import "BWAwesome.h"
 #import "BWTimeStampFile.h"
@@ -29,6 +30,7 @@
 @synthesize managedObjectModel = __managedObjectModel;
 
 @synthesize pusherHandler = _pusherHandler;
+@synthesize favoriteList = _favoriteList;
 
 // these PUSHER_API_KEY values are not sensitive to exposure
 #ifdef TEST_MODE
@@ -49,6 +51,7 @@
     [self setupRestKit];
     [self prepareViewController];
     self.pusherHandler = [BWPusherHandler pusherHandlerWithKey:PUSHER_API_KEY];
+    self.favoriteList = [[BWFavoriteList alloc] init];
     return YES;
 }
 

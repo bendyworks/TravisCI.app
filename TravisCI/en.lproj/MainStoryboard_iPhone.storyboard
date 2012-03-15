@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2177" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2177" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1173"/>
@@ -36,11 +36,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Repositories" id="36">
-                        <barButtonItem key="rightBarButtonItem" title="Credits" id="KzA-eB-uW2">
+                        <barButtonItem key="leftBarButtonItem" title="Credits" id="KzA-eB-uW2">
                             <connections>
                                 <segue destination="teF-L8-Fnd" kind="modal" id="is7-FV-Nig"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="9Le-HK-a4w"/>
                     </navigationItem>
                     <connections>
                         <segue destination="Bjj-Jp-cIk" kind="push" identifier="goToBuilds" id="kH2-Z8-ju3"/>
@@ -406,10 +407,16 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" title="Follow" id="9Yv-0y-Zd3">
+                            <connections>
+                                <action selector="askToToggleFavorite:" destination="Bjj-Jp-cIk" id="fgl-lF-wtA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="authorName" destination="qfB-dV-qVZ" id="ikL-y9-4tO"/>
+                        <outlet property="favoriteButton" destination="9Yv-0y-Zd3" id="urU-tn-GYb"/>
                         <outlet property="repositoryName" destination="gWG-gX-LLt" id="dUH-mk-ZLx"/>
                         <segue destination="gZo-xS-nDq" kind="push" identifier="goToJobList" id="MQz-Ei-AEB"/>
                     </connections>
@@ -576,6 +583,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BWBuildListViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="authorName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="favoriteButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="repositoryName" candidateClass="UILabel"/>
             </relationships>
         </class>

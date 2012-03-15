@@ -10,7 +10,7 @@
 #import <CoreData.h>
 #import "PTPusherDelegate.h"
 
-@class BWPusherHandler, BWDetailContainerViewController, BWCDJob;
+@class BWPusherHandler, BWDetailContainerViewController, BWCDJob, BWFavoriteList;
 
 @interface BWAppDelegate : UIResponder <UIApplicationDelegate, RKObjectLoaderDelegate, PTPusherDelegate>
 
@@ -20,6 +20,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 
 @property (nonatomic, strong) BWPusherHandler *pusherHandler;
+@property (nonatomic, strong) BWFavoriteList *favoriteList;
 
 - (void)subscribeToLogChannelForJob:(BWCDJob *)job;
 - (void)unsubscribeFromLogChannelForJob:(BWCDJob *)job;
