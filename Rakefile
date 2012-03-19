@@ -8,7 +8,7 @@ task :clean do
 end
 
 task :clean_db do
-  print 'Cleaning the applications sqlite cache database'
+  puts "Cleaning the application's sqlite cache database"
   system 'rm -rf ls -1d ~/Library/Application\ Support/iPhone\ Simulator/**/Applications/**/Library/Caches/TravisCI*.sqlite'
 end
 
@@ -19,6 +19,7 @@ end
 
 task :build do
   @current_build ||=1
+  build_device = @current_build == 1 ? "iphone" : "ipad"
   workspace = '~/dev/ios/TravisCI/TravisCI.xcworkspace'
   scheme = 'TravisCI'
   configuration = 'Debug'
@@ -29,7 +30,7 @@ task :build do
     'CONFIGURATION_BUILD_DIR' => '~/dev/ios/TravisCI/build'
   }.map{|key,val| "#{key}=#{val}"}.join(' ')
 
-  exited_with_0 = system "xcodebuild \
+  cmd = "xcodebuild \
     -workspace #{workspace} \
     -scheme #{scheme} \
     -configuration #{configuration} \
@@ -37,33 +38,59 @@ task :build do
     #{variables} \
     clean build"
 
-  raise 'Build failed' unless exited_with_0
+  stdin, stdout, stderr, wait_thr = Open3.popen3 cmd
+
+  print "Building for #{build_device}"
+  out_string = ""
+
+  stdout.each_line do |line|
+    out_string += line
+    print "."
+  end
+  out_string += stderr.read
+
+  stdin.close
+  stdout.close
+  stderr.close
+  exit_status = wait_thr.value
+  puts ""
+
+  if exit_status == 0
+    puts ""
+    puts "## Build Successful ##"
+    puts ""
+  else
+    puts out_string
+    raise 'Build failed'
+  end
 end
 
 def run_test_with_script path
   project_dir = Dir.pwd
   template = '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Instruments/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate'
   app = File.join(project_dir, 'build', 'TravisCI.app')
+  results_path = File.join(project_dir, 'automation', 'results')
   variables = {
     'UIASCRIPT' => File.join(project_dir, 'automation', path),
-    'UIARESULTSPATH' => File.join(project_dir, 'automation', 'results')
+    'UIARESULTSPATH' => results_path
   }.map{|key,val| "-e #{key} #{val}"}.join(' ')
 
-  cmd = "instruments -t #{template} #{app} #{variables}"
+  cmd = "mkdir -p #{results_path} && unix_instruments.sh -t #{template} #{app} #{variables}"
 
-  stdout_str, status = Open3.capture2(cmd)
-
-  stdout_str.each_line do |line|
-    if line =~ /^\d{4}/
-      tokens = line.split(' ')
-      tokens.delete_at(2)
-      tokens.delete_at(0)
-      tokens[1] = tokens[1] =~ /Pass/ ? tokens[1].green : (tokens[1] =~ /Fail/ ? tokens[1].red : tokens[1].yellow)
-      puts "#{tokens[0]} #{tokens[1]}\t#{tokens[2..-1].join(' ')}"
-    else
-      puts line
+  Open3.popen2(cmd) {|stdin, stdout, wait_thr|
+    stdout.each_line do |line|
+      if line =~ /^\d{4}/
+        tokens = line.split(' ')
+        tokens.delete_at(2)
+        tokens.delete_at(0)
+        tokens[1] = tokens[1] =~ /Pass/ ? tokens[1].green : (tokens[1] =~ /Fail/ ? tokens[1].red : tokens[1].yellow)
+        puts "#{tokens[0]} #{tokens[1]}\t#{tokens[2..-1].join(' ')}"
+      else
+        puts line
+      end
     end
-  end
+  }
+
 end
 
 task :ipad do
