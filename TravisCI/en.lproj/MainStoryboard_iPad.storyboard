@@ -487,7 +487,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="GGL-s9-nyG">
-                        <barButtonItem key="leftBarButtonItem" title="Credits" id="VPe-JE-Wrf">
+                        <barButtonItem key="rightBarButtonItem" title="Credits" id="VPe-JE-Wrf">
                             <connections>
                                 <segue destination="XFI-GT-Evb" kind="modal" id="3My-ko-cGx"/>
                             </connections>
