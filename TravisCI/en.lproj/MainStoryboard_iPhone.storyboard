@@ -35,13 +35,17 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Repositories" id="36">
+                    <navigationItem key="navigationItem" title="All Repositories" id="36">
                         <barButtonItem key="leftBarButtonItem" title="Credits" id="KzA-eB-uW2">
                             <connections>
                                 <segue destination="teF-L8-Fnd" kind="modal" id="is7-FV-Nig"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="9Le-HK-a4w"/>
+                        <barButtonItem key="rightBarButtonItem" title="Favorites" id="9Le-HK-a4w">
+                            <connections>
+                                <action selector="tapFavorites:" destination="12" id="Duy-1B-0i2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="Bjj-Jp-cIk" kind="push" identifier="goToBuilds" id="kH2-Z8-ju3"/>
@@ -628,6 +632,9 @@
         </class>
         <class className="BWRepositoryListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BWRepositoryListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="favoritesButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="BWTableViewCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BWTableViewCell.h"/>
