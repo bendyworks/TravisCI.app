@@ -52,7 +52,6 @@
     [self prepareViewController];
     self.pusherHandler = [BWPusherHandler pusherHandlerWithKey:PUSHER_API_KEY];
     self.favoriteList = [[BWFavoriteList alloc] init];
-    NSLog(@"key values: %@", self.favoriteList.all);
     return YES;
 }
 

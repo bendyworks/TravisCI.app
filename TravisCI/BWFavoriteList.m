@@ -98,7 +98,6 @@ static NSString *bwFavoriteList = @"Followed Repositories";
 
 - (void)refreshAll
 {
-    NSLog(@"refreshing all");
     NSArray *favs = [KV_STORE arrayForKey:bwFavoriteList];
     if (favs) {
         self.all = [NSMutableOrderedSet orderedSetWithArray:favs];
@@ -106,7 +105,7 @@ static NSString *bwFavoriteList = @"Followed Repositories";
         self.all = [NSMutableOrderedSet orderedSetWithCapacity:6];
         [self save];
     }
-    NSLog(@"all refreshed: %@", _all);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"favoriteListDidChange" object:nil];
 }
      
 - (void)save

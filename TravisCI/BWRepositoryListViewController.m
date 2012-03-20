@@ -130,6 +130,12 @@
 
 #pragma mark - Fetched results controller
 
+- (void)favoriteListDidChange
+{
+    [self.fetchedResultsController performFetch:nil];
+    [self.tableView reloadData];
+}
+
 - (void)changeFetchRequestToFavorites
 {
     NSFetchRequest *fetchRequest = self.fetchedResultsController.fetchRequest;
@@ -145,6 +151,8 @@
     NSLog(@"error changing to favorites? %@", error);
     NSLog(@"fetched objects: %@", [self.fetchedResultsController fetchedObjects]);
     [self.tableView reloadData];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(favoriteListDidChange:) name:@"favoriteListDidChange" object:nil];
     self.showingFavorites = YES;
 }
 
@@ -159,6 +167,8 @@
     NSLog(@"error changing to all? %@", error);
     NSLog(@"fetched objects: %@", [self.fetchedResultsController fetchedObjects]);
     [self.tableView reloadData];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"favoriteListDidChange" object:nil];
     self.showingFavorites = NO;
 }
 
