@@ -111,6 +111,7 @@ static NSString *bwFavoriteList = @"Followed Repositories";
 - (void)save
 {
     [KV_STORE setArray:[self.all array] forKey:bwFavoriteList];
+    [KV_STORE synchronize];
 }
 
 @end
