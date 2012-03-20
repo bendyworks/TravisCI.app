@@ -48,11 +48,11 @@
     NSRange wholeRange = {0, 0};
 
     matcher = @"\r\r";
-    wholeRange = NSMakeRange(0, [ret length]);
+//    wholeRange = NSMakeRange(0, [ret length]);
     ret = [ret stringByReplacingOccurrencesOfString:matcher withString:@"\r"];
 
     matcher = @"\033[K";
-    wholeRange = NSMakeRange(0, [ret length]);
+//    wholeRange = NSMakeRange(0, [ret length]);
     ret = [ret stringByReplacingOccurrencesOfString:matcher withString:@""];
 
     matcher = @"(?:\[2K|\033\(B)";
