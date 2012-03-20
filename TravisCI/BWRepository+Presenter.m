@@ -14,6 +14,26 @@
 
 @implementation BWCDRepository (Presenter)
 
++ (void)fetchRepository:(NSNumber *)remote_id
+{
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+
+    NSString *resourcePath = [NSString stringWithFormat:@"/repositories/%@.json", remote_id];
+    [manager loadObjectsAtResourcePath:resourcePath
+                         objectMapping:[manager.mappingProvider mappingForKeyPath:@"BWCDRepository"]
+                              delegate:nil];
+}
+
+- (void)fetchBuilds
+{
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+
+    NSString *resourcePath = [NSString stringWithFormat:@"/repositories/%@/builds.json", self.remote_id];
+    [manager loadObjectsAtResourcePath:resourcePath
+                         objectMapping:[manager.mappingProvider mappingForKeyPath:@"BWCDBuild"]
+                              delegate:nil];
+}
+
 PRESENT_statusImage
 PRESENT_statusTextColor
 
@@ -37,16 +57,6 @@ PRESENT_statusTextColor
         NSInteger timeSinceNow = [[NSNumber numberWithDouble:fabs(interval)] integerValue];
         return [NSDate rangeOfTimeInWordsFromSeconds:timeSinceNow];
     }
-}
-
-- (void)fetchBuilds
-{
-    RKObjectManager *manager = [RKObjectManager sharedManager];
-    
-    NSString *resourcePath = [NSString stringWithFormat:@"/repositories/%@/builds.json", self.remote_id];
-    [manager loadObjectsAtResourcePath:resourcePath
-                         objectMapping:[manager.mappingProvider mappingForKeyPath:@"BWCDBuild"]
-                              delegate:nil];
 }
 
 - (BWStatus)currentStatus

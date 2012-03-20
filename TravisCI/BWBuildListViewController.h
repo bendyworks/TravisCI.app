@@ -19,5 +19,6 @@
 @property (nonatomic, strong) BWJobListViewController *jobListController;
 @property (strong, nonatomic) IBOutlet UILabel *repositoryName;
 @property (strong, nonatomic) IBOutlet UILabel *authorName;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *favoriteButton;
 
 @end

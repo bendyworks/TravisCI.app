@@ -48,6 +48,7 @@
 		DA4FAE9D14BCDB8A00F2E174 /* BWBuildTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4FAE9C14BCDB8A00F2E174 /* BWBuildTableCell.m */; };
 		DA4FAE9F14BCDBC200F2E174 /* BWBuildTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4FAE9E14BCDBC200F2E174 /* BWBuildTableCell.xib */; };
 		DA548CFE14BCB5B9007580B4 /* BWCDJob.m in Sources */ = {isa = PBXBuildFile; fileRef = DA548CFD14BCB5B9007580B4 /* BWCDJob.m */; };
+		DA5D34281512725B009609C1 /* BWFavoriteList.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5D34271512725B009609C1 /* BWFavoriteList.m */; };
 		DA65E45B14A0F78E0066A7E4 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA65E45A14A0F78E0066A7E4 /* libKiwi.a */; };
 		DA65E46014A11CF80066A7E4 /* BWRepository+Presenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA65E45F14A11CF80066A7E4 /* BWRepository+Presenter.m */; };
 		DA683C6B149FC627000477AF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA683C6A149FC627000477AF /* CFNetwork.framework */; };
@@ -162,6 +163,9 @@
 		DA4FAE9E14BCDBC200F2E174 /* BWBuildTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BWBuildTableCell.xib; sourceTree = "<group>"; };
 		DA548CFC14BCB5B9007580B4 /* BWCDJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCDJob.h; sourceTree = "<group>"; };
 		DA548CFD14BCB5B9007580B4 /* BWCDJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCDJob.m; sourceTree = "<group>"; };
+		DA5D34261512725B009609C1 /* BWFavoriteList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWFavoriteList.h; sourceTree = "<group>"; };
+		DA5D34271512725B009609C1 /* BWFavoriteList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWFavoriteList.m; sourceTree = "<group>"; };
+		DA5D342915127E61009609C1 /* TravisCI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TravisCI.entitlements; sourceTree = "<group>"; };
 		DA65E45A14A0F78E0066A7E4 /* libKiwi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwi.a; path = "../Kiwi/build/Release-iphoneos/libKiwi.a"; sourceTree = "<group>"; };
 		DA65E45E14A11CF80066A7E4 /* BWRepository+Presenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BWRepository+Presenter.h"; sourceTree = "<group>"; };
 		DA65E45F14A11CF80066A7E4 /* BWRepository+Presenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BWRepository+Presenter.m"; sourceTree = "<group>"; };
@@ -237,7 +241,7 @@
 		DAADBF8E14BE46F5000F655E /* BWRepositoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWRepositoryDetailViewController.m; sourceTree = "<group>"; };
 		DAADBF9614BF3831000F655E /* BWBuildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBuildDetailViewController.h; sourceTree = "<group>"; };
 		DAADBF9714BF3831000F655E /* BWBuildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBuildDetailViewController.m; sourceTree = "<group>"; };
-		DAB7F4EA1511424F00DF673C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPods.a; path = "Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		DAB7F4EA1511424F00DF673C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		DAB7F4EC151145D300DF673C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		DAC2E04B15056F9800A5858F /* BWJob+All.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BWJob+All.h"; sourceTree = "<group>"; };
 		DAC2E04C15056FAA00A5858F /* BWBuild+All.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BWBuild+All.h"; sourceTree = "<group>"; };
@@ -489,6 +493,7 @@
 		DA966D07149FAC3900C229CB /* TravisCI */ = {
 			isa = PBXGroup;
 			children = (
+				DA5D342915127E61009609C1 /* TravisCI.entitlements */,
 				DA7C59AE14BCA60800569F66 /* Custom Cells */,
 				DA7C59A114BC9D7200569F66 /* core_ext */,
 				DA683C88149FEBE1000477AF /* Models */,
@@ -508,6 +513,8 @@
 				DA4D893F14C0DE59001869BE /* BWEnumerableTableViewController.m */,
 				0B70629814F2DF69009D9F7B /* BWTimeStampFile.h */,
 				0B70629914F2DF69009D9F7B /* BWTimeStampFile.m */,
+				DA5D34261512725B009609C1 /* BWFavoriteList.h */,
+				DA5D34271512725B009609C1 /* BWFavoriteList.m */,
 			);
 			path = TravisCI;
 			sourceTree = "<group>";
@@ -778,6 +785,7 @@
 				DA435EE614C634880058D007 /* BWCreditsViewController.m in Sources */,
 				DA435EEA14C779990058D007 /* BWLiveString.m in Sources */,
 				0B70629A14F2DF69009D9F7B /* BWTimeStampFile.m in Sources */,
+				DA5D34281512725B009609C1 /* BWFavoriteList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,6 +911,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64F08E06DFB246CC940C9D9C /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TravisCI/TravisCI.entitlements;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
@@ -925,6 +934,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64F08E06DFB246CC940C9D9C /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TravisCI/TravisCI.entitlements;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
@@ -1044,6 +1054,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64F08E06DFB246CC940C9D9C /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TravisCI/TravisCI.entitlements;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";

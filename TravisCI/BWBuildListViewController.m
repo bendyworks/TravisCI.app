@@ -13,16 +13,20 @@
 #import "BWJobListViewController.h"
 #import "BWColor.h"
 #import "BWAwesome.h"
+#import "BWFavoriteList.h"
+#import "BWAppDelegate.h"
 #import "CoreData.h"
 
 @interface BWBuildListViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)setNavigationTitleProperties:(UIInterfaceOrientation)toInterfaceOrientation;
+- (void)updateFollowButton;
 @end
 
 @implementation BWBuildListViewController
 @synthesize repositoryName;
 @synthesize authorName;
+@synthesize favoriteButton;
 
 @synthesize fetchedResults = __fetchedResults;
 @synthesize repository, jobListController, buildCellNib;
@@ -31,7 +35,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFollowButton) name:@"favoriteListUpdated" object:nil];
         if (IS_IPAD) {
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
@@ -59,6 +63,7 @@
     NSArray *slugInfo = [self.repository.slug componentsSeparatedByString:@"/"];
     [self.authorName setText:[slugInfo objectAtIndex:0]];
     [self.repositoryName setText:[slugInfo objectAtIndex:1]];
+    [self updateFollowButton];
     [super viewWillAppear:animated];
 }
 
@@ -107,6 +112,7 @@
 {
     [self setRepositoryName:nil];
     [self setAuthorName:nil];
+    [self setFavoriteButton:nil];
     [super viewDidUnload];
     self.jobListController = nil;
     self.buildCellNib = nil;
@@ -114,14 +120,44 @@
 }
 
 - (IBAction)askToToggleFavorite:(id)sender {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Add to Favorites?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Add", nil];
+    NSString *titleText = nil;
+    NSString *otherButtonText = nil;
+    NSString *destructiveButtonText = nil;
+
+    BWFavoriteList *favoriteList = ((BWAppDelegate *)[UIApplication sharedApplication].delegate).favoriteList;
+    if ([favoriteList contains:self.repository.remote_id]) {
+        titleText = @"Remove from Favorites?";
+        destructiveButtonText = @"Remove";
+    } else {
+        titleText = @"Add to Favorites?";
+        otherButtonText = @"Add";
+    }
+
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:titleText delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:destructiveButtonText otherButtonTitles:otherButtonText, nil];
     [sheet showFromBarButtonItem:sender animated:YES];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
-        // add to favorites list
+        BWFavoriteList *favoriteList = ((BWAppDelegate *)[UIApplication sharedApplication].delegate).favoriteList;
+        if ([favoriteList contains:self.repository.remote_id]) {
+            [favoriteList remove:self.repository.remote_id];
+        } else {
+            [favoriteList add:self.repository.remote_id];
+        }
+
+        [self updateFollowButton];
+    }
+}
+
+- (void)updateFollowButton
+{
+    BWFavoriteList *favs = ((BWAppDelegate *)[UIApplication sharedApplication].delegate).favoriteList;
+    if ([favs contains:self.repository.remote_id]) {
+        [self.favoriteButton setTitle:@"Unfollow"];
+    } else {
+        [self.favoriteButton setTitle:@"Follow"];
     }
 }
 
