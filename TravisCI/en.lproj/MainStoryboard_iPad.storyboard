@@ -345,8 +345,15 @@
                             <outlet property="delegate" destination="19" id="21"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Repositories" id="40"/>
+                    <navigationItem key="navigationItem" title="All Repositories" id="40">
+                        <barButtonItem key="rightBarButtonItem" title="Favorites" id="n2M-kk-qZA">
+                            <connections>
+                                <action selector="tapFavorites:" destination="19" id="oeY-VP-8Bv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="favoritesButton" destination="n2M-kk-qZA" id="Cih-JD-g0r"/>
                         <segue destination="D7g-5d-MFG" kind="push" identifier="goToBuilds" id="ExH-NV-C8X"/>
                     </connections>
                 </tableViewController>
@@ -591,6 +598,9 @@
         </class>
         <class className="BWRepositoryListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BWRepositoryListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="favoritesButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="BWSplashScreenViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BWSplashScreenViewController.h"/>

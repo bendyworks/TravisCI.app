@@ -10,11 +10,12 @@
 
 @interface BWCDRepository (Presenter)
 
++ (void)fetchRepository:(NSNumber *)remote_id;
+- (void)fetchBuilds;
+
 - (NSString *)durationText;
 - (NSString *)finishedText;
 - (UIImage *)statusImage;
 - (UIColor *)statusTextColor;
-
-- (void)fetchBuilds;
 
 @end

@@ -11,12 +11,16 @@
 #import "BWBuildListViewController.h"
 #import "BWColor.h"
 #import "BWAwesome.h"
+#import "BWFavoriteList.h"
+#import "BWAppDelegate.h"
 
 #import "BWRepository+All.h"
 
 @interface BWRepositoryListViewController ()
+@property BOOL showingFavorites;
 - (void)configureCell:(BWRepositoryTableCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)refreshRepositoryList;
+- (void)refreshFavoritesList;
 @end
 
 @implementation BWRepositoryListViewController
@@ -25,6 +29,9 @@
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize buildListController = _buildListController;
+@synthesize favoritesButton = _FavoritesButton;
+
+@synthesize showingFavorites;
 
 - (void)awakeFromNib
 {
@@ -49,6 +56,7 @@
 
     [super viewWillAppear:animated];
 
+    self.showingFavorites = NO;
     [self refreshRepositoryList];
 }
 
@@ -56,10 +64,25 @@
 
 - (void)viewDidUnload
 {
+    [self setFavoritesButton:nil];
     [super viewDidUnload];
     self.buildListController = nil;
     self.repositoryCellNib = nil;
     self.fetchedResultsController = nil;
+}
+
+- (IBAction)tapFavorites:(id)sender
+{
+    if (self.showingFavorites) {
+        [self changeFetchRequestToAll];
+        self.favoritesButton.title = @"Favorites";
+        self.navigationItem.title = @"All Repositories";
+    } else {
+        [self refreshFavoritesList];
+        [self changeFetchRequestToFavorites];
+        self.favoritesButton.title = @"All";
+        self.navigationItem.title = @"Favorites";
+    }
 }
 
 #pragma mark - Table methods
@@ -107,20 +130,59 @@
 
 #pragma mark - Fetched results controller
 
+- (void)changeFetchRequestToFavorites
+{
+    NSFetchRequest *fetchRequest = self.fetchedResultsController.fetchRequest;
+    
+    BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
+    NSArray *remote_ids = [appDelegate.favoriteList.all array];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"remote_id IN %@", remote_ids];
+    
+    [fetchRequest setPredicate:predicate];
+
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
+    NSLog(@"error changing to favorites? %@", error);
+    NSLog(@"fetched objects: %@", [self.fetchedResultsController fetchedObjects]);
+    [self.tableView reloadData];
+    self.showingFavorites = YES;
+}
+
+- (void)changeFetchRequestToAll
+{
+    NSFetchRequest *fetchRequest = self.fetchedResultsController.fetchRequest;
+
+    [fetchRequest setPredicate:nil];
+
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
+    NSLog(@"error changing to all? %@", error);
+    NSLog(@"fetched objects: %@", [self.fetchedResultsController fetchedObjects]);
+    [self.tableView reloadData];
+    self.showingFavorites = NO;
+}
+
+- (NSFetchRequest *)fetchRequest
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"last_build_started_at" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+
+    return fetchRequest;
+}
+
 - (NSFetchedResultsController *)fetchedResultsController
 {
     if (__fetchedResultsController != nil) {
         return __fetchedResultsController;
     }
 
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"last_build_started_at" ascending:NO];
-    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-
-    [fetchRequest setSortDescriptors:sortDescriptors];
+    NSFetchRequest *fetchRequest = [self fetchRequest];
 
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                                                 managedObjectContext:self.managedObjectContext
@@ -195,6 +257,20 @@
     [manager loadObjectsAtResourcePath:@"/repositories.json"
                          objectMapping:[manager.mappingProvider mappingForKeyPath:@"BWCDRepository"]
                               delegate:nil];
+}
+
+- (void)refreshFavoritesList
+{
+    BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
+    NSArray *remote_ids = [appDelegate.favoriteList.all array];
+    RKObjectManager *manager = [RKObjectManager sharedManager];
+
+    for (NSNumber *remote_id in remote_ids) {
+        [manager loadObjectsAtResourcePath:@"/repositories.json"
+                             objectMapping:[manager.mappingProvider mappingForKeyPath:@"BWCDRepository"]
+                                  delegate:nil];
+    }
+
 }
 
 #pragma mark Getters and Setters

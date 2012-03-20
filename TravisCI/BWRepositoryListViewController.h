@@ -15,8 +15,10 @@
 
 @property (nonatomic, strong) UINib *repositoryCellNib;
 @property (nonatomic, strong) BWBuildListViewController *buildListController;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *favoritesButton;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 
 @end
