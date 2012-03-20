@@ -3,7 +3,7 @@
 //  RKTwitter
 //
 //  Created by Blake Watters on 9/5/10.
-//  Copyright Two Toasters 2010. All rights reserved.
+//  Copyright RestKit 2010. All rights reserved.
 //
 
 #import "RKTwitterViewController.h"
@@ -19,7 +19,6 @@
     // Load the object model via RestKit	
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     objectManager.client.baseURL = @"http://www.twitter.com";
-
     [objectManager loadObjectsAtResourcePath:@"/status/user_timeline/RestKit" delegate:self block:^(RKObjectLoader* loader) {
         // Twitter returns statuses as a naked array in JSON, so we instruct the loader
         // to user the appropriate object mapping

@@ -1,7 +1,7 @@
 # the build
 Build
 build
-DerivedData
+# DerivedData
 Docs/API
 
 # temp nibs and swap files
@@ -22,3 +22,4 @@ Examples/RKDiscussionBoardExample/discussion_board_backend/public/system/attachm
 
 # UISpecRunner cached build path
 .uispec.app
+Specs/Runner/UISpec

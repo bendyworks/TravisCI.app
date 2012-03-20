@@ -3,13 +3,26 @@
 //  RestKit
 //
 //  Created by Blake Watters on 9/22/09.
-//  Copyright 2009 Two Toasters. All rights reserved.
+//  Copyright 2009 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "RKManagedObjectStore.h"
 #import "RKAlert.h"
 #import "NSManagedObject+ActiveRecord.h"
 #import "RKLog.h"
+#import "RKDirectory.h"
 
 // Set Logging Component
 #undef RKLogComponent
@@ -23,7 +36,6 @@ static NSString* const RKManagedObjectStoreThreadDictionaryEntityCacheKey = @"RK
 - (id)initWithStoreFilename:(NSString *)storeFilename inDirectory:(NSString *)nilOrDirectoryPath usingSeedDatabaseName:(NSString *)nilOrNameOfSeedDatabaseInMainBundle managedObjectModel:(NSManagedObjectModel*)nilOrManagedObjectModel delegate:(id)delegate;
 - (void)createPersistentStoreCoordinator;
 - (void)createStoreIfNecessaryUsingSeedDatabase:(NSString*)seedDatabase;
-- (NSString *)applicationDocumentsDirectory;
 - (NSManagedObjectContext*)newManagedObjectContext;
 @end
 
@@ -58,7 +70,7 @@ static NSString* const RKManagedObjectStoreThreadDictionaryEntityCacheKey = @"RK
 		_storeFilename = [storeFilename retain];
 		
 		if (nilOrDirectoryPath == nil) {
-			nilOrDirectoryPath = [self applicationDocumentsDirectory];
+			nilOrDirectoryPath = [RKDirectory applicationDataDirectory];
 		} else {
 			BOOL isDir;
 			NSAssert1([[NSFileManager defaultManager] fileExistsAtPath:nilOrDirectoryPath isDirectory:&isDir] && isDir == YES, @"Specified storage directory exists", nilOrDirectoryPath);
@@ -119,17 +131,45 @@ static NSString* const RKManagedObjectStoreThreadDictionaryEntityCacheKey = @"RK
  */
 - (NSError*)save {
 	NSManagedObjectContext* moc = [self managedObjectContext];
-    NSError *error = nil;
-	
+	NSError *error;
 	@try {
 		if (![moc save:&error]) {
 			if (self.delegate != nil && [self.delegate respondsToSelector:@selector(managedObjectStore:didFailToSaveContext:error:exception:)]) {
 				[self.delegate managedObjectStore:self didFailToSaveContext:moc error:error exception:nil];
 			}
-			
+
 			NSDictionary* userInfo = [NSDictionary dictionaryWithObject:error forKey:@"error"];
 			[[NSNotificationCenter defaultCenter] postNotificationName:RKManagedObjectStoreDidFailSaveNotification object:self userInfo:userInfo];
-			
+
+			if ([[error domain] isEqualToString:@"NSCocoaErrorDomain"]) {
+				NSDictionary *userInfo = [error userInfo];
+				NSArray *errors = [userInfo valueForKey:@"NSDetailedErrors"];
+				if (errors) {
+					for (NSError *detailedError in errors) {
+						NSDictionary *subUserInfo = [detailedError userInfo];
+						RKLogError(@"Core Data Save Error\n \
+							  NSLocalizedDescription:\t\t%@\n \
+							  NSValidationErrorKey:\t\t\t%@\n \
+							  NSValidationErrorPredicate:\t%@\n \
+							  NSValidationErrorObject:\n%@\n",
+							  [subUserInfo valueForKey:@"NSLocalizedDescription"], 
+							  [subUserInfo valueForKey:@"NSValidationErrorKey"], 
+							  [subUserInfo valueForKey:@"NSValidationErrorPredicate"], 
+							  [subUserInfo valueForKey:@"NSValidationErrorObject"]);
+					}
+				}
+				else {
+					RKLogError(@"Core Data Save Error\n \
+							   NSLocalizedDescription:\t\t%@\n \
+							   NSValidationErrorKey:\t\t\t%@\n \
+							   NSValidationErrorPredicate:\t%@\n \
+							   NSValidationErrorObject:\n%@\n", 
+							   [userInfo valueForKey:@"NSLocalizedDescription"],
+							   [userInfo valueForKey:@"NSValidationErrorKey"], 
+							   [userInfo valueForKey:@"NSValidationErrorPredicate"], 
+							   [userInfo valueForKey:@"NSValidationErrorObject"]);
+				}
+			} 
 			return error;
 		}
 	}
@@ -196,17 +236,21 @@ static NSString* const RKManagedObjectStoreThreadDictionaryEntityCacheKey = @"RK
 }
 
 - (void)deletePersistantStoreUsingSeedDatabaseName:(NSString *)seedFile {
-	NSURL* storeUrl = [NSURL fileURLWithPath:self.pathToStoreFile];
+	NSURL* storeURL = [NSURL fileURLWithPath:self.pathToStoreFile];
 	
 	NSError* error;
-	if (![[NSFileManager defaultManager] removeItemAtPath:storeUrl.path error:&error]) {
-		if (self.delegate != nil && [self.delegate respondsToSelector:@selector(managedObjectStore:didFailToDeletePersistentStore:error:)]) {
-			[self.delegate managedObjectStore:self didFailToDeletePersistentStore:self.pathToStoreFile error:error];
-		}
-		else {
-			NSAssert(NO, @"Managed object store failed to delete persistent store : %@", error);
-		}
-	}
+    if ([[NSFileManager defaultManager] fileExistsAtPath:storeURL.path]) {
+        if (![[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:&error]) {
+            if (self.delegate != nil && [self.delegate respondsToSelector:@selector(managedObjectStore:didFailToDeletePersistentStore:error:)]) {
+                [self.delegate managedObjectStore:self didFailToDeletePersistentStore:self.pathToStoreFile error:error];
+            }
+            else {
+                NSAssert(NO, @"Managed object store failed to delete persistent store : %@", error);
+            }
+        }
+    } else {
+        RKLogWarning(@"Asked to delete persistent store but no store file exists at path: %@", storeURL.path);
+    }
 	
 	[_persistentStoreCoordinator release];
 	_persistentStoreCoordinator = nil;
@@ -265,11 +309,11 @@ static NSString* const RKManagedObjectStoreThreadDictionaryEntityCacheKey = @"RK
 	
 	for (NSManagedObject* object in insertedObjects) {
 		if ([object respondsToSelector:@selector(primaryKeyProperty)]) {
-			Class class = [object class];
-			NSString* primaryKey = [class performSelector:@selector(primaryKeyProperty)];
+			Class theClass = [object class];
+			NSString* primaryKey = [theClass performSelector:@selector(primaryKeyProperty)];
 			id primaryKeyValue = [object valueForKey:primaryKey];
 			
-			NSMutableDictionary* classCache = [threadDictionary objectForKey:class];
+			NSMutableDictionary* classCache = [threadDictionary objectForKey:theClass];
 			if (classCache && primaryKeyValue && [classCache objectForKey:primaryKeyValue] == nil) {
 				[classCache setObject:object forKey:primaryKeyValue];
 			}
@@ -279,15 +323,6 @@ static NSString* const RKManagedObjectStoreThreadDictionaryEntityCacheKey = @"RK
 
 #pragma mark -
 #pragma mark Helpers
-
-/**
- Returns the path to the application's documents directory.
- */
-- (NSString *)applicationDocumentsDirectory {	
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
-    return basePath;
-}
 
 - (NSManagedObject*)objectWithID:(NSManagedObjectID*)objectID {
 	return [self.managedObjectContext objectWithID:objectID];
@@ -326,9 +361,9 @@ static NSString* const RKManagedObjectStoreThreadDictionaryEntityCacheKey = @"RK
     if (nil == [entityCache objectForKey:entityName]) {
         NSFetchRequest* fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
         [fetchRequest setEntity:entity];
-        [fetchRequest setReturnsObjectsAsFaults:NO];			
+        [fetchRequest setReturnsObjectsAsFaults:NO];
         objects = [NSManagedObject executeFetchRequest:fetchRequest];
-        RKLogInfo(@"Caching all %d %@ objects to thread local storage", [objects count], entity.name);
+        RKLogInfo(@"Caching all %lu %@ objects to thread local storage", (unsigned long) [objects count], entity.name);
         NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
         BOOL coerceToString = [[[objects lastObject] valueForKey:primaryKeyAttribute] respondsToSelector:@selector(stringValue)];
         for (id theObject in objects) {			

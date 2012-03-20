@@ -3,7 +3,19 @@
 //  RestKit
 //
 //  Created by Blake Watters on 1/14/10.
-//  Copyright 2010 Two Toasters. All rights reserved.
+//  Copyright 2010 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "RKSpecEnvironment.h"
@@ -24,7 +36,7 @@
 
 @implementation RKObjectManagerSpec
 
-- (void)beforeAll {
+- (void)setUp {
     _objectManager = RKSpecNewObjectManager();
 	_objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"RKSpecs.sqlite"];
     [RKObjectManager setSharedManager:_objectManager];
@@ -70,12 +82,12 @@
 //    RKSpecStubNetworkAvailability(YES);
 }
 
-- (void)itShouldSetTheAcceptHeaderAppropriatelyForTheFormat {
-	[expectThat([_objectManager.client.HTTPHeaders valueForKey:@"Accept"]) should:be(@"application/json")];
+- (void)testShouldSetTheAcceptHeaderAppropriatelyForTheFormat {
+	assertThat([_objectManager.client.HTTPHeaders valueForKey:@"Accept"], is(equalTo(@"application/json")));
 }
 
 // TODO: Move to Core Data specific spec file...
-- (void)itShouldUpdateACoreDataBackedTargetObject {
+- (void)testShouldUpdateACoreDataBackedTargetObject {
     RKHuman* temporaryHuman = [[RKHuman alloc] initWithEntity:[NSEntityDescription entityForName:@"RKHuman" inManagedObjectContext:_objectManager.objectStore.managedObjectContext] insertIntoManagedObjectContext:_objectManager.objectStore.managedObjectContext];
     temporaryHuman.name = @"My Name";
     
@@ -94,7 +106,7 @@
     assertThat(human.railsID, is(equalToInt(1)));
 }
 
-- (void)itShouldDeleteACoreDataBackedTargetObjectOnError {
+- (void)testShouldDeleteACoreDataBackedTargetObjectOnError {
     RKHuman* temporaryHuman = [[RKHuman alloc] initWithEntity:[NSEntityDescription entityForName:@"RKHuman" inManagedObjectContext:_objectManager.objectStore.managedObjectContext] insertIntoManagedObjectContext:_objectManager.objectStore.managedObjectContext];
     temporaryHuman.name = @"My Name";
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
@@ -112,7 +124,7 @@
     assertThat(temporaryHuman.managedObjectContext, is(equalTo(nil)));
 }
 
-- (void)itShouldNotDeleteACoreDataBackedTargetObjectOnErrorIfItWasAlreadySaved {
+- (void)testShouldNotDeleteACoreDataBackedTargetObjectOnErrorIfItWasAlreadySaved {
     RKHuman* temporaryHuman = [[RKHuman alloc] initWithEntity:[NSEntityDescription entityForName:@"RKHuman" inManagedObjectContext:_objectManager.objectStore.managedObjectContext] insertIntoManagedObjectContext:_objectManager.objectStore.managedObjectContext];
     temporaryHuman.name = @"My Name";
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
@@ -134,40 +146,40 @@
 }
 
 // TODO: Move to Core Data specific spec file...
-- (void)itShouldLoadAHuman {
-    assertThatBool([RKClient sharedClient].isNetworkAvailable, is(equalToBool(YES)));
+- (void)testShouldLoadAHuman {
+    assertThatBool([RKClient sharedClient].isNetworkReachable, is(equalToBool(YES)));
     RKSpecResponseLoader* loader = [RKSpecResponseLoader responseLoader];    
 	[_objectManager loadObjectsAtResourcePath:@"/JSON/humans/1.json" delegate:loader];
 	[loader waitForResponse];
-    [expectThat(loader.failureError) should:be(nil)];
+    assertThat(loader.failureError, is(nilValue()));
     assertThat(loader.objects, isNot(empty()));
 	RKHuman* blake = (RKHuman*)[loader.objects objectAtIndex:0];
-	[expectThat(blake.name) should:be(@"Blake Watters")];
+	assertThat(blake.name, is(equalTo(@"Blake Watters")));
 }
 
-- (void)itShouldLoadAllHumans {
+- (void)testShouldLoadAllHumans {
     RKSpecResponseLoader* loader = [RKSpecResponseLoader responseLoader];
 	[_objectManager loadObjectsAtResourcePath:@"/JSON/humans/all.json" delegate:loader];
 	[loader waitForResponse];
 	NSArray* humans = (NSArray*) loader.objects;
-	[expectThat([humans count]) should:be(2)];
-	[expectThat([[humans objectAtIndex:0] class]) should:be([RKHuman class])];
+	assertThatUnsignedInteger([humans count], is(equalToInt(2)));	
+	assertThat([humans objectAtIndex:0], is(instanceOf([RKHuman class])));
 }
 
-- (void)itShouldHandleConnectionFailures {
+- (void)testShouldHandleConnectionFailures {
 	NSString* localBaseURL = [NSString stringWithFormat:@"http://127.0.0.1:3001"];
 	RKObjectManager* modelManager = [RKObjectManager objectManagerWithBaseURL:localBaseURL];
-    [RKRequestQueue sharedQueue].suspended = NO;
+    modelManager.client.requestQueue.suspended = NO;
     RKSpecResponseLoader* loader = [RKSpecResponseLoader responseLoader];
 	[modelManager loadObjectsAtResourcePath:@"/JSON/humans/1" delegate:loader];
 	[loader waitForResponse];
-	[expectThat(loader.success) should:be(NO)];
+	assertThatBool(loader.success, is(equalToBool(NO)));
 }
 
-- (void)itShouldPOSTAnObject {
+- (void)testShouldPOSTAnObject {
     RKObjectManager* manager = RKSpecNewObjectManager();
     RKSpecStubNetworkAvailability(YES);
-    assertThatBool([RKClient sharedClient].isNetworkAvailable, is(equalToBool(YES)));
+    assertThatBool([RKClient sharedClient].isNetworkReachable, is(equalToBool(YES)));
     
     RKObjectRouter* router = [[RKObjectRouter new] autorelease];
     [router routeClass:[RKObjectMapperSpecModel class] toResourcePath:@"/humans" forMethod:RKRequestMethodPOST];
@@ -192,7 +204,7 @@
     assertThat(human.name, is(equalTo(@"My Name")));
 }
 
-- (void)itShouldNotSetAContentBodyOnAGET {
+- (void)testShouldNotSetAContentBodyOnAGET {
     RKObjectManager* objectManager = RKSpecNewObjectManager();
     [objectManager.router routeClass:[RKObjectMapperSpecModel class] toResourcePath:@"/humans/1"];
     
@@ -210,7 +222,7 @@
     assertThat([loader.URLRequest valueForHTTPHeaderField:@"Content-Length"], is(equalTo(@"0")));
 }
 
-- (void)itShouldNotSetAContentBodyOnADELETE {
+- (void)testShouldNotSetAContentBodyOnADELETE {
     RKObjectManager* objectManager = RKSpecNewObjectManager();
     [objectManager.router routeClass:[RKObjectMapperSpecModel class] toResourcePath:@"/humans/1"];
     
@@ -230,7 +242,7 @@
 
 #pragma mark - Block Helpers
 
-- (void)itShouldLetYouLoadObjectsWithABlock {
+- (void)testShouldLetYouLoadObjectsWithABlock {
     RKObjectManager* objectManager = RKSpecNewObjectManager();
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[RKObjectMapperSpecModel class]];
     [mapping mapAttributes:@"name", @"age", nil];
@@ -245,7 +257,7 @@
     assertThat(responseLoader.objects, hasCountOf(1));
 }
 
-- (void)itShouldAllowYouToOverrideTheRoutedResourcePath {
+- (void)testShouldAllowYouToOverrideTheRoutedResourcePath {
     RKObjectManager* objectManager = RKSpecNewObjectManager();
     [objectManager.router routeClass:[RKObjectMapperSpecModel class] toResourcePath:@"/humans/2"];
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[RKObjectMapperSpecModel class]];
@@ -263,7 +275,7 @@
     assertThat(responseLoader.response.request.resourcePath, is(equalTo(@"/humans/1")));
 }
 
-- (void)itShouldAllowYouToUseObjectHelpersWithoutRouting {
+- (void)testShouldAllowYouToUseObjectHelpersWithoutRouting {
     RKObjectManager* objectManager = RKSpecNewObjectManager();
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[RKObjectMapperSpecModel class]];
     [mapping mapAttributes:@"name", @"age", nil];
@@ -280,7 +292,7 @@
     assertThat(responseLoader.response.request.resourcePath, is(equalTo(@"/humans/1")));
 }
 
-- (void)itShouldAllowYouToSkipTheMappingProvider {
+- (void)testShouldAllowYouToSkipTheMappingProvider {
     RKObjectManager* objectManager = RKSpecNewObjectManager();
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[RKObjectMapperSpecModel class]];
     mapping.rootKeyPath = @"human";
@@ -297,6 +309,27 @@
     [responseLoader waitForResponse];
     assertThatBool(responseLoader.success, is(equalToBool(YES)));
     assertThat(responseLoader.response.request.resourcePath, is(equalTo(@"/humans/1")));    
+}
+
+- (void)testShouldLetYouOverloadTheParamsOnAnObjectLoaderRequest {
+    RKObjectManager* objectManager = RKSpecNewObjectManager();
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[RKObjectMapperSpecModel class]];
+    mapping.rootKeyPath = @"human";
+    [mapping mapAttributes:@"name", @"age", nil];
+    
+    RKSpecResponseLoader* responseLoader = [RKSpecResponseLoader responseLoader];
+    RKObjectMapperSpecModel* human = [[RKObjectMapperSpecModel new] autorelease];
+    human.name = @"Blake Watters";
+    human.age = [NSNumber numberWithInt:28];
+    NSDictionary *myParams = [NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"];
+    RKObjectLoader* loader = [objectManager sendObject:human delegate:responseLoader block:^(RKObjectLoader* loader) {
+        loader.method = RKRequestMethodPOST;
+        loader.resourcePath = @"/humans/1";
+        loader.objectMapping = mapping;
+        loader.params = myParams;
+    }];
+    [responseLoader waitForResponse];
+    assertThat(loader.params, is(equalTo(myParams)));
 }
 
 @end

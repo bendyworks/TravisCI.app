@@ -3,12 +3,27 @@
 //  RestKit
 //
 //  Created by Blake Watters on 7/28/09.
-//  Copyright 2009 Two Toasters. All rights reserved.
+//  Copyright 2009 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import <Foundation/Foundation.h>
 #import "RKRequest.h"
 
+/**
+ Models the response portion of an HTTP request/response cycle.
+ */
 @interface RKResponse : NSObject {
 	RKRequest* _request;
 	NSHTTPURLResponse* _httpURLResponse;
@@ -76,28 +91,28 @@
 /**
  * Return the localized human readable representation of the HTTP Status Code returned
  */
-- (NSString*)localizedStatusCodeString;
+- (NSString *)localizedStatusCodeString;
 
 /**
  * Return the response body as an NSString
  */
-- (NSString*)bodyAsString;
+- (NSString *)bodyAsString;
 
-/*!
+/**
  * Return the response body parsed as JSON into an object
  * @deprecated in version 2.0
  */
-- (id)bodyAsJSON;
+- (id)bodyAsJSON DEPRECATED_ATTRIBUTE;
 
 /**
  * Return the response body parsed as JSON into an object
  */
-- (id)parsedBody:(NSError**)error;
+- (id)parsedBody:(NSError **)error;
 
 /**
  * Will determine if there is an error object and use it's localized message
  */
-- (NSString*)failureErrorDescription;
+- (NSString *)failureErrorDescription;
 
 /**
  * Indicates whether the response was loaded from RKCache
@@ -156,6 +171,11 @@
 - (BOOL)isCreated;
 
 /**
+ * Indicates an HTTP response code of 204
+ */
+- (BOOL)isNoContent;
+
+/**
  * Indicates an HTTP response code of 304
  */
 - (BOOL)isNotModified;
@@ -208,17 +228,17 @@
 /**
  * Returns the value of 'Content-Type' HTTP header
  */
-- (NSString*)contentType;
+- (NSString *)contentType;
 
 /**
  * Returns the value of the 'Content-Length' HTTP header
  */
-- (NSString*)contentLength;
+- (NSString *)contentLength;
 
 /**
  * Returns the value of the 'Location' HTTP Header
  */
-- (NSString*)location;
+- (NSString *)location;
 
 /**
  * True when the server turned an HTML response (MIME type is text/html)
@@ -239,5 +259,15 @@
  * True when the server turned an JSON response (MIME type is application/json)
  */
 - (BOOL)isJSON;
+
+/**
+ Returns the name of the string encoding used for the response body
+ */
+- (NSString *)bodyEncodingName;
+
+/**
+ Return the string encoding used for the response body
+ */
+- (NSStringEncoding)bodyEncoding;
 
 @end

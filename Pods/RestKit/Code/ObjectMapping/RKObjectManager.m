@@ -3,14 +3,26 @@
 //  RestKit
 //
 //  Created by Jeremy Ellison on 8/14/09.
-//  Copyright 2009 Two Toasters. All rights reserved.
+//  Copyright 2009 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "RKObjectManager.h"
 #import "RKObjectSerializer.h"
-#import "../CoreData/RKManagedObjectStore.h"
-#import "../CoreData/RKManagedObjectLoader.h"
-#import "../Support/Support.h"
+#import "RKManagedObjectStore.h"
+#import "RKManagedObjectLoader.h"
+#import "Support.h"
 #import "RKErrorMessage.h"
 
 NSString* const RKDidEnterOfflineModeNotification = @"RKDidEnterOfflineModeNotification";
@@ -52,8 +64,8 @@ static RKObjectManager* sharedManager = nil;
         		
 		[[NSNotificationCenter defaultCenter] addObserver:self
 												 selector:@selector(reachabilityChanged:)
-													 name:RKReachabilityStateChangedNotification
-												   object:_client.baseURLReachabilityObserver];
+													 name:RKReachabilityDidChangeNotification
+												   object:_client.reachabilityObserver];
 	}
     
 	return self;
@@ -103,7 +115,7 @@ static RKObjectManager* sharedManager = nil;
 }
 
 - (void)reachabilityChanged:(NSNotification*)notification {
-	BOOL isHostReachable = [self.client.baseURLReachabilityObserver isNetworkReachable];
+	BOOL isHostReachable = [self.client.reachabilityObserver isNetworkReachable];
 
 	_onlineState = isHostReachable ? RKObjectManagerOnlineStateConnected : RKObjectManagerOnlineStateDisconnected;
 
@@ -316,6 +328,14 @@ static RKObjectManager* sharedManager = nil;
     loader.objectMapping = objectMapping;
 	[loader send];
 	return loader;
+}
+
+- (RKRequestCache *)requestCache {
+    return self.client.requestCache;
+}
+
+- (RKRequestQueue *)requestQueue {
+    return self.client.requestQueue;
 }
 
 @end

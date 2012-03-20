@@ -3,7 +3,19 @@
 //  RestKit
 //
 //  Created by Blake Watters on 5/31/11.
-//  Copyright 2011 Two Toasters. All rights reserved.
+//  Copyright 2011 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "RKSpecEnvironment.h"
@@ -12,7 +24,7 @@
 #import "RKMappableObject.h"
 
 @interface RKManagedObjectMappingSpec : RKSpec {
-    
+    NSAutoreleasePool *_autoreleasePool;
 }
 
 @end
@@ -20,7 +32,15 @@
 
 @implementation RKManagedObjectMappingSpec
 
-- (void)itShouldReturnTheDefaultValueForACoreDataAttribute {
+//- (void)setUp {
+//    _autoreleasePool = [NSAutoreleasePool new];
+//}
+//
+//- (void)tearDown {
+//    [_autoreleasePool drain];
+//}
+
+- (void)testShouldReturnTheDefaultValueForACoreDataAttribute {
     // Load Core Data
     RKSpecNewManagedObjectStore();
     
@@ -29,7 +49,7 @@
     assertThat(value, is(equalTo(@"Kitty Cat!")));
 }
 
-- (void)itShouldCreateNewInstancesOfUnmanagedObjects {
+- (void)testShouldCreateNewInstancesOfUnmanagedObjects {
     RKSpecNewManagedObjectStore();
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[RKMappableObject class]];
     id object = [mapping mappableObjectForData:[NSDictionary dictionary]];
@@ -37,7 +57,7 @@
     assertThat([object class], is(equalTo([RKMappableObject class])));
 }
 
-- (void)itShouldCreateNewInstancesOfManagedObjectsWhenTheMappingIsAnRKObjectMapping {
+- (void)testShouldCreateNewInstancesOfManagedObjectsWhenTheMappingIsAnRKObjectMapping {
     RKSpecNewManagedObjectStore();
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[RKMappableObject class]];
     id object = [mapping mappableObjectForData:[NSDictionary dictionary]];
@@ -45,7 +65,7 @@
     assertThat([object class], is(equalTo([RKMappableObject class])));
 }
 
-- (void)itShouldFindExistingManagedObjectsByPrimaryKey {
+- (void)testShouldFindExistingManagedObjectsByPrimaryKey {
     RKManagedObjectStore* store = RKSpecNewManagedObjectStore();
     RKManagedObjectMapping* mapping = [RKManagedObjectMapping mappingForClass:[RKHuman class]];
     mapping.primaryKeyAttribute = @"railsID";
@@ -62,7 +82,7 @@
     assertThat(object, is(equalTo(human)));
 }
 
-- (void)itShouldFindExistingManagedObjectsByPrimaryKeyPath {
+- (void)testShouldFindExistingManagedObjectsByPrimaryKeyPath {
     RKManagedObjectStore* store = RKSpecNewManagedObjectStore();
     [RKHuman truncateAll];
     RKManagedObjectMapping* mapping = [RKManagedObjectMapping mappingForClass:[RKHuman class]];
@@ -82,7 +102,7 @@
     assertThat(object, is(equalTo(human)));
 }
 
-- (void)itShouldCreateNewManagedObjectInstancesWhenThereIsNoPrimaryKeyInTheData {
+- (void)testShouldCreateNewManagedObjectInstancesWhenThereIsNoPrimaryKeyInTheData {
     RKSpecNewManagedObjectStore();
     RKManagedObjectMapping* mapping = [RKManagedObjectMapping mappingForClass:[RKHuman class]];
     mapping.primaryKeyAttribute = @"railsID";
@@ -93,7 +113,7 @@
     assertThat(object, is(instanceOf([RKHuman class])));
 }
 
-- (void)itShouldCreateNewManagedObjectInstancesWhenThereIsNoPrimaryKeyAttribute {
+- (void)testShouldCreateNewManagedObjectInstancesWhenThereIsNoPrimaryKeyAttribute {
     RKSpecNewManagedObjectStore();
     RKManagedObjectMapping* mapping = [RKManagedObjectMapping mappingForClass:[RKHuman class]];
     
@@ -103,7 +123,7 @@
     assertThat(object, is(instanceOf([RKHuman class])));
 }
 
-- (void)itShouldCreateANewManagedObjectWhenThePrimaryKeyValueIsNSNull {
+- (void)testShouldCreateANewManagedObjectWhenThePrimaryKeyValueIsNSNull {
     RKSpecNewManagedObjectStore();
     RKManagedObjectMapping* mapping = [RKManagedObjectMapping mappingForClass:[RKHuman class]];
     mapping.primaryKeyAttribute = @"railsID";
@@ -113,6 +133,26 @@
     id object = [mapping mappableObjectForData:data];
     assertThat(object, isNot(nilValue()));
     assertThat(object, is(instanceOf([RKHuman class])));
+}
+
+- (void)testShouldMapACollectionOfObjectsWithDynamicKeys {
+    RKManagedObjectStore *objectStore = RKSpecNewManagedObjectStore();
+    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForClass:[RKHuman class]];
+    mapping.forceCollectionMapping = YES;
+    mapping.primaryKeyAttribute = @"name";
+    [mapping mapKeyOfNestedDictionaryToAttribute:@"name"];    
+    RKObjectAttributeMapping *idMapping = [RKObjectAttributeMapping mappingFromKeyPath:@"(name).id" toKeyPath:@"railsID"];
+    [mapping addAttributeMapping:idMapping];
+    RKObjectMappingProvider *provider = [[RKObjectMappingProvider new] autorelease];
+    [provider setMapping:mapping forKeyPath:@"users"];
+    
+    id mockObjectStore = [OCMockObject partialMockForObject:objectStore];
+    [[[mockObjectStore expect] andForwardToRealObject] findOrCreateInstanceOfEntity:OCMOCK_ANY withPrimaryKeyAttribute:@"name" andValue:@"blake"];
+    [[[mockObjectStore expect] andForwardToRealObject] findOrCreateInstanceOfEntity:mapping.entity withPrimaryKeyAttribute:@"name" andValue:@"rachit"];
+    id userInfo = RKSpecParseFixture(@"DynamicKeys.json");
+    RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:userInfo mappingProvider:provider];
+    [mapper performMapping];
+    [mockObjectStore verify];
 }
 
 @end

@@ -3,6 +3,7 @@
 
 require 'rubygems'
 require 'sinatra/base'
+require "sinatra/reloader"
 require 'json'
 require 'ruby-debug'
 Debugger.start
@@ -12,17 +13,21 @@ $: << File.join(File.expand_path(File.dirname(__FILE__)), 'lib')
 require 'restkit/network/authentication'
 require 'restkit/network/etags'
 require 'restkit/network/timeout'
+require 'restkit/network/oauth2'
 
 class RestKit::SpecServer < Sinatra::Base
   self.app_file = __FILE__
   use RestKit::Network::Authentication
   use RestKit::Network::ETags
   use RestKit::Network::Timeout
+  use RestKit::Network::OAuth2
   
   configure do
+    register Sinatra::Reloader
     set :logging, true
     set :dump_errors, true
     set :public, Proc.new { File.join(root, '../Fixtures') }
+    set :uploads_path, Proc.new { File.join(root, '../Fixtures/Uploads') }
   end
   
   get '/' do
@@ -73,10 +78,28 @@ class RestKit::SpecServer < Sinatra::Base
     params.to_json
   end
   
+  post '/204' do
+    status 204
+    content_type 'application/json'
+    ""
+  end
+  
+  get '/403' do
+    status 403
+    content_type 'application/json'
+    "{}"
+  end
+  
   get '/404' do
     status 404
     content_type 'text/html'
     "File Not Found"
+  end
+  
+  get '/encoding' do
+    status 200
+    content_type 'text/plain; charset=us-ascii'
+    "ASCII Charset"
   end
   
   post '/notNestedUser' do
@@ -100,6 +123,15 @@ class RestKit::SpecServer < Sinatra::Base
     content_type 'application/json'
     params.to_json
   end
+
+  get '/timeout' do
+    # We need to leave this around 4 seconds so we don't hold up the
+    # process too long and cause the tests launched after to fail.
+    sleep 4
+    status 200
+    content_type 'application/json'
+    params.to_json
+  end
   
   get '/empty/array' do
     status 200
@@ -119,6 +151,27 @@ class RestKit::SpecServer < Sinatra::Base
     ""
   end
   
+  # Expects an uploaded 'file' param
+  post '/upload' do
+    unless params['file']
+      status 500
+      return "No file parameter was provided"
+    end
+    upload_path = File.join(settings.uploads_path, params['file'][:filename])
+    File.open(upload_path, "w") do |f|
+      f.write(params['file'][:tempfile].read)
+    end
+    status 200
+    "Uploaded successfully to '#{upload_path}'"
+  end
+  # Return 200 after a delay
+  get '/ok-with-delay/:delay' do
+    sleep params[:delay].to_f
+    status 200
+    content_type 'application/json'
+    ""
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

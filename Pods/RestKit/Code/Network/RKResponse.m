@@ -1,14 +1,25 @@
 //
 //  RKResponse.m
-//  RKFramework
+//  RestKit
 //
 //  Created by Blake Watters on 7/28/09.
-//  Copyright 2009 Two Toasters. All rights reserved.
+//  Copyright 2009 RestKit
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "RKResponse.h"
 #import "RKNotifications.h"
-#import "RKNetwork.h"
 #import "RKLog.h"
 #import "RKParserRegistry.h"
 #import "RKClient.h"
@@ -92,31 +103,28 @@ extern NSString* cacheURLKey;
     RKClient* client = [RKClient sharedClient];
     BOOL proceed = NO;
     
-    if( client.disableCertificateValidation ) {
+    if (client.disableCertificateValidation) {
         proceed = YES;
-    }
-#ifdef RESTKIT_SSL_VALIDATION
-    else if( [client.additionalRootCertificates count] > 0 ) {
+    } else if( [client.additionalRootCertificates count] > 0 ) {
         CFArrayRef rootCerts = (CFArrayRef)[client.additionalRootCertificates allObjects];
         SecTrustResultType result;
         OSStatus returnCode;
         
-        if( rootCerts && CFArrayGetCount(rootCerts) ) {
+        if (rootCerts && CFArrayGetCount(rootCerts)) {
             // this could fail, but the trust evaluation will proceed (it's likely to fail, of course)
             SecTrustSetAnchorCertificates(trust, rootCerts);
         }
         
         returnCode = SecTrustEvaluate(trust, &result);
         
-        if( returnCode == errSecSuccess ) {
+        if (returnCode == errSecSuccess) {
             proceed = (result == kSecTrustResultProceed || result == kSecTrustResultConfirm || result == kSecTrustResultUnspecified);
-            if( result == kSecTrustResultRecoverableTrustFailure ) {
+            if (result == kSecTrustResultRecoverableTrustFailure) {
                 // TODO: should try to recover here
                 // call SecTrustGetCssmResult() for more information about the failure
             }
         }
     }
-#endif
     
     return proceed;
 }
@@ -139,11 +147,11 @@ extern NSString* cacheURLKey;
 		NSURLCredential *newCredential;
 		newCredential=[NSURLCredential credentialWithUser:[NSString stringWithFormat:@"%@", _request.username]
 		                                         password:[NSString stringWithFormat:@"%@", _request.password]
-		                                      persistence:RKNetworkGetGlobalCredentialPersistence()];
+                                              persistence:NSURLCredentialPersistenceNone];
 		[[challenge sender] useCredential:newCredential
 		       forAuthenticationChallenge:challenge];
 	} else {
-	    RKLogWarning(@"Failed authentication challenge after %d failures", [challenge previousFailureCount]);
+	    RKLogWarning(@"Failed authentication challenge after %ld failures", (long) [challenge previousFailureCount]);
 		[[challenge sender] cancelAuthenticationChallenge:challenge];
 	}
 }
@@ -154,11 +162,7 @@ extern NSString* cacheURLKey;
 		// server is using an SSL certificate that the OS can't validate
 		// see whether the client settings allow validation here
 		RKClient* client = [RKClient sharedClient];
-		if (client.disableCertificateValidation
-#ifdef RESTKIT_SSL_VALIDATION
-            || [client.additionalRootCertificates count] > 0
-#endif
-            ) {
+		if (client.disableCertificateValidation || [client.additionalRootCertificates count] > 0) {
 			return YES;
 		} else { 
 			return NO;
@@ -176,27 +180,33 @@ extern NSString* cacheURLKey;
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
 	[_body appendData:data];
+    [_request invalidateTimeoutTimer];
+    if ([[_request delegate] respondsToSelector:@selector(request:didReceivedData:totalBytesReceived:totalBytesExectedToReceive:)]) {
+        [[_request delegate] request:_request didReceivedData:[data length] totalBytesReceived:[_body length] totalBytesExectedToReceive:_httpURLResponse.expectedContentLength];
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response {	
-    RKLogDebug(@"NSHTTPURLResponse Status Code: %d", [response statusCode]);
+    RKLogDebug(@"NSHTTPURLResponse Status Code: %ld", (long) [response statusCode]);
     RKLogDebug(@"Headers: %@", [response allHeaderFields]);
-    RKLogTrace(@"Read response body: %@", [self bodyAsString]);
 	_httpURLResponse = [response retain];
+    [_request invalidateTimeoutTimer];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	RKLogTrace(@"Read response body: %@", [self bodyAsString]);
 	[_request didFinishLoad:self];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-	_failureError = [error retain];
-	[_request didFailLoadWithError:_failureError];
+    _failureError = [error retain];
+    [_request invalidateTimeoutTimer];
+    [_request didFailLoadWithError:_failureError];
 }
 
 - (NSInputStream *)connection:(NSURLConnection *)connection needNewBodyStream:(NSURLRequest *)request {
     RKLogWarning(@"RestKit was asked to retransmit a new body stream for a request. Possible connection error or authentication challenge?");
-    return [self.request.params HTTPBodyStream];
+    return nil;
 }
 
 // In the event that the url request is a post, this delegate method will be called before
@@ -216,12 +226,25 @@ extern NSString* cacheURLKey;
 	return [NSHTTPURLResponse localizedStringForStatusCode:[self statusCode]];
 }
 
-- (NSData*)body {
+- (NSData *)body {
 	return _body;
 }
 
-- (NSString*)bodyAsString {
-	return [[[NSString alloc] initWithData:self.body encoding:NSUTF8StringEncoding] autorelease];
+- (NSString *)bodyEncodingName {
+    return [_httpURLResponse textEncodingName];    
+}
+
+- (NSStringEncoding)bodyEncoding {
+    CFStringEncoding cfEncoding = kCFStringEncodingInvalidId;    
+    NSString *textEncodingName = [self bodyEncodingName];
+    if (textEncodingName) {
+        cfEncoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef) textEncodingName);
+    }
+    return (cfEncoding ==  kCFStringEncodingInvalidId) ? NSUTF8StringEncoding : CFStringConvertEncodingToNSStringEncoding(cfEncoding);
+}
+
+- (NSString *)bodyAsString {
+	return [[[NSString alloc] initWithData:self.body encoding:[self bodyEncoding]] autorelease];
 }
 
 - (id)bodyAsJSON {
@@ -231,9 +254,15 @@ extern NSString* cacheURLKey;
 
 - (id)parsedBody:(NSError**)error {
     id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:[self MIMEType]];
+    if (! parser) {
+        RKLogWarning(@"Unable to parse response body: no parser registered for MIME Type '%@'", [self MIMEType]);
+        return nil;
+    }
     id object = [parser objectFromString:[self bodyAsString] error:error];
     if (object == nil) {
-        RKLogError(@"Unable to parse response body: %@", [*error localizedDescription]);
+        if (error && *error) {
+            RKLogError(@"Unable to parse response body: %@", [*error localizedDescription]);
+        }
         return nil;
     }
     return object;
@@ -269,14 +298,14 @@ extern NSString* cacheURLKey;
     if ([self wasLoadedFromCache]) {
         return [[_responseHeaders valueForKey:cacheResponseCodeKey] intValue];
     }
-	return [_httpURLResponse statusCode];
+    return ([_httpURLResponse respondsToSelector:@selector(statusCode)] ? [_httpURLResponse statusCode] : 200);
 }
 
 - (NSDictionary*)allHeaderFields {
 	if ([self wasLoadedFromCache]) {
 		return _responseHeaders;
 	}
-	return [_httpURLResponse allHeaderFields];
+    return ([_httpURLResponse respondsToSelector:@selector(allHeaderFields)] ? [_httpURLResponse allHeaderFields] : nil);
 }
 
 - (NSArray*)cookies {
@@ -321,6 +350,10 @@ extern NSString* cacheURLKey;
 
 - (BOOL)isCreated {
 	return ([self statusCode] == 201);
+}
+
+- (BOOL)isNoContent {
+	return ([self statusCode] == 204);
 }
 
 - (BOOL)isNotModified {

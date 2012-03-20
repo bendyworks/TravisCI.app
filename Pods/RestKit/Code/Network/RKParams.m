@@ -3,11 +3,29 @@
 //  RestKit
 //
 //  Created by Blake Watters on 8/3/09.
-//  Copyright 2009 Two Toasters. All rights reserved.
+//  Copyright 2009 RestKit
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "RKParams.h"
-#import "../Support/RKLog.h"
+#import "RKLog.h"
+#import "NSString+MD5.h"
+
+// Need for iOS 5 UIDevice workaround
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#endif
 
 // Set Logging Component
 #undef RKLogComponent
@@ -48,10 +66,13 @@ NSString* const kRKStringBoundary = @"0xKhTmLbOuNdArY";
 	[super dealloc];
 }
 
-- (RKParams*)initWithDictionary:(NSDictionary*)dictionary {
+- (RKParams *)initWithDictionary:(NSDictionary *)dictionary {
     self = [self init];
 	if (self) {
-		for (NSString* key in dictionary) {
+        // NOTE: We sort the keys to try and ensure given identical dictionaries we'll wind up
+        // with matching MD5 checksums.
+        NSArray *sortedKeys = [[dictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+		for (NSString *key in sortedKeys) {
 			id value = [dictionary objectForKey:key];
 			[self setValue:value forParam:key];
 		}
@@ -60,32 +81,40 @@ NSString* const kRKStringBoundary = @"0xKhTmLbOuNdArY";
 	return self;
 }
 
-- (RKParamsAttachment*)setValue:(id <NSObject>)value forParam:(NSString*)param {
-	RKParamsAttachment* attachment = [[RKParamsAttachment alloc] initWithName:param value:value];
+- (RKParamsAttachment *)setValue:(id <NSObject>)value forParam:(NSString *)param {
+	RKParamsAttachment *attachment = [[RKParamsAttachment alloc] initWithName:param value:value];
 	[_attachments addObject:attachment];
 	[attachment release];
 	
 	return attachment;
 }
 
-- (RKParamsAttachment*)setFile:(NSString*)filePath forParam:(NSString*)param {
-	RKParamsAttachment* attachment = [[RKParamsAttachment alloc] initWithName:param file:filePath];
+- (NSDictionary *)dictionaryOfPlainTextParams {
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    for (RKParamsAttachment *attachment in _attachments)
+        if (attachment.value)   // if the value exist, it is plain text param
+            [result setValue:attachment.value forKey:attachment.name];
+    return [NSDictionary dictionaryWithDictionary:result];
+}
+
+- (RKParamsAttachment *)setFile:(NSString *)filePath forParam:(NSString *)param {
+	RKParamsAttachment *attachment = [[RKParamsAttachment alloc] initWithName:param file:filePath];
 	[_attachments addObject:attachment];
 	[attachment release];
 	
 	return attachment;
 }
 
-- (RKParamsAttachment*)setData:(NSData*)data forParam:(NSString*)param {
-	RKParamsAttachment* attachment = [[RKParamsAttachment alloc] initWithName:param data:data];
+- (RKParamsAttachment *)setData:(NSData *)data forParam:(NSString *)param {
+	RKParamsAttachment *attachment = [[RKParamsAttachment alloc] initWithName:param data:data];
 	[_attachments addObject:attachment];
 	[attachment release];
 	
 	return attachment;
 }
 
-- (RKParamsAttachment*)setData:(NSData*)data MIMEType:(NSString*)MIMEType forParam:(NSString*)param {
-	RKParamsAttachment* attachment = [self setData:data forParam:param];
+- (RKParamsAttachment *)setData:(NSData *)data MIMEType:(NSString *)MIMEType forParam:(NSString *)param {
+	RKParamsAttachment *attachment = [self setData:data forParam:param];
 	if (MIMEType != nil) {
 		attachment.MIMEType = MIMEType;
 	}
@@ -93,8 +122,8 @@ NSString* const kRKStringBoundary = @"0xKhTmLbOuNdArY";
 	return attachment;
 }
 
-- (RKParamsAttachment*)setData:(NSData*)data MIMEType:(NSString*)MIMEType fileName:(NSString*)fileName forParam:(NSString*)param {
-	RKParamsAttachment* attachment = [self setData:data forParam:param];
+- (RKParamsAttachment *)setData:(NSData *)data MIMEType:(NSString *)MIMEType fileName:(NSString *)fileName forParam:(NSString *)param {
+	RKParamsAttachment *attachment = [self setData:data forParam:param];
 	if (MIMEType != nil) {
 		attachment.MIMEType = MIMEType;
 	}
@@ -105,8 +134,8 @@ NSString* const kRKStringBoundary = @"0xKhTmLbOuNdArY";
 	return attachment;
 }
 
-- (RKParamsAttachment*)setFile:(NSString*)filePath MIMEType:(NSString*)MIMEType fileName:(NSString*)fileName forParam:(NSString*)param {
-	RKParamsAttachment* attachment = [self setFile:filePath forParam:param];
+- (RKParamsAttachment *)setFile:(NSString *)filePath MIMEType:(NSString *)MIMEType fileName:(NSString *)fileName forParam:(NSString *)param {
+	RKParamsAttachment *attachment = [self setFile:filePath forParam:param];
 	if (MIMEType != nil) {
 		attachment.MIMEType = MIMEType;
 	}
@@ -119,7 +148,7 @@ NSString* const kRKStringBoundary = @"0xKhTmLbOuNdArY";
 
 #pragma mark RKRequestSerializable methods
 
-- (NSString*)HTTPHeaderValueForContentType {
+- (NSString *)HTTPHeaderValueForContentType {
 	return [NSString stringWithFormat:@"multipart/form-data; boundary=%@", kRKStringBoundary];
 }
 
@@ -139,7 +168,7 @@ NSString* const kRKStringBoundary = @"0xKhTmLbOuNdArY";
 	
 	// Calculate the length	of the stream
     _length = _footerLength;	
-	for (RKParamsAttachment* attachment in _attachments) {
+	for (RKParamsAttachment *attachment in _attachments) {
 		_length += [attachment length];
 	}
 	
@@ -203,10 +232,17 @@ NSString* const kRKStringBoundary = @"0xKhTmLbOuNdArY";
         
         RKLogTrace(@"RKParams stream closed. Releasing self.");        
         
+#if TARGET_OS_IPHONE
         // NOTE: When we are assigned to the URL request, we get
         // retained. We release ourselves here to ensure the retain
         // count will hit zero after upload is complete.
-        [self release];
+        //
+        // This behavior does not seem to happen on iOS 5. This is a workaround until
+        // the problem can be analyzed in more detail
+        if ([[[UIDevice currentDevice] systemVersion] compare:@"5.0" options:NSNumericSearch] == NSOrderedAscending) {
+            [self release];
+        }
+#endif
     }
 }
 
@@ -216,6 +252,19 @@ NSString* const kRKStringBoundary = @"0xKhTmLbOuNdArY";
     }
 	
     return _streamStatus;
+}
+
+- (NSArray *)attachments {
+    return [NSArray arrayWithArray:_attachments];
+}
+
+- (NSString *)MD5 {
+    NSMutableString *attachmentsMD5 = [[NSMutableString new] autorelease];
+    for (RKParamsAttachment *attachment in self.attachments) {
+        [attachmentsMD5 appendString:[attachment MD5]];
+    }
+    
+    return [attachmentsMD5 MD5];
 }
 
 #pragma mark Core Foundation stream methods

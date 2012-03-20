@@ -3,10 +3,22 @@
 //  RestKit
 //
 //  Created by Jeremy Ellison on 8/14/09.
-//  Copyright 2009 Two Toasters. All rights reserved.
+//  Copyright 2009 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
-#import "../Network/Network.h"
+#import "Network.h"
 #import "RKObjectLoader.h"
 #import "RKObjectRouter.h"
 #import "RKObjectMappingProvider.h"
@@ -128,12 +140,24 @@ typedef enum {
  */
 - (id)initWithBaseURL:(NSString*)baseURL;
 
-/// @name Other Methods
+/// @name Network Integration
 
 /**
  The underlying HTTP client for this manager
  */
 @property (nonatomic, retain) RKClient* client;
+
+/**
+ The request cache used to store and load responses for requests sent
+ through this object manager's underlying client object
+ */
+@property (nonatomic, readonly) RKRequestQueue *requestQueue;
+
+/**
+ The request queue used to dispatch asynchronous requests sent
+ through this object manager's underlying client object
+ */
+@property (nonatomic, readonly) RKRequestCache *requestCache;
 
 /**
  True when we are in online mode
@@ -242,7 +266,7 @@ typedef enum {
     - (void)loadObjectWithBlockExample {
         [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/monkeys.json" delegate:self block:^(RKObjectLoader* loader) {
             loader.objectMapping = [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[Monkey class]];
-        }
+        }];
     }
  */
 - (RKObjectLoader*)loadObjectsAtResourcePath:(NSString*)resourcePath delegate:(id<RKObjectLoaderDelegate>)delegate block:(void(^)(RKObjectLoader*))block;

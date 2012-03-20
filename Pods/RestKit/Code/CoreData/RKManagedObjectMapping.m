@@ -3,13 +3,31 @@
 //  RestKit
 //
 //  Created by Blake Watters on 5/31/11.
-//  Copyright 2011 Two Toasters. All rights reserved.
+//  Copyright 2011 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "RKManagedObjectMapping.h"
 #import "NSManagedObject+ActiveRecord.h"
 #import "RKObjectManager.h"
 #import "RKManagedObjectStore.h"
+#import "RKObjectPropertyInspector+CoreData.h"
+#import "RKLog.h"
+
+// Set Logging Component
+#undef RKLogComponent
+#define RKLogComponent lcl_cRestKitCoreData
 
 @implementation RKManagedObjectMapping
 
@@ -93,7 +111,7 @@
     NSString* primaryKeyAttribute;
     
     NSEntityDescription* entity = [self entity];
-    RKObjectAttributeMapping* primaryKeyAttributeMapping = nil;        
+    RKObjectAttributeMapping* primaryKeyAttributeMapping = nil;
     
     primaryKeyAttribute = [self primaryKeyAttribute];
     if (primaryKeyAttribute) {
@@ -106,11 +124,16 @@
             }
         }
         
-        // Get the primary key value out of the mappable data (if any)
-        NSString* keyPathForPrimaryKeyElement = primaryKeyAttributeMapping.sourceKeyPath;
-        if (keyPathForPrimaryKeyElement) {
-            primaryKeyValue = [mappableData valueForKeyPath:keyPathForPrimaryKeyElement];
-        }
+        // Get the primary key value out of the mappable data (if any)        
+        if ([primaryKeyAttributeMapping isMappingForKeyOfNestedDictionary]) {
+            RKLogDebug(@"Detected use of nested dictionary key as primaryKey attribute...");
+            primaryKeyValue = [[mappableData allKeys] lastObject];
+        } else {
+            NSString* keyPathForPrimaryKeyElement = primaryKeyAttributeMapping.sourceKeyPath;
+            if (keyPathForPrimaryKeyElement) {
+                primaryKeyValue = [mappableData valueForKeyPath:keyPathForPrimaryKeyElement];
+            }
+        }        
     }
     
     // If we have found the primary key attribute & value, try to find an existing instance to update
@@ -123,6 +146,15 @@
     }
     
     return object;
+}
+
+- (Class)classForProperty:(NSString*)propertyName {
+    Class propertyClass = [super classForProperty:propertyName];
+    if (! propertyClass) {
+        propertyClass = [[RKObjectPropertyInspector sharedInspector] typeForProperty:propertyName ofEntity:self.entity];
+    }
+    
+    return propertyClass;
 }
 
 @end
