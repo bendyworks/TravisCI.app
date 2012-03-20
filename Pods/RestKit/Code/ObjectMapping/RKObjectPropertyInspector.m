@@ -3,7 +3,19 @@
 //  RestKit
 //
 //  Created by Blake Watters on 3/4/10.
-//  Copyright 2010 Two Toasters. All rights reserved.
+//  Copyright 2010 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import <objc/message.h>
@@ -54,15 +66,15 @@ static RKObjectPropertyInspector* sharedInspector = nil;
 	return type;
 }
 
-- (NSDictionary *)propertyNamesAndTypesForClass:(Class)class {
-	NSMutableDictionary* propertyNames = [_cachedPropertyNamesAndTypes objectForKey:class];
+- (NSDictionary *)propertyNamesAndTypesForClass:(Class)theClass {
+	NSMutableDictionary* propertyNames = [_cachedPropertyNamesAndTypes objectForKey:theClass];
 	if (propertyNames) {
 		return propertyNames;
 	}
 	propertyNames = [NSMutableDictionary dictionary];
 	
 	//include superclass properties
-	Class currentClass = class;
+	Class currentClass = theClass;
 	while (currentClass != nil) {
 		// Get the raw list of properties
 		unsigned int outCount;
@@ -80,9 +92,9 @@ static RKObjectPropertyInspector* sharedInspector = nil;
 			
 			if (![propName isEqualToString:@"_mapkit_hasPanoramaID"]) {
 				const char* className = [[self propertyTypeFromAttributeString:attributeString] cStringUsingEncoding:NSUTF8StringEncoding];
-				Class class = objc_getClass(className);
-				if (class) {
-					[propertyNames setObject:class forKey:propName];
+				Class aClass = objc_getClass(className);
+				if (aClass) {
+					[propertyNames setObject:aClass forKey:propName];
 				}
 			}
 		}
@@ -91,8 +103,8 @@ static RKObjectPropertyInspector* sharedInspector = nil;
 		currentClass = [currentClass superclass];
 	}
 	
-	[_cachedPropertyNamesAndTypes setObject:propertyNames forKey:class];
-    RKLogDebug(@"Cached property names and types for Class '%@': %@", NSStringFromClass(class), propertyNames);
+	[_cachedPropertyNamesAndTypes setObject:propertyNames forKey:theClass];
+    RKLogDebug(@"Cached property names and types for Class '%@': %@", NSStringFromClass(theClass), propertyNames);
 	return propertyNames;
 }
 

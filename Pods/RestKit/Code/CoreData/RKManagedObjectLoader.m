@@ -3,7 +3,19 @@
 //  RestKit
 //
 //  Created by Blake Watters on 2/13/11.
-//  Copyright 2011 Two Toasters. All rights reserved.
+//  Copyright 2011 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "RKObjectManager.h"
@@ -12,9 +24,9 @@
 #import "RKObjectMapper.h"
 #import "RKManagedObjectThreadSafeInvocation.h"
 #import "NSManagedObject+ActiveRecord.h"
-#import "../ObjectMapping/RKObjectLoader_Internals.h"
-#import "../Network/RKRequest_Internals.h"
-#import "../Support/RKLog.h"
+#import "RKObjectLoader_Internals.h"
+#import "RKRequest_Internals.h"
+#import "RKLog.h"
 
 @implementation RKManagedObjectLoader
 
@@ -101,10 +113,20 @@
         
         NSArray* results = [result asCollection];
         NSArray* cachedObjects = [self.objectStore objectsForResourcePath:rkURL.resourcePath];
+        NSObject<RKManagedObjectCache>* managedObjectCache = self.objectStore.managedObjectCache;
+        BOOL queryForDeletion = [managedObjectCache respondsToSelector:@selector(shouldDeleteOrphanedObject:)];
+      
         for (id object in cachedObjects) {
             if (NO == [results containsObject:object]) {
+              if (queryForDeletion && [managedObjectCache shouldDeleteOrphanedObject:object] == NO)
+              {
+                RKLogTrace(@"Sparing orphaned object %@ even though not returned in result set", object);
+              }
+              else
+              {
                 RKLogTrace(@"Deleting orphaned object %@: not found in result set and expected at this resource path", object);
                 [[self.objectStore managedObjectContext] deleteObject:object];
+              }
             }
         }
     } else {
@@ -114,7 +136,7 @@
 
 // NOTE: We are on the background thread here, be mindful of Core Data's threading needs
 - (void)processMappingResult:(RKObjectMappingResult*)result {
-    NSAssert(![NSThread isMainThread], @"Mapping result processing should occur on a background thread");
+    NSAssert(_sentSynchronously || ![NSThread isMainThread], @"Mapping result processing should occur on a background thread");
     if (_targetObjectID && self.targetObject && self.method == RKRequestMethodDELETE) {
         NSManagedObject* backgroundThreadObject = [self.objectStore objectWithID:_targetObjectID];
         RKLogInfo(@"Deleting local object %@ due to DELETE request", backgroundThreadObject);

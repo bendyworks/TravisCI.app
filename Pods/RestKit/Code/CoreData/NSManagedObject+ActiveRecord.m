@@ -12,6 +12,9 @@
 #import "NSManagedObject+ActiveRecord.h"
 #import "RKObjectManager.h"
 #import "RKLog.h"
+#import "RKFixCategoryBug.h"
+
+RK_FIX_CATEGORY_BUG(NSManagedObject_ActiveRecord)
 
 // Set Logging Component
 #undef RKLogComponent
@@ -24,8 +27,9 @@ static NSNumber *defaultBatchSize = nil;
 
 #pragma mark - RKManagedObject methods
 
-// TODO: Not sure that we even need the objectStore...
 + (NSManagedObjectContext*)managedObjectContext {
+    NSAssert([RKObjectManager sharedManager], @"[RKObjectManager sharedManager] cannot be nil");
+    NSAssert([RKObjectManager sharedManager].objectStore, @"[RKObjectManager sharedManager].objectStore cannot be nil");
 	return [[[RKObjectManager sharedManager] objectStore] managedObjectContext];
 }
 
@@ -109,14 +113,14 @@ static NSNumber *defaultBatchSize = nil;
 #pragma mark - MagicalRecord Ported Methods
 
 + (NSManagedObjectContext*)currentContext; {
-    return [[RKObjectManager sharedManager].objectStore managedObjectContext];
+    return [self managedObjectContext];
 }
 
 + (void)setDefaultBatchSize:(NSUInteger)newBatchSize
 {
 	@synchronized(defaultBatchSize)
 	{
-		defaultBatchSize = [NSNumber numberWithInt:newBatchSize];
+		defaultBatchSize = [NSNumber numberWithUnsignedInteger:newBatchSize];
 	}
 }
 
@@ -209,16 +213,8 @@ static NSNumber *defaultBatchSize = nil;
 
 + (NSEntityDescription *)entityDescriptionInContext:(NSManagedObjectContext *)context
 {
-    if ([self respondsToSelector:@selector(entityInManagedObjectContext:)])
-    {
-        NSEntityDescription *entity = [self performSelector:@selector(entityInManagedObjectContext:)withObject:context];
-        return entity;
-    }
-    else
-    {
-        NSString *entityName = NSStringFromClass([self class]);
-        return [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
-    }
+    NSString *entityName = NSStringFromClass([self class]);
+    return [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
 }
 
 + (NSEntityDescription *)entityDescription
@@ -329,7 +325,7 @@ static NSNumber *defaultBatchSize = nil;
 	NSUInteger count = [context countForFetchRequest:request error:&error];
 	[self handleErrors:error];
 	
-	return [NSNumber numberWithUnsignedInt:count];	
+	return [NSNumber numberWithUnsignedInteger:count];	
 }
 
 + (NSNumber *)numberOfEntitiesWithPredicate:(NSPredicate *)searchTerm;
@@ -710,16 +706,8 @@ static NSNumber *defaultBatchSize = nil;
 
 + (id)createInContext:(NSManagedObjectContext *)context
 {
-    if ([self respondsToSelector:@selector(insertInManagedObjectContext:)])
-    {
-        id entity = [self performSelector:@selector(insertInManagedObjectContext:)withObject:context];
-        return entity;
-    }
-    else
-    {
-        NSString *entityName = NSStringFromClass([self class]);
-        return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
-    }
+    NSString *entityName = NSStringFromClass([self class]);
+    return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
 }
 
 + (id)createEntity

@@ -3,7 +3,19 @@
 //  RestKit
 //
 //  Created by Blake Watters on 3/4/10.
-//  Copyright 2010 Two Toasters. All rights reserved.
+//  Copyright 2010 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #if TARGET_OS_IPHONE
@@ -12,7 +24,7 @@
 
 #import "RKManagedObjectSeeder.h"
 #import "RKManagedObjectStore.h"
-#import "../ObjectMapping/RKParserRegistry.h"
+#import "RKParserRegistry.h"
 #import "RKLog.h"
 
 // Set Logging Component
@@ -20,7 +32,6 @@
 #define RKLogComponent lcl_cRestKitCoreData
 
 @interface RKManagedObjectSeeder (Private)
-- (NSString *)mimeTypeForExtension:(NSString *)extension;
 - (id)initWithObjectManager:(RKObjectManager*)manager;
 - (void)seedObjectsFromFileNames:(NSArray*)fileNames;
 @end
@@ -95,12 +106,22 @@ NSString* const RKDefaultSeedDatabaseFileName = @"RKSeedDatabase.sqlite";
 }
 
 - (void)seedObjectsFromFile:(NSString*)fileName withObjectMapping:(RKObjectMapping *)nilOrObjectMapping {
-    NSError* error = nil;
-	NSString* filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
+    [self seedObjectsFromFile:fileName withObjectMapping:nilOrObjectMapping bundle:nil];
+}
+
+- (void)seedObjectsFromFile:(NSString *)fileName withObjectMapping:(RKObjectMapping *)nilOrObjectMapping bundle:(NSBundle *)nilOrBundle
+{
+	NSError* error = nil;
+    
+	if (nilOrBundle == nil) {
+	    nilOrBundle = [NSBundle mainBundle];
+	}
+
+	NSString* filePath = [nilOrBundle pathForResource:fileName ofType:nil];
 	NSString* payload = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
     
 	if (payload) {
-        NSString* MIMEType = [self mimeTypeForExtension:[fileName pathExtension]];
+        NSString* MIMEType = [fileName MIMETypeForPathExtension];
         if (MIMEType == nil) {
             // Default the MIME type to the value of the Accept header if we couldn't detect it...
             MIMEType = _manager.acceptMIMEType;
@@ -135,7 +156,7 @@ NSString* const RKDefaultSeedDatabaseFileName = @"RKSeedDatabase.sqlite";
             }
         }
         
-		RKLogInfo(@"Seeded %d objects from %@...", [mappedObjects count], [NSString stringWithFormat:@"%@", fileName]);
+		RKLogInfo(@"Seeded %lu objects from %@...", (unsigned long) [mappedObjects count], [NSString stringWithFormat:@"%@", fileName]);
 	} else {
 		RKLogError(@"Unable to read file %@: %@", fileName, [error localizedDescription]);
 	}
@@ -156,23 +177,6 @@ NSString* const RKDefaultSeedDatabaseFileName = @"RKSeedDatabase.sqlite";
           destinationPath, basePath, storeFileName);
 	
 	exit(1);
-}
-
-- (NSString *)mimeTypeForExtension:(NSString *)extension {
-	if (NULL != UTTypeCreatePreferredIdentifierForTag) {
-		CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)extension, NULL);
-		if (uti != NULL) {
-			CFStringRef mime = UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType);
-			CFRelease(uti);
-			if (mime != NULL) {
-				NSString *type = [NSString stringWithString:(NSString *)mime];
-				CFRelease(mime);
-				return type;
-			}
-		}
-	}
-	
-    return nil;
 }
 
 @end

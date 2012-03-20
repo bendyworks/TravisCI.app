@@ -3,14 +3,26 @@
 //  RestKit
 //
 //  Created by Blake Watters on 8/6/09.
-//  Copyright 2009 Two Toasters. All rights reserved.
+//  Copyright 2009 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
-#if TARGET_OS_IPHONE
-#import <MobileCoreServices/UTType.h>
-#endif
 #import "RKParamsAttachment.h"
 #import "RKLog.h"
+#import "NSData+MD5.h"
+#import "FileMD5Hash.h"
+#import "NSString+RestKit.h"
 
 // Set Logging Component
 #undef RKLogComponent
@@ -21,16 +33,17 @@
  */
 extern NSString* const kRKStringBoundary;
 
-@interface RKParamsAttachment (Private)
-- (NSString *)mimeTypeForExtension:(NSString *)extension;
-@end
-
 @implementation RKParamsAttachment
 
-@synthesize fileName = _fileName, MIMEType = _MIMEType, name = _name;
+@synthesize filePath = _filePath;
+@synthesize fileName = _fileName;
+@synthesize MIMEType = _MIMEType;
+@synthesize name = _name;
+@synthesize value = _value;
 
-- (id)initWithName:(NSString*)name {
-	if ((self = [self init])) {
+- (id)initWithName:(NSString *)name {
+    self = [self init];
+	if (self) {
         self.name = name;
         self.fileName = name;
 	}
@@ -38,24 +51,26 @@ extern NSString* const kRKStringBoundary;
 	return self;
 }
 
-- (id)initWithName:(NSString*)name value:(id<NSObject>)value {
+- (id)initWithName:(NSString *)name value:(id<NSObject>)value {
 	if ((self = [self initWithName:name])) {
-		NSMutableData* body = [NSMutableData data];
 		if ([value respondsToSelector:@selector(dataUsingEncoding:)]) {
-			[body appendData:[(NSString*)value dataUsingEncoding:NSUTF8StringEncoding]];
+            _body = [[(NSString*)value dataUsingEncoding:NSUTF8StringEncoding] retain];
 		} else {
-			[body appendData:[[NSString stringWithFormat:@"%@", value] dataUsingEncoding:NSUTF8StringEncoding]];
-		}
-		
-		_bodyStream    = [[NSInputStream alloc] initWithData:body];
-		_bodyLength    = [body length];
+			_body = [[[NSString stringWithFormat:@"%@", value] dataUsingEncoding:NSUTF8StringEncoding] retain];
+		}        
+        
+		_bodyStream    = [[NSInputStream alloc] initWithData:_body];
+		_bodyLength    = [_body length];
+        _value         = [value retain];
 	}
 	
 	return self;
 }
 
 - (id)initWithName:(NSString*)name data:(NSData*)data {
-	if ((self = [self initWithName:name])) {		
+    self = [self initWithName:name];
+	if (self) {
+        _body          = [data retain];
 		_bodyStream    = [[NSInputStream alloc] initWithData:data];
 		_bodyLength    = [data length];
 	}
@@ -64,11 +79,15 @@ extern NSString* const kRKStringBoundary;
 }
 
 - (id)initWithName:(NSString*)name file:(NSString*)filePath {
-	if ((self = [self initWithName:name])) {
+    self = [self initWithName:name];
+	if (self) {
 		NSAssert1([[NSFileManager defaultManager] fileExistsAtPath:filePath], @"Expected file to exist at path: %@", filePath);
-		_fileName = [[filePath lastPathComponent] retain];
-		_MIMEType = [[self mimeTypeForExtension:[filePath pathExtension]] retain];
-		_bodyStream    = [[NSInputStream alloc] initWithFileAtPath:filePath];
+        _filePath = [filePath retain];
+        _fileName = [[filePath lastPathComponent] retain];
+        NSString *MIMEType = [filePath MIMETypeForPathExtension];
+        if (! MIMEType) MIMEType = @"application/octet-stream";        
+		_MIMEType = [MIMEType retain];
+		_bodyStream = [[NSInputStream alloc] initWithFileAtPath:filePath];
 		
 		NSError* error;
 		NSDictionary* attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:&error];
@@ -84,7 +103,10 @@ extern NSString* const kRKStringBoundary;
 }
 
 - (void)dealloc {
-    [_name release];
+    [_value release];
+    [_name release];    
+    [_body release];
+    [_filePath release];
     [_fileName release];
     [_MIMEType release];
 
@@ -100,23 +122,6 @@ extern NSString* const kRKStringBoundary;
 
 - (NSString*)MIMEBoundary {
 	return kRKStringBoundary;
-}
-
-- (NSString *)mimeTypeForExtension:(NSString *)extension {
-	if (NULL != UTTypeCreatePreferredIdentifierForTag) {
-		CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)extension, NULL);
-		if (uti != NULL) {
-			CFStringRef mime = UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType);
-			CFRelease(uti);
-			if (mime != NULL) {
-				NSString *type = [NSString stringWithString:(NSString *)mime];
-				CFRelease(mime);
-				return type;
-			}
-		}
-	}
-	
-    return @"application/octet-stream";
 }
 
 #pragma mark NSStream methods
@@ -199,6 +204,20 @@ extern NSString* const kRKStringBoundary;
     }
 	
     return sent;
+}
+
+// NOTE: Cannot handle MD5 for files. We don't want to read the contents into memory
+- (NSString *)MD5 {
+    if (_body) {
+        return [_body MD5];
+    } else if (_filePath) {
+        CFStringRef fileAttachmentMD5 = FileMD5HashCreateWithPath((CFStringRef)_filePath, 
+                                                                  FileHashDefaultChunkSizeForReadingData);
+        return [(NSString *)fileAttachmentMD5 autorelease];
+    } else {
+        RKLogWarning(@"Failed to generate MD5 for attachment: unknown data type.");
+        return nil;
+    }
 }
 
 @end

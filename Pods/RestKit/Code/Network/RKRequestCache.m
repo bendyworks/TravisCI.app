@@ -3,7 +3,19 @@
 //  RestKit
 //
 //  Created by Jeff Arena on 4/4/11.
-//  Copyright 2011 Two Toasters. All rights reserved.
+//  Copyright 2011 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "RKRequestCache.h"
@@ -55,7 +67,7 @@ static NSDateFormatter* __rfc1123DateFormatter;
 			if (!fileExists) {
 				NSError* error = nil;
 				BOOL created = [fileManager createDirectoryAtPath:path
-									  withIntermediateDirectories:NO
+									  withIntermediateDirectories:YES
 													   attributes:nil
 															error:&error];
 				if (!created || error != nil) {
@@ -89,6 +101,10 @@ static NSDateFormatter* __rfc1123DateFormatter;
 }
 
 - (NSString*)pathForRequest:(RKRequest*)request {
+    if (! [request isCacheable]) {
+        return nil;
+    }
+    
 	[_cacheLock lock];
 
 	NSString* pathForRequest = nil;
@@ -109,6 +125,10 @@ static NSDateFormatter* __rfc1123DateFormatter;
 }
 
 - (BOOL)hasResponseForRequest:(RKRequest*)request {
+    if (! [request isCacheable]) {
+        return NO;
+    }
+    
 	[_cacheLock lock];
 
 	BOOL hasEntryForRequest = NO;
@@ -138,6 +158,10 @@ static NSDateFormatter* __rfc1123DateFormatter;
 }
 
 - (void)storeResponse:(RKResponse*)response forRequest:(RKRequest*)request {
+    if (! [request isCacheable]) {
+        return;
+    }
+    
 	[_cacheLock lock];
     
 	if ([self hasResponseForRequest:request]) {
@@ -160,13 +184,12 @@ static NSDateFormatter* __rfc1123DateFormatter;
 
 			NSMutableDictionary* headers = [response.allHeaderFields mutableCopy];
 			if (headers) {
-                // TODO: exponse this?
                 NSHTTPURLResponse* urlResponse = [response valueForKey:@"_httpURLResponse"];
                 // Cache Loaded Time
 				[headers setObject:[[RKRequestCache rfc1123DateFormatter] stringFromDate:[NSDate date]]
 							forKey:cacheDateHeaderKey];
                 // Cache status code
-                [headers setObject:[NSNumber numberWithInt:urlResponse.statusCode]
+                [headers setObject:[NSNumber numberWithInteger:urlResponse.statusCode]
 							forKey:cacheResponseCodeKey];
                 // Cache MIME Type
                 [headers setObject:urlResponse.MIMEType
@@ -186,6 +209,10 @@ static NSDateFormatter* __rfc1123DateFormatter;
 }
 
 - (RKResponse*)responseForRequest:(RKRequest*)request {
+    if (! [request isCacheable]) {
+        return nil;
+    }
+    
 	[_cacheLock lock];
 
 	RKResponse* response = nil;
@@ -206,6 +233,9 @@ static NSDateFormatter* __rfc1123DateFormatter;
 }
 
 - (NSDictionary*)headersForRequest:(RKRequest*)request {
+    if (! [request isCacheable]) {
+        return nil;
+    }
     NSString* cachePath = [self pathForRequest:request];
     
     [_cacheLock lock];
@@ -228,6 +258,9 @@ static NSDateFormatter* __rfc1123DateFormatter;
 }
 
 - (NSString*)etagForRequest:(RKRequest*)request {
+    if (! [request isCacheable]) {
+        return nil;
+    }
 	NSString* etag = nil;
 
     NSDictionary* responseHeaders = [self headersForRequest:request];
@@ -247,6 +280,9 @@ static NSDateFormatter* __rfc1123DateFormatter;
 }
 
 - (void)setCacheDate:(NSDate*)date forRequest:(RKRequest*)request {
+    if (! [request isCacheable]) {
+        return;
+    }
     NSMutableDictionary* responseHeaders = [[self headersForRequest:request] mutableCopy];
     
     [responseHeaders setObject:[[RKRequestCache rfc1123DateFormatter] stringFromDate:date]
@@ -257,6 +293,9 @@ static NSDateFormatter* __rfc1123DateFormatter;
 }
 
 - (NSDate*)cacheDateForRequest:(RKRequest*)request {
+    if (! [request isCacheable]) {
+        return nil;
+    }
 	NSDate* date = nil;
     NSString* dateString = nil;
     
@@ -278,6 +317,10 @@ static NSDateFormatter* __rfc1123DateFormatter;
 }
 
 - (void)invalidateRequest:(RKRequest*)request {
+    if (! [request isCacheable]) {
+        return;
+    }
+    
 	[_cacheLock lock];
     RKLogDebug(@"Invalidating cache entry for '%@'", request);
     

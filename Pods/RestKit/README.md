@@ -23,28 +23,32 @@ RestKit utilizes the concepts of the Base URL and resource paths throughout the 
 
 Note that you can send *RKRequest* objects to arbitrary URL's by constructing them yourself.
 
-Dependencies
+Parsers
 -------------------------
 
-RestKit provides JSON parser implementations using JSONKit, SBJSON & YAJL. The recommended parser is JSONKit (as it is known to be the fastest JSON implementation available), but you may choose whatever parser you like and they can be changed at runtime.
+RestKit provides a pluggable parser interface configurable by MIME Type. The standard RestKit distribution includes two parsers:
 
-The sources for JSONKit, SBJSON and YAJL are included in the Vendor/ subdirectory. The headers are copied into the RestKit headers path at build time and can be imported into your project via:
+1. **RKJSONParserJSONKit** - A very fast JSON parser leveraging [JSONKit](http://github.com/johnezang/JSONKit)
+1. **RKXMLParserLibXML** - A custom LibXML2 based parser. Only provides parsing, not serialization.
 
-    #import <RestKit/Support/JSON/JSONKit/JSONKit.h>
-    #import <RestKit/Support/JSON/SBJSON/JSON.h>
-    #import <RestKit/Support/JSON/YAJL/YAJL.h>
+The JSONKit headers can be imported for direct use:
 
-Currently bundled version of these dependencies are:
+```objc
+    #import <RestKit/JSONKit.h>
+```
 
-* **JSONKit** - 1.4
-* **YAJLIOS** - 0.2.21
-* **SBJSON** - 2.3.1
+Additional parsers can be added to your RestKit application by linking the parsers into your application and configuring it to handle the appropriate
+MIME Type:
 
-If you currently link against or include JSONKit, SBJSON or YAJL in your project, you can disable the RKJSONParser targets and compile the appropriate RKJSONParser sources directly into your application.
+```objc
+    [[RKParserRegistry sharedRegistry] setParserClass:[SomeOtherParser class] forMIMEType:@"application/json"]];
+```
 
-XML parsing is supported via a custom, bundled parser written against LibXML.
+The RestKit project also provides optional additional parsers that can be installed separately from the main library:
 
-Additional parsing backend support is expected in future versions.
+1. [**RKJSONParserSBJSON**](https://github.com/RestKit/RKJSONParserSBJSON) - A JSON parser built on top of SBJSON
+1. [**RKJSONParserYAJL**](https://github.com/RestKit/RKJSONParserYAJL) - A JSON parser built on top of YAJL)
+1. [**RKJSONParserNXJSON**](https://github.com/RestKit/RKJSONParserNXJSON) - A JSON parser built on top of the Nextive JSON parser
 
 Documentation & Example Code
 -------------------------
@@ -63,99 +67,57 @@ Installation
 Quick Start (aka TL;DR)
 -----------
 
+RestKit assumes that you are using a modern Xcode project building to the DerivedData directory. Confirm your settings
+via the "File" menu > "Project Settings...". On the "Build" tab within the sheet that opens, click the "Advanced..."
+button and confirm that your "Build Location" is the "Derived Data Location".
+
 1. Add Git submodule to your project: `git submodule add git://github.com/RestKit/RestKit.git RestKit`
 1. Add cross-project reference by dragging **RestKit.xcodeproj** to your project
 1. Open build settings editor for your project
-1. Add **Header Search Path** to the `"$(SOURCE_ROOT)/RestKit/Build"` directory. **DO NOT** check the `Recursive` checkbox.
-1. Add **Library Search Path** to the `"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)"` directory.  
-**NOTE**: This is only necessary if you are **NOT** using DerivedData.
 1. Add **Other Linker Flags** for `-ObjC -all_load`
 1. Open target settings editor for the target you want to link RestKit into
 1. Add direct dependency on the **RestKit** aggregate target
 1. Link against required frameworks:
     1. **CFNetwork.framework**
     1. **CoreData.framework**
-    1. **MobileCoreServices.framework**
+    1. **Security.framework**
+    1. **MobileCoreServices.framework** on iOS or **CoreServices.framework** on OS X
     1. **SystemConfiguration.framework**
     1. **libxml2.dylib**
-1. Link against RestKit static library products:
-    1. **libRestKitSupport.a**
-    1. **libRestKitObjectMapping.a**
-    1. **libRestKitNetwork.a**
-    1. A JSON parser implementation (either **libRestKitJSONParserJSONKit.a**, **libRestKitJSONParserYAJL.a**, or **libRestKitJSONParserSBJSON.a**). We recommend JSONKit.
+1. Link against RestKit:
+    1. **libRestKit.a** on iOS
+    1. **RestKit.framework** on OS X
 1. Import the RestKit headers via `#import <RestKit/RestKit.h>`
 1. Build the project to verify installation is successful.
-    
-Xcode 3.x (Git Submodule)
+
+Visual Install Guide
 -------------------------
 
-To add RestKit to your project (you're using git, right?):
+An step-by-step visual install guide for Xcode 4.x is available on the RestKit Wiki: https://github.com/RestKit/RestKit/wiki/Installing-RestKit-in-Xcode-4.x
 
-1. Add the submodule: `git submodule add git://github.com/RestKit/RestKit.git RestKit`
-1. Open RestKit.xcodeproj and drag the RestKit project file into your XCode project.
-1. Click on the entry for RestKit.xcodeproj in your project's **Groups & Files** section. In the right hand pane, find the entries for **libRestKitSupport.a** **libRestKitObjectMapping.a** **libRestKitNetwork.a** and **libRestKitJSONParserYAJL.a** and click the checkboxes on the far right underneath the silver target icon. This will link your project against RestKit. If you wish to use the Core Data support, click the checkbox next to **libRestKitCoreData.a** also.
-1. Look to the bottom of the **General** pane labeled **Linked Libraries**. You will need to add the following frameworks:
- * **CFNetwork.framework** - Required for networking support.
- * **SystemConfiguration.framework** - Required for detection of network availability.
- * **MobileCoreServices.framework** - Required. Provides support for MIME type auto-detection for uploaded files.
- * **CoreData.framework** - Optional. Provides support for use of the Core Data backed persistent object store.
- **libxml2.dylib** - Optional. Only necessary if you are mapping from XML payloads and link libRestKitXMLParserLibxml.a into your app.
-1. Get Info on your target and you should be looking at the **General** tag. In the top **Direct Dependencies** section, click the plus button and add a direct dependency on the RestKit target.
-1. Switch to the 'Build' tab in your project inspector. Make sure that your **Configuration** pop-up menu reads **All Configurations** so that your changes will work for all build configurations. 
-1. Find the **Header Search Paths** setting. Double click and add a new entry. When RestKit is compiled, it will copy all relevant headers to the appropriate location under the /Build directory within the RestKit checkout. You need to add a path to the /Build directory of RestKit, relative to your project file. For example, if you checked the submodule out in the root directory of your project, your header path would be `"$(SOURCE_ROOT)/RestKit/Build"`.
-1. Find the **Library Search Paths** setting. Double click and add a new entry. Add a search path to your RestKit build directory such as `"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)"`
-1. Now find the **Other Linker Flags** setting. Double click it and add entries for -all_load and -ObjC.
-1. You may now close out the inspector window.
-
-Xcode 4.x (Git Submodule)
+Community Resources
 -------------------------
 
-1. Add the submodule: `git submodule add git://github.com/RestKit/RestKit.git RestKit`
-1. Open the project you wish to add RestKit to in Xcode.
-1. Focus your project and select the "View" menu > "Navigators" > "Project" to bring the project file list into view.
-1. Drag the RestKit.xcodeproj file from the Finder and drop it on your "<Your Project's Name>".xcodeproj.
-1. Click on your project's name in the sidebar on the left to open the project settings view in the right pane of the window.
-1. In the middle pane you will see **PROJECT** and **TARGETS** headers for your project. Click on your project name, then select **Build Settings** along the top to open the Build Settings editor for your entire project.
-1. Find the **Header Search Paths** setting. Double click and add a new entry. Add a search path to the `"$(SOURCE_ROOT)/RestKit/Build"` directory you have added to your project. **DO NOT** check the `Recursive` checkbox.
-1. Find the **Library Search Paths** setting. Double click and add a new entry. Add a search path to the `"$(SOURCE_ROOT)/RestKit/Build/$(BUILD_STYLE)-$(PLATFORM_NAME)"` directory you have added to your project.  
-**NOTE**: This is only necessary if you are **NOT** using DerivedData.
-1. Find the **Other Linker Flags** entry and double click it. Use the **+** button to add a new entry and enter `-ObjC -all_load`. Dismiss the editor with the **Done** button.
-1. Locate the target you wish to add RestKit to in the **TARGETS** list in the middle of the editor pane. Select it to open the target settings editor in the right pane of the window.
-1. Click the **Build Phases** tab along the top of the window to open the Build Phases editor.
-1. Click the disclosure triangles next to the **Target Dependencies** and **Link Binary with Libraries** items.
-1. In the **Target Dependencies** section, click the **+** button to open the Target selection sheet. Click on the **RestKit** aggregate target (it will have the bulls-eye icon) and click the **Add** button to create a dependency.
-1. In the **Link Binary with Libraries** section, click the **+** button to open the Library selection sheet. Here we need to instruct the target to link against all the required RestKit libraries and several system libraries. Select each of the following items (one at a time or while holding down the Command key to select all of them at once) and then click the **Add** button:
-    * **libRestKitCoreData.a** - Optional. Only necessary if you are using Core Data.
-    * **libRestKitJSONParserJSONKit.a**
-    * **libRestKitNetwork.a**
-    * **libRestKitObjectMapping.a**
-    * **libRestKitSupport.a**
-    * **CFNetwork.framework**
-    * **CoreData.framework** - Optional. Only necessary if you are using Core Data
-    * **MobileCoreServices.framework**
-    * **SystemConfiguration.framework**
-    * **libxml2.dylib** - Optional. Only necessary if you are mapping from XML payloads and link libRestKitXMLParserLibxml.a into your app.
-1. Verify that all of the libraries are showing up in the **Link Binary with Libraries** section before continuing.
+A Google Group (high traffic) for development discussions and user support is available at: [http://groups.google.com/group/restkit](http://groups.google.com/group/restkit)
 
-Congratulations, you are now done adding RestKit into your Xcode 4 based project!
+For users interested in low traffic updates about the library, an announcements list is also available:
+[http://groups.google.com/group/restkit-announce](http://groups.google.com/group/restkit-announce)
 
-You now only need to add includes for the RestKit libraries at the appropriate places in your application. The relevant includes are:
-
-    #import <RestKit/RestKit.h>
-    // And if you are using Core Data...
-    #import <RestKit/CoreData/CoreData.h>
-
-Please see the Examples/ directory for details on utilizing the library.
+Follow RestKit on Twitter:[http://twitter.com/restkit](http://twitter.com/restkit)
 
 Contributing
 -------------------------
 
-Forks, patches and other feedback are always welcome. 
+Forks, patches and other feedback are always welcome.
 
-A Google Group for development and usage of library is available at: [http://groups.google.com/group/restkit](http://groups.google.com/group/restkit)
+Credits
+-------------------------
 
-Follow RestKit on Twitter:[http://twitter.com/restkit](http://twitter.com/restkit)
+RestKit is brought to you by [Blake Watters](http://twitter.com/blakewatters) and the RestKit team.
 
-### RestKit is brought to you by [Two Toasters](http://www.twotoasters.com/). ###
+Support is provided by the following organizations:
+
+* [GateGuru](http://www.gateguruapp.com/)
+* [Two Toasters](http://www.twotoasters.com/)
 
 [Object Mapping Design Document]: https://github.com/RestKit/RestKit/blob/master/Docs/Object%20Mapping.md

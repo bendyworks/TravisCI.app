@@ -3,7 +3,19 @@
 //  RestKit
 //
 //  Created by Blake Watters on 5/6/11.
-//  Copyright 2011 Two Toasters. All rights reserved.
+//  Copyright 2011 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "RKObjectMapper.h"
@@ -32,6 +44,7 @@
         _sourceObject = [object retain];
         _mappingProvider = mappingProvider;
         _errors = [NSMutableArray new];
+        _operationQueue = [RKMappingOperationQueue new];
     }
     
     return self;
@@ -40,6 +53,7 @@
 - (void)dealloc {
     [_sourceObject release];
     [_errors release];
+    [_operationQueue release];
     [super dealloc];
 }
 
@@ -87,7 +101,7 @@
     
     if ([object respondsToSelector:@selector(countForObject:)] && [object count] > 0) {        
         if ([object countForObject:[NSNull null]] == [object count]) {
-            RKLogWarning(@"Found a collection containing only NSNull values, considering the collection unmappable...");
+            RKLogDebug(@"Found a collection containing only NSNull values, considering the collection unmappable...");
             return YES;
         }
     }
@@ -104,8 +118,8 @@
     if (self.targetObject) {
         destinationObject = self.targetObject;
         RKObjectMapping* objectMapping = nil;
-        if ([mapping isKindOfClass:[RKObjectDynamicMapping class]]) {
-            objectMapping = [(RKObjectDynamicMapping*)mapping objectMappingForDictionary:mappableObject];
+        if ([mapping isKindOfClass:[RKDynamicObjectMapping class]]) {
+            objectMapping = [(RKDynamicObjectMapping*)mapping objectMappingForDictionary:mappableObject];
         } else if ([mapping isKindOfClass:[RKObjectMapping class]]) {
             objectMapping = (RKObjectMapping*)mapping;
         } else {
@@ -195,7 +209,8 @@
     
     RKObjectMappingOperation* operation = [RKObjectMappingOperation mappingOperationFromObject:mappableObject 
                                                                                       toObject:destinationObject 
-                                                                                   withMapping:mapping];
+                                                                                   withMapping:mapping];    
+    operation.queue = _operationQueue;
     BOOL success = [operation performMapping:&error];    
     if (success) {
         if ([self.delegate respondsToSelector:@selector(objectMapper:didMapFromObject:toObject:atKeyPath:usingMapping:)]) {
@@ -214,8 +229,8 @@
 - (id)objectWithMapping:(id<RKObjectMappingDefinition>)mapping andData:(id)mappableData {
     NSAssert([mapping conformsToProtocol:@protocol(RKObjectMappingDefinition)], @"Expected an object implementing RKObjectMappingDefinition");
     RKObjectMapping* objectMapping = nil;
-    if ([mapping isKindOfClass:[RKObjectDynamicMapping class]]) {
-        objectMapping = [(RKObjectDynamicMapping*)mapping objectMappingForDictionary:mappableData];
+    if ([mapping isKindOfClass:[RKDynamicObjectMapping class]]) {
+        objectMapping = [(RKDynamicObjectMapping*)mapping objectMappingForDictionary:mappableData];
         if (! objectMapping) {
             RKLogDebug(@"Mapping %@ declined mapping for data %@: returned nil objectMapping", mapping, mappableData);
         }
@@ -288,6 +303,10 @@
             [results setObject:mappingResult forKey:keyPath];
         }
     }
+    
+    // Allow any queued operations to complete
+    RKLogDebug(@"The following operations are in the queue: %@", _operationQueue.operations);
+    [_operationQueue waitUntilAllOperationsAreFinished];
     
     if ([self.delegate respondsToSelector:@selector(objectMapperDidFinishMapping:)]) {
         [self.delegate objectMapperDidFinishMapping:self];

@@ -3,7 +3,19 @@
 //  RestKit
 //
 //  Created by Blake Watters on 8/8/09.
-//  Copyright 2009 Two Toasters. All rights reserved.
+//  Copyright 2009 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 #import "RKObjectLoader.h"
@@ -15,7 +27,7 @@
 #import "RKParser.h"
 #import "RKObjectLoader_Internals.h"
 #import "RKParserRegistry.h"
-#import "../Network/RKRequest_Internals.h"
+#import "RKRequest_Internals.h"
 #import "RKObjectSerializer.h"
 
 // Set Logging Component
@@ -41,7 +53,7 @@
 
 - (id)initWithResourcePath:(NSString*)resourcePath objectManager:(RKObjectManager*)objectManager delegate:(id<RKObjectLoaderDelegate>)delegate {
 	if ((self = [super initWithURL:[objectManager.client URLForResourcePath:resourcePath] delegate:delegate])) {		
-        _objectManager = objectManager;        
+        _objectManager = objectManager;
         [self.objectManager.client setupRequest:self];
 	}
 
@@ -134,7 +146,7 @@
  @protected
  */
 - (void)processMappingResult:(RKObjectMappingResult*)result {
-    NSAssert(![NSThread isMainThread], @"Mapping result processing should occur on a background thread");
+    NSAssert(_sentSynchronously || ![NSThread isMainThread], @"Mapping result processing should occur on a background thread");
     [self performSelectorOnMainThread:@selector(informDelegateOfObjectLoadWithResultDictionary:) withObject:[result asDictionary] waitUntilDone:YES];
 }
 
@@ -191,11 +203,10 @@
 - (RKObjectMappingResult*)performMapping:(NSError**)error {
     NSAssert(_sentSynchronously || ![NSThread isMainThread], @"Mapping should occur on a background thread");
     
-    // TODO: Assert that we are on the background thread
     RKObjectMappingProvider* mappingProvider;
     if (self.objectMapping) {
         NSString* rootKeyPath = self.objectMapping.rootKeyPath ? self.objectMapping.rootKeyPath : @"";
-        RKLogDebug(@"Found directly configured object mapping, creating temporary mapping provider %@", (rootKeyPath ? @"for keyPath '%@'" : nil));
+        RKLogDebug(@"Found directly configured object mapping, creating temporary mapping provider for keyPath %@", rootKeyPath);
         mappingProvider = [[RKObjectMappingProvider new] autorelease];        
         [mappingProvider setMapping:self.objectMapping forKeyPath:rootKeyPath];
     } else {
@@ -242,9 +253,13 @@
 		[self finalizeLoad:NO error:self.response.failureError];
         
 		return NO;
+    } else if ([self.response isNoContent]) {
+        // The No Content (204) response will never have a message body or a MIME Type. Invoke the delegate with self
+        [self informDelegateOfObjectLoadWithResultDictionary:[NSDictionary dictionaryWithObject:self forKey:@""]];
+        return NO;
 	} else if (NO == [self canParseMIMEType:[self.response MIMEType]]) {
         // We can't parse the response, it's unmappable regardless of the status code
-        RKLogWarning(@"Encountered unexpected response with status code: %d (MIME Type: %@)", self.response.statusCode, self.response.MIMEType);
+        RKLogWarning(@"Encountered unexpected response with status code: %ld (MIME Type: %@)", (long) self.response.statusCode, self.response.MIMEType);
         NSError* error = [NSError errorWithDomain:RKRestKitErrorDomain code:RKObjectLoaderUnexpectedResponseError userInfo:nil];
         if ([_delegate respondsToSelector:@selector(objectLoaderDidLoadUnexpectedResponse:)]) {
             [(NSObject<RKObjectLoaderDelegate>*)_delegate objectLoaderDidLoadUnexpectedResponse:self];
@@ -285,8 +300,8 @@
 
 // Invoked just before request hits the network
 - (BOOL)prepareURLRequest {
-    if (self.sourceObject && (self.method == RKRequestMethodPOST || self.method == RKRequestMethodPUT)) {
-        NSAssert(self.serializationMapping, @"Cannot send an object to the remote");
+    if ((self.sourceObject && self.params == nil) && (self.method == RKRequestMethodPOST || self.method == RKRequestMethodPUT)) {
+        NSAssert(self.serializationMapping, @"You must provide a serialization mapping for objects of type '%@'", NSStringFromClass([self.sourceObject class]));
         RKLogDebug(@"POST or PUT request for source object %@, serializing to MIME Type %@ for transport...", self.sourceObject, self.serializationMIMEType);
         RKObjectSerializer* serializer = [RKObjectSerializer serializerWithObject:self.sourceObject mapping:self.serializationMapping];
         NSError* error = nil;
@@ -315,9 +330,9 @@
     NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
     
 	if (_cachePolicy & RKRequestCachePolicyLoadOnError &&
-		[[[RKClient sharedClient] cache] hasResponseForRequest:self]) {
+		[self.cache hasResponseForRequest:self]) {
 
-		[self didFinishLoad:[[[RKClient sharedClient] cache] responseForRequest:self]];
+		[self didFinishLoad:[self.cache responseForRequest:self]];
 	} else {
         if ([_delegate respondsToSelector:@selector(request:didFailLoadWithError:)]) {
             [_delegate request:self didFailLoadWithError:error];
@@ -339,12 +354,12 @@
 	if ((_cachePolicy & RKRequestCachePolicyEtag) && [response isNotModified]) {
 		[_response release];
 		_response = nil;
-		_response = [[[[RKClient sharedClient] cache] responseForRequest:self] retain];
+		_response = [[self.cache responseForRequest:self] retain];
         [self updateInternalCacheDate];
 	}
 
 	if (![_response wasLoadedFromCache] && [_response isSuccessful] && (_cachePolicy != RKRequestCachePolicyNone)) {
-		[[[RKClient sharedClient] cache] storeResponse:_response forRequest:self];
+		[self.cache storeResponse:_response forRequest:self];
 	}
 
     if ([_delegate respondsToSelector:@selector(request:didLoadResponse:)]) {

@@ -1,11 +1,15 @@
 PODS:
+  - FileMD5Hash (0.0.1)
   - JSONKit (1.4)
-  - LibComponentLogging-Core (1.1.4)
-  - LibComponentLogging-NSLog (1.0.2):
-    - LibComponentLogging-Core (>= 1.1.4)
+  - LibComponentLogging-Core (1.1.6)
+  - LibComponentLogging-NSLog (1.0.4):
+    - LibComponentLogging-Core (>= 1.1.6)
   - RestKit/Network (0.9.3):
+    - FileMD5Hash
     - LibComponentLogging-NSLog
     - RestKit (= 0.9.3)
+    - SOCKit
+    - cocoa-oauth
   - RestKit/ObjectMapping (0.9.3):
     - RestKit (= 0.9.3)
     - RestKit/Network
@@ -16,7 +20,9 @@ PODS:
     - JSONKit
     - RestKit (= 0.9.3)
     - RestKit/ObjectMapping (= 0.9.3)
+  - SOCKit (0.0.1)
   - SocketRocket (0.1)
+  - cocoa-oauth (0.0.1)
   - libPusher (1.2):
     - JSONKit (= 1.4)
     - SocketRocket (from `git://github.com/square/SocketRocket', commit `ec6c145f4a')

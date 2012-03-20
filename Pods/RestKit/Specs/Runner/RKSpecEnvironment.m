@@ -3,9 +3,22 @@
 //  RestKit
 //
 //  Created by Blake Watters on 3/14/11.
-//  Copyright 2011 Two Toasters. All rights reserved.
+//  Copyright 2011 RestKit
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
+#include <objc/runtime.h>
 #import "RKSpecEnvironment.h"
 #import "RKParserRegistry.h"
 
@@ -32,30 +45,27 @@ RKClient* RKSpecNewClient(void) {
     RKClient* client = [RKClient clientWithBaseURL:RKSpecGetBaseURL()];
     [RKClient setSharedClient:client];    
     [client release];
-    
-    RKSpecNewRequestQueue();
+    client.requestQueue.suspended = NO;
     
     return client;
 }
 
-RKRequestQueue* RKSpecNewRequestQueue(void) {
-    RKRequestQueue* requestQueue = [RKRequestQueue new];
-    requestQueue.suspended = NO;
-    [RKRequestQueue setSharedQueue:requestQueue];
-    [requestQueue release];
-    
-    return requestQueue;
+RKOAuthClient* RKSpecNewOAuthClient(RKSpecResponseLoader* loader){
+    [loader setTimeout:10];
+    RKOAuthClient* client = [RKOAuthClient clientWithClientID:@"appID" secret:@"appSecret" delegate:loader];
+    client.authorizationURL = [NSString stringWithFormat:@"%@/oauth/authorize",RKSpecGetBaseURL()];
+    return client;
 }
 
-RKObjectManager* RKSpecNewObjectManager(void) {
+
+RKObjectManager* RKSpecNewObjectManager(void) {    
+    [RKObjectMapping setDefaultDateFormatters:nil];
     RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:RKSpecGetBaseURL()];
     [RKObjectManager setSharedManager:objectManager];
     [RKClient setSharedClient:objectManager.client];
     
-    RKSpecNewRequestQueue();
-    
-    // This allows the manager to determine state.
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.2]];
+    // Force reachability determination
+    [objectManager.client.reachabilityObserver getFlags];
     
     return objectManager;
 }
@@ -71,7 +81,7 @@ RKManagedObjectStore* RKSpecNewManagedObjectStore(void) {
 
 void RKSpecClearCacheDirectory(void) {
     NSError* error = nil;
-    NSString* cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString* cachePath = [RKDirectory cachesDirectory];
     BOOL success = [[NSFileManager defaultManager] removeItemAtPath:cachePath error:&error];
     if (success) {
         RKLogInfo(@"Cleared cache directory...");
@@ -87,7 +97,8 @@ void RKSpecClearCacheDirectory(void) {
 // Read a fixture from the app bundle
 NSString* RKSpecReadFixture(NSString* fileName) {
     NSError* error = nil;
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
+    NSBundle *bundle = [NSBundle bundleForClass:[RKSpec class]];
+    NSString* filePath = [bundle pathForResource:fileName ofType:nil];
 	NSString* fixtureData = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
     if (fixtureData == nil && error) {
         [NSException raise:nil format:@"Failed to read contents of fixture '%@'. Did you add it to the app bundle? Error: %@", fileName, [error localizedDescription]];
@@ -122,12 +133,26 @@ id RKSpecParseFixture(NSString* fileName) {
 
 @implementation RKSpec
 
-- (void)failWithException:(NSException *) e {
-    printf("%s:%i: error: %s\n",
-           [[[e userInfo] objectForKey:SenTestFilenameKey] cString],
-           [[[e userInfo] objectForKey:SenTestLineNumberKey] intValue],
-           [[[e userInfo] objectForKey:SenTestDescriptionKey] cString]);
-    [e raise];
-}
+//- (void)failWithException:(NSException *) e {
+//    printf("%s:%i: error: %s\n",
+//           [[[e userInfo] objectForKey:SenTestFilenameKey] cString],
+//           [[[e userInfo] objectForKey:SenTestLineNumberKey] intValue],
+//           [[[e userInfo] objectForKey:SenTestDescriptionKey] cString]);
+//    [e raise];
+//}
 
+@end
+
+@implementation SenTestCase (MethodSwizzling)
+- (void)swizzleMethod:(SEL)aOriginalMethod
+              inClass:(Class)aOriginalClass
+           withMethod:(SEL)aNewMethod
+            fromClass:(Class)aNewClass
+         executeBlock:(void (^)(void))aBlock {
+    Method originalMethod = class_getClassMethod(aOriginalClass, aOriginalMethod);
+    Method mockMethod = class_getInstanceMethod(aNewClass, aNewMethod);
+    method_exchangeImplementations(originalMethod, mockMethod);
+    aBlock();
+    method_exchangeImplementations(mockMethod, originalMethod);
+}
 @end

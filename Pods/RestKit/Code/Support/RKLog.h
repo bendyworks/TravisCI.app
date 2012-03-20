@@ -3,7 +3,19 @@
 //  RestKit
 //
 //  Created by Blake Watters on 5/3/11.
-//  Copyright 2011 Two Toasters. All rights reserved.
+//  Copyright 2011 Two Toasters
+//  
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//  
+//  http://www.apache.org/licenses/LICENSE-2.0
+//  
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 /**
@@ -48,23 +60,23 @@
  The message will only be logged if the log level for the active component is equal to or higher
  than the level the message was logged at (in this case, Info).
  */
-#define RKLogCritical(...)                                                        \
-lcl_log(RKLogComponent, lcl_vCritical, @"" __VA_ARGS__);
+#define RKLogCritical(...)                                                              \
+lcl_log(RKLogComponent, lcl_vCritical, @"" __VA_ARGS__)
 
-#define RKLogError(...)                                                           \
-lcl_log(RKLogComponent, lcl_vError, @"" __VA_ARGS__);
+#define RKLogError(...)                                                                 \
+lcl_log(RKLogComponent, lcl_vError, @"" __VA_ARGS__)
 
-#define RKLogWarning(...)                                                         \
-lcl_log(RKLogComponent, lcl_vWarning, @"" __VA_ARGS__);
+#define RKLogWarning(...)                                                               \
+lcl_log(RKLogComponent, lcl_vWarning, @"" __VA_ARGS__)
 
-#define RKLogInfo(...)                                                            \
-lcl_log(RKLogComponent, lcl_vInfo, @"" __VA_ARGS__);
+#define RKLogInfo(...)                                                                  \
+lcl_log(RKLogComponent, lcl_vInfo, @"" __VA_ARGS__)
 
-#define RKLogDebug(...)                                                           \
-lcl_log(RKLogComponent, lcl_vDebug, @"" __VA_ARGS__);
+#define RKLogDebug(...)                                                                 \
+lcl_log(RKLogComponent, lcl_vDebug, @"" __VA_ARGS__)
 
-#define RKLogTrace(...)                                                           \
-lcl_log(RKLogComponent, lcl_vTrace, @"" __VA_ARGS__);
+#define RKLogTrace(...)                                                                 \
+lcl_log(RKLogComponent, lcl_vTrace, @"" __VA_ARGS__)
 
 /**
  Log Level Aliases
@@ -92,8 +104,8 @@ lcl_log(RKLogComponent, lcl_vTrace, @"" __VA_ARGS__);
     // Log only critical messages from the Object Mapping component
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelCritical);
  */
-#define RKLogConfigureByName(name, level)                                         \
-RKLogInitialize();                                                                \
+#define RKLogConfigureByName(name, level)                                               \
+RKLogInitialize();                                                                      \
 lcl_configure_by_name(name, level);
 
 /**
@@ -101,9 +113,37 @@ lcl_configure_by_name(name, level);
  enables the end-user of RestKit to leverage RKLog() to log messages inside of 
  their apps.
  */
-#define RKLogSetAppLoggingLevel(level)                                            \
-RKLogInitialize();                                                                \
+#define RKLogSetAppLoggingLevel(level)                                                  \
+RKLogInitialize();                                                                      \
 lcl_configure_by_name("App", level);
+
+/**
+ Temporarily changes the logging level for the specified component and executes the block. Any logging
+ statements executed within the body of the block against the specified component will log at the new
+ logging level. After the block has executed, the logging level is restored to its previous state.
+ */
+#define RKLogToComponentWithLevelWhileExecutingBlock(_component, _level, _block)        \
+    do {                                                                                \
+        int _currentLevel = _lcl_component_level[_component];                           \
+        lcl_configure_by_component(_component, _level);                                 \
+        @try {                                                                          \
+            _block();                                                                   \
+        }                                                                               \
+        @catch (NSException *exception) {                                               \
+            @throw;                                                                     \
+        }                                                                               \
+        @finally {                                                                      \
+            lcl_configure_by_component(_component, _currentLevel);                      \
+        }                                                                               \
+    } while(false);
+
+/**
+ Temporarily changes the logging level for the configured RKLogComponent and executes the block. Any logging
+ statements executed within the body of the block for the current logging component will log at the new
+ logging level. After the block has finished excution, the logging level is restored to its previous state.
+ */
+#define RKLogWithLevelWhileExecutingBlock(_level, _block)                               \
+    RKLogToComponentWithLevelWhileExecutingBlock(RKLogComponent, _level, _block)
 
 /**
  Set the Default Log Level

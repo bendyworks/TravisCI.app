@@ -136,6 +136,30 @@ transformed into one or more instances of the `Article` class. Once mappable dat
 key path should be assigned to the target object at the destination key path. This is the fundamental trick of object mapping and all other features
 are built upon this foundation.
 
+### Parameters
+
+GET query parameters should be added with the new NSString method appendQueryParameters.  For example,
+
+```objc
+- (void)loadArticlesContainingText:(NSString *)searchText {
+    NSDictionary *queryParams = [NSDictionary dictionaryWithObject:searchText forKey:@"q"];
+    NSString *resourcePath = [@"/articles" appendQueryParameters:queryParams];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:resourcePath delegate:self];
+}
+```
+
+POST parameters can be provided by setting the RKObjectLoader's params property:
+
+```objc
+- (void)saveArticleWithAdditionalParams:(NSDictionary *)extraPOSTParams {
+    RKObjectLoader* loader = [objectManager sendObject:human delegate:responseLoader block:^(RKObjectLoader* loader) {
+    loader.method = RKRequestMethodPOST;
+        loader.resourcePath = @"/articles/create";
+        loader.params = extraPOSTParams;
+    }];
+}
+```
+
 ## Object Mapping Fundamentals
 
 Now that we have established a foundation for the basics of object mapping, we can explore the remaining portions of the system. We'll examine
@@ -268,7 +292,7 @@ RKObjectMapping* articleMapping = [RKObjectMapping mappingForClass:[Article clas
 [articleMapping mapKeyPath:@"publication_date" toAttribute:@"publicationDate"];
 
 // Define the relationship mapping
-[article mapKeyPath:@"author" toRelationship:@"author" withMapping:authorMapping];
+[articleMapping mapKeyPath:@"author" toRelationship:@"author" withMapping:authorMapping];
 
 [[RKObjectManager sharedManager].mappingProvider setMapping:articleMapping forKeyPath:@"articles"];
 ```
@@ -499,6 +523,7 @@ articleMapping.primaryKeyAttribute = @"articleID";
 ```
 
 The astute reader will notice a couple of things:
+
 1. We changed our inheritance to NSManagedObject from NSObject
 1. Our properties are now implemented via @dynamic instead of @synthesize
 1. We have added a new property -- articleID. Typically when you load a remote object it is going to include a unique
@@ -535,7 +560,7 @@ We might have a User class like the following:
 @end
 ```
 
-You will note that this JSON is problematic compared to our earlier examples because the `email` attribute's data
+You will note that this JSON is problematic compared to our earlier examples because the `username` attribute's data
 exists as the key in a dictionary, rather than a value. We handle this by creating an object mapping and using a new
 type of mapping definition:
 
@@ -543,11 +568,11 @@ type of mapping definition:
 RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[User class]];
 [mapping mapKeyOfNestedDictionaryToAttribute:@"username"];
 [mapping mapFromKeyPath:@"(username).email" toAttribute:"email"];
-[mapping mapFromKeyPath:@"(username).favoriteAnimal" toAttribute:"favoriteAnimal"];
+[mapping mapFromKeyPath:@"(username).favorite_animal" toAttribute:"favoriteAnimal"];
 ```
 
 What happens with this type of object mapping is that when applied against a dictionary of data,
-the keys are interpreted to contain the value for the nesting attribute (so "blake" becomes username). When
+the keys are interpreted to contain the value for the nesting attribute (so "blake" becomes `username`). When
 the remaining attribute and relationship key paths are evaluated against the parsed data, the value of the nesting attribute
 is substituted into the key path before it is applied. So your @"(username).email" key path becomes @"blake.email" and the
 mapping continues.
@@ -578,7 +603,7 @@ RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[User class]];
 mapping.forceCollectionMapping = YES;
 [mapping mapKeyOfNestedDictionaryToAttribute:@"username"];
 [mapping mapFromKeyPath:@"(username).email" toAttribute:"email"];
-[mapping mapFromKeyPath:@"(username).favoriteAnimal" toAttribute:"favoriteAnimal"];
+[mapping mapFromKeyPath:@"(username).favorite_animal" toAttribute:"favoriteAnimal"];
 ```
 ### Dynamic Object Mapping
 
@@ -597,6 +622,7 @@ mapped. The dynamic mapping is responsible for introspecting the contents of the
 instance that can be used to map the data into a concrete object.
 
 There are three ways in which the determination of the appropriate object mapping can be made:
+
 1. Via a declarative matcher on an attribute within the mappable data. If your dynamic data contains an attribute that can
 be used to infer the appropriate object type, then you are in luck -- RestKit can handle the dynamic mapping via simple 
 configuration.
@@ -782,7 +808,7 @@ The currently available result coercions are:
         is useful when you encountered a server side error and want to coerce the mapping results into an NSError. This is how `objectLoader:didFailWithError`
         returns server side error messages to you.
 - **RKObjectRouter** - Responsible for generating resource paths for accessing remote representations of objects. Capable of generating a resource
-path by interpolating property values into a string. For example, a path of "/articles/(articleID)" when applied to an Article object with a `articleID` property
+path by interpolating property values into a string. For example, a path of "/articles/:articleID" when applied to an Article object with a `articleID` property
 with the value 12345, would generate "/articles/12345". The object router is used to generate resource paths when getObject, postObject, putObject and deleteObject
 are invoked.
 - **RKErrorMessage** - A simple class providing for the mapping of server-side error messages back to NSError objects. Contains a single `errorMessage` property. When an
