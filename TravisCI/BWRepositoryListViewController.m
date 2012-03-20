@@ -48,16 +48,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
 	// Do any additional setup after loading the view, typically from a nib.
-//    self.detailViewController = (BWRepositoryViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.showingFavorites = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated { 
 
     [super viewWillAppear:animated];
 
-    self.showingFavorites = NO;
     [self refreshRepositoryList];
+
+    if (self.showingFavorites) {
+        [self showFavorites];
+    } else {
+        [self showAll];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
@@ -73,15 +79,17 @@
 
 - (IBAction)tapFavorites:(id)sender
 {
-    if (self.showingFavorites) {
-        [self changeFetchRequestToAll];
+    if (self.showingFavorites) { // then show all
+        [self showAll];
         self.favoritesButton.title = @"Favorites";
         self.navigationItem.title = @"All Repositories";
-    } else {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:@"favoriteListDidChange" object:nil];
+    } else { // then show favorites
         [self refreshFavoritesList];
-        [self changeFetchRequestToFavorites];
+        [self showFavorites];
         self.favoritesButton.title = @"All";
         self.navigationItem.title = @"Favorites";
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(favoriteListDidChange) name:@"favoriteListDidChange" object:nil];
     }
 }
 
@@ -132,11 +140,12 @@
 
 - (void)favoriteListDidChange
 {
+    [self setFetchRequestToFavorites];
     [self.fetchedResultsController performFetch:nil];
     [self.tableView reloadData];
 }
 
-- (void)changeFetchRequestToFavorites
+- (void)setFetchRequestToFavorites
 {
     NSFetchRequest *fetchRequest = self.fetchedResultsController.fetchRequest;
     
@@ -145,30 +154,34 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"remote_id IN %@", remote_ids];
     
     [fetchRequest setPredicate:predicate];
-
+    
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
-    NSLog(@"error changing to favorites? %@", error);
-    NSLog(@"fetched objects: %@", [self.fetchedResultsController fetchedObjects]);
+}
+
+- (void)showFavorites
+{
+    [self setFetchRequestToFavorites];
     [self.tableView reloadData];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(favoriteListDidChange:) name:@"favoriteListDidChange" object:nil];
     self.showingFavorites = YES;
 }
 
-- (void)changeFetchRequestToAll
+- (void)setFetchRequestToAll
 {
     NSFetchRequest *fetchRequest = self.fetchedResultsController.fetchRequest;
-
+    
     [fetchRequest setPredicate:nil];
-
+    
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
-    NSLog(@"error changing to all? %@", error);
-    NSLog(@"fetched objects: %@", [self.fetchedResultsController fetchedObjects]);
+}
+
+- (void)showAll
+{
+    [self setFetchRequestToAll];
     [self.tableView reloadData];
 
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"favoriteListDidChange" object:nil];
     self.showingFavorites = NO;
 }
 
