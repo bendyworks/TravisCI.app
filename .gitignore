@@ -7,3 +7,4 @@ automation/results
 automation/*.js
 instrumentscli*
 bundler_bin
+Pods/Pods.xcodeproj/xcuserdata/*.xcuserdatad
