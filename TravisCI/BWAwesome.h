@@ -11,4 +11,7 @@
 #define IS_IPHONE [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone
 #define IS_IPAD [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad
 
+#define IS_IOS_50 [[[UIDevice currentDevice] systemVersion] isEqualToString:@"5.0"]
+#define IS_IOS_51 [[[UIDevice currentDevice] systemVersion] isEqualToString:@"5.1"]
+
 #endif

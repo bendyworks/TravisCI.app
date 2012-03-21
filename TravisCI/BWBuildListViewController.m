@@ -15,6 +15,7 @@
 #import "BWFavoriteList.h"
 #import "BWAppDelegate.h"
 #import "CoreData.h"
+#import "BWDetailContainerViewController.h"
 
 @interface BWBuildListViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -74,7 +75,7 @@
 
 - (void)setNavigationTitleProperties:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    if ([[[UIDevice currentDevice] systemVersion] isEqualToString:@"5.0"]) {
+    if (IS_IOS_50) {
         if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
             UIColor *tinColor = [UIColor colorWithRed:0.443f green:0.471f blue:0.502f alpha:1.0f];
             [self.authorName setTextColor:tinColor];
@@ -133,7 +134,19 @@
     }
 
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:titleText delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:destructiveButtonText otherButtonTitles:otherButtonText, nil];
-    [sheet showFromBarButtonItem:sender animated:YES];
+
+    if ( (!IS_IOS_50) && UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
+
+        CGFloat buttonWidth = 70.0f;
+        CGRect rect = CGRectMake(320.0-buttonWidth, 0, buttonWidth, 1.0);
+
+        BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
+        UIView *splitView = appDelegate.detailContainerViewController.view;
+
+        [sheet showFromRect:rect inView:splitView animated:YES];
+    } else {
+        [sheet showFromBarButtonItem:self.favoriteButton animated:YES];
+    }
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

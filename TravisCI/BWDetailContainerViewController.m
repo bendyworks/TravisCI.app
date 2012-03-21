@@ -91,6 +91,7 @@
 
 #pragma mark split view delegate
 
+// called when rotating to portrait (or launching in portrait)
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
     barButtonItem.title = NSLocalizedString(@"Repositories", @"Repositories");
@@ -98,6 +99,7 @@
     self.masterPopoverController = popoverController;
 }
 
+// called when rotating to landscape (or launching in landscape)
 - (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
