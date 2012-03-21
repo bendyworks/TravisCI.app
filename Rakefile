@@ -93,11 +93,6 @@ def run_test_with_script path
 
 end
 
-task :ipad do
-  Rake::Task['ipad:build'].execute
-  Rake::Task['ipad:test'].execute
-end
-
 namespace :ipad do
   task :build do
     @current_build = 2
@@ -108,11 +103,6 @@ namespace :ipad do
   task :test => :coffeescript do
     run_test_with_script 'ipad.js'
   end
-end
-
-task :iphone do
-  Rake::Task['iphone:build'].execute
-  Rake::Task['iphone:test'].execute
 end
 
 namespace :iphone do
@@ -128,9 +118,8 @@ namespace :iphone do
   end
 end
 
-task :test => :coffeescript do
-  Rake::Task['iphone'].execute
-  Rake::Task['ipad'].execute
-end
+task ipad: ['ipad:build', 'ipad:test']
+task iphone: ['iphone:build', 'iphone:test']
 
+task :test => [:iphone, :ipad]
 task :default => :test
