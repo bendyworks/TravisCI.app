@@ -16,5 +16,6 @@
 - (void)remove:(NSNumber *)remote_id;
 - (NSNumber *)objectAtIndex:(NSInteger)index;
 - (BOOL)contains:(NSNumber *)remote_id;
+- (void)synchronize;
 
 @end

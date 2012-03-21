@@ -16,8 +16,8 @@ static NSString *bwFavoriteList = @"Followed Repositories";
 @interface BWFavoriteList()
 @property(nonatomic, retain, readwrite) NSMutableOrderedSet *all;
 - (void)keyValueDidChange:(NSNotification *)notification;
-- (void)refreshAll;
 - (void)save;
+- (void)refreshAll;
 @end
 
 @implementation BWFavoriteList
@@ -107,11 +107,16 @@ static NSString *bwFavoriteList = @"Followed Repositories";
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"favoriteListDidChange" object:nil];
 }
-     
+
+- (void)synchronize
+{
+    [KV_STORE synchronize];
+}
+
 - (void)save
 {
     [KV_STORE setArray:[self.all array] forKey:bwFavoriteList];
-    [KV_STORE synchronize];
+    [self synchronize];
 }
 
 @end

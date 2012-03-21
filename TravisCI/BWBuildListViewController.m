@@ -135,10 +135,10 @@
 
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:titleText delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:destructiveButtonText otherButtonTitles:otherButtonText, nil];
 
-    if ( (!IS_IOS_50) && UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
+    if ( (!IS_IOS_50) && IS_IPAD && UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
 
         CGFloat buttonWidth = 70.0f;
-        CGRect rect = CGRectMake(320.0-buttonWidth, 0, buttonWidth, 1.0);
+        CGRect rect = CGRectMake(320.0-buttonWidth, -13.0, buttonWidth, 1.0);
 
         BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
         UIView *splitView = appDelegate.detailContainerViewController.view;
