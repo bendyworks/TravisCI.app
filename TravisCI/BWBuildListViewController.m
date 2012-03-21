@@ -12,7 +12,6 @@
 #import "BWBuildTableCell.h"
 #import "BWJobListViewController.h"
 #import "BWColor.h"
-#import "BWAwesome.h"
 #import "BWFavoriteList.h"
 #import "BWAppDelegate.h"
 #import "CoreData.h"

@@ -10,7 +10,6 @@
 #import "BWRepositoryTableCell.h"
 #import "BWBuildListViewController.h"
 #import "BWColor.h"
-#import "BWAwesome.h"
 #import "BWFavoriteList.h"
 #import "BWAppDelegate.h"
 

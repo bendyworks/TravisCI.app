@@ -12,7 +12,6 @@
 #import "BWPusherHandler.h"
 #import "BWFavoriteList.h"
 #import "BWJob+presenter.h"
-#import "BWAwesome.h"
 #import "BWTimeStampFile.h"
 #import <RestKit/RestKit.h>
 

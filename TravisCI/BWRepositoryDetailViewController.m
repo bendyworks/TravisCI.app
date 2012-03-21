@@ -7,7 +7,6 @@
 //
 
 #import "BWRepositoryDetailViewController.h"
-#import "BWAwesome.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation BWRepositoryDetailViewController

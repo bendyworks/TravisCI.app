@@ -6,7 +6,6 @@
 //  Refer to MIT-LICENSE file at root of project for copyright info
 //
 
-#import "BWAwesome.h"
 #import "BWAppDelegate.h"
 #import "BWJobListViewController.h"
 #import "BWPhoneJobDetailViewController.h"
