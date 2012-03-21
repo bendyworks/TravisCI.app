@@ -1,3617 +1,887 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>02041D9468DC46D18F4E520A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectLoader.m</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectLoader.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>02AA7E307AB3498BBC4995BD</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>lcl.h</string>
-			<key>path</key>
-			<string>LibComponentLogging-Core/lcl.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>049C8F594692454CA4B2C8C8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A3C8EFA3FB70497BB61A49B9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>070FFB86083A42D98B73BF76</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherErrors.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherErrors.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>074FEB0022334899A28D8490</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKMIMETypes.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKMIMETypes.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>08F44C83DFD44B2492245E03</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7F198B4BDD8B4576A05C1E6C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>0A360D2190D44C9B94935DBB</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>SOCKit.m</string>
-			<key>path</key>
-			<string>SOCKit/SOCKit.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>0CD450481C5247BDA4B8C70F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMappingResult.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMappingResult.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>0D4CB941E2F24F3ABBBD1E4F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSString+MD5.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/NSString+MD5.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>0DA70CDCBB0149359DBF4A10</key>
-		<dict>
-			<key>fileRef</key>
-			<string>65B916BD1E004EBC95D90AA6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>0EDBFF0E0C6F4637AE0B2E74</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKRequestQueue.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKRequestQueue.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>105B904FC80C4C1E96E37CC5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMapping.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMapping.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>105BDF677D434361B6731012</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>base64.h</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/base64.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>127F0D422C6641C69FBD2B88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSURL+RestKit.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/NSURL+RestKit.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>1291677C0ECC428F94E1AF74</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMappingOperation.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMappingOperation.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>15D6A32CCC574BC28A881CAA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKRequestSerialization.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKRequestSerialization.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>15DA68004C0C459E86305BA0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSString+MD5.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/NSString+MD5.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>16BCEEC143944DED9FC56B35</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKLog.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKLog.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>16F16A5DAD9145F4A8328215</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B5BB7EBC205B4D4391B4F621</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>18C1B6F40BD24EEDAB855611</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>85283DF8EE87471DAA1BF46A</string>
-				<string>2659CC67678E4718A9F63BB6</string>
-				<string>66ED1C20252849F9AAF5ECEA</string>
-				<string>BD0900FC0EBB496CBBA2AB4E</string>
-				<string>C6497826F3D44A6F8598B805</string>
-				<string>F9B08F61236C4C6D8811F283</string>
-				<string>2852A7C378E44814B89D6B4B</string>
-				<string>9C0D1A03C947471297358A87</string>
-				<string>BA02B1635E4645179A286037</string>
-				<string>7BB0385F99DA4D7C88E99D5A</string>
-				<string>F97B2D15C16B4B58BB3BCB90</string>
-				<string>9E88E85561C64473A5CEA64F</string>
-				<string>B72228A0F9B04D4A8EDC7E76</string>
-				<string>6C9E86D3EA244069BAACC743</string>
-				<string>C54329DE893E4853A53DD07C</string>
-				<string>E420276E22244365B90AA9B6</string>
-				<string>8962D669435348CB8F6C1858</string>
-				<string>766C6B4588014FDEB9E879CB</string>
-				<string>35CE226FD24141EAA3884702</string>
-				<string>9B694D710EF54C38AE84608D</string>
-				<string>FAA917B922FB42D494A2DEE6</string>
-				<string>EBA8882757D9486A9DAFF1C4</string>
-				<string>EC3A51E53DA440FBA61482B1</string>
-				<string>AF023D1698244FBD82E537F7</string>
-				<string>80E5BCC6619C4FE5AEB3CA83</string>
-				<string>23D80F689B924E0EAF868E27</string>
-				<string>6984D8EDFB5140819C0D3E2F</string>
-				<string>9E59A88D05714F029AA89391</string>
-				<string>5F1BBE94946347F88BBC5C69</string>
-				<string>8DED0A9A763148F09E602130</string>
-				<string>298E9CEAAD7947C08E901F52</string>
-				<string>9B43FBFFFFB14A93AF17EE5E</string>
-				<string>8A8E5F78F424474C9AC7DDDC</string>
-				<string>42F0D46364CF445CBA0C8345</string>
-				<string>38B1E7522D7F4A288B7140D6</string>
-				<string>A8118C1E92EA469095E4F4CD</string>
-				<string>F7FF1E2F9ABC4CF7BCABA491</string>
-				<string>7D30BBEE86C74925A0912271</string>
-				<string>A99A04DB20A2485EB5FDA587</string>
-				<string>FE7F0AA0F75E487587F89610</string>
-				<string>E1C0C98CFD934015AC50E323</string>
-				<string>CD21E669513D4451B2181DAF</string>
-				<string>6BAC49AA40F549BE92E47A80</string>
-				<string>55AC64BAB5DC4F6A9AD78021</string>
-				<string>6A13FC31DC7D43A6AA236EE3</string>
-				<string>5D4B1625CCA14374B7D7A099</string>
-				<string>FDA9CEE28D70475489FA19D5</string>
-				<string>5695348FE18A4FF995A28143</string>
-				<string>1E985AFEF6704F92B9C163BC</string>
-				<string>744B68AD4A1B4782ACF82051</string>
-				<string>2A01950C123B4AE29D6BF44D</string>
-				<string>08F44C83DFD44B2492245E03</string>
-				<string>B7A1721B436644FEB5F0CF01</string>
-				<string>802CAC9336A04B9BB0639CEC</string>
-				<string>DC6381423241412C95374D2B</string>
-				<string>CAE624A8483241C0863AE8DF</string>
-				<string>AC8FF0748C994D06AC051ABC</string>
-				<string>049C8F594692454CA4B2C8C8</string>
-				<string>C2728693C1C345F9807DF51B</string>
-				<string>57AE35D7886441A0A90CB675</string>
-				<string>5C5AFCDEA4CA421299DB77A1</string>
-				<string>441A3C31A69E47EE8FDB47F2</string>
-				<string>F48F6518A2B94A7284864F80</string>
-				<string>89CA1715E6F24C968B1178B0</string>
-				<string>6CDB1A1A338A417CBA11A20E</string>
-				<string>AB9A1F830064461294B5B607</string>
-				<string>DBD503CA21CA4E908D20750E</string>
-				<string>0DA70CDCBB0149359DBF4A10</string>
-				<string>CE3E342F12DB49F299A69988</string>
-				<string>AA1FC13B064F4A4FAAD5AAE9</string>
-				<string>2C08CF7489AD41FCBF2AF366</string>
-				<string>BB4CE79C0111434E97EE4AF4</string>
-				<string>C6D6C37C18BA418AA8D62481</string>
-				<string>BD5CD911C06A458083EEBD8B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>18D4A4339553426B968E43FC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKNotifications.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKNotifications.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>19081B7EEC20486EA7B40C84</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>FileMD5Hash.c</string>
-			<key>path</key>
-			<string>FileMD5Hash/Common/FileMD5Hash.c</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>199211D78F664C2C8BCA4077</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F97F452FE9AA4176B60EB261</string>
-				<string>B5B53245D14643EE81B2FD6C</string>
-				<string>57160CB9FE5C4189860CD314</string>
-				<string>16F16A5DAD9145F4A8328215</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1A4BBD5A9B2042F3A5844ECC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSDictionary+RKAdditions.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/NSDictionary+RKAdditions.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>1BC95AB20E6C40E7B6CC98FC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>LCLNSLog.h</string>
-			<key>path</key>
-			<string>LibComponentLogging-NSLog/LCLNSLog.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>1C946AE9DEFE496F9D421A8D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSData+SRB64Additions.h</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/NSData+SRB64Additions.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>1C971EFB1F9D4C06BD696E8D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>1DF93D16FDF447DEBD0E7BFE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectSeeder.h</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectSeeder.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>1E8387EEC2FD4676A92712B2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSURL+RestKit.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/NSURL+RestKit.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>1E985AFEF6704F92B9C163BC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>02041D9468DC46D18F4E520A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>217F7B82F8E846FF87C74505</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKJSONParserJSONKit.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/Parsers/JSON/RKJSONParserJSONKit.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>23D80F689B924E0EAF868E27</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2C664E104E994DF5B2DF0BC2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>26026546A3F54850950C77A6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectRouter.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectRouter.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>2659CC67678E4718A9F63BB6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>38D6BA89D93E49B5881BC06A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>280740DB86A0471BBABDA207</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMappingProvider.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMappingProvider.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>2852A7C378E44814B89D6B4B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B502388FDA57428D9D7D501F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>29521556BAA54B7989E56741</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>lcl.m</string>
-			<key>path</key>
-			<string>LibComponentLogging-Core/lcl.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>298E9CEAAD7947C08E901F52</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5A731EAAC8FE4FE89E27B099</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>2A01950C123B4AE29D6BF44D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1939694CCC3405D8BDBE9D8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>2A8F506DA57F4FE6A7EDE422</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKReachabilityObserver.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKReachabilityObserver.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>2C08CF7489AD41FCBF2AF366</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B639AD468564326BE19F898</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>2C664E104E994DF5B2DF0BC2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKDirectory.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKDirectory.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>2E8E825189004074A1A59554</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKRequest_Internals.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKRequest_Internals.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>324E08AC2F26408C95CEEA17</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>1C971EFB1F9D4C06BD696E8D</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-prefix.pch</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>33A811D3E05A400DAC478269</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F1B8EE4C15C24B85B4C04973</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>347C5CD1417C427583591E31</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>dstPath</key>
-			<string>$(PRODUCT_NAME)</string>
-			<key>dstSubfolderSpec</key>
-			<string>16</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXCopyFilesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>353184018643479990878DF3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectRelationshipMapping.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectRelationshipMapping.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>35CE226FD24141EAA3884702</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F3DDB4DDE3E347EBAE7618B9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>3698251115094E25B5309C0B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectManager.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectManager.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>370900DBFC1A4253A09E7973</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTURLRequestOperation.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTURLRequestOperation.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>389D62F8123D45958B234268</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectLoader_Internals.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectLoader_Internals.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>38B1E7522D7F4A288B7140D6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8F056C80A6C04971A858D812</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>38CBB7D5650E421A930BFC9E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKErrorMessage.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKErrorMessage.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>38D6BA89D93E49B5881BC06A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>FileMD5Hash_Prefix.pch</string>
-			<key>path</key>
-			<string>FileMD5Hash/Common/FileMD5Hash_Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>3A5CAE896ED04986AFE71910</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKParamsAttachment.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKParamsAttachment.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>3C0DD9A0EDD1409DA27D5DD8</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKParserRegistry.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKParserRegistry.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>3C3B581717E546FF87CC800C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>lcl_config_extensions.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/lcl_config_extensions.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>3F9ACA03BA9C4B7E80FF4F2D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>base64.c</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/base64.c</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>40B5DA953415412CA30EC5C0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherConnection.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherConnection.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>41391A40EC324BC895CCB86A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSDictionary+QueryString.h</string>
-			<key>path</key>
-			<string>libPusher/Library/NSDictionary+QueryString.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>4156583B94FE40EF849ABD29</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKDynamicObjectMapping.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKDynamicObjectMapping.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>41A28ADABAEF48B38365CEF0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKClient.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKClient.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>41E7A97D06814CC28C2456C6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMapperError.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMapperError.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>42170142A7EE4A749497C5B9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherEvent.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherEvent.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>427CDA267A4E455280860CD0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKReachabilityObserver.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKReachabilityObserver.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>42F0D46364CF445CBA0C8345</key>
-		<dict>
-			<key>fileRef</key>
-			<string>65BBEC44199A41CC8E419D78</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>441A3C31A69E47EE8FDB47F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D6FB15FF77F64525B681846E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>4537982090F2422FA090D0C0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>48515E77FBE449249656B9B5</string>
-				<string>19081B7EEC20486EA7B40C84</string>
-				<string>38D6BA89D93E49B5881BC06A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>FileMD5Hash</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4599B919654E4E55BF29E6DA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>lcl_config_components.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/lcl_config_components.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>46321C2F71164D81BBF4287E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKPathMatcher.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKPathMatcher.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>469541BF13924ED895A7768B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectThreadSafeInvocation.h</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectThreadSafeInvocation.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>474AFD3E72364200AEC464AB</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKParams.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKParams.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>48515E77FBE449249656B9B5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>FileMD5Hash.h</string>
-			<key>path</key>
-			<string>FileMD5Hash/Common/FileMD5Hash.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>4CFD8AD9D5264CF08675C1D1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>lcl_config_logger.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/lcl_config_logger.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>4D7AE143DFCE4616A3F16F95</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectPropertyInspector.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectPropertyInspector.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>50A8A9D97B314A3F938D44FA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RestKit.h</string>
-			<key>path</key>
-			<string>RestKit/Code/RestKit.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>50C8DD57043449B3A5F1DFB0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>68CB32E00482429B9A1FD43D</string>
-				<string>0A360D2190D44C9B94935DBB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SOCKit</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>50CA7B8ABADF41FEA7F9F99F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKURL.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKURL.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>51B0F791029A446ABB3A89A9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTTargetActionEventListener.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTTargetActionEventListener.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>51F394D65B2C4F378A9B5510</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>105BDF677D434361B6731012</string>
-				<string>1C946AE9DEFE496F9D421A8D</string>
-				<string>AC2D2D3687014ADCA4B876EC</string>
-				<string>A3C8EFA3FB70497BB61A49B9</string>
-				<string>7F6DF602CE96400B9C463049</string>
-				<string>3F9ACA03BA9C4B7E80FF4F2D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SocketRocket</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>55813EA0B40443429916C070</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherChannelAuthorizationOperation.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherChannelAuthorizationOperation.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>55AC64BAB5DC4F6A9AD78021</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E70B76A99F954B5CB81EC362</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>5695348FE18A4FF995A28143</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C2875AB3727F4EFEA8145F69</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>57160CB9FE5C4189860CD314</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F9725FEDA9974CB481480B5D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57AE35D7886441A0A90CB675</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3F9ACA03BA9C4B7E80FF4F2D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>581A9735D839415987526F75</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKLog.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKLog.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>583EA3BF98F64E6A990F5610</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSData+MD5.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/NSData+MD5.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>5A731EAAC8FE4FE89E27B099</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKSearchEngine.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKSearchEngine.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>5B639AD468564326BE19F898</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherEvent.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherEvent.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>5BC616249F2742A1BCA0AAC8</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>ObjectMapping.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/ObjectMapping.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>5C36B0061B9C4B0A9FF8CCE7</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKRequest.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKRequest.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>5C5AFCDEA4CA421299DB77A1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEA9383DB875448EA6A4C148</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>5D4B1625CCA14374B7D7A099</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6F4DD3BDE350403ABB6DCF2D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>5F1BBE94946347F88BBC5C69</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9106396AC3F445949B885951</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>5FA6BAFBF6874798A5FEA6FC</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>79371599B6C14227921D9DD7</string>
-				<string>9505FB57718D4A23AEF3A967</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>6217031C4AED4EAC9D970514</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Errors.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/Errors.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>635C760F5B4442F2AB15A6B3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectAttributeMapping.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectAttributeMapping.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>6411EBFAA8B54C54826ABB9C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectCache.h</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectCache.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>646F12D4E962441CBA54262D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherDelegate.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherDelegate.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>64FBBEE24FF5412F87F5DEB5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherEventPublisher.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherEventPublisher.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>65B916BD1E004EBC95D90AA6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherChannel.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherChannel.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>65BBEC44199A41CC8E419D78</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKMappingOperationQueue.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKMappingOperationQueue.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>66ED1C20252849F9AAF5ECEA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B01C793A4A4140E58A21B813</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>6744BC63F05A4B59BC6577D2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSString+Hashing.h</string>
-			<key>path</key>
-			<string>libPusher/Library/NSString+Hashing.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>684FAB8730354FBFB78612A2</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKDotNetDateFormatter.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKDotNetDateFormatter.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>68CB32E00482429B9A1FD43D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>SOCKit.h</string>
-			<key>path</key>
-			<string>SOCKit/SOCKit.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>6984D8EDFB5140819C0D3E2F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E6DF98D82C2D48D880337A92</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>6A13FC31DC7D43A6AA236EE3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>26026546A3F54850950C77A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>6B9B346972E74D0BB8870385</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKParserRegistry.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKParserRegistry.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>6BAC49AA40F549BE92E47A80</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4D7AE143DFCE4616A3F16F95</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>6C16F93A2819415C9D24F1F8</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSString+RestKit.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/NSString+RestKit.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>6C9E86D3EA244069BAACC743</key>
-		<dict>
-			<key>fileRef</key>
-			<string>427CDA267A4E455280860CD0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>6CDB1A1A338A417CBA11A20E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>96E63398C5774CD58A22532D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>6EAD1E55DCE24BB7A5E91500</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKAlert.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKAlert.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>6F4DD3BDE350403ABB6DCF2D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectSerializer.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectSerializer.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>70632866E2884C98BA2F0A42</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKMappingOperationQueue.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKMappingOperationQueue.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>70B1B394F6D245EBB18395EF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSDictionary+RKAdditions.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/NSDictionary+RKAdditions.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>70CB3E6BAFED4EB18F0CA43F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTURLRequestOperation.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTURLRequestOperation.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>72CB379E2A15421397364AED</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTEventListener.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTEventListener.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>7376BAA9009C49B696C3A29D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKErrorMessage.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKErrorMessage.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>73B5C4ECE6F74A7A972CB31C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectPropertyInspector.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectPropertyInspector.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>744B68AD4A1B4782ACF82051</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9E7FABE04F4B4F50A8209E59</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>74591214669C452B9FA876D3</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1BC95AB20E6C40E7B6CC98FC</string>
-				<string>828CB8FF1C0B470280917AB5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>LibComponentLogging-NSLog</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>766C6B4588014FDEB9E879CB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>15D6A32CCC574BC28A881CAA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>766EF4F633604093ACD73E9E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods-resources.sh</string>
-			<key>path</key>
-			<string>Pods-resources.sh</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>789D5CE76335442B95AE7357</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectPropertyInspector+CoreData.h</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKObjectPropertyInspector+CoreData.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>78A1D29E728F426A8DDF2E26</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Network.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/Network.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>79371599B6C14227921D9DD7</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvmgcc42</string>
-				<key>GCC_WARN_ABOUT_MISSING_PROTOTYPES</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>4.3</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>7BB0385F99DA4D7C88E99D5A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>18D4A4339553426B968E43FC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>7D30BBEE86C74925A0912271</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C93AF10310C541ED92D1D9DC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>7D88DA6582264C13A137DD04</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E98B43128CB1450EAD8C5077</string>
-				<string>B01C793A4A4140E58A21B813</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>JSONKit</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7E51448A64D84F33BFB5471A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKResponse.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKResponse.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>7F198B4BDD8B4576A05C1E6C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectSeeder.m</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectSeeder.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>7F6DF602CE96400B9C463049</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>SRWebSocket.m</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/SRWebSocket.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>7F849ED798FB4C42A82C4969</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSString+RestKit.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/NSString+RestKit.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>802CAC9336A04B9BB0639CEC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F81B519850EC44038949514A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>80E5BCC6619C4FE5AEB3CA83</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6EAD1E55DCE24BB7A5E91500</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>8201225DCE874D99B10CFB47</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>50A8A9D97B314A3F938D44FA</string>
-				<string>78A1D29E728F426A8DDF2E26</string>
-				<string>583EA3BF98F64E6A990F5610</string>
-				<string>B5063FB7D6EB4C0A8D60D99D</string>
-				<string>0D4CB941E2F24F3ABBBD1E4F</string>
-				<string>41A28ADABAEF48B38365CEF0</string>
-				<string>91E03AC3C7114618A26A8C80</string>
-				<string>C5A3D4A8FFAF43219EA20B3D</string>
-				<string>474AFD3E72364200AEC464AB</string>
-				<string>3A5CAE896ED04986AFE71910</string>
-				<string>2A8F506DA57F4FE6A7EDE422</string>
-				<string>DA5F174B0BD64DA5AD65E917</string>
-				<string>2E8E825189004074A1A59554</string>
-				<string>93BEE056247B4C57BBB05281</string>
-				<string>0EDBFF0E0C6F4637AE0B2E74</string>
-				<string>8DD83B0838C74BF4B9C10282</string>
-				<string>989C46126A0C4BDF83340236</string>
-				<string>7E51448A64D84F33BFB5471A</string>
-				<string>50CA7B8ABADF41FEA7F9F99F</string>
-				<string>A206939098CC41C692A9DE9C</string>
-				<string>B502388FDA57428D9D7D501F</string>
-				<string>15DA68004C0C459E86305BA0</string>
-				<string>E963E1E3B082478384BF2D33</string>
-				<string>18D4A4339553426B968E43FC</string>
-				<string>A3187DE9B3044C2C8BC29F4F</string>
-				<string>A7E369194D8F47ECB08A1ACE</string>
-				<string>C171A190689B43AA94F7C1E1</string>
-				<string>427CDA267A4E455280860CD0</string>
-				<string>5C36B0061B9C4B0A9FF8CCE7</string>
-				<string>D36F5E2B1F2E40AC9BB35374</string>
-				<string>88C9A9B1496A43F2956A56F3</string>
-				<string>15D6A32CCC574BC28A881CAA</string>
-				<string>F3DDB4DDE3E347EBAE7618B9</string>
-				<string>A5CC460DAEE34714A3C55D3B</string>
-				<string>6217031C4AED4EAC9D970514</string>
-				<string>4599B919654E4E55BF29E6DA</string>
-				<string>3C3B581717E546FF87CC800C</string>
-				<string>4CFD8AD9D5264CF08675C1D1</string>
-				<string>1A4BBD5A9B2042F3A5844ECC</string>
-				<string>6C16F93A2819415C9D24F1F8</string>
-				<string>127F0D422C6641C69FBD2B88</string>
-				<string>A383E89B214646DEA5AC64BF</string>
-				<string>A98FF55EC6114F3F9C4071FC</string>
-				<string>684FAB8730354FBFB78612A2</string>
-				<string>F6B94CA8B40441969F3AD508</string>
-				<string>581A9735D839415987526F75</string>
-				<string>074FEB0022334899A28D8490</string>
-				<string>C8A661FA44B446CB8BABE673</string>
-				<string>46321C2F71164D81BBF4287E</string>
-				<string>A1B2BB53B3364BC8899F03D4</string>
-				<string>E5F6F1A60B094F01AA9C66AB</string>
-				<string>D6E6987837F24BA1B41E2B9B</string>
-				<string>70B1B394F6D245EBB18395EF</string>
-				<string>7F849ED798FB4C42A82C4969</string>
-				<string>1E8387EEC2FD4676A92712B2</string>
-				<string>6EAD1E55DCE24BB7A5E91500</string>
-				<string>2C664E104E994DF5B2DF0BC2</string>
-				<string>E6DF98D82C2D48D880337A92</string>
-				<string>16BCEEC143944DED9FC56B35</string>
-				<string>9106396AC3F445949B885951</string>
-				<string>CA8A597851FC45F3871FC3F3</string>
-				<string>5A731EAAC8FE4FE89E27B099</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>RestKit/Network</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>828CB8FF1C0B470280917AB5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>LCLNSLog.m</string>
-			<key>path</key>
-			<string>LibComponentLogging-NSLog/LCLNSLog.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>83177CFEA8754BB09690FD9C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectRouter.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectRouter.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>8328A5896B9A40C4ADFC10A1</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0420</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>5FA6BAFBF6874798A5FEA6FC</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>199211D78F664C2C8BCA4077</string>
-			<key>productRefGroup</key>
-			<string>57160CB9FE5C4189860CD314</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>FAA8D104D8D5425CADFD9979</string>
-			</array>
-		</dict>
-		<key>85283DF8EE87471DAA1BF46A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>19081B7EEC20486EA7B40C84</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>86AE6942A40E4AB387B332DA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>GCOAuth.h</string>
-			<key>path</key>
-			<string>cocoa-oauth/GCOAuth.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>87C43E26F30149E18854AB58</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusher.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusher.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>88C9A9B1496A43F2956A56F3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKRequestQueue.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKRequestQueue.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>8962D669435348CB8F6C1858</key>
-		<dict>
-			<key>fileRef</key>
-			<string>88C9A9B1496A43F2956A56F3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>89CA1715E6F24C968B1178B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9136B1A19924464FBA7BEE6D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>8A8E5F78F424474C9AC7DDDC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7376BAA9009C49B696C3A29D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>8C01794E20184F4AAA80E1B3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods-prefix.pch</string>
-			<key>path</key>
-			<string>Pods-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>8DD83B0838C74BF4B9C10282</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKRequestSerializable.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKRequestSerializable.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>8DED0A9A763148F09E602130</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CA8A597851FC45F3871FC3F3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>8F056C80A6C04971A858D812</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectAttributeMapping.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectAttributeMapping.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>9106396AC3F445949B885951</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKMIMETypes.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKMIMETypes.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>9136B1A19924464FBA7BEE6D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSString+Hashing.m</string>
-			<key>path</key>
-			<string>libPusher/Library/NSString+Hashing.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>91E03AC3C7114618A26A8C80</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKNotifications.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKNotifications.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>929582D54A874B46909115C9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherAPI.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherAPI.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>93BEE056247B4C57BBB05281</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKRequestCache.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKRequestCache.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>9505FB57718D4A23AEF3A967</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvmgcc42</string>
-				<key>GCC_WARN_ABOUT_MISSING_PROTOTYPES</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>4.3</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>961EC782E1A34353A38AF1EF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectStore.m</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectStore.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>96BB6464EF7D4442A1F9A66F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSData+Base64.h</string>
-			<key>path</key>
-			<string>cocoa-oauth/NSData+Base64.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>96E63398C5774CD58A22532D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTBlockEventListener.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTBlockEventListener.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>989C46126A0C4BDF83340236</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKRequestSerialization.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKRequestSerialization.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>9B43FBFFFFB14A93AF17EE5E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4156583B94FE40EF849ABD29</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>9B694D710EF54C38AE84608D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A5CC460DAEE34714A3C55D3B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>9C0D1A03C947471297358A87</key>
-		<dict>
-			<key>fileRef</key>
-			<string>15DA68004C0C459E86305BA0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>9E59A88D05714F029AA89391</key>
-		<dict>
-			<key>fileRef</key>
-			<string>16BCEEC143944DED9FC56B35</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>9E7FABE04F4B4F50A8209E59</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectMapping.m</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectMapping.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>9E88E85561C64473A5CEA64F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A7E369194D8F47ECB08A1ACE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>A1B2BB53B3364BC8899F03D4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKSearchEngine.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKSearchEngine.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A206939098CC41C692A9DE9C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSData+MD5.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/NSData+MD5.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A2A8CE58AF204C9F891A3CC6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>A3187DE9B3044C2C8BC29F4F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKOAuthClient.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKOAuthClient.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A383E89B214646DEA5AC64BF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKAlert.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKAlert.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A3C8EFA3FB70497BB61A49B9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSData+SRB64Additions.m</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/NSData+SRB64Additions.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A5CC460DAEE34714A3C55D3B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKURL.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKURL.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A7E369194D8F47ECB08A1ACE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKParams.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKParams.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A8118C1E92EA469095E4F4CD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D3F33F7F302D412A9B933BFE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>A9354CDC39A44266B77ECECE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMapping.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMapping.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A98FF55EC6114F3F9C4071FC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKDirectory.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKDirectory.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A99A04DB20A2485EB5FDA587</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A9354CDC39A44266B77ECECE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>AA1FC13B064F4A4FAAD5AAE9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F16001F99B3E4AA88746E5E0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>AB46B5D91EB442128E13A3E5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectMappingOperation.h</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectMappingOperation.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>AB9A1F830064461294B5B607</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CBBA69D7164546D989BE7E91</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>AC2D2D3687014ADCA4B876EC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>SRWebSocket.h</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/SRWebSocket.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>AC505285B3EE4CA197F0A5D8</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D2014EDD32FA41F89F6F090B</string>
-				<string>217F7B82F8E846FF87C74505</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>RestKit/ObjectMapping/JSONKit</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AC8FF0748C994D06AC051ABC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0A360D2190D44C9B94935DBB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>AD8B0B82501341D2BF9EC199</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherAPI.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherAPI.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>AF023D1698244FBD82E537F7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1E8387EEC2FD4676A92712B2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>B01C793A4A4140E58A21B813</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>JSONKit.m</string>
-			<key>path</key>
-			<string>JSONKit/JSONKit.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>B4F5FF4B2DE646E08455AD3D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectStore.h</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectStore.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>B502388FDA57428D9D7D501F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSDictionary+RKRequestSerialization.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/NSDictionary+RKRequestSerialization.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>B5063FB7D6EB4C0A8D60D99D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSDictionary+RKRequestSerialization.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/NSDictionary+RKRequestSerialization.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>B5B53245D14643EE81B2FD6C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A2A8CE58AF204C9F891A3CC6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B5BB7EBC205B4D4391B4F621</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>766EF4F633604093ACD73E9E</string>
-				<string>8C01794E20184F4AAA80E1B3</string>
-				<string>1C971EFB1F9D4C06BD696E8D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B63502F726844F8788662F2B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectManager.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectManager.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>B72228A0F9B04D4A8EDC7E76</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C171A190689B43AA94F7C1E1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>B7A1721B436644FEB5F0CF01</key>
-		<dict>
-			<key>fileRef</key>
-			<string>961EC782E1A34353A38AF1EF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>BA02B1635E4645179A286037</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E963E1E3B082478384BF2D33</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>BB4612789D0944CEAB991B4F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>CoreData.h</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/CoreData.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>BB4CE79C0111434E97EE4AF4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D0ABF85E2ED040D29B8036AF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>BB6C6D478E50476CA28D03F9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMapper_Private.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMapper_Private.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>BBCF5CAC7C0C45669BD86395</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSDictionary+QueryString.m</string>
-			<key>path</key>
-			<string>libPusher/Library/NSDictionary+QueryString.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>BD0900FC0EBB496CBBA2AB4E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>29521556BAA54B7989E56741</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>BD5CD911C06A458083EEBD8B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>70CB3E6BAFED4EB18F0CA43F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>BEA9383DB875448EA6A4C148</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>GCOAuth.m</string>
-			<key>path</key>
-			<string>cocoa-oauth/GCOAuth.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C171A190689B43AA94F7C1E1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKParamsAttachment.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKParamsAttachment.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C2728693C1C345F9807DF51B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7F6DF602CE96400B9C463049</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>C2875AB3727F4EFEA8145F69</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSManagedObject+ActiveRecord.m</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/NSManagedObject+ActiveRecord.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C3E998A1D27F4729899F0331</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectPropertyInspector+CoreData.m</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKObjectPropertyInspector+CoreData.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C41C6D39D0874B95B90BAE8E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMappingOperation.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMappingOperation.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C54329DE893E4853A53DD07C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5C36B0061B9C4B0A9FF8CCE7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>C5A3D4A8FFAF43219EA20B3D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKOAuthClient.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKOAuthClient.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C6497826F3D44A6F8598B805</key>
-		<dict>
-			<key>fileRef</key>
-			<string>828CB8FF1C0B470280917AB5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>C6D6C37C18BA418AA8D62481</key>
-		<dict>
-			<key>fileRef</key>
-			<string>51B0F791029A446ABB3A89A9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>C7A7EDEFD5274522A7461527</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>41391A40EC324BC895CCB86A</string>
-				<string>BBCF5CAC7C0C45669BD86395</string>
-				<string>6744BC63F05A4B59BC6577D2</string>
-				<string>9136B1A19924464FBA7BEE6D</string>
-				<string>FA89FB1CFC5B466DA549EE38</string>
-				<string>96E63398C5774CD58A22532D</string>
-				<string>72CB379E2A15421397364AED</string>
-				<string>87C43E26F30149E18854AB58</string>
-				<string>CBBA69D7164546D989BE7E91</string>
-				<string>AD8B0B82501341D2BF9EC199</string>
-				<string>929582D54A874B46909115C9</string>
-				<string>F143BC28442042AC82533CC4</string>
-				<string>65B916BD1E004EBC95D90AA6</string>
-				<string>55813EA0B40443429916C070</string>
-				<string>E0D5A8A5872F4EDDAD82C462</string>
-				<string>40B5DA953415412CA30EC5C0</string>
-				<string>F16001F99B3E4AA88746E5E0</string>
-				<string>646F12D4E962441CBA54262D</string>
-				<string>070FFB86083A42D98B73BF76</string>
-				<string>42170142A7EE4A749497C5B9</string>
-				<string>5B639AD468564326BE19F898</string>
-				<string>CF524E2F948C4FCE8ABF661F</string>
-				<string>D0ABF85E2ED040D29B8036AF</string>
-				<string>64FBBEE24FF5412F87F5DEB5</string>
-				<string>D57B7F8EFD884962B6E061B0</string>
-				<string>FC9F69139B7E4B32B171BC7F</string>
-				<string>DCBF201E8FC34BDABDD38AEF</string>
-				<string>51B0F791029A446ABB3A89A9</string>
-				<string>370900DBFC1A4253A09E7973</string>
-				<string>70CB3E6BAFED4EB18F0CA43F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>libPusher</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C88C0E9D51A14590AAA9325F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMappingDefinition.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMappingDefinition.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C8A661FA44B446CB8BABE673</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKParser.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKParser.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C93AF10310C541ED92D1D9DC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMapper.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMapper.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>CA8A597851FC45F3871FC3F3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKPathMatcher.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKPathMatcher.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>CAE624A8483241C0863AE8DF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>217F7B82F8E846FF87C74505</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>CBBA69D7164546D989BE7E91</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusher.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusher.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>CD15BDA0C6E5426E89FB57C7</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectSerializer.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectSerializer.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>CD21E669513D4451B2181DAF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FDE2509417BE405E99A364E1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>CE3E342F12DB49F299A69988</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E0D5A8A5872F4EDDAD82C462</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>CF03BBA7E4184187B0343283</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>1C971EFB1F9D4C06BD696E8D</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-prefix.pch</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>CF524E2F948C4FCE8ABF661F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherEventDispatcher.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherEventDispatcher.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D0ABF85E2ED040D29B8036AF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherEventDispatcher.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherEventDispatcher.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D2014EDD32FA41F89F6F090B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKJSONParserJSONKit.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/Parsers/JSON/RKJSONParserJSONKit.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D2C27856C64C482EA603C078</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectMapping.h</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectMapping.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D36F5E2B1F2E40AC9BB35374</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKRequestCache.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKRequestCache.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D3F33F7F302D412A9B933BFE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectLoader.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectLoader.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D57B7F8EFD884962B6E061B0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherMacros.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherMacros.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D6E6987837F24BA1B41E2B9B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Errors.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/Errors.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D6FB15FF77F64525B681846E</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSData+Base64.m</string>
-			<key>path</key>
-			<string>cocoa-oauth/NSData+Base64.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D8E7C15273C64C0A8E1C6CB5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>86AE6942A40E4AB387B332DA</string>
-				<string>96BB6464EF7D4442A1F9A66F</string>
-				<string>BEA9383DB875448EA6A4C148</string>
-				<string>D6FB15FF77F64525B681846E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>cocoa-oauth</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA5F174B0BD64DA5AD65E917</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKRequest.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKRequest.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>DB6D59BCCEA44EF59999C6ED</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectLoader.h</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectLoader.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>DBD503CA21CA4E908D20750E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>929582D54A874B46909115C9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>DC6381423241412C95374D2B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3E998A1D27F4729899F0331</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>DCBF201E8FC34BDABDD38AEF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTTargetActionEventListener.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTTargetActionEventListener.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>DD86D0FF36B74E76AD203F72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKDynamicObjectMapping.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKDynamicObjectMapping.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>DF79A70C8117405F84676663</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMapper.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMapper.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>E0D5A8A5872F4EDDAD82C462</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherChannelAuthorizationOperation.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherChannelAuthorizationOperation.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>E1939694CCC3405D8BDBE9D8</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectMappingOperation.m</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectMappingOperation.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>E1C0C98CFD934015AC50E323</key>
-		<dict>
-			<key>fileRef</key>
-			<string>280740DB86A0471BBABDA207</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>E420276E22244365B90AA9B6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D36F5E2B1F2E40AC9BB35374</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>E5F6F1A60B094F01AA9C66AB</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Support.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/Support.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>E6DF98D82C2D48D880337A92</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKDotNetDateFormatter.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKDotNetDateFormatter.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>E70B76A99F954B5CB81EC362</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectRelationshipMapping.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectRelationshipMapping.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>E7C7A31F4885414A9AFD2222</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>02AA7E307AB3498BBC4995BD</string>
-				<string>29521556BAA54B7989E56741</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>LibComponentLogging-Core</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E85B5B69916A4221A094AB04</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMappingProvider.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMappingProvider.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>E896DD6B0BB14B888B6F39E1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKRouter.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKRouter.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>E963E1E3B082478384BF2D33</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKClient.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKClient.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>E98B43128CB1450EAD8C5077</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>JSONKit.h</string>
-			<key>path</key>
-			<string>JSONKit/JSONKit.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>EBA8882757D9486A9DAFF1C4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>70B1B394F6D245EBB18395EF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>EC3A51E53DA440FBA61482B1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7F849ED798FB4C42A82C4969</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>EFF679CA09B8439FBD365EFF</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectLoader.h</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectLoader.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>F143BC28442042AC82533CC4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherChannel.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherChannel.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>F16001F99B3E4AA88746E5E0</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherConnection.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherConnection.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>F1B8EE4C15C24B85B4C04973</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A2A8CE58AF204C9F891A3CC6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F3DDB4DDE3E347EBAE7618B9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKResponse.m</string>
-			<key>path</key>
-			<string>RestKit/Code/Network/RKResponse.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>F48F6518A2B94A7284864F80</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BBCF5CAC7C0C45669BD86395</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> -fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>F604B4AAF5AF4E4F9035960D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5BC616249F2742A1BCA0AAC8</string>
-				<string>DD86D0FF36B74E76AD203F72</string>
-				<string>38CBB7D5650E421A930BFC9E</string>
-				<string>70632866E2884C98BA2F0A42</string>
-				<string>635C760F5B4442F2AB15A6B3</string>
-				<string>EFF679CA09B8439FBD365EFF</string>
-				<string>389D62F8123D45958B234268</string>
-				<string>B63502F726844F8788662F2B</string>
-				<string>DF79A70C8117405F84676663</string>
-				<string>BB6C6D478E50476CA28D03F9</string>
-				<string>41E7A97D06814CC28C2456C6</string>
-				<string>105B904FC80C4C1E96E37CC5</string>
-				<string>C88C0E9D51A14590AAA9325F</string>
-				<string>1291677C0ECC428F94E1AF74</string>
-				<string>E85B5B69916A4221A094AB04</string>
-				<string>0CD450481C5247BDA4B8C70F</string>
-				<string>73B5C4ECE6F74A7A972CB31C</string>
-				<string>353184018643479990878DF3</string>
-				<string>83177CFEA8754BB09690FD9C</string>
-				<string>CD15BDA0C6E5426E89FB57C7</string>
-				<string>6B9B346972E74D0BB8870385</string>
-				<string>E896DD6B0BB14B888B6F39E1</string>
-				<string>4156583B94FE40EF849ABD29</string>
-				<string>7376BAA9009C49B696C3A29D</string>
-				<string>65BBEC44199A41CC8E419D78</string>
-				<string>8F056C80A6C04971A858D812</string>
-				<string>D3F33F7F302D412A9B933BFE</string>
-				<string>3698251115094E25B5309C0B</string>
-				<string>C93AF10310C541ED92D1D9DC</string>
-				<string>A9354CDC39A44266B77ECECE</string>
-				<string>C41C6D39D0874B95B90BAE8E</string>
-				<string>280740DB86A0471BBABDA207</string>
-				<string>FDE2509417BE405E99A364E1</string>
-				<string>4D7AE143DFCE4616A3F16F95</string>
-				<string>E70B76A99F954B5CB81EC362</string>
-				<string>26026546A3F54850950C77A6</string>
-				<string>6F4DD3BDE350403ABB6DCF2D</string>
-				<string>3C0DD9A0EDD1409DA27D5DD8</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>RestKit/ObjectMapping</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F6649114EE154DAF9F4037A1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BB4612789D0944CEAB991B4F</string>
-				<string>F80DE86284234B77A60C8B30</string>
-				<string>6411EBFAA8B54C54826ABB9C</string>
-				<string>DB6D59BCCEA44EF59999C6ED</string>
-				<string>D2C27856C64C482EA603C078</string>
-				<string>AB46B5D91EB442128E13A3E5</string>
-				<string>1DF93D16FDF447DEBD0E7BFE</string>
-				<string>B4F5FF4B2DE646E08455AD3D</string>
-				<string>469541BF13924ED895A7768B</string>
-				<string>789D5CE76335442B95AE7357</string>
-				<string>C2875AB3727F4EFEA8145F69</string>
-				<string>02041D9468DC46D18F4E520A</string>
-				<string>9E7FABE04F4B4F50A8209E59</string>
-				<string>E1939694CCC3405D8BDBE9D8</string>
-				<string>7F198B4BDD8B4576A05C1E6C</string>
-				<string>961EC782E1A34353A38AF1EF</string>
-				<string>F81B519850EC44038949514A</string>
-				<string>C3E998A1D27F4729899F0331</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>RestKit/ObjectMapping/CoreData</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F68EC98D8F3B4A058CA8E759</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>324E08AC2F26408C95CEEA17</string>
-				<string>CF03BBA7E4184187B0343283</string>
-			</array>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>F6B94CA8B40441969F3AD508</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKFixCategoryBug.h</string>
-			<key>path</key>
-			<string>RestKit/Code/Support/RKFixCategoryBug.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>F7FF1E2F9ABC4CF7BCABA491</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3698251115094E25B5309C0B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>F80DE86284234B77A60C8B30</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>NSManagedObject+ActiveRecord.h</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/NSManagedObject+ActiveRecord.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>F81B519850EC44038949514A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKManagedObjectThreadSafeInvocation.m</string>
-			<key>path</key>
-			<string>RestKit/Code/CoreData/RKManagedObjectThreadSafeInvocation.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>F9725FEDA9974CB481480B5D</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods.a</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>F97B2D15C16B4B58BB3BCB90</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A3187DE9B3044C2C8BC29F4F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>F97F452FE9AA4176B60EB261</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4537982090F2422FA090D0C0</string>
-				<string>7D88DA6582264C13A137DD04</string>
-				<string>E7C7A31F4885414A9AFD2222</string>
-				<string>74591214669C452B9FA876D3</string>
-				<string>8201225DCE874D99B10CFB47</string>
-				<string>F604B4AAF5AF4E4F9035960D</string>
-				<string>F6649114EE154DAF9F4037A1</string>
-				<string>AC505285B3EE4CA197F0A5D8</string>
-				<string>50C8DD57043449B3A5F1DFB0</string>
-				<string>51F394D65B2C4F378A9B5510</string>
-				<string>D8E7C15273C64C0A8E1C6CB5</string>
-				<string>C7A7EDEFD5274522A7461527</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F9B08F61236C4C6D8811F283</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A206939098CC41C692A9DE9C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>FA89FB1CFC5B466DA549EE38</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTBlockEventListener.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTBlockEventListener.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>FAA8D104D8D5425CADFD9979</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>F68EC98D8F3B4A058CA8E759</string>
-			<key>buildPhases</key>
-			<array>
-				<string>18C1B6F40BD24EEDAB855611</string>
-				<string>33A811D3E05A400DAC478269</string>
-				<string>347C5CD1417C427583591E31</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>productName</key>
-			<string>Pods</string>
-			<key>productReference</key>
-			<string>F9725FEDA9974CB481480B5D</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>FAA917B922FB42D494A2DEE6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D6E6987837F24BA1B41E2B9B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>FC9F69139B7E4B32B171BC7F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>PTPusherPresenceChannelDelegate.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherPresenceChannelDelegate.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>FDA9CEE28D70475489FA19D5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3C0DD9A0EDD1409DA27D5DD8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-		<key>FDE2509417BE405E99A364E1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>RKObjectMappingResult.m</string>
-			<key>path</key>
-			<string>RestKit/Code/ObjectMapping/RKObjectMappingResult.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>FE7F0AA0F75E487587F89610</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C41C6D39D0874B95B90BAE8E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string> </string>
-			</dict>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>8328A5896B9A40C4ADFC10A1</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		049C8F594692454CA4B2C8C8 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C8EFA3FB70497BB61A49B9 /* NSData+SRB64Additions.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		08F44C83DFD44B2492245E03 /* RKManagedObjectSeeder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F198B4BDD8B4576A05C1E6C /* RKManagedObjectSeeder.m */; settings = {COMPILER_FLAGS = " "; }; };
+		0DA70CDCBB0149359DBF4A10 /* PTPusherChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B916BD1E004EBC95D90AA6 /* PTPusherChannel.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		1E985AFEF6704F92B9C163BC /* RKManagedObjectLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041D9468DC46D18F4E520A /* RKManagedObjectLoader.m */; settings = {COMPILER_FLAGS = " "; }; };
+		23D80F689B924E0EAF868E27 /* RKDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C664E104E994DF5B2DF0BC2 /* RKDirectory.m */; settings = {COMPILER_FLAGS = " "; }; };
+		2659CC67678E4718A9F63BB6 /* FileMD5Hash_Prefix.pch in Sources */ = {isa = PBXBuildFile; fileRef = 38D6BA89D93E49B5881BC06A /* FileMD5Hash_Prefix.pch */; settings = {COMPILER_FLAGS = " "; }; };
+		2852A7C378E44814B89D6B4B /* NSDictionary+RKRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B502388FDA57428D9D7D501F /* NSDictionary+RKRequestSerialization.m */; settings = {COMPILER_FLAGS = " "; }; };
+		298E9CEAAD7947C08E901F52 /* RKSearchEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A731EAAC8FE4FE89E27B099 /* RKSearchEngine.m */; settings = {COMPILER_FLAGS = " "; }; };
+		2A01950C123B4AE29D6BF44D /* RKManagedObjectMappingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1939694CCC3405D8BDBE9D8 /* RKManagedObjectMappingOperation.m */; settings = {COMPILER_FLAGS = " "; }; };
+		2C08CF7489AD41FCBF2AF366 /* PTPusherEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B639AD468564326BE19F898 /* PTPusherEvent.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		35CE226FD24141EAA3884702 /* RKResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DDB4DDE3E347EBAE7618B9 /* RKResponse.m */; settings = {COMPILER_FLAGS = " "; }; };
+		38B1E7522D7F4A288B7140D6 /* RKObjectAttributeMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F056C80A6C04971A858D812 /* RKObjectAttributeMapping.m */; settings = {COMPILER_FLAGS = " "; }; };
+		42F0D46364CF445CBA0C8345 /* RKMappingOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BBEC44199A41CC8E419D78 /* RKMappingOperationQueue.m */; settings = {COMPILER_FLAGS = " "; }; };
+		441A3C31A69E47EE8FDB47F2 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FB15FF77F64525B681846E /* NSData+Base64.m */; settings = {COMPILER_FLAGS = " "; }; };
+		55AC64BAB5DC4F6A9AD78021 /* RKObjectRelationshipMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = E70B76A99F954B5CB81EC362 /* RKObjectRelationshipMapping.m */; settings = {COMPILER_FLAGS = " "; }; };
+		5695348FE18A4FF995A28143 /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C2875AB3727F4EFEA8145F69 /* NSManagedObject+ActiveRecord.m */; settings = {COMPILER_FLAGS = " "; }; };
+		57AE35D7886441A0A90CB675 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F9ACA03BA9C4B7E80FF4F2D /* base64.c */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		5C5AFCDEA4CA421299DB77A1 /* GCOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA9383DB875448EA6A4C148 /* GCOAuth.m */; settings = {COMPILER_FLAGS = " "; }; };
+		5D4B1625CCA14374B7D7A099 /* RKObjectSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4DD3BDE350403ABB6DCF2D /* RKObjectSerializer.m */; settings = {COMPILER_FLAGS = " "; }; };
+		5F1BBE94946347F88BBC5C69 /* RKMIMETypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9106396AC3F445949B885951 /* RKMIMETypes.m */; settings = {COMPILER_FLAGS = " "; }; };
+		66ED1C20252849F9AAF5ECEA /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B01C793A4A4140E58A21B813 /* JSONKit.m */; settings = {COMPILER_FLAGS = " "; }; };
+		6984D8EDFB5140819C0D3E2F /* RKDotNetDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E6DF98D82C2D48D880337A92 /* RKDotNetDateFormatter.m */; settings = {COMPILER_FLAGS = " "; }; };
+		6A13FC31DC7D43A6AA236EE3 /* RKObjectRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 26026546A3F54850950C77A6 /* RKObjectRouter.m */; settings = {COMPILER_FLAGS = " "; }; };
+		6BAC49AA40F549BE92E47A80 /* RKObjectPropertyInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AE143DFCE4616A3F16F95 /* RKObjectPropertyInspector.m */; settings = {COMPILER_FLAGS = " "; }; };
+		6C9E86D3EA244069BAACC743 /* RKReachabilityObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 427CDA267A4E455280860CD0 /* RKReachabilityObserver.m */; settings = {COMPILER_FLAGS = " "; }; };
+		6CDB1A1A338A417CBA11A20E /* PTBlockEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E63398C5774CD58A22532D /* PTBlockEventListener.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		744B68AD4A1B4782ACF82051 /* RKManagedObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7FABE04F4B4F50A8209E59 /* RKManagedObjectMapping.m */; settings = {COMPILER_FLAGS = " "; }; };
+		766C6B4588014FDEB9E879CB /* RKRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D6A32CCC574BC28A881CAA /* RKRequestSerialization.m */; settings = {COMPILER_FLAGS = " "; }; };
+		7BB0385F99DA4D7C88E99D5A /* RKNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4A4339553426B968E43FC /* RKNotifications.m */; settings = {COMPILER_FLAGS = " "; }; };
+		7D30BBEE86C74925A0912271 /* RKObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C93AF10310C541ED92D1D9DC /* RKObjectMapper.m */; settings = {COMPILER_FLAGS = " "; }; };
+		802CAC9336A04B9BB0639CEC /* RKManagedObjectThreadSafeInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F81B519850EC44038949514A /* RKManagedObjectThreadSafeInvocation.m */; settings = {COMPILER_FLAGS = " "; }; };
+		80E5BCC6619C4FE5AEB3CA83 /* RKAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD1E55DCE24BB7A5E91500 /* RKAlert.m */; settings = {COMPILER_FLAGS = " "; }; };
+		85283DF8EE87471DAA1BF46A /* FileMD5Hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 19081B7EEC20486EA7B40C84 /* FileMD5Hash.c */; settings = {COMPILER_FLAGS = " "; }; };
+		8962D669435348CB8F6C1858 /* RKRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C9A9B1496A43F2956A56F3 /* RKRequestQueue.m */; settings = {COMPILER_FLAGS = " "; }; };
+		89CA1715E6F24C968B1178B0 /* NSString+Hashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9136B1A19924464FBA7BEE6D /* NSString+Hashing.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		8A8E5F78F424474C9AC7DDDC /* RKErrorMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376BAA9009C49B696C3A29D /* RKErrorMessage.m */; settings = {COMPILER_FLAGS = " "; }; };
+		8DED0A9A763148F09E602130 /* RKPathMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8A597851FC45F3871FC3F3 /* RKPathMatcher.m */; settings = {COMPILER_FLAGS = " "; }; };
+		9B43FBFFFFB14A93AF17EE5E /* RKDynamicObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4156583B94FE40EF849ABD29 /* RKDynamicObjectMapping.m */; settings = {COMPILER_FLAGS = " "; }; };
+		9B694D710EF54C38AE84608D /* RKURL.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CC460DAEE34714A3C55D3B /* RKURL.m */; settings = {COMPILER_FLAGS = " "; }; };
+		9C0D1A03C947471297358A87 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DA68004C0C459E86305BA0 /* NSString+MD5.m */; settings = {COMPILER_FLAGS = " "; }; };
+		9E59A88D05714F029AA89391 /* RKLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BCEEC143944DED9FC56B35 /* RKLog.m */; settings = {COMPILER_FLAGS = " "; }; };
+		9E88E85561C64473A5CEA64F /* RKParams.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E369194D8F47ECB08A1ACE /* RKParams.m */; settings = {COMPILER_FLAGS = " "; }; };
+		A8118C1E92EA469095E4F4CD /* RKObjectLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F33F7F302D412A9B933BFE /* RKObjectLoader.m */; settings = {COMPILER_FLAGS = " "; }; };
+		A99A04DB20A2485EB5FDA587 /* RKObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A9354CDC39A44266B77ECECE /* RKObjectMapping.m */; settings = {COMPILER_FLAGS = " "; }; };
+		AA1FC13B064F4A4FAAD5AAE9 /* PTPusherConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = F16001F99B3E4AA88746E5E0 /* PTPusherConnection.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		AB9A1F830064461294B5B607 /* PTPusher.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBA69D7164546D989BE7E91 /* PTPusher.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		AC8FF0748C994D06AC051ABC /* SOCKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A360D2190D44C9B94935DBB /* SOCKit.m */; settings = {COMPILER_FLAGS = " "; }; };
+		AF023D1698244FBD82E537F7 /* NSURL+RestKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8387EEC2FD4676A92712B2 /* NSURL+RestKit.m */; settings = {COMPILER_FLAGS = " "; }; };
+		B72228A0F9B04D4A8EDC7E76 /* RKParamsAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = C171A190689B43AA94F7C1E1 /* RKParamsAttachment.m */; settings = {COMPILER_FLAGS = " "; }; };
+		B7A1721B436644FEB5F0CF01 /* RKManagedObjectStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 961EC782E1A34353A38AF1EF /* RKManagedObjectStore.m */; settings = {COMPILER_FLAGS = " "; }; };
+		BA02B1635E4645179A286037 /* RKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E963E1E3B082478384BF2D33 /* RKClient.m */; settings = {COMPILER_FLAGS = " "; }; };
+		BB4CE79C0111434E97EE4AF4 /* PTPusherEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ABF85E2ED040D29B8036AF /* PTPusherEventDispatcher.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		BD0900FC0EBB496CBBA2AB4E /* lcl.m in Sources */ = {isa = PBXBuildFile; fileRef = 29521556BAA54B7989E56741 /* lcl.m */; settings = {COMPILER_FLAGS = " "; }; };
+		BD5CD911C06A458083EEBD8B /* PTURLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CB3E6BAFED4EB18F0CA43F /* PTURLRequestOperation.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		C2728693C1C345F9807DF51B /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DF602CE96400B9C463049 /* SRWebSocket.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		C54329DE893E4853A53DD07C /* RKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C36B0061B9C4B0A9FF8CCE7 /* RKRequest.m */; settings = {COMPILER_FLAGS = " "; }; };
+		C6497826F3D44A6F8598B805 /* LCLNSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 828CB8FF1C0B470280917AB5 /* LCLNSLog.m */; settings = {COMPILER_FLAGS = " "; }; };
+		C6D6C37C18BA418AA8D62481 /* PTTargetActionEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B0F791029A446ABB3A89A9 /* PTTargetActionEventListener.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		CAE624A8483241C0863AE8DF /* RKJSONParserJSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 217F7B82F8E846FF87C74505 /* RKJSONParserJSONKit.m */; settings = {COMPILER_FLAGS = " "; }; };
+		CD21E669513D4451B2181DAF /* RKObjectMappingResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2509417BE405E99A364E1 /* RKObjectMappingResult.m */; settings = {COMPILER_FLAGS = " "; }; };
+		CE3E342F12DB49F299A69988 /* PTPusherChannelAuthorizationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E0D5A8A5872F4EDDAD82C462 /* PTPusherChannelAuthorizationOperation.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		DBD503CA21CA4E908D20750E /* PTPusherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 929582D54A874B46909115C9 /* PTPusherAPI.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		DC6381423241412C95374D2B /* RKObjectPropertyInspector+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E998A1D27F4729899F0331 /* RKObjectPropertyInspector+CoreData.m */; settings = {COMPILER_FLAGS = " "; }; };
+		E1C0C98CFD934015AC50E323 /* RKObjectMappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 280740DB86A0471BBABDA207 /* RKObjectMappingProvider.m */; settings = {COMPILER_FLAGS = " "; }; };
+		E420276E22244365B90AA9B6 /* RKRequestCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D36F5E2B1F2E40AC9BB35374 /* RKRequestCache.m */; settings = {COMPILER_FLAGS = " "; }; };
+		EBA8882757D9486A9DAFF1C4 /* NSDictionary+RKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B1B394F6D245EBB18395EF /* NSDictionary+RKAdditions.m */; settings = {COMPILER_FLAGS = " "; }; };
+		EC3A51E53DA440FBA61482B1 /* NSString+RestKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F849ED798FB4C42A82C4969 /* NSString+RestKit.m */; settings = {COMPILER_FLAGS = " "; }; };
+		F1B8EE4C15C24B85B4C04973 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A8CE58AF204C9F891A3CC6 /* Foundation.framework */; };
+		F48F6518A2B94A7284864F80 /* NSDictionary+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCF5CAC7C0C45669BD86395 /* NSDictionary+QueryString.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		F7FF1E2F9ABC4CF7BCABA491 /* RKObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3698251115094E25B5309C0B /* RKObjectManager.m */; settings = {COMPILER_FLAGS = " "; }; };
+		F97B2D15C16B4B58BB3BCB90 /* RKOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A3187DE9B3044C2C8BC29F4F /* RKOAuthClient.m */; settings = {COMPILER_FLAGS = " "; }; };
+		F9B08F61236C4C6D8811F283 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = A206939098CC41C692A9DE9C /* NSData+MD5.m */; settings = {COMPILER_FLAGS = " "; }; };
+		FAA917B922FB42D494A2DEE6 /* Errors.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6987837F24BA1B41E2B9B /* Errors.m */; settings = {COMPILER_FLAGS = " "; }; };
+		FDA9CEE28D70475489FA19D5 /* RKParserRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0DD9A0EDD1409DA27D5DD8 /* RKParserRegistry.m */; settings = {COMPILER_FLAGS = " "; }; };
+		FE7F0AA0F75E487587F89610 /* RKObjectMappingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C41C6D39D0874B95B90BAE8E /* RKObjectMappingOperation.m */; settings = {COMPILER_FLAGS = " "; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		347C5CD1417C427583591E31 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		02041D9468DC46D18F4E520A /* RKManagedObjectLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKManagedObjectLoader.m; path = RestKit/Code/CoreData/RKManagedObjectLoader.m; sourceTree = SOURCE_ROOT; };
+		02AA7E307AB3498BBC4995BD /* lcl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = lcl.h; path = "LibComponentLogging-Core/lcl.h"; sourceTree = SOURCE_ROOT; };
+		070FFB86083A42D98B73BF76 /* PTPusherErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusherErrors.h; path = libPusher/Library/PTPusherErrors.h; sourceTree = SOURCE_ROOT; };
+		074FEB0022334899A28D8490 /* RKMIMETypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKMIMETypes.h; path = RestKit/Code/Support/RKMIMETypes.h; sourceTree = SOURCE_ROOT; };
+		0A360D2190D44C9B94935DBB /* SOCKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SOCKit.m; path = SOCKit/SOCKit.m; sourceTree = SOURCE_ROOT; };
+		0CD450481C5247BDA4B8C70F /* RKObjectMappingResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectMappingResult.h; path = RestKit/Code/ObjectMapping/RKObjectMappingResult.h; sourceTree = SOURCE_ROOT; };
+		0D4CB941E2F24F3ABBBD1E4F /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5.h"; path = "RestKit/Code/Network/NSString+MD5.h"; sourceTree = SOURCE_ROOT; };
+		0EDBFF0E0C6F4637AE0B2E74 /* RKRequestQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKRequestQueue.h; path = RestKit/Code/Network/RKRequestQueue.h; sourceTree = SOURCE_ROOT; };
+		105B904FC80C4C1E96E37CC5 /* RKObjectMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectMapping.h; path = RestKit/Code/ObjectMapping/RKObjectMapping.h; sourceTree = SOURCE_ROOT; };
+		105BDF677D434361B6731012 /* base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = base64.h; path = SocketRocket/SocketRocket/base64.h; sourceTree = SOURCE_ROOT; };
+		127F0D422C6641C69FBD2B88 /* NSURL+RestKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSURL+RestKit.h"; path = "RestKit/Code/Support/NSURL+RestKit.h"; sourceTree = SOURCE_ROOT; };
+		1291677C0ECC428F94E1AF74 /* RKObjectMappingOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectMappingOperation.h; path = RestKit/Code/ObjectMapping/RKObjectMappingOperation.h; sourceTree = SOURCE_ROOT; };
+		15D6A32CCC574BC28A881CAA /* RKRequestSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKRequestSerialization.m; path = RestKit/Code/Network/RKRequestSerialization.m; sourceTree = SOURCE_ROOT; };
+		15DA68004C0C459E86305BA0 /* NSString+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5.m"; path = "RestKit/Code/Network/NSString+MD5.m"; sourceTree = SOURCE_ROOT; };
+		16BCEEC143944DED9FC56B35 /* RKLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKLog.m; path = RestKit/Code/Support/RKLog.m; sourceTree = SOURCE_ROOT; };
+		18D4A4339553426B968E43FC /* RKNotifications.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKNotifications.m; path = RestKit/Code/Network/RKNotifications.m; sourceTree = SOURCE_ROOT; };
+		19081B7EEC20486EA7B40C84 /* FileMD5Hash.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = FileMD5Hash.c; path = FileMD5Hash/Common/FileMD5Hash.c; sourceTree = SOURCE_ROOT; };
+		1A4BBD5A9B2042F3A5844ECC /* NSDictionary+RKAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+RKAdditions.h"; path = "RestKit/Code/Support/NSDictionary+RKAdditions.h"; sourceTree = SOURCE_ROOT; };
+		1BC95AB20E6C40E7B6CC98FC /* LCLNSLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LCLNSLog.h; path = "LibComponentLogging-NSLog/LCLNSLog.h"; sourceTree = SOURCE_ROOT; };
+		1C946AE9DEFE496F9D421A8D /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+SRB64Additions.h"; path = "SocketRocket/SocketRocket/NSData+SRB64Additions.h"; sourceTree = SOURCE_ROOT; };
+		1C971EFB1F9D4C06BD696E8D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		1DF93D16FDF447DEBD0E7BFE /* RKManagedObjectSeeder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKManagedObjectSeeder.h; path = RestKit/Code/CoreData/RKManagedObjectSeeder.h; sourceTree = SOURCE_ROOT; };
+		1E8387EEC2FD4676A92712B2 /* NSURL+RestKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSURL+RestKit.m"; path = "RestKit/Code/Support/NSURL+RestKit.m"; sourceTree = SOURCE_ROOT; };
+		217F7B82F8E846FF87C74505 /* RKJSONParserJSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKJSONParserJSONKit.m; path = RestKit/Code/Support/Parsers/JSON/RKJSONParserJSONKit.m; sourceTree = SOURCE_ROOT; };
+		26026546A3F54850950C77A6 /* RKObjectRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectRouter.m; path = RestKit/Code/ObjectMapping/RKObjectRouter.m; sourceTree = SOURCE_ROOT; };
+		280740DB86A0471BBABDA207 /* RKObjectMappingProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectMappingProvider.m; path = RestKit/Code/ObjectMapping/RKObjectMappingProvider.m; sourceTree = SOURCE_ROOT; };
+		29521556BAA54B7989E56741 /* lcl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = lcl.m; path = "LibComponentLogging-Core/lcl.m"; sourceTree = SOURCE_ROOT; };
+		2A8F506DA57F4FE6A7EDE422 /* RKReachabilityObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKReachabilityObserver.h; path = RestKit/Code/Network/RKReachabilityObserver.h; sourceTree = SOURCE_ROOT; };
+		2C664E104E994DF5B2DF0BC2 /* RKDirectory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKDirectory.m; path = RestKit/Code/Support/RKDirectory.m; sourceTree = SOURCE_ROOT; };
+		2E8E825189004074A1A59554 /* RKRequest_Internals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKRequest_Internals.h; path = RestKit/Code/Network/RKRequest_Internals.h; sourceTree = SOURCE_ROOT; };
+		353184018643479990878DF3 /* RKObjectRelationshipMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectRelationshipMapping.h; path = RestKit/Code/ObjectMapping/RKObjectRelationshipMapping.h; sourceTree = SOURCE_ROOT; };
+		3698251115094E25B5309C0B /* RKObjectManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectManager.m; path = RestKit/Code/ObjectMapping/RKObjectManager.m; sourceTree = SOURCE_ROOT; };
+		370900DBFC1A4253A09E7973 /* PTURLRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTURLRequestOperation.h; path = libPusher/Library/PTURLRequestOperation.h; sourceTree = SOURCE_ROOT; };
+		389D62F8123D45958B234268 /* RKObjectLoader_Internals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectLoader_Internals.h; path = RestKit/Code/ObjectMapping/RKObjectLoader_Internals.h; sourceTree = SOURCE_ROOT; };
+		38CBB7D5650E421A930BFC9E /* RKErrorMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKErrorMessage.h; path = RestKit/Code/ObjectMapping/RKErrorMessage.h; sourceTree = SOURCE_ROOT; };
+		38D6BA89D93E49B5881BC06A /* FileMD5Hash_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileMD5Hash_Prefix.pch; path = FileMD5Hash/Common/FileMD5Hash_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		3A5CAE896ED04986AFE71910 /* RKParamsAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKParamsAttachment.h; path = RestKit/Code/Network/RKParamsAttachment.h; sourceTree = SOURCE_ROOT; };
+		3C0DD9A0EDD1409DA27D5DD8 /* RKParserRegistry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKParserRegistry.m; path = RestKit/Code/ObjectMapping/RKParserRegistry.m; sourceTree = SOURCE_ROOT; };
+		3C3B581717E546FF87CC800C /* lcl_config_extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = lcl_config_extensions.h; path = RestKit/Code/Support/lcl_config_extensions.h; sourceTree = SOURCE_ROOT; };
+		3F9ACA03BA9C4B7E80FF4F2D /* base64.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = base64.c; path = SocketRocket/SocketRocket/base64.c; sourceTree = SOURCE_ROOT; };
+		40B5DA953415412CA30EC5C0 /* PTPusherConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusherConnection.h; path = libPusher/Library/PTPusherConnection.h; sourceTree = SOURCE_ROOT; };
+		41391A40EC324BC895CCB86A /* NSDictionary+QueryString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+QueryString.h"; path = "libPusher/Library/NSDictionary+QueryString.h"; sourceTree = SOURCE_ROOT; };
+		4156583B94FE40EF849ABD29 /* RKDynamicObjectMapping.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKDynamicObjectMapping.m; path = RestKit/Code/ObjectMapping/RKDynamicObjectMapping.m; sourceTree = SOURCE_ROOT; };
+		41A28ADABAEF48B38365CEF0 /* RKClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKClient.h; path = RestKit/Code/Network/RKClient.h; sourceTree = SOURCE_ROOT; };
+		41E7A97D06814CC28C2456C6 /* RKObjectMapperError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectMapperError.h; path = RestKit/Code/ObjectMapping/RKObjectMapperError.h; sourceTree = SOURCE_ROOT; };
+		42170142A7EE4A749497C5B9 /* PTPusherEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusherEvent.h; path = libPusher/Library/PTPusherEvent.h; sourceTree = SOURCE_ROOT; };
+		427CDA267A4E455280860CD0 /* RKReachabilityObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKReachabilityObserver.m; path = RestKit/Code/Network/RKReachabilityObserver.m; sourceTree = SOURCE_ROOT; };
+		4599B919654E4E55BF29E6DA /* lcl_config_components.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = lcl_config_components.h; path = RestKit/Code/Support/lcl_config_components.h; sourceTree = SOURCE_ROOT; };
+		46321C2F71164D81BBF4287E /* RKPathMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKPathMatcher.h; path = RestKit/Code/Support/RKPathMatcher.h; sourceTree = SOURCE_ROOT; };
+		469541BF13924ED895A7768B /* RKManagedObjectThreadSafeInvocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKManagedObjectThreadSafeInvocation.h; path = RestKit/Code/CoreData/RKManagedObjectThreadSafeInvocation.h; sourceTree = SOURCE_ROOT; };
+		474AFD3E72364200AEC464AB /* RKParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKParams.h; path = RestKit/Code/Network/RKParams.h; sourceTree = SOURCE_ROOT; };
+		48515E77FBE449249656B9B5 /* FileMD5Hash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileMD5Hash.h; path = FileMD5Hash/Common/FileMD5Hash.h; sourceTree = SOURCE_ROOT; };
+		4CFD8AD9D5264CF08675C1D1 /* lcl_config_logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = lcl_config_logger.h; path = RestKit/Code/Support/lcl_config_logger.h; sourceTree = SOURCE_ROOT; };
+		4D7AE143DFCE4616A3F16F95 /* RKObjectPropertyInspector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectPropertyInspector.m; path = RestKit/Code/ObjectMapping/RKObjectPropertyInspector.m; sourceTree = SOURCE_ROOT; };
+		50A8A9D97B314A3F938D44FA /* RestKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RestKit.h; path = RestKit/Code/RestKit.h; sourceTree = SOURCE_ROOT; };
+		50CA7B8ABADF41FEA7F9F99F /* RKURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKURL.h; path = RestKit/Code/Network/RKURL.h; sourceTree = SOURCE_ROOT; };
+		51B0F791029A446ABB3A89A9 /* PTTargetActionEventListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTTargetActionEventListener.m; path = libPusher/Library/PTTargetActionEventListener.m; sourceTree = SOURCE_ROOT; };
+		55813EA0B40443429916C070 /* PTPusherChannelAuthorizationOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusherChannelAuthorizationOperation.h; path = libPusher/Library/PTPusherChannelAuthorizationOperation.h; sourceTree = SOURCE_ROOT; };
+		581A9735D839415987526F75 /* RKLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKLog.h; path = RestKit/Code/Support/RKLog.h; sourceTree = SOURCE_ROOT; };
+		583EA3BF98F64E6A990F5610 /* NSData+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+MD5.h"; path = "RestKit/Code/Network/NSData+MD5.h"; sourceTree = SOURCE_ROOT; };
+		5A731EAAC8FE4FE89E27B099 /* RKSearchEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKSearchEngine.m; path = RestKit/Code/Support/RKSearchEngine.m; sourceTree = SOURCE_ROOT; };
+		5B639AD468564326BE19F898 /* PTPusherEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTPusherEvent.m; path = libPusher/Library/PTPusherEvent.m; sourceTree = SOURCE_ROOT; };
+		5BC616249F2742A1BCA0AAC8 /* ObjectMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ObjectMapping.h; path = RestKit/Code/ObjectMapping/ObjectMapping.h; sourceTree = SOURCE_ROOT; };
+		5C36B0061B9C4B0A9FF8CCE7 /* RKRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKRequest.m; path = RestKit/Code/Network/RKRequest.m; sourceTree = SOURCE_ROOT; };
+		6217031C4AED4EAC9D970514 /* Errors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Errors.h; path = RestKit/Code/Support/Errors.h; sourceTree = SOURCE_ROOT; };
+		635C760F5B4442F2AB15A6B3 /* RKObjectAttributeMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectAttributeMapping.h; path = RestKit/Code/ObjectMapping/RKObjectAttributeMapping.h; sourceTree = SOURCE_ROOT; };
+		6411EBFAA8B54C54826ABB9C /* RKManagedObjectCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKManagedObjectCache.h; path = RestKit/Code/CoreData/RKManagedObjectCache.h; sourceTree = SOURCE_ROOT; };
+		646F12D4E962441CBA54262D /* PTPusherDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusherDelegate.h; path = libPusher/Library/PTPusherDelegate.h; sourceTree = SOURCE_ROOT; };
+		64FBBEE24FF5412F87F5DEB5 /* PTPusherEventPublisher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusherEventPublisher.h; path = libPusher/Library/PTPusherEventPublisher.h; sourceTree = SOURCE_ROOT; };
+		65B916BD1E004EBC95D90AA6 /* PTPusherChannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTPusherChannel.m; path = libPusher/Library/PTPusherChannel.m; sourceTree = SOURCE_ROOT; };
+		65BBEC44199A41CC8E419D78 /* RKMappingOperationQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKMappingOperationQueue.m; path = RestKit/Code/ObjectMapping/RKMappingOperationQueue.m; sourceTree = SOURCE_ROOT; };
+		6744BC63F05A4B59BC6577D2 /* NSString+Hashing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSString+Hashing.h"; path = "libPusher/Library/NSString+Hashing.h"; sourceTree = SOURCE_ROOT; };
+		684FAB8730354FBFB78612A2 /* RKDotNetDateFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKDotNetDateFormatter.h; path = RestKit/Code/Support/RKDotNetDateFormatter.h; sourceTree = SOURCE_ROOT; };
+		68CB32E00482429B9A1FD43D /* SOCKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SOCKit.h; path = SOCKit/SOCKit.h; sourceTree = SOURCE_ROOT; };
+		6B9B346972E74D0BB8870385 /* RKParserRegistry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKParserRegistry.h; path = RestKit/Code/ObjectMapping/RKParserRegistry.h; sourceTree = SOURCE_ROOT; };
+		6C16F93A2819415C9D24F1F8 /* NSString+RestKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSString+RestKit.h"; path = "RestKit/Code/Support/NSString+RestKit.h"; sourceTree = SOURCE_ROOT; };
+		6EAD1E55DCE24BB7A5E91500 /* RKAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKAlert.m; path = RestKit/Code/Support/RKAlert.m; sourceTree = SOURCE_ROOT; };
+		6F4DD3BDE350403ABB6DCF2D /* RKObjectSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectSerializer.m; path = RestKit/Code/ObjectMapping/RKObjectSerializer.m; sourceTree = SOURCE_ROOT; };
+		70632866E2884C98BA2F0A42 /* RKMappingOperationQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKMappingOperationQueue.h; path = RestKit/Code/ObjectMapping/RKMappingOperationQueue.h; sourceTree = SOURCE_ROOT; };
+		70B1B394F6D245EBB18395EF /* NSDictionary+RKAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+RKAdditions.m"; path = "RestKit/Code/Support/NSDictionary+RKAdditions.m"; sourceTree = SOURCE_ROOT; };
+		70CB3E6BAFED4EB18F0CA43F /* PTURLRequestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTURLRequestOperation.m; path = libPusher/Library/PTURLRequestOperation.m; sourceTree = SOURCE_ROOT; };
+		72CB379E2A15421397364AED /* PTEventListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTEventListener.h; path = libPusher/Library/PTEventListener.h; sourceTree = SOURCE_ROOT; };
+		7376BAA9009C49B696C3A29D /* RKErrorMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKErrorMessage.m; path = RestKit/Code/ObjectMapping/RKErrorMessage.m; sourceTree = SOURCE_ROOT; };
+		73B5C4ECE6F74A7A972CB31C /* RKObjectPropertyInspector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectPropertyInspector.h; path = RestKit/Code/ObjectMapping/RKObjectPropertyInspector.h; sourceTree = SOURCE_ROOT; };
+		766EF4F633604093ACD73E9E /* Pods-resources.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = SOURCE_ROOT; };
+		789D5CE76335442B95AE7357 /* RKObjectPropertyInspector+CoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RKObjectPropertyInspector+CoreData.h"; path = "RestKit/Code/CoreData/RKObjectPropertyInspector+CoreData.h"; sourceTree = SOURCE_ROOT; };
+		78A1D29E728F426A8DDF2E26 /* Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Network.h; path = RestKit/Code/Network/Network.h; sourceTree = SOURCE_ROOT; };
+		7E51448A64D84F33BFB5471A /* RKResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKResponse.h; path = RestKit/Code/Network/RKResponse.h; sourceTree = SOURCE_ROOT; };
+		7F198B4BDD8B4576A05C1E6C /* RKManagedObjectSeeder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKManagedObjectSeeder.m; path = RestKit/Code/CoreData/RKManagedObjectSeeder.m; sourceTree = SOURCE_ROOT; };
+		7F6DF602CE96400B9C463049 /* SRWebSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SRWebSocket.m; path = SocketRocket/SocketRocket/SRWebSocket.m; sourceTree = SOURCE_ROOT; };
+		7F849ED798FB4C42A82C4969 /* NSString+RestKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSString+RestKit.m"; path = "RestKit/Code/Support/NSString+RestKit.m"; sourceTree = SOURCE_ROOT; };
+		828CB8FF1C0B470280917AB5 /* LCLNSLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LCLNSLog.m; path = "LibComponentLogging-NSLog/LCLNSLog.m"; sourceTree = SOURCE_ROOT; };
+		83177CFEA8754BB09690FD9C /* RKObjectRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectRouter.h; path = RestKit/Code/ObjectMapping/RKObjectRouter.h; sourceTree = SOURCE_ROOT; };
+		86AE6942A40E4AB387B332DA /* GCOAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GCOAuth.h; path = "cocoa-oauth/GCOAuth.h"; sourceTree = SOURCE_ROOT; };
+		87C43E26F30149E18854AB58 /* PTPusher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusher.h; path = libPusher/Library/PTPusher.h; sourceTree = SOURCE_ROOT; };
+		88C9A9B1496A43F2956A56F3 /* RKRequestQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKRequestQueue.m; path = RestKit/Code/Network/RKRequestQueue.m; sourceTree = SOURCE_ROOT; };
+		8C01794E20184F4AAA80E1B3 /* Pods-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-prefix.pch"; sourceTree = SOURCE_ROOT; };
+		8DD83B0838C74BF4B9C10282 /* RKRequestSerializable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKRequestSerializable.h; path = RestKit/Code/Network/RKRequestSerializable.h; sourceTree = SOURCE_ROOT; };
+		8F056C80A6C04971A858D812 /* RKObjectAttributeMapping.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectAttributeMapping.m; path = RestKit/Code/ObjectMapping/RKObjectAttributeMapping.m; sourceTree = SOURCE_ROOT; };
+		9106396AC3F445949B885951 /* RKMIMETypes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKMIMETypes.m; path = RestKit/Code/Support/RKMIMETypes.m; sourceTree = SOURCE_ROOT; };
+		9136B1A19924464FBA7BEE6D /* NSString+Hashing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSString+Hashing.m"; path = "libPusher/Library/NSString+Hashing.m"; sourceTree = SOURCE_ROOT; };
+		91E03AC3C7114618A26A8C80 /* RKNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKNotifications.h; path = RestKit/Code/Network/RKNotifications.h; sourceTree = SOURCE_ROOT; };
+		929582D54A874B46909115C9 /* PTPusherAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTPusherAPI.m; path = libPusher/Library/PTPusherAPI.m; sourceTree = SOURCE_ROOT; };
+		93BEE056247B4C57BBB05281 /* RKRequestCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKRequestCache.h; path = RestKit/Code/Network/RKRequestCache.h; sourceTree = SOURCE_ROOT; };
+		961EC782E1A34353A38AF1EF /* RKManagedObjectStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKManagedObjectStore.m; path = RestKit/Code/CoreData/RKManagedObjectStore.m; sourceTree = SOURCE_ROOT; };
+		96BB6464EF7D4442A1F9A66F /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "cocoa-oauth/NSData+Base64.h"; sourceTree = SOURCE_ROOT; };
+		96E63398C5774CD58A22532D /* PTBlockEventListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTBlockEventListener.m; path = libPusher/Library/PTBlockEventListener.m; sourceTree = SOURCE_ROOT; };
+		989C46126A0C4BDF83340236 /* RKRequestSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKRequestSerialization.h; path = RestKit/Code/Network/RKRequestSerialization.h; sourceTree = SOURCE_ROOT; };
+		9E7FABE04F4B4F50A8209E59 /* RKManagedObjectMapping.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKManagedObjectMapping.m; path = RestKit/Code/CoreData/RKManagedObjectMapping.m; sourceTree = SOURCE_ROOT; };
+		A1B2BB53B3364BC8899F03D4 /* RKSearchEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKSearchEngine.h; path = RestKit/Code/Support/RKSearchEngine.h; sourceTree = SOURCE_ROOT; };
+		A206939098CC41C692A9DE9C /* NSData+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSData+MD5.m"; path = "RestKit/Code/Network/NSData+MD5.m"; sourceTree = SOURCE_ROOT; };
+		A2A8CE58AF204C9F891A3CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A3187DE9B3044C2C8BC29F4F /* RKOAuthClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKOAuthClient.m; path = RestKit/Code/Network/RKOAuthClient.m; sourceTree = SOURCE_ROOT; };
+		A383E89B214646DEA5AC64BF /* RKAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKAlert.h; path = RestKit/Code/Support/RKAlert.h; sourceTree = SOURCE_ROOT; };
+		A3C8EFA3FB70497BB61A49B9 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSData+SRB64Additions.m"; path = "SocketRocket/SocketRocket/NSData+SRB64Additions.m"; sourceTree = SOURCE_ROOT; };
+		A5CC460DAEE34714A3C55D3B /* RKURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKURL.m; path = RestKit/Code/Network/RKURL.m; sourceTree = SOURCE_ROOT; };
+		A7E369194D8F47ECB08A1ACE /* RKParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKParams.m; path = RestKit/Code/Network/RKParams.m; sourceTree = SOURCE_ROOT; };
+		A9354CDC39A44266B77ECECE /* RKObjectMapping.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectMapping.m; path = RestKit/Code/ObjectMapping/RKObjectMapping.m; sourceTree = SOURCE_ROOT; };
+		A98FF55EC6114F3F9C4071FC /* RKDirectory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKDirectory.h; path = RestKit/Code/Support/RKDirectory.h; sourceTree = SOURCE_ROOT; };
+		AB46B5D91EB442128E13A3E5 /* RKManagedObjectMappingOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKManagedObjectMappingOperation.h; path = RestKit/Code/CoreData/RKManagedObjectMappingOperation.h; sourceTree = SOURCE_ROOT; };
+		AC2D2D3687014ADCA4B876EC /* SRWebSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SRWebSocket.h; path = SocketRocket/SocketRocket/SRWebSocket.h; sourceTree = SOURCE_ROOT; };
+		AD8B0B82501341D2BF9EC199 /* PTPusherAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusherAPI.h; path = libPusher/Library/PTPusherAPI.h; sourceTree = SOURCE_ROOT; };
+		B01C793A4A4140E58A21B813 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = JSONKit/JSONKit.m; sourceTree = SOURCE_ROOT; };
+		B4F5FF4B2DE646E08455AD3D /* RKManagedObjectStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKManagedObjectStore.h; path = RestKit/Code/CoreData/RKManagedObjectStore.h; sourceTree = SOURCE_ROOT; };
+		B502388FDA57428D9D7D501F /* NSDictionary+RKRequestSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+RKRequestSerialization.m"; path = "RestKit/Code/Network/NSDictionary+RKRequestSerialization.m"; sourceTree = SOURCE_ROOT; };
+		B5063FB7D6EB4C0A8D60D99D /* NSDictionary+RKRequestSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+RKRequestSerialization.h"; path = "RestKit/Code/Network/NSDictionary+RKRequestSerialization.h"; sourceTree = SOURCE_ROOT; };
+		B63502F726844F8788662F2B /* RKObjectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectManager.h; path = RestKit/Code/ObjectMapping/RKObjectManager.h; sourceTree = SOURCE_ROOT; };
+		BB4612789D0944CEAB991B4F /* CoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CoreData.h; path = RestKit/Code/CoreData/CoreData.h; sourceTree = SOURCE_ROOT; };
+		BB6C6D478E50476CA28D03F9 /* RKObjectMapper_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectMapper_Private.h; path = RestKit/Code/ObjectMapping/RKObjectMapper_Private.h; sourceTree = SOURCE_ROOT; };
+		BBCF5CAC7C0C45669BD86395 /* NSDictionary+QueryString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+QueryString.m"; path = "libPusher/Library/NSDictionary+QueryString.m"; sourceTree = SOURCE_ROOT; };
+		BEA9383DB875448EA6A4C148 /* GCOAuth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GCOAuth.m; path = "cocoa-oauth/GCOAuth.m"; sourceTree = SOURCE_ROOT; };
+		C171A190689B43AA94F7C1E1 /* RKParamsAttachment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKParamsAttachment.m; path = RestKit/Code/Network/RKParamsAttachment.m; sourceTree = SOURCE_ROOT; };
+		C2875AB3727F4EFEA8145F69 /* NSManagedObject+ActiveRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+ActiveRecord.m"; path = "RestKit/Code/CoreData/NSManagedObject+ActiveRecord.m"; sourceTree = SOURCE_ROOT; };
+		C3E998A1D27F4729899F0331 /* RKObjectPropertyInspector+CoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "RKObjectPropertyInspector+CoreData.m"; path = "RestKit/Code/CoreData/RKObjectPropertyInspector+CoreData.m"; sourceTree = SOURCE_ROOT; };
+		C41C6D39D0874B95B90BAE8E /* RKObjectMappingOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectMappingOperation.m; path = RestKit/Code/ObjectMapping/RKObjectMappingOperation.m; sourceTree = SOURCE_ROOT; };
+		C5A3D4A8FFAF43219EA20B3D /* RKOAuthClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKOAuthClient.h; path = RestKit/Code/Network/RKOAuthClient.h; sourceTree = SOURCE_ROOT; };
+		C88C0E9D51A14590AAA9325F /* RKObjectMappingDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectMappingDefinition.h; path = RestKit/Code/ObjectMapping/RKObjectMappingDefinition.h; sourceTree = SOURCE_ROOT; };
+		C8A661FA44B446CB8BABE673 /* RKParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKParser.h; path = RestKit/Code/Support/RKParser.h; sourceTree = SOURCE_ROOT; };
+		C93AF10310C541ED92D1D9DC /* RKObjectMapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectMapper.m; path = RestKit/Code/ObjectMapping/RKObjectMapper.m; sourceTree = SOURCE_ROOT; };
+		CA8A597851FC45F3871FC3F3 /* RKPathMatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKPathMatcher.m; path = RestKit/Code/Support/RKPathMatcher.m; sourceTree = SOURCE_ROOT; };
+		CBBA69D7164546D989BE7E91 /* PTPusher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTPusher.m; path = libPusher/Library/PTPusher.m; sourceTree = SOURCE_ROOT; };
+		CD15BDA0C6E5426E89FB57C7 /* RKObjectSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectSerializer.h; path = RestKit/Code/ObjectMapping/RKObjectSerializer.h; sourceTree = SOURCE_ROOT; };
+		CF524E2F948C4FCE8ABF661F /* PTPusherEventDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusherEventDispatcher.h; path = libPusher/Library/PTPusherEventDispatcher.h; sourceTree = SOURCE_ROOT; };
+		D0ABF85E2ED040D29B8036AF /* PTPusherEventDispatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTPusherEventDispatcher.m; path = libPusher/Library/PTPusherEventDispatcher.m; sourceTree = SOURCE_ROOT; };
+		D2014EDD32FA41F89F6F090B /* RKJSONParserJSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKJSONParserJSONKit.h; path = RestKit/Code/Support/Parsers/JSON/RKJSONParserJSONKit.h; sourceTree = SOURCE_ROOT; };
+		D2C27856C64C482EA603C078 /* RKManagedObjectMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKManagedObjectMapping.h; path = RestKit/Code/CoreData/RKManagedObjectMapping.h; sourceTree = SOURCE_ROOT; };
+		D36F5E2B1F2E40AC9BB35374 /* RKRequestCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKRequestCache.m; path = RestKit/Code/Network/RKRequestCache.m; sourceTree = SOURCE_ROOT; };
+		D3F33F7F302D412A9B933BFE /* RKObjectLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectLoader.m; path = RestKit/Code/ObjectMapping/RKObjectLoader.m; sourceTree = SOURCE_ROOT; };
+		D57B7F8EFD884962B6E061B0 /* PTPusherMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusherMacros.h; path = libPusher/Library/PTPusherMacros.h; sourceTree = SOURCE_ROOT; };
+		D6E6987837F24BA1B41E2B9B /* Errors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Errors.m; path = RestKit/Code/Support/Errors.m; sourceTree = SOURCE_ROOT; };
+		D6FB15FF77F64525B681846E /* NSData+Base64.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "cocoa-oauth/NSData+Base64.m"; sourceTree = SOURCE_ROOT; };
+		DA5F174B0BD64DA5AD65E917 /* RKRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKRequest.h; path = RestKit/Code/Network/RKRequest.h; sourceTree = SOURCE_ROOT; };
+		DB6D59BCCEA44EF59999C6ED /* RKManagedObjectLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKManagedObjectLoader.h; path = RestKit/Code/CoreData/RKManagedObjectLoader.h; sourceTree = SOURCE_ROOT; };
+		DCBF201E8FC34BDABDD38AEF /* PTTargetActionEventListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTTargetActionEventListener.h; path = libPusher/Library/PTTargetActionEventListener.h; sourceTree = SOURCE_ROOT; };
+		DD86D0FF36B74E76AD203F72 /* RKDynamicObjectMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKDynamicObjectMapping.h; path = RestKit/Code/ObjectMapping/RKDynamicObjectMapping.h; sourceTree = SOURCE_ROOT; };
+		DF79A70C8117405F84676663 /* RKObjectMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectMapper.h; path = RestKit/Code/ObjectMapping/RKObjectMapper.h; sourceTree = SOURCE_ROOT; };
+		E0D5A8A5872F4EDDAD82C462 /* PTPusherChannelAuthorizationOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTPusherChannelAuthorizationOperation.m; path = libPusher/Library/PTPusherChannelAuthorizationOperation.m; sourceTree = SOURCE_ROOT; };
+		E1939694CCC3405D8BDBE9D8 /* RKManagedObjectMappingOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKManagedObjectMappingOperation.m; path = RestKit/Code/CoreData/RKManagedObjectMappingOperation.m; sourceTree = SOURCE_ROOT; };
+		E5F6F1A60B094F01AA9C66AB /* Support.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Support.h; path = RestKit/Code/Support/Support.h; sourceTree = SOURCE_ROOT; };
+		E6DF98D82C2D48D880337A92 /* RKDotNetDateFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKDotNetDateFormatter.m; path = RestKit/Code/Support/RKDotNetDateFormatter.m; sourceTree = SOURCE_ROOT; };
+		E70B76A99F954B5CB81EC362 /* RKObjectRelationshipMapping.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectRelationshipMapping.m; path = RestKit/Code/ObjectMapping/RKObjectRelationshipMapping.m; sourceTree = SOURCE_ROOT; };
+		E85B5B69916A4221A094AB04 /* RKObjectMappingProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectMappingProvider.h; path = RestKit/Code/ObjectMapping/RKObjectMappingProvider.h; sourceTree = SOURCE_ROOT; };
+		E896DD6B0BB14B888B6F39E1 /* RKRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKRouter.h; path = RestKit/Code/ObjectMapping/RKRouter.h; sourceTree = SOURCE_ROOT; };
+		E963E1E3B082478384BF2D33 /* RKClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKClient.m; path = RestKit/Code/Network/RKClient.m; sourceTree = SOURCE_ROOT; };
+		E98B43128CB1450EAD8C5077 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = JSONKit/JSONKit.h; sourceTree = SOURCE_ROOT; };
+		EFF679CA09B8439FBD365EFF /* RKObjectLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKObjectLoader.h; path = RestKit/Code/ObjectMapping/RKObjectLoader.h; sourceTree = SOURCE_ROOT; };
+		F143BC28442042AC82533CC4 /* PTPusherChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusherChannel.h; path = libPusher/Library/PTPusherChannel.h; sourceTree = SOURCE_ROOT; };
+		F16001F99B3E4AA88746E5E0 /* PTPusherConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PTPusherConnection.m; path = libPusher/Library/PTPusherConnection.m; sourceTree = SOURCE_ROOT; };
+		F3DDB4DDE3E347EBAE7618B9 /* RKResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKResponse.m; path = RestKit/Code/Network/RKResponse.m; sourceTree = SOURCE_ROOT; };
+		F6B94CA8B40441969F3AD508 /* RKFixCategoryBug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RKFixCategoryBug.h; path = RestKit/Code/Support/RKFixCategoryBug.h; sourceTree = SOURCE_ROOT; };
+		F80DE86284234B77A60C8B30 /* NSManagedObject+ActiveRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+ActiveRecord.h"; path = "RestKit/Code/CoreData/NSManagedObject+ActiveRecord.h"; sourceTree = SOURCE_ROOT; };
+		F81B519850EC44038949514A /* RKManagedObjectThreadSafeInvocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKManagedObjectThreadSafeInvocation.m; path = RestKit/Code/CoreData/RKManagedObjectThreadSafeInvocation.m; sourceTree = SOURCE_ROOT; };
+		F9725FEDA9974CB481480B5D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA89FB1CFC5B466DA549EE38 /* PTBlockEventListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTBlockEventListener.h; path = libPusher/Library/PTBlockEventListener.h; sourceTree = SOURCE_ROOT; };
+		FC9F69139B7E4B32B171BC7F /* PTPusherPresenceChannelDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PTPusherPresenceChannelDelegate.h; path = libPusher/Library/PTPusherPresenceChannelDelegate.h; sourceTree = SOURCE_ROOT; };
+		FDE2509417BE405E99A364E1 /* RKObjectMappingResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RKObjectMappingResult.m; path = RestKit/Code/ObjectMapping/RKObjectMappingResult.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33A811D3E05A400DAC478269 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1B8EE4C15C24B85B4C04973 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16F16A5DAD9145F4A8328215 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5BB7EBC205B4D4391B4F621 /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		199211D78F664C2C8BCA4077 = {
+			isa = PBXGroup;
+			children = (
+				F97F452FE9AA4176B60EB261 /* Pods */,
+				B5B53245D14643EE81B2FD6C /* Frameworks */,
+				57160CB9FE5C4189860CD314 /* Products */,
+				16F16A5DAD9145F4A8328215 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		4537982090F2422FA090D0C0 /* FileMD5Hash */ = {
+			isa = PBXGroup;
+			children = (
+				48515E77FBE449249656B9B5 /* FileMD5Hash.h */,
+				19081B7EEC20486EA7B40C84 /* FileMD5Hash.c */,
+				38D6BA89D93E49B5881BC06A /* FileMD5Hash_Prefix.pch */,
+			);
+			name = FileMD5Hash;
+			sourceTree = "<group>";
+		};
+		50C8DD57043449B3A5F1DFB0 /* SOCKit */ = {
+			isa = PBXGroup;
+			children = (
+				68CB32E00482429B9A1FD43D /* SOCKit.h */,
+				0A360D2190D44C9B94935DBB /* SOCKit.m */,
+			);
+			name = SOCKit;
+			sourceTree = "<group>";
+		};
+		51F394D65B2C4F378A9B5510 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				105BDF677D434361B6731012 /* base64.h */,
+				1C946AE9DEFE496F9D421A8D /* NSData+SRB64Additions.h */,
+				AC2D2D3687014ADCA4B876EC /* SRWebSocket.h */,
+				A3C8EFA3FB70497BB61A49B9 /* NSData+SRB64Additions.m */,
+				7F6DF602CE96400B9C463049 /* SRWebSocket.m */,
+				3F9ACA03BA9C4B7E80FF4F2D /* base64.c */,
+			);
+			name = SocketRocket;
+			sourceTree = "<group>";
+		};
+		57160CB9FE5C4189860CD314 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9725FEDA9974CB481480B5D /* libPods.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74591214669C452B9FA876D3 /* LibComponentLogging-NSLog */ = {
+			isa = PBXGroup;
+			children = (
+				1BC95AB20E6C40E7B6CC98FC /* LCLNSLog.h */,
+				828CB8FF1C0B470280917AB5 /* LCLNSLog.m */,
+			);
+			name = "LibComponentLogging-NSLog";
+			sourceTree = "<group>";
+		};
+		7D88DA6582264C13A137DD04 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				E98B43128CB1450EAD8C5077 /* JSONKit.h */,
+				B01C793A4A4140E58A21B813 /* JSONKit.m */,
+			);
+			name = JSONKit;
+			sourceTree = "<group>";
+		};
+		8201225DCE874D99B10CFB47 /* RestKit/Network */ = {
+			isa = PBXGroup;
+			children = (
+				50A8A9D97B314A3F938D44FA /* RestKit.h */,
+				78A1D29E728F426A8DDF2E26 /* Network.h */,
+				583EA3BF98F64E6A990F5610 /* NSData+MD5.h */,
+				B5063FB7D6EB4C0A8D60D99D /* NSDictionary+RKRequestSerialization.h */,
+				0D4CB941E2F24F3ABBBD1E4F /* NSString+MD5.h */,
+				41A28ADABAEF48B38365CEF0 /* RKClient.h */,
+				91E03AC3C7114618A26A8C80 /* RKNotifications.h */,
+				C5A3D4A8FFAF43219EA20B3D /* RKOAuthClient.h */,
+				474AFD3E72364200AEC464AB /* RKParams.h */,
+				3A5CAE896ED04986AFE71910 /* RKParamsAttachment.h */,
+				2A8F506DA57F4FE6A7EDE422 /* RKReachabilityObserver.h */,
+				DA5F174B0BD64DA5AD65E917 /* RKRequest.h */,
+				2E8E825189004074A1A59554 /* RKRequest_Internals.h */,
+				93BEE056247B4C57BBB05281 /* RKRequestCache.h */,
+				0EDBFF0E0C6F4637AE0B2E74 /* RKRequestQueue.h */,
+				8DD83B0838C74BF4B9C10282 /* RKRequestSerializable.h */,
+				989C46126A0C4BDF83340236 /* RKRequestSerialization.h */,
+				7E51448A64D84F33BFB5471A /* RKResponse.h */,
+				50CA7B8ABADF41FEA7F9F99F /* RKURL.h */,
+				A206939098CC41C692A9DE9C /* NSData+MD5.m */,
+				B502388FDA57428D9D7D501F /* NSDictionary+RKRequestSerialization.m */,
+				15DA68004C0C459E86305BA0 /* NSString+MD5.m */,
+				E963E1E3B082478384BF2D33 /* RKClient.m */,
+				18D4A4339553426B968E43FC /* RKNotifications.m */,
+				A3187DE9B3044C2C8BC29F4F /* RKOAuthClient.m */,
+				A7E369194D8F47ECB08A1ACE /* RKParams.m */,
+				C171A190689B43AA94F7C1E1 /* RKParamsAttachment.m */,
+				427CDA267A4E455280860CD0 /* RKReachabilityObserver.m */,
+				5C36B0061B9C4B0A9FF8CCE7 /* RKRequest.m */,
+				D36F5E2B1F2E40AC9BB35374 /* RKRequestCache.m */,
+				88C9A9B1496A43F2956A56F3 /* RKRequestQueue.m */,
+				15D6A32CCC574BC28A881CAA /* RKRequestSerialization.m */,
+				F3DDB4DDE3E347EBAE7618B9 /* RKResponse.m */,
+				A5CC460DAEE34714A3C55D3B /* RKURL.m */,
+				6217031C4AED4EAC9D970514 /* Errors.h */,
+				4599B919654E4E55BF29E6DA /* lcl_config_components.h */,
+				3C3B581717E546FF87CC800C /* lcl_config_extensions.h */,
+				4CFD8AD9D5264CF08675C1D1 /* lcl_config_logger.h */,
+				1A4BBD5A9B2042F3A5844ECC /* NSDictionary+RKAdditions.h */,
+				6C16F93A2819415C9D24F1F8 /* NSString+RestKit.h */,
+				127F0D422C6641C69FBD2B88 /* NSURL+RestKit.h */,
+				A383E89B214646DEA5AC64BF /* RKAlert.h */,
+				A98FF55EC6114F3F9C4071FC /* RKDirectory.h */,
+				684FAB8730354FBFB78612A2 /* RKDotNetDateFormatter.h */,
+				F6B94CA8B40441969F3AD508 /* RKFixCategoryBug.h */,
+				581A9735D839415987526F75 /* RKLog.h */,
+				074FEB0022334899A28D8490 /* RKMIMETypes.h */,
+				C8A661FA44B446CB8BABE673 /* RKParser.h */,
+				46321C2F71164D81BBF4287E /* RKPathMatcher.h */,
+				A1B2BB53B3364BC8899F03D4 /* RKSearchEngine.h */,
+				E5F6F1A60B094F01AA9C66AB /* Support.h */,
+				D6E6987837F24BA1B41E2B9B /* Errors.m */,
+				70B1B394F6D245EBB18395EF /* NSDictionary+RKAdditions.m */,
+				7F849ED798FB4C42A82C4969 /* NSString+RestKit.m */,
+				1E8387EEC2FD4676A92712B2 /* NSURL+RestKit.m */,
+				6EAD1E55DCE24BB7A5E91500 /* RKAlert.m */,
+				2C664E104E994DF5B2DF0BC2 /* RKDirectory.m */,
+				E6DF98D82C2D48D880337A92 /* RKDotNetDateFormatter.m */,
+				16BCEEC143944DED9FC56B35 /* RKLog.m */,
+				9106396AC3F445949B885951 /* RKMIMETypes.m */,
+				CA8A597851FC45F3871FC3F3 /* RKPathMatcher.m */,
+				5A731EAAC8FE4FE89E27B099 /* RKSearchEngine.m */,
+			);
+			name = RestKit/Network;
+			sourceTree = "<group>";
+		};
+		AC505285B3EE4CA197F0A5D8 /* RestKit/ObjectMapping/JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				D2014EDD32FA41F89F6F090B /* RKJSONParserJSONKit.h */,
+				217F7B82F8E846FF87C74505 /* RKJSONParserJSONKit.m */,
+			);
+			name = RestKit/ObjectMapping/JSONKit;
+			sourceTree = "<group>";
+		};
+		B5B53245D14643EE81B2FD6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2A8CE58AF204C9F891A3CC6 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5BB7EBC205B4D4391B4F621 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				766EF4F633604093ACD73E9E /* Pods-resources.sh */,
+				8C01794E20184F4AAA80E1B3 /* Pods-prefix.pch */,
+				1C971EFB1F9D4C06BD696E8D /* Pods.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C7A7EDEFD5274522A7461527 /* libPusher */ = {
+			isa = PBXGroup;
+			children = (
+				41391A40EC324BC895CCB86A /* NSDictionary+QueryString.h */,
+				BBCF5CAC7C0C45669BD86395 /* NSDictionary+QueryString.m */,
+				6744BC63F05A4B59BC6577D2 /* NSString+Hashing.h */,
+				9136B1A19924464FBA7BEE6D /* NSString+Hashing.m */,
+				FA89FB1CFC5B466DA549EE38 /* PTBlockEventListener.h */,
+				96E63398C5774CD58A22532D /* PTBlockEventListener.m */,
+				72CB379E2A15421397364AED /* PTEventListener.h */,
+				87C43E26F30149E18854AB58 /* PTPusher.h */,
+				CBBA69D7164546D989BE7E91 /* PTPusher.m */,
+				AD8B0B82501341D2BF9EC199 /* PTPusherAPI.h */,
+				929582D54A874B46909115C9 /* PTPusherAPI.m */,
+				F143BC28442042AC82533CC4 /* PTPusherChannel.h */,
+				65B916BD1E004EBC95D90AA6 /* PTPusherChannel.m */,
+				55813EA0B40443429916C070 /* PTPusherChannelAuthorizationOperation.h */,
+				E0D5A8A5872F4EDDAD82C462 /* PTPusherChannelAuthorizationOperation.m */,
+				40B5DA953415412CA30EC5C0 /* PTPusherConnection.h */,
+				F16001F99B3E4AA88746E5E0 /* PTPusherConnection.m */,
+				646F12D4E962441CBA54262D /* PTPusherDelegate.h */,
+				070FFB86083A42D98B73BF76 /* PTPusherErrors.h */,
+				42170142A7EE4A749497C5B9 /* PTPusherEvent.h */,
+				5B639AD468564326BE19F898 /* PTPusherEvent.m */,
+				CF524E2F948C4FCE8ABF661F /* PTPusherEventDispatcher.h */,
+				D0ABF85E2ED040D29B8036AF /* PTPusherEventDispatcher.m */,
+				64FBBEE24FF5412F87F5DEB5 /* PTPusherEventPublisher.h */,
+				D57B7F8EFD884962B6E061B0 /* PTPusherMacros.h */,
+				FC9F69139B7E4B32B171BC7F /* PTPusherPresenceChannelDelegate.h */,
+				DCBF201E8FC34BDABDD38AEF /* PTTargetActionEventListener.h */,
+				51B0F791029A446ABB3A89A9 /* PTTargetActionEventListener.m */,
+				370900DBFC1A4253A09E7973 /* PTURLRequestOperation.h */,
+				70CB3E6BAFED4EB18F0CA43F /* PTURLRequestOperation.m */,
+			);
+			name = libPusher;
+			sourceTree = "<group>";
+		};
+		D8E7C15273C64C0A8E1C6CB5 /* cocoa-oauth */ = {
+			isa = PBXGroup;
+			children = (
+				86AE6942A40E4AB387B332DA /* GCOAuth.h */,
+				96BB6464EF7D4442A1F9A66F /* NSData+Base64.h */,
+				BEA9383DB875448EA6A4C148 /* GCOAuth.m */,
+				D6FB15FF77F64525B681846E /* NSData+Base64.m */,
+			);
+			name = "cocoa-oauth";
+			sourceTree = "<group>";
+		};
+		E7C7A31F4885414A9AFD2222 /* LibComponentLogging-Core */ = {
+			isa = PBXGroup;
+			children = (
+				02AA7E307AB3498BBC4995BD /* lcl.h */,
+				29521556BAA54B7989E56741 /* lcl.m */,
+			);
+			name = "LibComponentLogging-Core";
+			sourceTree = "<group>";
+		};
+		F604B4AAF5AF4E4F9035960D /* RestKit/ObjectMapping */ = {
+			isa = PBXGroup;
+			children = (
+				5BC616249F2742A1BCA0AAC8 /* ObjectMapping.h */,
+				DD86D0FF36B74E76AD203F72 /* RKDynamicObjectMapping.h */,
+				38CBB7D5650E421A930BFC9E /* RKErrorMessage.h */,
+				70632866E2884C98BA2F0A42 /* RKMappingOperationQueue.h */,
+				635C760F5B4442F2AB15A6B3 /* RKObjectAttributeMapping.h */,
+				EFF679CA09B8439FBD365EFF /* RKObjectLoader.h */,
+				389D62F8123D45958B234268 /* RKObjectLoader_Internals.h */,
+				B63502F726844F8788662F2B /* RKObjectManager.h */,
+				DF79A70C8117405F84676663 /* RKObjectMapper.h */,
+				BB6C6D478E50476CA28D03F9 /* RKObjectMapper_Private.h */,
+				41E7A97D06814CC28C2456C6 /* RKObjectMapperError.h */,
+				105B904FC80C4C1E96E37CC5 /* RKObjectMapping.h */,
+				C88C0E9D51A14590AAA9325F /* RKObjectMappingDefinition.h */,
+				1291677C0ECC428F94E1AF74 /* RKObjectMappingOperation.h */,
+				E85B5B69916A4221A094AB04 /* RKObjectMappingProvider.h */,
+				0CD450481C5247BDA4B8C70F /* RKObjectMappingResult.h */,
+				73B5C4ECE6F74A7A972CB31C /* RKObjectPropertyInspector.h */,
+				353184018643479990878DF3 /* RKObjectRelationshipMapping.h */,
+				83177CFEA8754BB09690FD9C /* RKObjectRouter.h */,
+				CD15BDA0C6E5426E89FB57C7 /* RKObjectSerializer.h */,
+				6B9B346972E74D0BB8870385 /* RKParserRegistry.h */,
+				E896DD6B0BB14B888B6F39E1 /* RKRouter.h */,
+				4156583B94FE40EF849ABD29 /* RKDynamicObjectMapping.m */,
+				7376BAA9009C49B696C3A29D /* RKErrorMessage.m */,
+				65BBEC44199A41CC8E419D78 /* RKMappingOperationQueue.m */,
+				8F056C80A6C04971A858D812 /* RKObjectAttributeMapping.m */,
+				D3F33F7F302D412A9B933BFE /* RKObjectLoader.m */,
+				3698251115094E25B5309C0B /* RKObjectManager.m */,
+				C93AF10310C541ED92D1D9DC /* RKObjectMapper.m */,
+				A9354CDC39A44266B77ECECE /* RKObjectMapping.m */,
+				C41C6D39D0874B95B90BAE8E /* RKObjectMappingOperation.m */,
+				280740DB86A0471BBABDA207 /* RKObjectMappingProvider.m */,
+				FDE2509417BE405E99A364E1 /* RKObjectMappingResult.m */,
+				4D7AE143DFCE4616A3F16F95 /* RKObjectPropertyInspector.m */,
+				E70B76A99F954B5CB81EC362 /* RKObjectRelationshipMapping.m */,
+				26026546A3F54850950C77A6 /* RKObjectRouter.m */,
+				6F4DD3BDE350403ABB6DCF2D /* RKObjectSerializer.m */,
+				3C0DD9A0EDD1409DA27D5DD8 /* RKParserRegistry.m */,
+			);
+			name = RestKit/ObjectMapping;
+			sourceTree = "<group>";
+		};
+		F6649114EE154DAF9F4037A1 /* RestKit/ObjectMapping/CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BB4612789D0944CEAB991B4F /* CoreData.h */,
+				F80DE86284234B77A60C8B30 /* NSManagedObject+ActiveRecord.h */,
+				6411EBFAA8B54C54826ABB9C /* RKManagedObjectCache.h */,
+				DB6D59BCCEA44EF59999C6ED /* RKManagedObjectLoader.h */,
+				D2C27856C64C482EA603C078 /* RKManagedObjectMapping.h */,
+				AB46B5D91EB442128E13A3E5 /* RKManagedObjectMappingOperation.h */,
+				1DF93D16FDF447DEBD0E7BFE /* RKManagedObjectSeeder.h */,
+				B4F5FF4B2DE646E08455AD3D /* RKManagedObjectStore.h */,
+				469541BF13924ED895A7768B /* RKManagedObjectThreadSafeInvocation.h */,
+				789D5CE76335442B95AE7357 /* RKObjectPropertyInspector+CoreData.h */,
+				C2875AB3727F4EFEA8145F69 /* NSManagedObject+ActiveRecord.m */,
+				02041D9468DC46D18F4E520A /* RKManagedObjectLoader.m */,
+				9E7FABE04F4B4F50A8209E59 /* RKManagedObjectMapping.m */,
+				E1939694CCC3405D8BDBE9D8 /* RKManagedObjectMappingOperation.m */,
+				7F198B4BDD8B4576A05C1E6C /* RKManagedObjectSeeder.m */,
+				961EC782E1A34353A38AF1EF /* RKManagedObjectStore.m */,
+				F81B519850EC44038949514A /* RKManagedObjectThreadSafeInvocation.m */,
+				C3E998A1D27F4729899F0331 /* RKObjectPropertyInspector+CoreData.m */,
+			);
+			name = RestKit/ObjectMapping/CoreData;
+			sourceTree = "<group>";
+		};
+		F97F452FE9AA4176B60EB261 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4537982090F2422FA090D0C0 /* FileMD5Hash */,
+				7D88DA6582264C13A137DD04 /* JSONKit */,
+				E7C7A31F4885414A9AFD2222 /* LibComponentLogging-Core */,
+				74591214669C452B9FA876D3 /* LibComponentLogging-NSLog */,
+				8201225DCE874D99B10CFB47 /* RestKit/Network */,
+				F604B4AAF5AF4E4F9035960D /* RestKit/ObjectMapping */,
+				F6649114EE154DAF9F4037A1 /* RestKit/ObjectMapping/CoreData */,
+				AC505285B3EE4CA197F0A5D8 /* RestKit/ObjectMapping/JSONKit */,
+				50C8DD57043449B3A5F1DFB0 /* SOCKit */,
+				51F394D65B2C4F378A9B5510 /* SocketRocket */,
+				D8E7C15273C64C0A8E1C6CB5 /* cocoa-oauth */,
+				C7A7EDEFD5274522A7461527 /* libPusher */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAA8D104D8D5425CADFD9979 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F68EC98D8F3B4A058CA8E759 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				18C1B6F40BD24EEDAB855611 /* Sources */,
+				33A811D3E05A400DAC478269 /* Frameworks */,
+				347C5CD1417C427583591E31 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = F9725FEDA9974CB481480B5D /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8328A5896B9A40C4ADFC10A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 5FA6BAFBF6874798A5FEA6FC /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 199211D78F664C2C8BCA4077;
+			productRefGroup = 57160CB9FE5C4189860CD314 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAA8D104D8D5425CADFD9979 /* Pods */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18C1B6F40BD24EEDAB855611 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85283DF8EE87471DAA1BF46A /* FileMD5Hash.c in Sources */,
+				2659CC67678E4718A9F63BB6 /* FileMD5Hash_Prefix.pch in Sources */,
+				66ED1C20252849F9AAF5ECEA /* JSONKit.m in Sources */,
+				BD0900FC0EBB496CBBA2AB4E /* lcl.m in Sources */,
+				C6497826F3D44A6F8598B805 /* LCLNSLog.m in Sources */,
+				F9B08F61236C4C6D8811F283 /* NSData+MD5.m in Sources */,
+				2852A7C378E44814B89D6B4B /* NSDictionary+RKRequestSerialization.m in Sources */,
+				9C0D1A03C947471297358A87 /* NSString+MD5.m in Sources */,
+				BA02B1635E4645179A286037 /* RKClient.m in Sources */,
+				7BB0385F99DA4D7C88E99D5A /* RKNotifications.m in Sources */,
+				F97B2D15C16B4B58BB3BCB90 /* RKOAuthClient.m in Sources */,
+				9E88E85561C64473A5CEA64F /* RKParams.m in Sources */,
+				B72228A0F9B04D4A8EDC7E76 /* RKParamsAttachment.m in Sources */,
+				6C9E86D3EA244069BAACC743 /* RKReachabilityObserver.m in Sources */,
+				C54329DE893E4853A53DD07C /* RKRequest.m in Sources */,
+				E420276E22244365B90AA9B6 /* RKRequestCache.m in Sources */,
+				8962D669435348CB8F6C1858 /* RKRequestQueue.m in Sources */,
+				766C6B4588014FDEB9E879CB /* RKRequestSerialization.m in Sources */,
+				35CE226FD24141EAA3884702 /* RKResponse.m in Sources */,
+				9B694D710EF54C38AE84608D /* RKURL.m in Sources */,
+				FAA917B922FB42D494A2DEE6 /* Errors.m in Sources */,
+				EBA8882757D9486A9DAFF1C4 /* NSDictionary+RKAdditions.m in Sources */,
+				EC3A51E53DA440FBA61482B1 /* NSString+RestKit.m in Sources */,
+				AF023D1698244FBD82E537F7 /* NSURL+RestKit.m in Sources */,
+				80E5BCC6619C4FE5AEB3CA83 /* RKAlert.m in Sources */,
+				23D80F689B924E0EAF868E27 /* RKDirectory.m in Sources */,
+				6984D8EDFB5140819C0D3E2F /* RKDotNetDateFormatter.m in Sources */,
+				9E59A88D05714F029AA89391 /* RKLog.m in Sources */,
+				5F1BBE94946347F88BBC5C69 /* RKMIMETypes.m in Sources */,
+				8DED0A9A763148F09E602130 /* RKPathMatcher.m in Sources */,
+				298E9CEAAD7947C08E901F52 /* RKSearchEngine.m in Sources */,
+				9B43FBFFFFB14A93AF17EE5E /* RKDynamicObjectMapping.m in Sources */,
+				8A8E5F78F424474C9AC7DDDC /* RKErrorMessage.m in Sources */,
+				42F0D46364CF445CBA0C8345 /* RKMappingOperationQueue.m in Sources */,
+				38B1E7522D7F4A288B7140D6 /* RKObjectAttributeMapping.m in Sources */,
+				A8118C1E92EA469095E4F4CD /* RKObjectLoader.m in Sources */,
+				F7FF1E2F9ABC4CF7BCABA491 /* RKObjectManager.m in Sources */,
+				7D30BBEE86C74925A0912271 /* RKObjectMapper.m in Sources */,
+				A99A04DB20A2485EB5FDA587 /* RKObjectMapping.m in Sources */,
+				FE7F0AA0F75E487587F89610 /* RKObjectMappingOperation.m in Sources */,
+				E1C0C98CFD934015AC50E323 /* RKObjectMappingProvider.m in Sources */,
+				CD21E669513D4451B2181DAF /* RKObjectMappingResult.m in Sources */,
+				6BAC49AA40F549BE92E47A80 /* RKObjectPropertyInspector.m in Sources */,
+				55AC64BAB5DC4F6A9AD78021 /* RKObjectRelationshipMapping.m in Sources */,
+				6A13FC31DC7D43A6AA236EE3 /* RKObjectRouter.m in Sources */,
+				5D4B1625CCA14374B7D7A099 /* RKObjectSerializer.m in Sources */,
+				FDA9CEE28D70475489FA19D5 /* RKParserRegistry.m in Sources */,
+				5695348FE18A4FF995A28143 /* NSManagedObject+ActiveRecord.m in Sources */,
+				1E985AFEF6704F92B9C163BC /* RKManagedObjectLoader.m in Sources */,
+				744B68AD4A1B4782ACF82051 /* RKManagedObjectMapping.m in Sources */,
+				2A01950C123B4AE29D6BF44D /* RKManagedObjectMappingOperation.m in Sources */,
+				08F44C83DFD44B2492245E03 /* RKManagedObjectSeeder.m in Sources */,
+				B7A1721B436644FEB5F0CF01 /* RKManagedObjectStore.m in Sources */,
+				802CAC9336A04B9BB0639CEC /* RKManagedObjectThreadSafeInvocation.m in Sources */,
+				DC6381423241412C95374D2B /* RKObjectPropertyInspector+CoreData.m in Sources */,
+				CAE624A8483241C0863AE8DF /* RKJSONParserJSONKit.m in Sources */,
+				AC8FF0748C994D06AC051ABC /* SOCKit.m in Sources */,
+				049C8F594692454CA4B2C8C8 /* NSData+SRB64Additions.m in Sources */,
+				C2728693C1C345F9807DF51B /* SRWebSocket.m in Sources */,
+				57AE35D7886441A0A90CB675 /* base64.c in Sources */,
+				5C5AFCDEA4CA421299DB77A1 /* GCOAuth.m in Sources */,
+				441A3C31A69E47EE8FDB47F2 /* NSData+Base64.m in Sources */,
+				F48F6518A2B94A7284864F80 /* NSDictionary+QueryString.m in Sources */,
+				89CA1715E6F24C968B1178B0 /* NSString+Hashing.m in Sources */,
+				6CDB1A1A338A417CBA11A20E /* PTBlockEventListener.m in Sources */,
+				AB9A1F830064461294B5B607 /* PTPusher.m in Sources */,
+				DBD503CA21CA4E908D20750E /* PTPusherAPI.m in Sources */,
+				0DA70CDCBB0149359DBF4A10 /* PTPusherChannel.m in Sources */,
+				CE3E342F12DB49F299A69988 /* PTPusherChannelAuthorizationOperation.m in Sources */,
+				AA1FC13B064F4A4FAAD5AAE9 /* PTPusherConnection.m in Sources */,
+				2C08CF7489AD41FCBF2AF366 /* PTPusherEvent.m in Sources */,
+				BB4CE79C0111434E97EE4AF4 /* PTPusherEventDispatcher.m in Sources */,
+				C6D6C37C18BA418AA8D62481 /* PTTargetActionEventListener.m in Sources */,
+				BD5CD911C06A458083EEBD8B /* PTURLRequestOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		324E08AC2F26408C95CEEA17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C971EFB1F9D4C06BD696E8D /* Pods.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				OTHER_LDFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		79371599B6C14227921D9DD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9505FB57718D4A23AEF3A967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF03BBA7E4184187B0343283 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C971EFB1F9D4C06BD696E8D /* Pods.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				OTHER_LDFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DA0D0ACE151A20740011A0A6 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad Hoc";
+		};
+		DA0D0ACF151A20740011A0A6 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C971EFB1F9D4C06BD696E8D /* Pods.xcconfig */;
+			buildSettings = {
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				OTHER_LDFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = "Ad Hoc";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5FA6BAFBF6874798A5FEA6FC /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79371599B6C14227921D9DD7 /* Debug */,
+				9505FB57718D4A23AEF3A967 /* Release */,
+				DA0D0ACE151A20740011A0A6 /* Ad Hoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F68EC98D8F3B4A058CA8E759 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				324E08AC2F26408C95CEEA17 /* Debug */,
+				CF03BBA7E4184187B0343283 /* Release */,
+				DA0D0ACF151A20740011A0A6 /* Ad Hoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8328A5896B9A40C4ADFC10A1 /* Project object */;
+}
