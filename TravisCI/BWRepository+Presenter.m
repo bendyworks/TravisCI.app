@@ -88,4 +88,16 @@ PRESENT_statusTextColor
     return @"";
 }
 
+- (NSString *)name
+{
+    NSArray *slugInfo = [self.slug componentsSeparatedByString:@"/"];
+    return [slugInfo objectAtIndex:1];
+}
+
+- (NSString *)author
+{
+    NSArray *slugInfo = [self.slug componentsSeparatedByString:@"/"];
+    return [slugInfo objectAtIndex:0];
+}
+
 @end

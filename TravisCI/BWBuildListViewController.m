@@ -83,9 +83,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self addObserver:self forKeyPath:@"repository" options:NSKeyValueObservingOptionNew context:nil];
-    NSArray *slugInfo = [self.repository.slug componentsSeparatedByString:@"/"];
-    [self.authorName setText:[slugInfo objectAtIndex:0]];
-    [self.repositoryName setText:[slugInfo objectAtIndex:1]];
+    [self.authorName setText:[self.repository author]];
+    [self.repositoryName setText:[self.repository name]];
 
     [self updateFollowButton];
     [super viewWillAppear:animated];
@@ -116,6 +115,14 @@
             [self.repositoryName setShadowColor:[UIColor darkGrayColor]];
             [self.repositoryName setShadowOffset:CGSizeMake(0.0f, -1.0f)];
         }
+    }
+
+    if (IS_IPHONE && UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+        [self.authorName setText:@""];
+        [self.repositoryName setText:self.repository.slug];
+    } else {
+        [self.authorName setText:[self.repository author]];
+        [self.repositoryName setText:[self.repository name]];
     }
 }
 

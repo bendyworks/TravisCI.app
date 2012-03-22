@@ -17,5 +17,7 @@
 - (NSString *)finishedText;
 - (UIImage *)statusImage;
 - (UIColor *)statusTextColor;
+- (NSString *)name;
+- (NSString *)author;
 
 @end
