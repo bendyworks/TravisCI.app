@@ -618,9 +618,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DA966CFA149FAC3900C229CB /* TravisCI */ = {
+		DA966CFA149FAC3900C229CB /* travisci */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DA966D3A149FAC3900C229CB /* Build configuration list for PBXNativeTarget "TravisCI" */;
+			buildConfigurationList = DA966D3A149FAC3900C229CB /* Build configuration list for PBXNativeTarget "travisci" */;
 			buildPhases = (
 				DA966CF7149FAC3900C229CB /* Sources */,
 				DA966CF8149FAC3900C229CB /* Frameworks */,
@@ -631,7 +631,7 @@
 			);
 			dependencies = (
 			);
-			name = TravisCI;
+			name = travisci;
 			productName = TravisCI;
 			productReference = DA966CFB149FAC3900C229CB /* TravisCI.app */;
 			productType = "com.apple.product-type.application";
@@ -677,7 +677,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DA966CFA149FAC3900C229CB /* TravisCI */,
+				DA966CFA149FAC3900C229CB /* travisci */,
 				DA966D26149FAC3900C229CB /* TravisCITests */,
 			);
 		};
@@ -823,7 +823,7 @@
 /* Begin PBXTargetDependency section */
 		DA966D2E149FAC3900C229CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DA966CFA149FAC3900C229CB /* TravisCI */;
+			target = DA966CFA149FAC3900C229CB /* travisci */;
 			targetProxy = DA966D2D149FAC3900C229CB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -940,7 +940,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TravisCI;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = app;
@@ -952,6 +952,7 @@
 			baseConfigurationReference = 64F08E06DFB246CC940C9D9C /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TravisCI/TravisCI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravisCI/TravisCI-Prefix.pch";
@@ -964,7 +965,8 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = travisci;
+				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = app;
@@ -1086,7 +1088,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TravisCI;
 				PROVISIONING_PROFILE = "71BCA142-A9E0-42FA-9CAC-75BAFC0D1B21";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SKIP_INSTALL = NO;
@@ -1142,7 +1144,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DA966D3A149FAC3900C229CB /* Build configuration list for PBXNativeTarget "TravisCI" */ = {
+		DA966D3A149FAC3900C229CB /* Build configuration list for PBXNativeTarget "travisci" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA966D3B149FAC3900C229CB /* Debug */,
