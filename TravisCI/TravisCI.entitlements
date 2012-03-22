@@ -4,13 +4,13 @@
 <dict>
 	<key>com.apple.developer.ubiquity-container-identifiers</key>
 	<array>
-		<string>$(TeamIdentifierPrefix)com.bendyworks.TravisCI</string>
+		<string>$(TeamIdentifierPrefix)com.bendyworks.travisci</string>
 	</array>
 	<key>com.apple.developer.ubiquity-kvstore-identifier</key>
-	<string>$(TeamIdentifierPrefix)com.bendyworks.TravisCI</string>
+	<string>$(TeamIdentifierPrefix)com.bendyworks.travisci</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)com.bendyworks.TravisCI</string>
+		<string>$(AppIdentifierPrefix)com.bendyworks.travisci</string>
 	</array>
 </dict>
 </plist>
