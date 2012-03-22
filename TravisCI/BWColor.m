@@ -27,7 +27,7 @@
 + (UIView *)gradientViewForFrame:(UITableViewCell *)cell
 {
     CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = cell.bounds;
+    gradient.frame = CGRectMake(cell.bounds.origin.x, cell.bounds.origin.y, CGRectGetWidth(cell.bounds) + 160.0f, CGRectGetHeight(cell.bounds));
     gradient.colors = [BWColor gradientColors];
     UIView *gradientView = [[UIView alloc] initWithFrame:cell.frame];
     [gradientView.layer addSublayer:gradient];

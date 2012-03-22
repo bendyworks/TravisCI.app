@@ -18,6 +18,9 @@
 #import "BWDetailContainerViewController.h"
 
 @interface BWBuildListViewController ()
+@property (nonatomic, retain) UIBarButtonItem *enabledStarButton;
+@property (nonatomic, retain) UIBarButtonItem *disabledStarButton;
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)setNavigationTitleProperties:(UIInterfaceOrientation)toInterfaceOrientation;
 - (void)updateFollowButton;
@@ -26,7 +29,8 @@
 @implementation BWBuildListViewController
 @synthesize repositoryName;
 @synthesize authorName;
-@synthesize favoriteButton;
+
+@synthesize enabledStarButton, disabledStarButton;
 
 @synthesize fetchedResults = __fetchedResults;
 @synthesize repository, jobListController, buildCellNib;
@@ -40,6 +44,7 @@
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
         }
+
     }
     return self;
 }
@@ -57,12 +62,31 @@
     [self.tableView setAccessibilityLabel:@"Builds"];
 }
 
+- (void)viewDidLoad
+{
+    self.enabledStarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"enabled_star"] style:UIBarButtonItemStyleBordered target:self action:@selector(askToToggleFavorite:)];
+    self.disabledStarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"disabled_star"] style:UIBarButtonItemStyleBordered target:self action:@selector(askToToggleFavorite:)];
+}
+
+-(void)viewDidUnload
+{
+    [self setRepositoryName:nil];
+    [self setAuthorName:nil];
+    [super viewDidUnload];
+    self.jobListController = nil;
+    self.buildCellNib = nil;
+    self.fetchedResults = nil;
+    self.enabledStarButton = nil;
+    self.disabledStarButton = nil;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [self addObserver:self forKeyPath:@"repository" options:NSKeyValueObservingOptionNew context:nil];
     NSArray *slugInfo = [self.repository.slug componentsSeparatedByString:@"/"];
     [self.authorName setText:[slugInfo objectAtIndex:0]];
     [self.repositoryName setText:[slugInfo objectAtIndex:1]];
+
     [self updateFollowButton];
     [super viewWillAppear:animated];
 }
@@ -108,17 +132,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { return YES; }
 
--(void)viewDidUnload
-{
-    [self setRepositoryName:nil];
-    [self setAuthorName:nil];
-    [self setFavoriteButton:nil];
-    [super viewDidUnload];
-    self.jobListController = nil;
-    self.buildCellNib = nil;
-    self.fetchedResults = nil;
-}
-
 - (IBAction)askToToggleFavorite:(id)sender {
     NSString *titleText = nil;
     NSString *otherButtonText = nil;
@@ -137,7 +150,7 @@
 
     if ( (!IS_IOS_50) && IS_IPAD && UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
 
-        CGFloat buttonWidth = 70.0f;
+        CGFloat buttonWidth = 55.0f;
         CGRect rect = CGRectMake(320.0-buttonWidth, -13.0, buttonWidth, 1.0);
 
         BWAppDelegate *appDelegate = (BWAppDelegate *)[UIApplication sharedApplication].delegate;
@@ -145,7 +158,7 @@
 
         [sheet showFromRect:rect inView:splitView animated:YES];
     } else {
-        [sheet showFromBarButtonItem:self.favoriteButton animated:YES];
+        [sheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
     }
 }
 
@@ -167,9 +180,9 @@
 {
     BWFavoriteList *favs = ((BWAppDelegate *)[UIApplication sharedApplication].delegate).favoriteList;
     if ([favs contains:self.repository.remote_id]) {
-        [self.favoriteButton setTitle:@"Unfollow"];
+        [self.navigationItem setRightBarButtonItem:self.enabledStarButton];
     } else {
-        [self.favoriteButton setTitle:@"Follow"];
+        [self.navigationItem setRightBarButtonItem:self.disabledStarButton];
     }
 }
 
@@ -232,7 +245,7 @@
 
         [[segue destinationViewController] setValue:build forKey:@"build"];
     }
-    
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -247,7 +260,7 @@
     if (__fetchedResults != nil) {
         return __fetchedResults;
     }
-    
+
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *moc = [[RKObjectManager sharedManager].objectStore managedObjectContext];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"BWCDBuild" inManagedObjectContext:moc];
@@ -270,7 +283,7 @@
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
-    
+
     return __fetchedResults;
 }
 
@@ -282,20 +295,20 @@
       newIndexPath:(NSIndexPath *)newIndexPath
 {
     UITableView *tableView = self.tableView;
-    
+
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
+
         case NSFetchedResultsChangeDelete:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
+
         case NSFetchedResultsChangeUpdate:
             [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
-            
+
         case NSFetchedResultsChangeMove:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];
