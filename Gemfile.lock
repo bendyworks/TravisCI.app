@@ -1,3 +1,9 @@
+PATH
+  remote: ~/dev/bwoken
+  specs:
+    bwoken (0.0.1)
+      colorful
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -28,6 +34,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bwoken!
   cocoapods
   colorful
   json

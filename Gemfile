@@ -8,3 +8,5 @@ gem 'colorful'
 
 gem 'cocoapods'
 gem 'xcodeproj'
+
+gem 'bwoken', :path => '~/dev/bwoken'
