@@ -20,8 +20,17 @@ gem and pod setup:
 
 `bundle`
 
-`pod install TravisCI.xcodeproj`
+`pod setup`
 
+`rm ~/.cocoapods/master/RestKit/0.9.3/RestKit.podspec`
+
+`ln -s $(pwd)/cocoapod_specs/RestKit.podspec ~/.cocoapods/master/RestKit/0.9.3/RestKit.podspec`
+
+`pod install`
+
+if anything is missing from Pods/Headers, try `rm -rf Pods/ && pod install` or:
+
+`git co Pods/Headers`
 
 test
 ----
@@ -37,6 +46,10 @@ start the test travisci server:
 test:
 
 `rake`
+
+the UIAutomation coffescript files are located at:
+
+`automation/coffeescript/{iphone,ipad}`
 
 deploy
 ---------
