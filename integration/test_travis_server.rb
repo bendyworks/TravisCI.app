@@ -24,7 +24,7 @@ repositories = [ {
     last_build_status: 1,
     last_build_language: nil,
     last_build_duration: 17,
-    last_build_result: 1,
+    last_build_result: 0,
     slug: "Jwaters/awesomesauce"
   },
   {
@@ -55,15 +55,16 @@ json_get '/repositories.json' do
 end
 
 json_get '/repositories/10/builds.json' do
-  [{
-      id: 103,
+  [
+    {
+      id: 101,
       repository_id: 10,
-      number: "3",
-      started_at: "2012-01-31T17:41:41Z",
-      finished_at: "2012-01-31T17:42:06Z",
-      duration: 45,
+      number: "1",
+      started_at: "2011-11-28T21:30:43Z",
+      finished_at: "2011-11-28T21:40:59Z",
+      duration: 31,
       result: 0,
-      commit: "52ad0e2e46f8756207cd18b5aaac688358247141",
+      commit: "c1751ae23fc94f1f3c3cfa3648d8ec39847cf714",
       branch: "master",
       message: "some message"
     },
@@ -80,14 +81,14 @@ json_get '/repositories/10/builds.json' do
       message: "some message"
     },
     {
-      id: 101,
+      id: 103,
       repository_id: 10,
-      number: "1",
-      started_at: "2011-11-28T21:43:43Z",
-      finished_at: "2011-11-28T21:43:59Z",
-      duration: 31,
-      result: 0,
-      commit: "c1751ae23fc94f1f3c3cfa3648d8ec39847cf714",
+      number: "3",
+      started_at: "2012-01-31T17:41:41Z",
+      finished_at: nil,
+      duration: nil,
+      result: nil,
+      commit: "52ad0e2e46f8756207cd18b5aaac688358247141",
       branch: "master",
       message: "some message"
     }
@@ -112,13 +113,13 @@ end
 
 json_get '/repositories/30/builds.json' do
   [{
-      id: 303,
+      id: 301,
       repository_id: 30,
-      number: "3",
+      number: "1",
       started_at: "2012-01-31T17:41:41Z",
       finished_at: "2012-01-31T17:42:06Z",
       duration: 45,
-      result: 0,
+      result: 1,
       commit: "52ad0e2e46f8756207cd18b5aaac688358247141",
       branch: "master",
       message: "some message"
@@ -132,9 +133,9 @@ json_get '/builds/103.json' do
   repository_id: 10,
   number: "3",
   started_at: "2012-01-31T17:41:41Z",
-  finished_at: "2012-01-31T17:42:06Z",
-  duration: 45,
-  state: "finished",
+  finished_at: nil,
+  duration: nil,
+  state: "started",
   config: {
     language: "node_js",
     node_js: [
@@ -143,23 +144,23 @@ json_get '/builds/103.json' do
     ],
     ".configured" => true
   },
-  status: 0,
-  result: 0,
+  status: nil,
+  result: nil,
   matrix: [
     {
       id: 110,
       repository_id: 10,
       number: "7.1",
-      state: "finished",
+      state: "started",
       started_at: "2012-01-31T17:41:41Z",
-      finished_at: "2012-01-31T17:42:06Z",
+      finished_at: nil,
       config: {
         language: "node_js",
         node_js: 0.4,
         ".configured" => true
       },
-      status: 0,
-      result: 0,
+      status: nil,
+      result: nil,
       build_id: 605126,
       commit: "52ad0e2e46f8756207cd18b5aaac688358247141",
       branch: "master",
@@ -167,7 +168,7 @@ json_get '/builds/103.json' do
       committed_at: "2012-01-31T17:39:27Z",
       committer_name: nil,
       committer_email: nil,
-      author_name: "Diogo Resende",
+      author_name: "Jaymes Waters",
       author_email: "dresende@thinkdigital.pt",
       compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
     },
@@ -192,7 +193,7 @@ json_get '/builds/103.json' do
       committed_at: "2012-01-31T17:39:27Z",
       committer_name: nil,
       committer_email: nil,
-      author_name: "Diogo Resende",
+      author_name: "Jaymes Waters",
       author_email: "dresende@thinkdigital.pt",
       compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
     }
@@ -203,7 +204,7 @@ json_get '/builds/103.json' do
   committed_at: "2012-01-31T17:39:27Z",
   committer_name: nil,
   committer_email: nil,
-  author_name: "Diogo Resende",
+  author_name: "Jaymes Waters",
   author_email: "dresende@thinkdigital.pt",
   compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
 }
@@ -250,7 +251,7 @@ json_get '/builds/203.json' do
       committed_at: "2012-01-31T17:39:27Z",
       committer_name: nil,
       committer_email: nil,
-      author_name: "Diogo Resende",
+      author_name: "Jaymes Waters",
       author_email: "dresende@thinkdigital.pt",
       compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
     }
@@ -261,7 +262,7 @@ json_get '/builds/203.json' do
   committed_at: "2012-01-31T17:39:27Z",
   committer_name: nil,
   committer_email: nil,
-  author_name: "Diogo Resende",
+  author_name: "Jaymes Waters",
   author_email: "dresende@thinkdigital.pt",
   compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
 }
@@ -272,17 +273,17 @@ json_get '/jobs/110.json' do
   id: 110,
   repository_id: 10,
   number: "7.1",
-  state: "finished",
+  state: "created",
   started_at: "2012-01-31T17:41:41Z",
-  finished_at: "2012-01-31T17:42:06Z",
+  finished_at: nil,
   config: {
     language: "node_js",
     node_js: 0.4,
     ".configured" => true
   },
-  status: 0,
+  status: nil,
   log: "log line one\n",
-  result: 0,
+  result: nil,
   build_id: 605126,
   commit: "52ad0e2e46f8756207cd18b5aaac688358247141",
   branch: "master",
@@ -290,7 +291,7 @@ json_get '/jobs/110.json' do
   committed_at: "2012-01-31T17:39:27Z",
   committer_name: nil,
   committer_email: nil,
-  author_name: "Diogo Resende",
+  author_name: "Jaymes Waters",
   author_email: "dresende@thinkdigital.pt",
   compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
 }
@@ -319,7 +320,7 @@ json_get '/jobs/111.json' do
   committed_at: "2012-01-31T17:39:27Z",
   committer_name: nil,
   committer_email: nil,
-  author_name: "Diogo Resende",
+  author_name: "Jaymes Waters",
   author_email: "dresende@thinkdigital.pt",
   compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
 }
@@ -348,7 +349,7 @@ json_get '/jobs/210.json' do
   committed_at: "2012-01-31T17:39:27Z",
   committer_name: nil,
   committer_email: nil,
-  author_name: "Diogo Resende",
+  author_name: "Jaymes Waters",
   author_email: "dresende@thinkdigital.pt",
   compare_url: "https://github.com/dresende/node-toolkit/compare/47926bb...52ad0e2"
 }
