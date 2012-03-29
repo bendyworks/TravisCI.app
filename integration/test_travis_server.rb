@@ -150,7 +150,7 @@ json_get '/builds/103.json' do
     {
       id: 110,
       repository_id: 10,
-      number: "7.1",
+      number: "3.1",
       state: "started",
       started_at: "2012-01-31T17:41:41Z",
       finished_at: nil,
@@ -175,7 +175,7 @@ json_get '/builds/103.json' do
     {
       id: 111,
       repository_id: 10,
-      number: "7.2",
+      number: "3.2",
       state: "finished",
       started_at: "2012-01-31T17:41:41Z",
       finished_at: "2012-01-31T17:42:01Z",
@@ -272,7 +272,7 @@ json_get '/jobs/110.json' do
 {
   id: 110,
   repository_id: 10,
-  number: "7.1",
+  number: "3.1",
   state: "created",
   started_at: "2012-01-31T17:41:41Z",
   finished_at: nil,

@@ -26,6 +26,7 @@ PODS:
   - libPusher (1.2):
     - JSONKit (= 1.4)
     - SocketRocket (from `git://github.com/square/SocketRocket', commit `ec6c145f4a')
+  - tuneup_js (0.0.1)
 
 DOWNLOAD_ONLY:
   - RestKit (0.9.3)
@@ -35,3 +36,4 @@ DEPENDENCIES:
   - RestKit/ObjectMapping/CoreData
   - RestKit/ObjectMapping/JSONKit
   - libPusher
+  - tuneup_js

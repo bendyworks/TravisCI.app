@@ -68,7 +68,7 @@ PRESENT_statusTextColor
             __status = @"failed";
             break;
     }
-    return [NSString stringWithFormat:@"%@  %@", self.formattedNumber, __status];
+    return [NSString stringWithFormat:@"%@ %@", self.formattedNumber, __status];
 }
 
 - (NSString *)accessibilityHint

@@ -190,7 +190,7 @@ PRESENT_statusTextColor
             __status = @"failed";
             break;
     }
-    return [NSString stringWithFormat:@"%@  %@", self.number, __status];
+    return [NSString stringWithFormat:@"%@ %@", self.number, __status];
 }
 
 @end

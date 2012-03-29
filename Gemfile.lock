@@ -5,6 +5,7 @@ PATH
       coffee-script-source
       colorful
       execjs
+      rake
 
 GEM
   remote: http://rubygems.org/
