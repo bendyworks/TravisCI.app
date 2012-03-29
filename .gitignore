@@ -2,10 +2,10 @@ TravisCI.xcodeproj/project.xcworkspace
 TravisCI.xcodeproj/xcuserdata
 TravisCI.xcworkspace/xcuserdata/
 build
-automation/pusher_secret_key.txt
-automation/results
-automation/*.js
+integration/pusher_secret_key.txt
+integration/results
+integration/*.js
 instrumentscli*
 bundler_bin
 Pods/Pods.xcodeproj/xcuserdata/*.xcuserdatad
-automation/tmp
+integration/tmp
