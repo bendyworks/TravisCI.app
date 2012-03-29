@@ -53,7 +53,7 @@ thenIShouldSeeTheJobLog = (logValue) ->
     UIALogger.logFail("log is not correct")
 
 whenPusherSendsAnUpdateAboutThatJob = (job_id, new_log_line) ->
-  path = "~/dev/ios/TravisCI/automation/pusher_event"
+  path = "~/dev/ios/TravisCI/integration/pusher_event"
   args = [
     "job-#{job_id}"
     "job:log"

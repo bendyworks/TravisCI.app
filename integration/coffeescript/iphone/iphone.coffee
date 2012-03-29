@@ -6,7 +6,7 @@ assertElementPresent = (el, el_name) ->
     UIALogger.logFail("Element #{el_name} is not present")
 
 whenPusherSendsAnUpdateAboutThatJob = (target, job_id, new_log_line) ->
-  path = "~/dev/ios/TravisCI/automation/pusher_event"
+  path = "~/dev/ios/TravisCI/integration/pusher_event"
   args = [
     "job-#{job_id}"
     "job:log"
