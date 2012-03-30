@@ -20,7 +20,7 @@ test 'see job log', (target, app) ->
   JobLogScreen.assertLogEquals("log line one\n")
 
 test 'pusher works with job log', (target, app) ->
-  Pusher.appendToLog(target, "110", "pushed log line\n")
+  Pusher.appendToLog("110", "pushed log line\n")
   JobLogScreen.assertLogEquals("log line one\npushed log line\n")
 
 test 'going back and re-entering log still updates', (target, app) ->
@@ -28,7 +28,7 @@ test 'going back and re-entering log still updates', (target, app) ->
   JobDetailScreen.back()
   JobsScreen.tapJobNumber '3.1'
   JobDetailScreen.tapLog()
-  Pusher.appendToLog(target, "110", "another line\n")
+  Pusher.appendToLog("110", "another line\n")
   JobLogScreen.assertLogEquals("log line one\npushed log line\nanother line\n")
 
 

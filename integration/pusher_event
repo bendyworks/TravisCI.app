@@ -21,11 +21,18 @@ channel = %Q($1)
 event = %Q($2)
 data = %Q($3)
 
-if !channel.empty? && !event.empty? && !data.empty?
-  Pusher[channel].trigger(event, data)
-else
+if channel.empty? || event.empty? || data.empty?
   puts 'usage: pusher_event <channel> <event> <data>'
+  return
 end
+
+begin
+  Pusher[channel].trigger(event, data)
+rescue Pusher::Error => e
+  puts "Receieved error from pusher: #{e}"
+end
+
 EOP
 )
 bundle exec ruby -e "$ruby_program"
+exit 0

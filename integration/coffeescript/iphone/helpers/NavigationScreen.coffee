@@ -1,3 +1,6 @@
 class NavigationScreen
+  navigationBar: ->
+    TravisCI.window().navigationBar()
+
   back: ->
-    TravisCI.window().navigationBar().leftButton().tap()
+    @navigationBar().leftButton().tap()

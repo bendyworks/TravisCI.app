@@ -1,4 +1,4 @@
-class BuildsScreenClass
+class BuildsScreenClass extends NavigationScreen
   tableView: ->
     TravisCI.window().tableViews()['Builds']
 
@@ -8,11 +8,12 @@ class BuildsScreenClass
   tapBuildNumber: (buildNumber) ->
     @tableView().cells()["Build ##{buildNumber} is still building"].tap()
 
-    # assertWindow
-    #   navigationBar:
-    # if 
-    #   UIALogger.logPass("Element #{el_name} is visible")
-    # else
-    #   UIALogger.logFail("Element #{el_name} is not visible")
+  addToFavorites: (app) ->
+    @navigationBar().rightButton().tap()
+    app.actionSheet().elements().Add.tap()
+
+  removeFromFavorites: (app) ->
+    @navigationBar().rightButton().tap()
+    app.actionSheet().elements().Remove.tap()
 
 BuildsScreen = new BuildsScreenClass

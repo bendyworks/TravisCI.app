@@ -5,6 +5,7 @@
 #import "JobsScreen.js"
 #import "JobDetailScreen.js"
 #import "JobLogScreen.js"
+#import "FavoritesScreen.js"
 
 class TravisCIClass
   window: ->
