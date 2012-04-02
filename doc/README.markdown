@@ -37,11 +37,11 @@ test
 
 start the localport binding:
 
-`./automation/http_tunnel.sh`
+`./integration/http_tunnel.sh`
 
 start the test travisci server:
 
-`ruby automation/test_travis_server.rb`
+`ruby integration/test_travis_server.rb`
 
 test:
 
@@ -49,7 +49,7 @@ test:
 
 the UIAutomation coffescript files are located at:
 
-`automation/coffeescript/{iphone,ipad}`
+`integration/coffeescript/{iphone,ipad}`
 
 deploy
 ---------
