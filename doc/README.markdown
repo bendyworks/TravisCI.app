@@ -32,6 +32,11 @@ if anything is missing from Pods/Headers, try `rm -rf Pods/ && pod install` or:
 
 `git co Pods/Headers`
 
+if the build fails with a bunch of redefined header issues try manually cleaning your xcode build location, ususally:
+
+`~/Library/Developer/Xcode/DerivedData`
+
+
 test
 ----
 
