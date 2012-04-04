@@ -1,10 +1,9 @@
 class PusherClass
   appendToLog: (target, jobId, logText) ->
-    path = "~/dev/ios/TravisCI/integration/pusher_event"
+    path = "~/dev/ios/TravisCI/integration/pusher_event_log"
     args = [
-      "job-#{jobId}"
-      "job:log"
-      """{"id" : #{jobId}, "_log" : "#{logText}"}"""
+      jobId
+      logText
     ]
     timeout = 5 # seconds
     host = target.host()
