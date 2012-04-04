@@ -1,4 +1,4 @@
-class JobLogScreenClass extends NavigationScreen
+class JobLogScreenClass extends SubNavigationScreen
   textView: ->
     TravisCI.window().textViews()['Job Log']
 

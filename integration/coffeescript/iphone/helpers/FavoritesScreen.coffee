@@ -1,4 +1,4 @@
-class FavoritesScreenClass extends NavigationScreen
+class FavoritesScreenClass extends SubNavigationScreen
   favoritesList: ->
     TravisCI.tableWithName('Repositories')
 

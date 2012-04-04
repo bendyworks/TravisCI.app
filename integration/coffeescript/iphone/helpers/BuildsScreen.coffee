@@ -1,4 +1,4 @@
-class BuildsScreenClass extends NavigationScreen
+class BuildsScreenClass extends SubNavigationScreen
   tableView: ->
     TravisCI.window().tableViews()['Builds']
 

@@ -1,4 +1,4 @@
-class JobsScreenClass
+class JobsScreenClass extends SubNavigationScreen
   tableView: ->
     TravisCI.window().tableViews()['Jobs']
 
