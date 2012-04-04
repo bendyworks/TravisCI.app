@@ -5,4 +5,7 @@ class RepositoriesScreenClass extends NavigationScreen
   tapRepositoryNamed: (name) ->
     @repositoryList().cells()[name].tap()
 
+  tapFavorites: ->
+    @navigationBar().elements().Favorites.tap()
+
 RepositoriesScreen = new RepositoriesScreenClass

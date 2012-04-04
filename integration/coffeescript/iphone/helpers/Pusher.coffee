@@ -5,8 +5,11 @@ class PusherClass
       jobId
       logText
     ]
+    host = UIATarget.localTarget().host()
+    path = "~/dev/ios/TravisCI/integration/pusher_event"
     timeout = 5 # seconds
-    host = target.host()
+
     host.performTaskWithPathArgumentsTimeout(path, args, timeout)
+
 
 Pusher = new PusherClass
