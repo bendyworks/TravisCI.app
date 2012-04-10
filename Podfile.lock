@@ -1,39 +1,40 @@
 PODS:
   - FileMD5Hash (0.0.1)
-  - JSONKit (1.4)
+  - ISO8601DateFormatter (0.6)
+  - JSONKit (1.5pre)
   - LibComponentLogging-Core (1.1.6)
   - LibComponentLogging-NSLog (1.0.4):
     - LibComponentLogging-Core (>= 1.1.6)
-  - RestKit/Network (0.9.3):
+  - RestKit/Network (0.10.0):
     - FileMD5Hash
-    - LibComponentLogging-NSLog
-    - RestKit (= 0.9.3)
+    - LibComponentLogging-NSLog (>= 1.0.4)
+    - RestKit (= 0.10.0)
     - SOCKit
     - cocoa-oauth
-  - RestKit/ObjectMapping (0.9.3):
-    - RestKit (= 0.9.3)
+  - RestKit/ObjectMapping (0.10.0):
+    - ISO8601DateFormatter (>= 0.6)
+    - RestKit (= 0.10.0)
     - RestKit/Network
-  - RestKit/ObjectMapping/CoreData (0.9.3):
-    - RestKit (= 0.9.3)
-    - RestKit/ObjectMapping (= 0.9.3)
-  - RestKit/ObjectMapping/JSONKit (0.9.3):
-    - JSONKit
-    - RestKit (= 0.9.3)
-    - RestKit/ObjectMapping (= 0.9.3)
+  - RestKit/ObjectMapping/CoreData (0.10.0):
+    - RestKit (= 0.10.0)
+    - RestKit/ObjectMapping (= 0.10.0)
+  - RestKit/ObjectMapping/JSON (0.10.0):
+    - JSONKit (>= 1.5pre)
+    - RestKit (= 0.10.0)
+    - RestKit/ObjectMapping (= 0.10.0)
   - SOCKit (0.0.1)
   - SocketRocket (0.1)
   - cocoa-oauth (0.0.1)
-  - libPusher (1.2):
-    - JSONKit (= 1.4)
+  - libPusher (1.3):
     - SocketRocket (from `git://github.com/square/SocketRocket', commit `ec6c145f4a')
   - tuneup_js (0.0.1)
 
 DOWNLOAD_ONLY:
-  - RestKit (0.9.3)
+  - RestKit (0.10.0)
 
 DEPENDENCIES:
-  - RestKit/Network
-  - RestKit/ObjectMapping/CoreData
-  - RestKit/ObjectMapping/JSONKit
+  - RestKit/Network (= 0.10.0)
+  - RestKit/ObjectMapping/CoreData (= 0.10.0)
+  - RestKit/ObjectMapping/JSON (= 0.10.0)
   - libPusher
   - tuneup_js
