@@ -3,7 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -53,6 +53,7 @@
                                 <rect key="frame" x="0.0" y="197" width="768" height="763"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Log"/>
                                 <string key="text">Tumblr raw denim cred brooklyn, biodiesel irony portland 8-bit chambray salvia. Etsy gluten-free cardigan butcher, farm-to-table portland yr fap tofu locavore master cleanse seitan mlkshk. Cardigan mixtape PBR, artisan food truck mlkshk twee iphone portland wolf VHS synth yr fixie. Beard mlkshk lo-fi, before they sold out thundercats tattooed master cleanse organic lomo twee four loko 3 wolf moon. Skateboard vinyl trust fund banksy biodiesel. Messenger bag wes anderson pitchfork jean shorts dreamcatcher viral. High life portland twee squid, jean shorts art party vegan.
 
 </string>
