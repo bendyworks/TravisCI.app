@@ -16,17 +16,12 @@ local setup
 
 gem and pod setup:
 
-`gem install bundler`
-
-`bundle`
-
-`pod setup`
-
-`rm ~/.cocoapods/master/RestKit/0.9.3/RestKit.podspec`
-
-`ln -s $(pwd)/cocoapod_specs/RestKit.podspec ~/.cocoapods/master/RestKit/0.9.3/RestKit.podspec`
-
-`pod install`
+```
+gem install bundler
+bundle
+pod setup
+pod install TravisCI.xcodeproj
+```
 
 if anything is missing from Pods/Headers, try `rm -rf Pods/ && pod install` or:
 
