@@ -1,18 +1,14 @@
-PATH
-  remote: ~/dev/bwoken
+GEM
+  remote: http://rubygems.org/
   specs:
-    bwoken (0.0.1)
+    bwoken (1.0.0)
       coffee-script-source
       colorful
       execjs
       rake
-
-GEM
-  remote: http://rubygems.org/
-  specs:
     cocoapods (0.5.1)
       xcodeproj (~> 0.1.0)
-    coffee-script-source (1.2.0)
+    coffee-script-source (1.3.1)
     colorful (0.0.3)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -40,7 +36,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bwoken!
+  bwoken
   cocoapods
   colorful
   json
