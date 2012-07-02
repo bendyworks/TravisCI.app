@@ -20,19 +20,21 @@
 
     RKObjectManager *manager = [RKObjectManager sharedManager];
     RKManagedObjectStore *objectStore = manager.objectStore;
-    NSManagedObjectContext *moc = [objectStore managedObjectContext];
+    NSManagedObjectContext *moc = [objectStore managedObjectContextForCurrentThread];
 
     BWCDRepository *repository = [BWCDRepository findFirstByAttribute:@"remote_id" withValue:repository_id inContext:moc];
 
     if (repository == nil) {
-        NSEntityDescription *repositoryDescription = [NSEntityDescription entityForName:@"BWCDRepository" inManagedObjectContext:moc];
-        repository = (BWCDRepository *)[objectStore findOrCreateInstanceOfEntity:repositoryDescription
-                                                         withPrimaryKeyAttribute:@"remote_id"
-                                                                        andValue:repository_id];
+        // TODO: re-insert "findOrCreate" into NSManagedObject+ActiveRecord
+        repository = [BWCDRepository findFirstByAttribute:@"remote_id" withValue:repository_id];
+        if ( ! repository ) {
+            repository = [BWCDRepository createEntity];
+            repository.remote_id = repository_id;
+        }
         [moc insertObject:repository];
     }
 
-    RKObjectMapping *mapping = [manager.mappingProvider mappingForKeyPath:@"BWCDRepository"];
+    RKObjectMappingDefinition *mapping = [manager.mappingProvider mappingForKeyPath:@"BWCDRepository"];
     RKObjectMappingOperation *mappingOp = [RKObjectMappingOperation mappingOperationFromObject:repositoryDictionary
                                                                                       toObject:repository
                                                                                    withMapping:mapping];
@@ -55,20 +57,21 @@
 
     RKObjectManager *manager = [RKObjectManager sharedManager];
     RKManagedObjectStore *objectStore = manager.objectStore;
-    NSManagedObjectContext *moc = [objectStore managedObjectContext];
+    NSManagedObjectContext *moc = [objectStore managedObjectContextForCurrentThread];
 
     BWCDJob *job = [BWCDJob findFirstByAttribute:@"remote_id" withValue:jobId inContext:moc];
 
     if (job == nil) { // create job
-        NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"BWCDJob" inManagedObjectContext:moc];
-        BWCDJob *jobInStore = (BWCDJob *)[objectStore findOrCreateInstanceOfEntity:entityDesc
-                                                           withPrimaryKeyAttribute:@"remote_id"
-                                                                          andValue:jobId];
+        BWCDJob *jobInStore = [BWCDJob findFirstByAttribute:@"remote_id" withValue:jobId];
+        if ( ! jobInStore ) {
+            jobInStore = [BWCDJob createEntity];
+            jobInStore.remote_id = jobId;
+        }
         job = jobInStore;
         [moc insertObject:job];
     }
 
-    RKObjectMapping *mapping = [manager.mappingProvider mappingForKeyPath:@"BWCDJob"];
+    RKObjectMappingDefinition *mapping = [manager.mappingProvider mappingForKeyPath:@"BWCDJob"];
     RKObjectMappingOperation *mappingOp = [RKObjectMappingOperation mappingOperationFromObject:jobDictionary
                                                                                       toObject:job
                                                                                    withMapping:mapping];
@@ -92,15 +95,16 @@
     NSNumber *jobId = [logDictionary valueForKey:@"id"];
     RKObjectManager *manager = [RKObjectManager sharedManager];
     RKManagedObjectStore *objectStore = manager.objectStore;
-    NSManagedObjectContext *moc = [objectStore managedObjectContext];
+    NSManagedObjectContext *moc = [objectStore managedObjectContextForCurrentThread];
     
     BWCDJob *job = [BWCDJob findFirstByAttribute:@"remote_id" withValue:jobId inContext:moc];
 
     if (job == nil) { //create job
-        NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"BWCDJob" inManagedObjectContext:moc];
-        BWCDJob *jobInStore = (BWCDJob *)[objectStore findOrCreateInstanceOfEntity:entityDesc
-                                                        withPrimaryKeyAttribute:@"remote_id"
-                                                                       andValue:jobId];
+        BWCDJob *jobInStore = [BWCDJob findFirstByAttribute:@"remote_id" withValue:jobId];
+        if ( ! jobInStore ) {
+            jobInStore = [BWCDJob createEntity];
+            jobInStore.remote_id = jobId;
+        }
         job = jobInStore;
         [moc insertObject:job];
     }

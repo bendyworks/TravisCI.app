@@ -1,0 +1,1 @@
+../../RestKit/Code/UI/RKTableItem.h

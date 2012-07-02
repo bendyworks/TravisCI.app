@@ -1,2 +1,3 @@
 ---
 BUNDLE_BIN: bundler_bin
+BUNDLE_WITHOUT: staging:production

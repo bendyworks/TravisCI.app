@@ -75,7 +75,7 @@
 //    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
 
 
-    RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:TRAVIS_CI_URL]; // sets up singleton shared object manager
+    RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:[NSURL URLWithString:TRAVIS_CI_URL]]; // sets up singleton shared object manager
     manager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:TRAVIS_CI_CD_FILE_NAME
                                                                  inDirectory:[[self applicationCacheDirectory] path]
                                                        usingSeedDatabaseName:nil
@@ -88,7 +88,8 @@
 
     NSEntityDescription *repositoryDescription = [NSEntityDescription entityForName:@"BWCDRepository"
                                                              inManagedObjectContext:self.managedObjectContext];
-    RKManagedObjectMapping *repositoryMapping = [RKManagedObjectMapping mappingForEntity:repositoryDescription];
+    
+    RKManagedObjectMapping *repositoryMapping = [RKManagedObjectMapping mappingForEntity:repositoryDescription inManagedObjectStore:manager.objectStore];
     [repositoryMapping mapAttributes:@"slug", @"last_build_started_at", @"last_build_finished_at", @"last_build_duration", @"last_build_id", @"last_build_language", @"last_build_number", @"last_build_result", @"last_build_status", nil];
     [repositoryMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
     [repositoryMapping mapKeyPath:@"description" toAttribute:@"remote_description"];
@@ -99,7 +100,7 @@
 
     NSEntityDescription *buildDescription = [NSEntityDescription entityForName:@"BWCDBuild"
                                                         inManagedObjectContext:self.managedObjectContext];
-    RKManagedObjectMapping *buildMapping = [RKManagedObjectMapping mappingForEntity:buildDescription];
+    RKManagedObjectMapping *buildMapping = [RKManagedObjectMapping mappingForEntity:buildDescription inManagedObjectStore:manager.objectStore];
     [buildMapping mapAttributes:@"duration",@"finished_at",@"number",@"result",@"started_at",
                                 @"state", @"status", @"author_email", @"author_name", @"branch", 
                                 @"committed_at", @"committer_email", @"committer_name", @"compare_url",
@@ -111,7 +112,7 @@
     // This mapping isn't right yet.
     NSEntityDescription *jobDescription = [NSEntityDescription entityForName:@"BWCDJob"
                                                       inManagedObjectContext:self.managedObjectContext];
-    RKManagedObjectMapping *buildJobMapping = [RKManagedObjectMapping mappingForEntity:jobDescription];
+    RKManagedObjectMapping *buildJobMapping = [RKManagedObjectMapping mappingForEntity:jobDescription inManagedObjectStore:manager.objectStore];
     [buildJobMapping mapAttributes:@"config", @"finished_at", @"log", @"number", @"repository_id", @"result", @"started_at", @"state", @"status", nil];
     [buildJobMapping mapKeyPath:@"id" toAttribute:@"remote_id"];
     buildJobMapping.primaryKeyAttribute = @"remote_id";
@@ -196,7 +197,7 @@
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (__managedObjectContext != nil) { return __managedObjectContext; }
-    __managedObjectContext = [[RKObjectManager sharedManager].objectStore managedObjectContext];
+    __managedObjectContext = [[RKObjectManager sharedManager].objectStore managedObjectContextForCurrentThread];
     return __managedObjectContext;
 }
 

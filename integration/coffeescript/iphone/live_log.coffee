@@ -37,7 +37,7 @@ test 'going back and re-entering log still updates', (target, app) ->
   #
   # Instead, we just care (for the regression's sake) that the log got updated
   # a second time
-  JobLogScreen.assertLogEquals("log line one\nanother line\n")
+  JobLogScreen.assertLogEquals("log line one\npushed log line\nanother line\n")
 
 
 # 

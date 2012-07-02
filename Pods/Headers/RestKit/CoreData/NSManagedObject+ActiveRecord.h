@@ -1,1 +1,0 @@
-../../../RestKit/Code/CoreData/NSManagedObject+ActiveRecord.h
